@@ -59,4 +59,3 @@ open-course/
 - 原创书稿和原创图表：CC BY-NC-SA 4.0，见 [`LICENSE`](./LICENSE)。
 - 项目代码：PolyForm Noncommercial 1.0.0，非商业使用且再分发时须保留署名通知，见 [`LICENSE-CODE`](./LICENSE-CODE)。
 - 本仓库为源代码可见的非商业许可项目；禁止商用的限制不符合 OSI 开源定义。变更前已按 MIT 获得授权的代码副本，其既有许可不因本次变更而撤销。第三方软件、课程及图表材料遵循各自许可，见 [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md)。
-
