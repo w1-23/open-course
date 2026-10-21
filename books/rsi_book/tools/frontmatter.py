@@ -37,12 +37,13 @@ def make_frontmatter(body_toc, output_path):
 
     # Cover
     p = doc[0]
-    _center(p, "递归自我改进", 250, 27, "hei")
+    _center(p, "递归自我改进", 250, 27, "cjk", (0.13, 0.18, 0.24))
     p.draw_line(fitz.Point(155, 278), fitz.Point(440, 278), color=(0.35, 0.35, 0.35), width=0.8)
     _center(p, "概念、方法与证据", 317, 14, "cjk", (0.38, 0.38, 0.38))
-    _center(p, "RSI：Recursive Self-Improvement", 358, 10, "latin", (0.38, 0.38, 0.38))
-    _center(p, "个人学习教材", 408, 12, "cjk")
-    _center(p, "2026 年 10 月", 440, 10, "cjk", (0.38, 0.38, 0.38))
+    _center(p, "王自强整理", 365, 12, "cjk")
+    _center(p, "RSI: Recursive Self-Improvement", 398, 10, "latin", (0.38, 0.38, 0.38))
+    _center(p, "合订本", 430, 11, "cjk")
+    _center(p, "2026 年 10 月", 454, 10, "cjk", (0.38, 0.38, 0.38))
     _center(p, "供个人学习使用", 790, 8, "cjk", (0.58, 0.58, 0.58))
 
     # Imprint and sources statement
@@ -91,7 +92,7 @@ def make_frontmatter(body_toc, output_path):
         p = doc[3 + page_idx]
         heading = "目录" if page_idx == 0 else "目录（续）"
         _center(p, heading, 48, 17, "hei")
-        _center(p, "递归自我改进 · 个人学习教材", 68, 8, "cjk", (0.5, 0.5, 0.5))
+        _center(p, "递归自我改进 · 合订本", 68, 8, "cjk", (0.5, 0.5, 0.5))
         y = 101
         rows = body_toc[start:start + toc_rows_per_page]
         for level, title, page_no in rows:

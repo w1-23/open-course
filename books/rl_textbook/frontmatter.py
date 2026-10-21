@@ -145,14 +145,14 @@ def _footer(page, label: str, page_no: int) -> None:
 # ------------------------------------------------------------------ pages
 def title_page(doc: fitz.Document) -> None:
     page = _new_page(doc)
-    draw_rich(page, LEFT, 258, config.BOOK_TITLE, 34, align="center", right_edge=RIGHT)
+    draw_rich(page, LEFT, 258, config.BOOK_TITLE, 27, color=(0.13, 0.18, 0.24), align="center", right_edge=RIGHT)
     page.draw_line(fitz.Point(190, 286), fitz.Point(RIGHT - 156, 286),
                    color=(0.15, 0.15, 0.15), width=0.9)
     draw_rich(page, LEFT, 322, config.BOOK_SUBTITLE, 13,
               color=(0.25, 0.25, 0.25), align="center", right_edge=RIGHT)
     # Author line: the byline belongs on the title page, set in the body face
     # with a little tracking so three Han characters do not read as a label.
-    draw_rich(page, LEFT, 360, "　".join(config.BOOK_AUTHOR), 14,
+    draw_rich(page, LEFT, 360, config.BOOK_AUTHOR, 12,
               align="center", right_edge=RIGHT)
     draw_rich(page, LEFT, 396, config.BOOK_EDITION, 11,
               color=(0.35, 0.35, 0.35), align="center", right_edge=RIGHT)
