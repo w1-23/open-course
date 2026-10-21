@@ -15,3 +15,7 @@
 在此目录运行 `python mathjax.py` 和 `python main.py --all` 构建 PDF；运行 `python tools/build_docx.py` 构建 DOCX。需要 Python 3、Node.js、Pandoc、PyMuPDF、Pillow、BeautifulSoup、lxml，以及可用的中文和西文字体。Pandoc 可通过 `PANDOC` 环境变量指定，Python 子进程使用当前解释器。
 
 第三方论文原文不随仓库分发；引用和许可信息保留在 `source/registry/`。
+
+## 公开版审阅与实测记录
+
+当前公开稿由 GPT 辅助审阅，尚未经过逐条人工审校。完整 PDF 构建报告记录 206 个公式排版实例且 `math_failed=0`；这表示公式渲染未失败，不等同于全部数学结论已获证明。`source/labs/coverage_demo.py` 和 `selection_overfit_demo.py` 已运行，分别展示候选覆盖率及反复筛选带来的留出误差变化。章节中的其他代码示例未作逐段运行验证。

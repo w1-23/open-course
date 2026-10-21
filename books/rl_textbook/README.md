@@ -16,3 +16,7 @@
 在此目录运行 `python main.py --all`、`python verify.py`、`python status.py`。转换 Markdown 需要 Python 3.13、Node.js、Pandoc 和项目依赖；Pandoc 通过 `PANDOC` 环境变量或 `PATH` 查找。字体按 Windows 宋体、黑体、Times New Roman 与 Consolas 配置。
 
 构建缓存和逐章 PDF 由仓库 `.gitignore` 排除。来源书目元数据保留在 `source/library/`。
+
+## 公开版审阅与实测记录
+
+当前公开稿由 GPT 辅助审阅，尚未经过逐条人工审校。公式经构建流程渲染，最近一次构建未报告 MathJax 渲染失败。`verify.py` 对章节 PDF 与合订本进行结构检查，结果 `problems=0`；另提示 6 个正文较短页用于排版复核。`review/reproductions/` 中 7 个复现实验脚本已运行完成。以上检查有明确范围，不表示全书每条公式和代码片段均经过独立证明或执行。
