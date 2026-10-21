@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="330" viewBox="0 0 720 330">
+  <defs>
+    <marker id="arC" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+      <path d="M0,0 L8,3.2 L0,6.4 z" fill="#333"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family:"Times New Roman",SimSun, "Microsoft YaHei", sans-serif; fill: #222; }
+    .t1 { font-size: 15px; }
+    .t2 { font-size: 12px; fill: #555; }
+    .en { font-family: "Times New Roman", serif; font-style: italic; }
+  </style>
+
+  <!-- left: intra test-time -->
+  <rect x="24" y="26" width="330" height="278" rx="12" fill="#f2f8f4" stroke="#34a853" stroke-width="1.5"/>
+  <text x="189" y="52" text-anchor="middle" font-size="16">任务执行内（测试时进化）</text>
+  <rect x="52" y="72" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="115" y="90" text-anchor="middle">执行任务</text>
+  <text class="t2" x="115" y="107" text-anchor="middle">trial <tspan class="en">k</tspan></text>
+  <rect x="200" y="72" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="263" y="90" text-anchor="middle">反思 · 验证</text>
+  <text class="t2" x="263" y="107" text-anchor="middle">critique / PRM</text>
+  <rect x="200" y="150" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="263" y="168" text-anchor="middle">更新 <tspan class="en">R</tspan> / 搜索</text>
+  <text class="t2" x="263" y="185" text-anchor="middle">记忆 · 树扩展</text>
+  <rect x="52" y="150" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="115" y="168" text-anchor="middle">再试</text>
+  <text class="t2" x="115" y="185" text-anchor="middle">trial <tspan class="en">k</tspan>+1</text>
+  <path d="M 178 94 L 196 94" stroke="#333" stroke-width="1.4" marker-end="url(#arC)"/>
+  <path d="M 263 116 L 263 146" stroke="#333" stroke-width="1.4" marker-end="url(#arC)"/>
+  <path d="M 200 172 L 182 172" stroke="#333" stroke-width="1.4" marker-end="url(#arC)"/>
+  <path d="M 115 150 C 115 128, 115 122, 115 118" stroke="#333" stroke-width="1.4" fill="none" marker-end="url(#arC)"/>
+  <text class="t2" x="189" y="238" text-anchor="middle">权重不动，改进发生在</text>
+  <text class="t2" x="189" y="256" text-anchor="middle"><tspan class="en">S</tspan>、<tspan class="en">R</tspan> 与搜索分布上</text>
+  <text class="t2" x="189" y="282" text-anchor="middle" fill="#188038">例：Reflexion · 自反思树 · MCTS 式智能体</text>
+
+  <!-- right: inter tasks -->
+  <rect x="366" y="26" width="330" height="278" rx="12" fill="#f4f7fd" stroke="#5b8def" stroke-width="1.5"/>
+  <text x="531" y="52" text-anchor="middle" font-size="16">任务之间（离线 / 训练时进化）</text>
+  <rect x="394" y="72" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="457" y="90" text-anchor="middle">任务集采样</text>
+  <text class="t2" x="457" y="107" text-anchor="middle">rollout 语料</text>
+  <rect x="542" y="72" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="605" y="90" text-anchor="middle">筛选 · 打分</text>
+  <text class="t2" x="605" y="107" text-anchor="middle"><tspan class="en">E</tspan> 判定成败</text>
+  <rect x="542" y="150" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="605" y="168" text-anchor="middle">更新 <tspan class="en">M</tspan></text>
+  <text class="t2" x="605" y="185" text-anchor="middle">SFT / DPO / RL</text>
+  <rect x="394" y="150" width="126" height="44" rx="8" fill="#fff" stroke="#7a8fa6"/>
+  <text class="t1" x="457" y="168" text-anchor="middle">新模型</text>
+  <text class="t2" x="457" y="185" text-anchor="middle"><tspan class="en">M</tspan><tspan class="en">t</tspan>+1 再进任务集</text>
+  <path d="M 520 94 L 538 94" stroke="#333" stroke-width="1.4" marker-end="url(#arC)"/>
+  <path d="M 605 116 L 605 146" stroke="#333" stroke-width="1.4" marker-end="url(#arC)"/>
+  <path d="M 542 172 L 524 172" stroke="#333" stroke-width="1.4" marker-end="url(#arC)"/>
+  <path d="M 457 150 C 457 128, 457 122, 457 118" stroke="#333" stroke-width="1.4" fill="none" marker-end="url(#arC)"/>
+  <text class="t2" x="531" y="238" text-anchor="middle">改进写入权重与代码库，</text>
+  <text class="t2" x="531" y="256" text-anchor="middle">跨任务持久，代价是训练算力</text>
+  <text class="t2" x="531" y="282" text-anchor="middle" fill="#1a56b4">例：STaR · 自奖励迭代 · GRPO</text>
+
+  <line x1="358" y1="40" x2="358" y2="290" stroke="#999" stroke-width="1" stroke-dasharray="6 5"/>
+</svg>

@@ -1,0 +1,26 @@
+key: 2210.03629_react
+version: 2026-10-20
+level: S
+role: algorithm
+title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+authors:
+  - Shunyu Yao
+  - Jeffrey Zhao
+  - Dian Yu
+  - Nan Du
+  - Izhak Shafran
+  - Karthik Narasimhan
+  - Yuan Cao
+year: 2022
+published: 2022-10-06
+arxiv_id: 2210.03629
+doi: ""
+journal_ref: ""
+primary_category: cs.CL
+path: source/papers/2210.03629_react.pdf
+bytes: 633805
+pages: 33
+sha256: f285b0971ae4a790e402fb93966bed3adde2cf0a04977d08b2b40d6ab0cace69
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

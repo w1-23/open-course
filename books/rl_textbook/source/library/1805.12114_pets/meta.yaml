@@ -1,0 +1,23 @@
+key: 1805.12114_pets
+version: 2026-10-20
+level: S
+role: algorithm
+title: Deep Reinforcement Learning in a Handful of Trials using Probabilistic Dynamics Models
+authors:
+  - Kurtland Chua
+  - Roberto Calandra
+  - Rowan McAllister
+  - Sergey Levine
+year: 2018
+published: 2018-05-30
+arxiv_id: 1805.12114
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1805.12114_pets.pdf
+bytes: 4020485
+pages: 17
+sha256: 7dbf3c65ece763384258a60f5f4b26d7b849ad80765ed77435c4861f9583219c
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

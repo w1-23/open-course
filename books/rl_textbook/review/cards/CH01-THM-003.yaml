@@ -1,0 +1,71 @@
+issue_id: CH01-THM-003
+chapter: 1
+severity: P2
+status: 已有依据
+title: 第 58 行把 Θ(√(KT)) 整体归因给 Auer 等 (2002)，而该文的上界只到 √(KT log T) 量级
+summary: >
+  第 58 行：「对 [0,1] 有界奖励类的最优量级是 Θ(√(KT))（Auer 等 2002）」。Θ 需要两侧：
+  下界 Ω(√(KT)) 与匹配的上界 O(√(KT))。Lattimore 与 Szepesvári（p.17，印 p.13）说 UCB 的
+  界「optimal up to O(log T) factors」，并把「去掉 log T 因子」记为 Audibert 与 Bubeck (2010)
+  的工作——即 2002 年那篇给出的上界是带 log 因子的 √(KT log T)，匹配的 √(KT) 上界是后来
+  才有的。把 Θ 归给 2002 年，等于把 2010 年的一半也算了进去。此处不是纯署名问题：第 171 行
+  结尾又用「√(KT) 与 ln T 并不矛盾」支撑论点，读者一旦查文献会发现对不上。
+
+current_text:
+  file: content/ch01.md
+  lines: "58"
+  excerpt: >
+    极小极大界先在实例类上取上确界，对 [0,1] 有界奖励类的最优量级是 Θ(√(KT))（Auer 等 2002）；
+    贝叶斯界把实例按先验平均，得 √(KT ln K) 量级——三者取 sup 与取期望的顺序不同，数值可差出量级。
+
+sources:
+  - key: 1904.07272_bandit-algorithms
+    level: S
+    role: UCB 类界的身份是「只差 O(log T) 因子」，去掉 log 因子是 2010 年的工作
+    pdf_page: 17
+    printed_page: "第 1 章 §1.5「Optimality」（纸面 p.13）"
+    quote: >
+      Regret bounds in (1.9) and (1.11) are near-optimal, according to the lower bounds which we
+      discuss in Chapter 2. The instance-dependent regret bound in (1.9) is optimal up to O(log T) factors. Audibert
+      and Bubeck (2010) shave off the log T factor
+    note: 同页脚注与正文都表明 UCB1 的原始分析带常数项，匹配的 √(KT) 阶上界不是 2002 年那篇给出的。
+
+derivation_file: review/derivations/CH01-THM-003.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    文献归因问题，不需要数值实验。若要核数值，可用表 1-2 的 UCB1 斜率 0.28 与 1/ln(5000)≈0.12
+    的差距说明有限 T 下的 log 因子，但那不能替代文献核对。
+
+claims:
+  - id: c1
+    text: Θ(√(KT)) 是"下界 Ω 与上界 O 同时成立"的合成陈述，不能只凭一篇给出单侧的文献支持。
+    evidence: 推导第 1 节（三个断言拆解）
+    status: 已核对
+  - id: c2
+    text: L&S 明确说 UCB 的界只到「optimal up to O(log T) factors」，去掉 log 因子是 Audibert 与 Bubeck (2010)。
+    evidence: 1904.07272_bandit-algorithms p.17「Optimality」段
+    status: 已核对
+  - id: c3
+    text: 因此把 Θ(√(KT)) 整体署名给 Auer 等 (2002) 不准确，应把两侧分别署名。
+    evidence: 1904.07272_bandit-algorithms p.17 + 推导第 2 节
+    status: 已核对
+  - id: c4
+    text: Auer 等 (2002b) 确实给出 Ω(√(KT)) 的极小极大下界——由 L&S §2.7 文献注记直接确认；一手原文仍不在库内，故记为「转述核对」。
+    evidence: 1904.07272_bandit-algorithms p.0029（§2.7 Literature review）："The Ω(√KT) lower bound on regret is from Auer et al. (2002b)."（原文 PDF 仍 PENDING，未逐句核对）
+    status: 已核对
+
+planned_fix:
+  - 第 58 行改为：对 [0,1] 有界奖励类，极小极大遗憾的阶是 Θ(√(KT))——√(KT) 阶下界与「差一个 log T」的上界由 Auer 等 (2002) 给出，匹配的上界在 2010 年前后由 Audibert 与 Bubeck 通过去掉 log T 因子得到。
+  - 若只想保留一句，改为：Auer 等 (2002) 的界与 Ω(√(KT)) 的下界只差一个 log T 因子，共同确定量级为 √(KT)。
+  - 第 171 行结尾「√(KT) 与 ln T 并不矛盾」保持不动，但补一句指向修好的第 58 行，避免读者以为 2002 年就已有匹配界。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    该条与 CH01-THM-001（(1.10) 的常数）无依赖关系：即使常数改成 4c²，
+    "2002 年是否达到 √(KT)"仍是独立的文献问题。

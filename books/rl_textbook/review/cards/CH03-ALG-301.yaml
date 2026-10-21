@@ -1,0 +1,85 @@
+issue_id: CH03-ALG-301
+chapter: 3
+severity: P0
+status: 已有依据
+title: 算法 3-1 先赋值后算差，收敛判据恒为真，评估永远只扫一遍
+summary: >
+  算法 3-1 第 6 行 `V(s) ← v；Δ ← max(Δ, |v - V(s)|)` 在赋值之后才计算差值，
+  赋值使 |v − V(s)| 恒为 0，于是 Δ ≡ 0、评估阶段每次只做 1 次扫描，
+  返回的 V 不是 V^π。S&B 的写法是先用副本 v 存旧值、更新后再用 v 求差。
+  数值复现显示：书中写法 12 轮 × 1 次扫描、V(0,0) = −0.040；
+  正确写法 8 轮、共 723 次扫描、V(0,0) = 0.270。
+
+current_text:
+  file: content/ch03.md
+  lines: "46-58"
+  excerpt: >
+    5:     对每个 s：v ← Σ_a π(a|s) Σ_s' P(s'|s,a)[r + γ V(s')]
+    6:     V(s) ← v；Δ ← max(Δ, |v - V(s)|)
+    7:   直到 Δ < θ
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 策略迭代算法的权威伪代码（差值必须取自更新前的值）
+    pdf_page: 102
+    printed_page: "§4.3 算法（策略迭代）"
+    quote: >
+      ∆ max(∆, |v −V (s)|) until ∆< ✓(a small positive number determining the accuracy of estimation)
+    note: >
+      pdf 第 102 页为 §4.3 策略迭代算法页（PDF 页码；纸面页码约 p.80）。同一页更上面还有
+      `v V (s)`（先用副本保存旧值）与 `V (s) P s0,r p(s0, r|s, ⇡(s))`（再更新），
+      顺序是"取旧值→更新→用旧值求差"。引文按 PDF 文本抽取原样给出，上下标被压平。
+
+derivation_file: review/derivations/CH03-ALG-301.md
+reproduction_file: review/reproductions/CH03-ALG-301_fix.py
+reproduction_result:
+  setup: 5×5 网格世界，目标 (4,4)=+1，陷阱 (1,1)/(3,2)=−1，每步 −0.04，γ=0.9，θ=1e-6
+  buggy:
+    policy_iterations: 12
+    total_sweeps: 12
+    last_sweeps: 1
+    V_00: -0.040000
+  correct:
+    policy_iterations: 8
+    total_sweeps: 723
+    last_sweeps: 9
+    V_00: 0.269616
+  conclusion: >
+    错误写法每轮评估只扫 1 次（总数 12 = 12 轮 × 1 次），且最终 V 与 V^π 相差 0.31；
+    因为它近似退化为"单次备份 + 立即改进"，策略可能仍最优，所以只看策略发现不了。
+
+claims:
+  - id: c1
+    text: 赋值后 |v − V(s)| 恒为 0，Δ ≡ 0，循环第 1 次即退出。
+    evidence: 逐语句求值（review/derivations/CH03-ALG-301.md §1）
+    status: 已核对
+  - id: c2
+    text: 权威写法先用副本保存旧值，再用旧值与新值求差。
+    evidence: RLbook2020 p.102 伪代码三行原文
+    status: 已核对
+  - id: c3
+    text: 该写法使返回的 V 不等于 V^π，与正文"评估到足够准"的表述矛盾。
+    evidence: 复现脚本实测 V(0,0) = −0.040 vs 0.270（reproduction_file）
+    status: 已核对
+  - id: c4
+    text: 缺陷不会被"最终策略是否最优"这一检查发现。
+    evidence: 复现结果为 12 轮收敛（策略稳定），但价值错误
+    status: 已核对
+
+planned_fix:
+  - 算法 3-1 第 6 行改为两行或调换顺序：`Δ ← max(Δ, |v - V(s)|)；V(s) ← v`。
+  - 第 44 行把"评估到足够准"改为"评估到 Δ < θ"，并注明这是截断评估而非精确评估，与 3.1.3 的 m 次扫描口径对齐。
+  - 第 42 行的扫描次数公式补一句前提："该式只在 Δ 用旧值计算、阈值按 sup-norm 解释时成立"。
+  - 若 3.1.3 的值迭代伪代码复用同一段 Delta 逻辑，需一并核对（值迭代的 Δ 应比较同一状态更新前后）。
+  - 习题中若有"实现策略迭代并验证收敛"的题，需在答案里明确 Δ 的两种写法会导致不同结果。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    这是"读代码能立刻判死"的错误，但页面上完全看不出，属于最高优先级；
+    同章 3.1.3 的值迭代伪代码需人工比对（见 planned_fix 第 4 条）。

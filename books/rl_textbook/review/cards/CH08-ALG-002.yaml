@@ -1,0 +1,83 @@
+issue_id: CH08-ALG-002
+chapter: 8
+severity: P2
+status: 已有依据
+title: BCQ 的扰动被写成"只在支持集内部移动"，漏掉 Φ 控制的约束区间与两个极限
+summary: >
+  8.2.2 节说 BCQ"不让贪婪操作看到数据外动作"（第 93 行）、扰动让 argmax"能在
+  **支持集内部**平滑移动"（第 102 行）。原文的意思是候选动作可以在 \(-\Phi\le\xi\le\Phi\)
+  的**约束区间**内移动——即支持集"附近"，既不严格在内部，也不是"完全不能取新动作"；
+  Φ 与采样数 n 决定了它离数据集有多远。原文还给出两个端点作为语义标定：Φ=0 且 n=1 时
+  算法退化为行为克隆，Φ→动作区间全长且 n→∞ 时退化为 Q-learning。正文既没写这个
+  "附近由 Φ 界定"，也没写端点，读者容易把 BCQ 理解成"只能复制数据动作"。
+
+current_text:
+  file: content/ch08.md
+  lines: "93; 102; 185"
+  excerpt: >
+    第 102 行：扰动把候选集合略微"撑开"，让 \(\arg\max\) 能在支持集内部平滑移动，
+    而不是被钉死在数据点上。扰动幅度需要裁剪，否则会把候选推出支持集……
+
+sources:
+  - key: 1812.02900_bcq
+    level: S
+    role: 扰动的定义与"约束区域"（constrained region）这一关键措辞
+    pdf_page: 6
+    printed_page: "§4.1 Eq.(11)"
+    quote: >
+      To increase the diversity of seen actions, we introduce a perturbation model
+      ξφ(s, a, Φ), which outputs an adjustment to an action a in the range [−Φ, Φ].
+      This enables access to actions in a constrained region, without having to sample
+      from the generative model a prohibitive number of times.
+    note: >
+      "constrained region" 而不是 "support"：区间由 Φ 给出，可以略微越出数据集流形，
+      这正是 BCQ 能比纯模仿好一点点的来源。
+  - key: 1812.02900_bcq
+    level: S
+    role: 两个极限情形，用来标定"约束的松紧"如何连续地连接 BC 与 Q-learning
+    pdf_page: 6
+    printed_page: "§4.1"
+    quote: >
+      Φ = 0, and the number of sampled actions n = 1, then the policy resembles behavioral
+      cloning and as Φ →amax−amin and n →∞, then the algorithm approaches Q-learning, as
+      the policy begins to greedily maximize the value function over the entire action space.
+    note: >
+      因此"BCQ 只在支持集内取动作"只是 Φ 很小、n 有限时的近似；把它当成定义会掩盖
+      超参数 Φ、n 的作用，而这两者恰是 BCQ 最敏感的两个旋钮。
+
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: >
+    无需数值实验：本卡的判据是"正文措辞 vs 原文的 Φ 区间与端点"，属逐句对照。
+    若要可视化，可在图 8-3 左面板上标出 \([-\Phi,\Phi]\) 的带宽，但当前图已够用。
+
+claims:
+  - id: c1
+    text: BCQ 的候选动作在 \(-\Phi\le\xi\le\Phi\) 的约束区间内，而不是严格落在支持集内部。
+    evidence: 1812.02900_bcq p.6 的扰动模型定义与 "constrained region" 措辞
+    status: 已核对
+  - id: c2
+    text: Φ=0 且 n=1 时退化为行为克隆，Φ 取满动作区间且 n→∞ 时退化为 Q-learning。
+    evidence: 1812.02900_bcq p.6 的端点讨论
+    status: 已核对
+  - id: c3
+    text: 正文第 102 行"在支持集内部平滑移动"与原文不符，第 93 行"不让贪婪操作看到数据外动作"也需要加"附近"的限定。
+    evidence: 1812.02900_bcq p.6；对照 content/ch08.md 第 93、102 行原文
+    status: 已核对
+
+planned_fix:
+  - 第 93 行改成"不让贪婪操作在**远离数据**的动作上做选择"，并补一句"严格说是把它限制在数据集附近，'附近'的宽度由扰动的裁剪阈值 Φ 决定"。
+  - 第 102 行"能在支持集内部平滑移动"改为"能在支持集附近平滑移动（幅度由 Φ 裁剪）"，后一句"否则会把候选推出支持集"相应改为"否则会把候选推出约束区间，BCQ 退化为普通 actor-critic"。
+  - 表 8-1 的 BCQ 行"典型失效模式"补上端点：Φ→0 退化为模仿、Φ 过大或 n 过大退化为 Q-learning（此时外推误差重新出现）。
+  - 8.2.2 节末尾补一句工程提醒：Φ 与 n 是 BCQ 最敏感的两个超参数，且都无法从数据直接验证——这一点与第 189 行"生成模型覆盖范围无法验证"的说法一致，可合并叙述。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    这是"把近似当定义"的典型：正文没有说 BCQ 完全不能取新动作，但"支持集内部"这个
+    措辞会让读者以为扰动只是在数据点上抖动，从而低估 Φ 的作用。

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <defs>
+    <marker id="a17a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#3b4148"/>
+    </marker>
+  </defs>
+
+  <text x="10" y="20" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">两种图文对齐损失：CLIP 行内 softmax（耦合） vs SigLIP 逐元素 sigmoid（解耦）</text>
+
+  <!-- 左：CLIP -->
+  <rect x="12" y="34" width="368" height="196" rx="3" fill="#ffffff" stroke="#c9ccd1" stroke-width="0.9"/>
+  <text x="24" y="54" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">CLIP：一个 batch 内的多分类</text>
+  <text x="24" y="72" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">L = −(1/N) Σᵢ log [ exp(sᵢᵢ/τ) / Σⱼ exp(sᵢⱼ/τ) ]</text>
+  <text x="24" y="86" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">sᵢⱼ = uᵢ·vⱼ / (‖uᵢ‖‖vⱼ‖)，U, V ∈ R^(N×d)</text>
+
+  <!-- 4x4 相似度矩阵，对角线为配对 -->
+  <g>
+    <rect x="26" y="96" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+    <rect x="46" y="96" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="66" y="96" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="86" y="96" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+
+    <rect x="26" y="116" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="46" y="116" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+    <rect x="66" y="116" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="86" y="116" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+
+    <rect x="26" y="136" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="46" y="136" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="66" y="136" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+    <rect x="86" y="136" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+
+    <rect x="26" y="156" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="46" y="156" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="66" y="156" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="86" y="156" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+  </g>
+  <text x="112" y="110" font-family="Times New Roman, serif" font-size="9.5" fill="#1f2328">蓝格 = 配对（正样本）</text>
+  <text x="112" y="126" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">白格 = 非配对（负样本）</text>
+  <text x="112" y="146" font-family="Times New Roman, serif" font-size="9.5" fill="#8a4b2a">softmax 沿行归一化 ⇒</text>
+  <text x="112" y="160" font-family="Times New Roman, serif" font-size="9.5" fill="#8a4b2a">每个样本的梯度依赖整行</text>
+  <text x="24" y="196" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">必须在大 batch 上算（课程第 95 行：requires large batch sizes），要跨卡 all-gather</text>
+  <text x="24" y="214" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">批量越大，每行负样本越多，任务越难</text>
+
+  <!-- 右：SigLIP -->
+  <rect x="392" y="34" width="356" height="196" rx="3" fill="#ffffff" stroke="#c9ccd1" stroke-width="0.9"/>
+  <text x="404" y="54" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">SigLIP：逐对二分类</text>
+  <text x="404" y="72" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">L = −(1/N) Σᵢ Σⱼ log σ( zᵢⱼ · sᵢⱼ )</text>
+  <text x="404" y="86" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">zᵢⱼ = +1（i = j），−1（i ≠ j）</text>
+
+  <g>
+    <rect x="406" y="96" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+    <rect x="426" y="96" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="446" y="96" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="466" y="96" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+
+    <rect x="406" y="116" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="426" y="116" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+    <rect x="446" y="116" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="466" y="116" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+
+    <rect x="406" y="136" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="426" y="136" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="446" y="136" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+    <rect x="466" y="136" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+
+    <rect x="406" y="156" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="426" y="156" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="446" y="156" width="18" height="18" fill="#ffffff" stroke="#b9bfc7" stroke-width="0.8"/>
+    <rect x="466" y="156" width="18" height="18" fill="#dce8f7" stroke="#7d93b2" stroke-width="0.8"/>
+  </g>
+  <text x="494" y="110" font-family="Times New Roman, serif" font-size="9.5" fill="#1f2328">每个格子独立判"对齐/不对齐"</text>
+  <text x="494" y="126" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">无行内归一化 ⇒ 无跨样本耦合</text>
+  <text x="494" y="146" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">batch 与 loss 解耦（第 119 行）</text>
+  <text x="494" y="160" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">小 batch 也能训，32K 已足够</text>
+  <text x="404" y="196" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">效率对照（第 113–116 行）：CLIP 10 天/256 TPUv3，</text>
+  <text x="404" y="209" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">SigLIP 5 天/32 TPUv4（硬件不同，非公平基准）</text>
+  <text x="404" y="224" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">代价：失去全 batch 的整体归一化，但实验上够好</text>
+
+  <!-- 底部 -->
+  <line x1="12" y1="248" x2="748" y2="248" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="12" y="268" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">共同点：</text>
+  <text x="86" y="268" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">都是"让配对样本在表示空间靠近、非配对远离"——对齐目标的骨架相同</text>
+  <text x="12" y="290" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">分歧点：</text>
+  <text x="86" y="290" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">"非配对怎么算"决定了损失形状，进而决定 batch 语义、并行通信与成本</text>
+  <text x="12" y="316" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_17.py 第 57–60、95、101–104、113–121 行重绘。图中 4×4 网格是示意，实际 batch 为 32768（第 57 行）。</text>
+</svg>

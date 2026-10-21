@@ -1,0 +1,686 @@
+{
+ "course": "Stanford CS336 Spring 2026",
+ "generated": "2026-10-20T18:11:51+0800",
+ "sources": [
+  {
+   "source_id": "CS336-2026-SITE",
+   "kind": "course_site",
+   "title": "Stanford CS336 Spring 2026 课程站",
+   "url": "https://cs336.stanford.edu/",
+   "fetched_at": "2026-10-20T18:11:48+0800",
+   "sha256": "bd57fae299fec60afedb5a22edb325a68107fa1af0cd83641695470587f7a4a7",
+   "bytes": 33995,
+   "license": "课程站内容版权归 Stanford 与作者，按课堂使用引用",
+   "local": "sources/official_course/site/index.html",
+   "role": "讲次表、日期、讲者、材料链接、作业映射（course_provenance 的索引层）"
+  },
+  {
+   "source_id": "CS336-2026-LECTURES-REPO",
+   "kind": "lecture_repo",
+   "title": "stanford-cs336/lectures（Spring 2026 讲义仓库）",
+   "url": "https://github.com/stanford-cs336/lectures",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "branch": "main",
+   "pushed_at": "2026-09-12T21:34:53Z",
+   "size_kb": 164949,
+   "license": null,
+   "local": "sources/official_course/lectures@de53a9f979/",
+   "role": "2026 讲义本体（.py 可执行讲义 / .pdf 讲义）、references.py、trace 与图片资产",
+   "file_count": 420
+  },
+  {
+   "source_id": "CS336-2026-L01-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_01.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_01.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 1,
+   "bytes": 42672,
+   "sha256": "a7d47339eab889679010e926db8beb79f475a0596243f19bb15dbd69223f67e6",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_01.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 1 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L02-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_02.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_02.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 2,
+   "bytes": 35396,
+   "sha256": "f731b3849afc970a062f1fe692d7d80f5952cf82c2a4f6f2803a8fb9a9dabfd6",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_02.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 2 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L03-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_03.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_03.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 3,
+   "bytes": 5990936,
+   "sha256": "20a953541b41a099bc69b8d809139a4ccdb2aefedaa13e50c766245fe4b5167e",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_03.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 3 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L04-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_04.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_04.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 4,
+   "bytes": 6500834,
+   "sha256": "922da01cee70ed9dc9eef13d8116f1d6f45d663c12e632b3e80954c783bd3ce5",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_04.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 4 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L05-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_05.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_05.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 5,
+   "bytes": 5200951,
+   "sha256": "a2d5664a3b5a1f246df2fe58b43189215f29931ec05bde4d8a6af4664f55cafe",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_05.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 5 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L06-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_06.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_06.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 6,
+   "bytes": 31366,
+   "sha256": "4be1200d93d1f38963d40d7c46a5be72dd67a230ebf8a48d446f018d5e8fa788",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_06.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 6 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L07-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_07.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_07.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 7,
+   "bytes": 26346,
+   "sha256": "7cdec6c6e2b78afd667c98e2826efea637bb076cd926c45b4f404b0528c42e60",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_07.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 7 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L08-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_08.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_08.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 8,
+   "bytes": 6563256,
+   "sha256": "4c4d7674b333693f20f328935d84dd8a073362c9725c5e05302b6650751ad4d1",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_08.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 8 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L09-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_09.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_09.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 9,
+   "bytes": 6941146,
+   "sha256": "92a5d9e26e65bb0a9d8c79b12ed7ea26d14530bf960dcf44f9ed5fd372f519fa",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_09.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 9 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L10-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_10.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_10.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 10,
+   "bytes": 31289,
+   "sha256": "e79acd9115d75f0b8bf4902d97dc41c1f6b5016778321f19c2dc241a90cfe9b9",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_10.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 10 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L11-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_11.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_11.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 11,
+   "bytes": 6702855,
+   "sha256": "b2148e683b4020f3fa95f5c95f37be55ebf6b2f57382f4c148517e84bf1df890",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_11.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 11 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L12-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_12.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_12.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 12,
+   "bytes": 21557,
+   "sha256": "93e4049c9ee2665a7e5c883fee2c213e2eaa45aa5d452e447b5a15a5f353fd09",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_12.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 12 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L13-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_13.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_13.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 13,
+   "bytes": 33754,
+   "sha256": "321fbab635378c275f65c41487119f3b9b171fc0ddef1454a4c607c9db72163b",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_13.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 13 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L14-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_14.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_14.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 14,
+   "bytes": 24169,
+   "sha256": "8e0e17f868002f2e8f73afed018b2dd787c0a1b371eec599c44d8dbfe555ae9b",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_14.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 14 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L15-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_15.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_15.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 15,
+   "bytes": 6395151,
+   "sha256": "42a4bc02408a96e0b414f789f32780ae1d8461000f872d93aa38c94fe369e862",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_15.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 15 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L16-LECTURE_PDF",
+   "kind": "lecture_pdf",
+   "title": "lecture_16.pdf",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_16.pdf",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 16,
+   "bytes": 6755659,
+   "sha256": "1a2bea825499f226b1c3fe990606253ad1b4fdbdf2ae90b4d12d7d0c07f2c8b3",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_16.pdf",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 16 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-L17-LECTURE_PYTHON",
+   "kind": "lecture_python",
+   "title": "lecture_17.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/lecture_17.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 17,
+   "bytes": 13890,
+   "sha256": "d8c3054ecce42fda3d92b4f21677a83d65cb525e8b3fbd4361c079f3cd20da52",
+   "local": "sources/official_course/lectures@de53a9f979/lecture_17.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "2026 第 17 讲讲义本体"
+  },
+  {
+   "source_id": "CS336-2026-README.MD",
+   "kind": "aux",
+   "title": "README.md",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/README.md",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": null,
+   "bytes": 811,
+   "sha256": "962c142a3eda362dbf905c37262f6597edc49eb077e526a3387dca59005b2d2a",
+   "local": "sources/official_course/lectures@de53a9f979/README.md",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "讲义仓库辅助文件"
+  },
+  {
+   "source_id": "CS336-2026-REFERENCES.PY",
+   "kind": "aux",
+   "title": "references.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/references.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": null,
+   "bytes": 19009,
+   "sha256": "012624ea78c34f43fe1f89a7d3e765a7b478b0a1e4ca05c88c64caac03bf1dfd",
+   "local": "sources/official_course/lectures@de53a9f979/references.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "讲义仓库辅助文件"
+  },
+  {
+   "source_id": "CS336-2026-FACTS.PY",
+   "kind": "aux",
+   "title": "facts.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/facts.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": null,
+   "bytes": 85,
+   "sha256": "57637b8c50581d8ae398bd44aba918d8822f50fb3db213ae137ac82c60b541f6",
+   "local": "sources/official_course/lectures@de53a9f979/facts.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "讲义仓库辅助文件"
+  },
+  {
+   "source_id": "CS336-2026-GPU_UTIL.PY",
+   "kind": "aux",
+   "title": "gpu_util.py",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/gpu_util.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": null,
+   "bytes": 560,
+   "sha256": "9c96e01ede930cc9de3181105f53deaa562d6fe6ea6896dd6495d1c30f75fa05",
+   "local": "sources/official_course/lectures@de53a9f979/gpu_util.py",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "讲义仓库辅助文件"
+  },
+  {
+   "source_id": "CS336-2026-PYPROJECT.TOML",
+   "kind": "aux",
+   "title": "pyproject.toml",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/pyproject.toml",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": null,
+   "bytes": 262,
+   "sha256": "7da4b90d3c7490f7969c41df3fb7d258aaa6565c05a2c87344eb1bcd37363661",
+   "local": "sources/official_course/lectures@de53a9f979/pyproject.toml",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "讲义仓库辅助文件"
+  },
+  {
+   "source_id": "CS336-2026-L01-TRACE",
+   "kind": "trace",
+   "title": "lecture_01.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_01.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 1,
+   "bytes": 1010365,
+   "sha256": "6f3fdd61e5f87be9284e3c04bef9173ac2ea0b300ed06e83109a787999c47104",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_01.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L02-TRACE",
+   "kind": "trace",
+   "title": "lecture_02_recording.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_02_recording.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 2,
+   "bytes": 767647,
+   "sha256": "90a7c53791b2317d945a4126520f518131131ae11e2f9019c863f5ec9d26504e",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_02_recording.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L06-TRACE",
+   "kind": "trace",
+   "title": "lecture_06.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_06.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 6,
+   "bytes": 378740,
+   "sha256": "13fe17130634f625c838a3715b3f201d59a1d29540babd661450a61d63ded48f",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_06.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L07-TRACE",
+   "kind": "trace",
+   "title": "lecture_07_stdout.txt",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_07_stdout.txt",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 7,
+   "bytes": 6520,
+   "sha256": "f85c209a52ca79e57a2973fb1e3bec822f03ab7e59e0500050b9f3e5f8187507",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_07_stdout.txt",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L10-TRACE",
+   "kind": "trace",
+   "title": "lecture_10.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_10.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 10,
+   "bytes": 374981,
+   "sha256": "b9229447c3042f34bd6e307c2f2c34ba294d10708f208e8d1237be080d683cb6",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_10.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L12-TRACE",
+   "kind": "trace",
+   "title": "lecture_12.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_12.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 12,
+   "bytes": 322264,
+   "sha256": "1f71bd19541b5902c35cc4ead4442ec6e25445e442ac746029558ad55259b35f",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_12.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L13-TRACE",
+   "kind": "trace",
+   "title": "lecture_13.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_13.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 13,
+   "bytes": 445728,
+   "sha256": "8b756902b42c9d775292840ad04eb008df815f86c438bba1795beb3830cec373",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_13.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L14-TRACE",
+   "kind": "trace",
+   "title": "lecture_14.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_14.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 14,
+   "bytes": 381280,
+   "sha256": "08f5e49a794a94e20423eb4edf7908f3b0b8969c3d0c31fa7d3c6b176aa0bddb",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_14.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-L17-TRACE",
+   "kind": "trace",
+   "title": "lecture_17.json",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/var/traces/lecture_17.json",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "lecture_no": 17,
+   "bytes": 192237,
+   "sha256": "4eb3419ca93a62d70d88c06a89e0e12b2b48984e1020f1e1020ec65f199887d2",
+   "local": "sources/official_course/lectures@de53a9f979/var/traces/lecture_17.json",
+   "license": "课程材料，版权归 Stanford/讲者；仅作课程出处引用",
+   "role": "可执行讲义的渲染内容（steps）"
+  },
+  {
+   "source_id": "CS336-2026-ASSIGN-ASSIGNMENT1",
+   "kind": "assignment_repo",
+   "title": "assignment1-basics（2026 官方作业仓库）",
+   "url": "https://github.com/stanford-cs336/assignment1-basics",
+   "commit": "a158843b20107949f1a8d7df1b05cd33b9166712",
+   "license": "MIT",
+   "pushed_at": "2026-04-07T20:49:12Z",
+   "file_count": 51,
+   "pdf_files": [
+    "cs336_assignment1_basics.pdf"
+   ],
+   "test_files": 39,
+   "test_examples": [
+    "tests/__init__.py",
+    "tests/_snapshots/test_4d_scaled_dot_product_attention.npz",
+    "tests/_snapshots/test_adamw.npz",
+    "tests/_snapshots/test_embedding.npz",
+    "tests/_snapshots/test_linear.npz",
+    "tests/_snapshots/test_multihead_self_attention.npz"
+   ],
+   "core_paths": [
+    "cs336_basics/__init__.py",
+    "cs336_basics/pretokenization_example.py"
+   ],
+   "saved": [
+    {
+     "path": "cs336_assignment1_basics.pdf",
+     "bytes": 965629,
+     "sha256": "cf402d1c6d3c66da035bdf33b3e2c1bbc4bb92a78b006ee36577e925a265e328",
+     "local": "sources/assignments/assignment1-basics/cs336_assignment1_basics.pdf"
+    },
+    {
+     "path": "README.md",
+     "bytes": 1662,
+     "local": "sources/assignments/assignment1-basics/README.md"
+    }
+   ],
+   "role": "作业要求、代码骨架、测试判据（静态检查，不执行）"
+  },
+  {
+   "source_id": "CS336-2026-ASSIGN-ASSIGNMENT2",
+   "kind": "assignment_repo",
+   "title": "assignment2-systems（2026 官方作业仓库）",
+   "url": "https://github.com/stanford-cs336/assignment2-systems",
+   "commit": "ca8bc81a59b70516f7ebb2da4808daade877c736",
+   "license": "MIT",
+   "pushed_at": "2026-05-01T16:36:16Z",
+   "file_count": 28,
+   "pdf_files": [
+    "cs336_assignment2_systems.pdf"
+   ],
+   "test_files": 10,
+   "test_examples": [
+    "tests/__init__.py",
+    "tests/adapters.py",
+    "tests/common.py",
+    "tests/conftest.py",
+    "tests/fixtures/ddp_test_data.pt",
+    "tests/fixtures/ddp_test_labels.pt"
+   ],
+   "core_paths": [
+    "cs336_systems/__init__.py"
+   ],
+   "saved": [
+    {
+     "path": "cs336_assignment2_systems.pdf",
+     "bytes": 1495177,
+     "sha256": "f5667e3b6fac23c3a6d4ad4a999445b96aab3fb2246904d13ec86b79320b1a84",
+     "local": "sources/assignments/assignment2-systems/cs336_assignment2_systems.pdf"
+    },
+    {
+     "path": "README.md",
+     "bytes": 2749,
+     "local": "sources/assignments/assignment2-systems/README.md"
+    }
+   ],
+   "role": "作业要求、代码骨架、测试判据（静态检查，不执行）"
+  },
+  {
+   "source_id": "CS336-2026-ASSIGN-ASSIGNMENT3",
+   "kind": "assignment_repo",
+   "title": "assignment3-scaling（2026 官方作业仓库）",
+   "url": "https://github.com/stanford-cs336/assignment3-scaling",
+   "commit": "03e9372992e913061b9e78b5cfcb62ad8a87de35",
+   "license": "MIT",
+   "pushed_at": "2026-06-09T22:52:49Z",
+   "file_count": 60,
+   "pdf_files": [
+    "cs336_assignment3_scaling.pdf"
+   ],
+   "test_files": 3,
+   "test_examples": [
+    "tests/conftest.py",
+    "tests/test_api.py",
+    "tests/test_scheduler.py"
+   ],
+   "core_paths": [
+    "cs336_scaling/__init__.py",
+    "cs336_scaling/api/__init__.py",
+    "cs336_scaling/api/internal.py",
+    "cs336_scaling/api/public.py",
+    "cs336_scaling/app.py",
+    "cs336_scaling/auth.py",
+    "cs336_scaling/budget.py",
+    "cs336_scaling/client.py",
+    "cs336_scaling/config.py",
+    "cs336_scaling/db/__init__.py",
+    "cs336_scaling/db/sql_pydantic_types.py",
+    "cs336_scaling/db/tables.py"
+   ],
+   "saved": [
+    {
+     "path": "cs336_assignment3_scaling.pdf",
+     "bytes": 182230,
+     "sha256": "121e9d15b1ba508cef437acc764eaa83268b559c4898c10bda3fd56bdde50392",
+     "local": "sources/assignments/assignment3-scaling/cs336_assignment3_scaling.pdf"
+    },
+    {
+     "path": "README.md",
+     "bytes": 1291,
+     "local": "sources/assignments/assignment3-scaling/README.md"
+    }
+   ],
+   "role": "作业要求、代码骨架、测试判据（静态检查，不执行）"
+  },
+  {
+   "source_id": "CS336-2026-ASSIGN-ASSIGNMENT4",
+   "kind": "assignment_repo",
+   "title": "assignment4-data（2026 官方作业仓库）",
+   "url": "https://github.com/stanford-cs336/assignment4-data",
+   "commit": "0555bea66369872d912652debf10b115ca0688c8",
+   "license": "MIT",
+   "pushed_at": "2026-05-07T23:37:44Z",
+   "file_count": 52,
+   "pdf_files": [
+    "cs336_assignment4_data.pdf"
+   ],
+   "test_files": 26,
+   "test_examples": [
+    "tests/__init__.py",
+    "tests/adapters.py",
+    "tests/common.py",
+    "tests/fixtures/documents_line_deduplicated/doc1.txt",
+    "tests/fixtures/documents_line_deduplicated/doc2.txt",
+    "tests/fixtures/documents_line_deduplicated/doc3.txt"
+   ],
+   "core_paths": [
+    "cs336_basics/__init__.py",
+    "cs336_basics/data.py",
+    "cs336_basics/ddp_utils.py",
+    "cs336_basics/model.py",
+    "cs336_basics/optimizer.py",
+    "cs336_basics/train_config.py",
+    "cs336_data/__init__.py",
+    "cs336_data/common.py",
+    "cs336_data/modal_utils.py",
+    "cs336_data/wet_files.py"
+   ],
+   "saved": [
+    {
+     "path": "cs336_assignment4_data.pdf",
+     "bytes": 287362,
+     "sha256": "2b0660d0d1e96366c4688f9606c707c668a1fa76396c563b21a6fc75863fb59e",
+     "local": "sources/assignments/assignment4-data/cs336_assignment4_data.pdf"
+    },
+    {
+     "path": "README.md",
+     "bytes": 3084,
+     "local": "sources/assignments/assignment4-data/README.md"
+    }
+   ],
+   "role": "作业要求、代码骨架、测试判据（静态检查，不执行）"
+  },
+  {
+   "source_id": "CS336-2026-ASSIGN-ASSIGNMENT5",
+   "kind": "assignment_repo",
+   "title": "assignment5-alignment（2026 官方作业仓库）",
+   "url": "https://github.com/stanford-cs336/assignment5-alignment",
+   "commit": "c2734a26308710949fe13226960a1e8cece94b7e",
+   "license": null,
+   "pushed_at": "2026-06-04T07:40:16Z",
+   "file_count": 257,
+   "pdf_files": [
+    "cs336_spring2026_assignment5_alignment.pdf",
+    "cs336_spring2026_assignment5_supplement_safety_rlhf.pdf"
+   ],
+   "test_files": 47,
+   "test_examples": [
+    "tests/__init__.py",
+    "tests/_snapshots/test_aggregate_loss_across_microbatch_constant.npz",
+    "tests/_snapshots/test_aggregate_loss_across_microbatch_sequence.npz",
+    "tests/_snapshots/test_compute_entropy.npz",
+    "tests/_snapshots/test_compute_group_normalized_rewards_drgrpo.npz",
+    "tests/_snapshots/test_compute_group_normalized_rewards_grpo.npz"
+   ],
+   "core_paths": [
+    "cs336_alignment/__init__.py",
+    "cs336_alignment/checkpoint.py",
+    "cs336_alignment/drgrpo_grader.py",
+    "cs336_alignment/modal_utils.py",
+    "cs336_alignment/modal_utils_safety.py",
+    "cs336_alignment/prompts/question_only.prompt",
+    "cs336_alignment/prompts/r1_zero.prompt",
+    "cs336_alignment/prompts/r1_zero_three_shot_gsm8k.prompt",
+    "cs336_alignment/prompts_safety/alpaca_eval_zero_shot.prompt",
+    "cs336_alignment/prompts_safety/alpaca_sft.prompt",
+    "cs336_alignment/prompts_safety/gsm8k_zero_shot.prompt",
+    "cs336_alignment/prompts_safety/mmlu_zero_shot.prompt"
+   ],
+   "saved": [
+    {
+     "path": "cs336_spring2026_assignment5_alignment.pdf",
+     "bytes": 765568,
+     "sha256": "c93d503a69aef4aa7519b7fc664abebbf2ebf5e5e88379a7ed92f4c209a2d26a",
+     "local": "sources/assignments/assignment5-alignment/cs336_spring2026_assignment5_alignment.pdf"
+    },
+    {
+     "path": "README.md",
+     "bytes": 1059,
+     "local": "sources/assignments/assignment5-alignment/README.md"
+    }
+   ],
+   "role": "作业要求、代码骨架、测试判据（静态检查，不执行）"
+  },
+  {
+   "source_id": "CS336-2026-REFS",
+   "kind": "references",
+   "title": "references.py（2026 讲义官方参考文献表）",
+   "url": "https://raw.githubusercontent.com/stanford-cs336/lectures/de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e/references.py",
+   "commit": "de53a9f979a6ee35f7d13a5e1aadee5ea1afc58e",
+   "entries": 111,
+   "arxiv_entries": 89,
+   "arxiv_verified": 89,
+   "local": "sources/official_course/lectures@de53a9f979/references.py",
+   "license": "课程材料",
+   "role": "论文候选的唯一入口（不经模型记忆生成引用）"
+  }
+ ],
+ "repos": [
+  {
+   "repo": "stanford-cs336/lectures",
+   "full_name": "stanford-cs336/lectures",
+   "default_branch": "main",
+   "size_kb": 164949,
+   "pushed_at": "2026-09-12T21:34:53Z",
+   "license": null,
+   "description": null,
+   "archived": false
+  }
+ ],
+ "notes": []
+}

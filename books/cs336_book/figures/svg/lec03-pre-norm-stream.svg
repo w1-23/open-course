@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" viewBox="0 0 640 300">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#3b4148"/>
+    </marker>
+  </defs>
+
+  <text x="8" y="20" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">残差流视角：pre-norm 与 post-norm 的唯一差别，是归一化放在残差加法的哪一侧</text>
+
+  <!-- 主链路 -->
+  <line x1="20" y1="150" x2="92" y2="150" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <text x="22" y="133" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">x</text>
+
+  <rect x="100" y="126" width="92" height="48" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="112" y="147" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">Norm</text>
+  <text x="112" y="163" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">RMSNorm</text>
+
+  <line x1="192" y1="150" x2="220" y2="150" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <rect x="224" y="126" width="96" height="48" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="234" y="147" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">Attention</text>
+  <text x="234" y="163" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">头内张量</text>
+
+  <line x1="320" y1="150" x2="346" y2="150" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <circle cx="358" cy="150" r="11" fill="#ffffff" stroke="#3b4148" stroke-width="1.2"/>
+  <text x="353" y="155" font-family="Times New Roman, serif" font-size="13" fill="#1f2328">+</text>
+
+  <line x1="369" y1="150" x2="402" y2="150" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <text x="378" y="133" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">x₁</text>
+
+  <rect x="406" y="126" width="86" height="48" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="418" y="147" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">Norm</text>
+  <text x="418" y="163" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">RMSNorm</text>
+
+  <line x1="492" y1="150" x2="514" y2="150" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <rect x="518" y="126" width="86" height="48" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="530" y="147" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">FFN</text>
+  <text x="530" y="163" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">SwiGLU</text>
+
+  <!-- 残差弧线（fill 必须显式 none，否则会被填充成黑色色块） -->
+  <path d="M22,148 C44,84 330,84 348,138" fill="none" stroke="#9a6a2f" stroke-width="1.2"
+        stroke-dasharray="5 3" marker-end="url(#ah)"/>
+  <path d="M371,148 C398,90 604,90 614,138" fill="none" stroke="#9a6a2f" stroke-width="1.2"
+        stroke-dasharray="5 3" marker-end="url(#ah)"/>
+  <text x="196" y="80" font-family="Times New Roman, serif" font-size="10.5" fill="#7a5a2e">残差直连（不经过归一化）</text>
+
+  <line x1="604" y1="150" x2="632" y2="150" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <text x="598" y="133" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">x₂</text>
+
+  <!-- 下方对照 -->
+  <line x1="20" y1="198" x2="622" y2="198" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="20" y="220" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">pre-norm（上图）</text>
+  <text x="150" y="220" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">x₁ = x + Attn(Norm(x))，x₂ = x₁ + FFN(Norm(x₁))</text>
+  <text x="20" y="246" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">post-norm</text>
+  <text x="150" y="246" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">x₁ = Norm(x + Attn(x))，x₂ = Norm(x₁ + FFN(x₁))</text>
+  <text x="20" y="276" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_03.pdf p11–p12、p18 的术语重绘；课程把这一处差别归因于梯度衰减与梯度尖峰两条机制。</text>
+</svg>

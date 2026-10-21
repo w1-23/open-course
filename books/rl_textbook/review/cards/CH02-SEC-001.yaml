@@ -1,0 +1,90 @@
+issue_id: CH02-SEC-001
+chapter: 2
+severity: P2
+status: 已有依据
+title: 警告框把 MSBE 写成「某种范数」，且没点名 DQN 优化的是采样平方 TD 误差
+summary: >
+  2.4.2 节警告框（:301-307）要区分三个贝尔曼量，方向正确，但定义有两处不准确：
+  其一，把「贝尔曼残差（记作 MSBE）」写成「‖V−T^πV‖ 的某种范数」，而 MSBE 在
+  文献里是贝尔曼误差向量的 D-加权**平方**范数，未平方的逐状态量叫贝尔曼误差
+  （TD 误差的期望），三者被同一个缩写串成两个；其二，框内 (b) 只说「训练损失是
+  采样平方 TD 误差」，没有点名 DQN，也没写出它与 MSBE 的两处机制差异（先平方后期望
+  带来的方差项、以及缺投影）。两处都是读者按字面引用时会被误导的地方。
+
+current_text:
+  file: content/ch02.md
+  lines: "301-307"
+  excerpt: >
+    **贝尔曼残差**（Bellman residual，记作 MSBE）是 ‖V−T^π V‖ 的某种范数，衡量 V
+    离 T^π 不动点多远；**均方投影贝尔曼误差**（MSPBE）是 ‖Π_D T^π v_θ−v_θ‖²_D …
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 贝尔曼误差（逐状态、TD 误差的期望）与 MSBE（加权平方范数）的原始定义
+    pdf_page: 290
+    printed_page: "§11.4, p.268, 式 (11.17)-(11.19)"
+    quote: >
+      The vector of all the Bellman errors, at all states, ¯δw 2 R|S|, is called the
+      Bellman error vector (shown as BE in Figure 11.3). The overall size of this vector,
+      in the norm, is an overall measure of the error in the value function, called the
+      mean square Bellman error
+    note: >
+      同页前文给出 ¯δw(s) = (T^π v_w)(s) − v_w(s)（11.17）并写明「The Bellman error is
+      the expectation of the TD error」；MSBE 的定义式是 ‖¯δw‖²_µ（11.19），有平方、
+      有权重。书中警告框的「某种范数」与这两点都不符。
+  - key: RLbook2020
+    level: S
+    role: 均方投影贝尔曼误差（PBE）的定义，用于确认书中 MSPBE 一项是对的
+    pdf_page: 291
+    printed_page: "§11.4, p.269, 式 (11.22)"
+    quote: >
+      This is the projected Bellman error vector ⇧¯δw, shown in Figure 11.3 as PBE. The
+      size of this vector, in the norm, is another measure of error in the approximate
+      value function.
+    note: >
+      PBE(w)=‖Π¯δw‖²_µ（11.22），与书中 ‖Π_D T^π v_θ−v_θ‖²_D 等价（Π_D²=Π_D、
+      Π_D v_θ=v_θ），故 MSPBE 一项无需修改。
+
+derivation_file: review/derivations/CH02-SEC-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条只做定义对照，不需要数值实验。第 4 节给出一条可写进正文的等式链
+    E[δ²]=(Eδ)²+Var(δ|s)，用来说明采样平方 TD 损失为何严格大于 MSBE。
+
+claims:
+  - id: c1
+    text: 贝尔曼误差是逐状态向量 (T^πV)(s)−V(s)，即 TD 误差的期望，不是范数。
+    evidence: RLbook2020 p.290 式 (11.17)(11.18) 及「expectation of the TD error」一句
+    status: 已核对
+  - id: c2
+    text: MSBE/BE 是贝尔曼误差向量的 µ-加权平方范数，书中「某种范数」的说法不准确。
+    evidence: RLbook2020 p.290 式 (11.19) 与第 11.3 图的三目标（VE/BE/PBE）
+    status: 已核对
+  - id: c3
+    text: 书中 MSPBE 的定义与 RLbook 的 PBE(w)=‖Π¯δw‖²_µ 等价，无需改动。
+    evidence: 推导：Π_D²=Π_D 且 Π_D v_θ=v_θ，见 derivation_file 第 3 节对照表
+    status: 已核对
+  - id: c4
+    text: 框内 (b) 未点名 DQN，也未写明采样平方 TD 损失与 MSBE 的两处机制差异。
+    evidence: derivation_file 第 4 节的等式链与三处差异（先平方后期望、缺投影、目标非平稳）
+    status: 已核对
+
+planned_fix:
+  - 把 :304 第一句拆成三条并列定义：贝尔曼误差向量 δ̄=(T^πV)−V（逐状态、未平方）；MSBE=‖δ̄‖²_D=E_{s∼D}[δ̄(s)²]（平方 + 加权，权重必须写明）；MSPBE 保持现状。
+  - 删除「记作 MSBE」对贝尔曼残差的误挂，改为「贝尔曼残差在文献中有两种用法：逐状态量 δ̄，或其投影/加权的平方范数；本章一律按逐状态量理解，凡用范数处必须写出平方与权重」。
+  - 在框内 (b) 之后补一句点名：「DQN 类方法实际最小化的是 E_{s∼D}[(r+γmax_{a'}Q_{θ̄}(s',a')−Q_θ(s,a))²]，它是采样平方 TD 误差，既不是 MSBE（没有对 P 取期望）也不是 MSPBE（没有投影）」。
+  - 把 (b) 的等式链补进正文一句话：E[δ²]=(Eδ)²+Var(δ|s)，说明采样损失为何在无噪声时才等于 MSBE。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    已施工（2026-10-20）：警告框改为三段定义——贝尔曼误差（逐状态、未平方、TD 误差
+    的期望）／MSBE=‖δ̄‖²_D=E_{s∼D}[δ̄(s)²]／MSPBE=‖Π_D T^πV_θ−V_θ‖²_D；框内 (b)
+    点名 DQN 并写出「先平方再取期望多出 Var(δ̄|s) 项、缺投影、目标网络与 max 使目标
+    非平稳」三点。第 4、8 章的术语统一由 lead 另派一条线，本卡不涉及。

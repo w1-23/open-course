@@ -1,0 +1,19 @@
+key: weng_reward_hacking
+version: 2026-10-19
+level: A
+role: teaching
+title: "Reward Hacking in Reinforcement Learning | Lil&#39;Log"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/weng_reward_hacking.html
+bytes: 149284
+pages: null
+sha256: 99da73635a1800451d546644414161325c9fcd1455e971df5bf3dce987bbdd4e
+retrieved: 2026-10-20
+license_note: "课程讲义/博客：本地核验与教学参考用，引用时标注出处与链接。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

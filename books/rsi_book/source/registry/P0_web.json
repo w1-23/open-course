@@ -1,0 +1,23 @@
+{
+ "sakana_dgm": {
+  "url": "https://sakana.ai/dgm/",
+  "status": 200,
+  "sha256": "3427fdd07f4f39a9",
+  "bytes": 21359,
+  "fetched_utc": "2026-10-20T13:07:39Z"
+ },
+ "metr_horizons": {
+  "url": "https://metr.org/time-horizons/",
+  "status": 200,
+  "sha256": "c5135c54ec569546",
+  "bytes": 682272,
+  "fetched_utc": "2026-10-20T13:07:41Z"
+ },
+ "cs329a_org": {
+  "url": "https://github.com/stanford-cs329a",
+  "status": 200,
+  "sha256": "7672a8ae75ae52fa",
+  "bytes": 249439,
+  "fetched_utc": "2026-10-20T13:07:44Z"
+ }
+}

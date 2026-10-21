@@ -1,0 +1,31 @@
+key: 2507.18071_gspo
+version: 2026-10-20
+level: S
+role: algorithm
+title: Group Sequence Policy Optimization
+authors:
+  - Chujie Zheng
+  - Shixuan Liu
+  - Mingze Li
+  - Xiong-Hui Chen
+  - Bowen Yu
+  - Chang Gao
+  - Kai Dang
+  - Yuqiong Liu
+  - Rui Men
+  - An Yang
+  - Jingren Zhou
+  - Junyang Lin
+year: 2025
+published: 2025-07-24
+arxiv_id: 2507.18071
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/2507.18071_gspo.pdf
+bytes: 458773
+pages: 7
+sha256: 67221ec313f42d8b3029686b604b2621a311ae0d74e38524092e7c7a94613bd0
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

@@ -1,0 +1,34 @@
+unit_id: CH03-U01
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 结构起点：原始 Transformer 的标准配置
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p3
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Starting point: the ‘original’ transformer / Review: choices in the standard transformer / Position
+    embedding: sines and cosines / FFN: ReLU / Norm type: post-norm, LayerNorm'
+technical_evidence:
+- source_id: arXiv:1706.03762
+  ref_name: transformer_2017
+  title: Attention Is All You Need
+  authors:
+  - Ashish Vaswani
+  - Noam Shazeer
+  - Niki Parmar
+  - Jakob Uszkoreit
+  - Llion Jones
+  - Aidan N. Gomez
+  year: '2017'
+  url: https://arxiv.org/pdf/1706.03762.pdf
+  arxiv_id: '1706.03762'
+  arxiv_verified: true
+  locator: ''
+knowledge_slot:
+  why_it_matters: 原始配置（post-norm / 正弦位置编码 / ReLU FFN）是本章的对照基线
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: verified
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

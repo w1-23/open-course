@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="240" viewBox="0 0 380 240">
+<defs>
+<marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5b6b7f"/></marker>
+</defs>
+<circle cx="190" cy="120" r="78" fill="none" stroke="#d8dde4" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="130" y="22" width="120" height="34" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="0.8"/>
+<text x="190" y="36" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">机器设计更聪明的</text>
+<text x="190" y="49" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">机器</text>
+<rect x="272" y="103" width="98" height="34" rx="3" fill="#e8f0e4" stroke="#7d9b6a" stroke-width="0.8"/>
+<text x="321" y="117" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">智能水平</text>
+<text x="321" y="130" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">持续上升</text>
+<rect x="128" y="184" width="124" height="34" rx="3" fill="#fdf3e3" stroke="#c9a25c" stroke-width="0.8"/>
+<text x="190" y="198" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">设计能力随智能</text>
+<text x="190" y="211" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">单调增长</text>
+<rect x="12" y="103" width="98" height="34" rx="3" fill="#f3ecf5" stroke="#9b7da3" stroke-width="0.8"/>
+<text x="61" y="117" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">超越人类</text>
+<text x="61" y="130" font-family="Times New Roman, SimSun" font-size="10" text-anchor="middle" fill="#1f2328">设计师速度</text>
+<path d="M250 48 Q300 62 318 103" fill="none" stroke="#5b6b7f" stroke-width="1.1" marker-end="url(#ar1)"/>
+<path d="M318 137 Q306 176 252 196" fill="none" stroke="#5b6b7f" stroke-width="1.1" marker-end="url(#ar1)"/>
+<path d="M128 196 Q76 178 62 137" fill="none" stroke="#5b6b7f" stroke-width="1.1" marker-end="url(#ar1)"/>
+<path d="M62 103 Q74 62 128 45" fill="none" stroke="#5b6b7f" stroke-width="1.1" marker-end="url(#ar1)"/>
+<text x="190" y="116" font-family="Times New Roman, SimSun" font-size="12" text-anchor="middle" fill="#8a4b4b">智能爆炸</text>
+<text x="190" y="132" font-family="Times New Roman, SimSun" font-size="9" text-anchor="middle" fill="#8a4b4b">（正反馈循环）</text>
+</svg>

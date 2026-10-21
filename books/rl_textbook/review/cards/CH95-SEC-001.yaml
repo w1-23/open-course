@@ -1,0 +1,70 @@
+issue_id: CH95-SEC-001
+chapter: 95
+severity: P2
+status: 已有依据
+title: 配分函数 Z(x) 在第 95.4 式里出现但本章从未定义，读第 10 章的反解与相消时会缺一环
+summary: >
+  第 95.4 式给出 π*(y|x)=(1/Z(x))·π_ref(y|x)·exp(r(x,y)/β_KL)，Z(x) 从头到尾没有定义；
+  本章也没有一句话说明它只依赖 x、不依赖策略、对有限词表有限。第 10 章在 (10.6) 里把
+  Z(x)=Σ_y π_ref(y|x)exp(r_φ(x,y)/β_KL) 明确写出，并解释它"只依赖 x、不依赖策略，且对任意 x
+  有限、为正"，随后 (10.9) 反解奖励时那个 β_KL log Z(x) 正是从这里来，(10.10) 的相消也依赖
+  "同一 prompt 的两个回答共享同一个 Z(x)"。本章是接口章，读者在 (95.4) 处停下却查不到 Z(x)，
+  到第 10 章会误以为这是新引入的对象，而不是同一归一化项的换写法。
+
+current_text:
+  file: content/ch13prep.md
+  lines: "81-87"
+  excerpt: >
+    第 82-83 行：π*(y|x) = (1/Z(x))·π_ref(y|x)·exp(r(x,y)/β_KL)；
+    第 87 行：这里 β_KL 同时充当温度……（全段没有给出 Z(x) 的定义）
+
+sources:
+  - key: 2305.18290_dpo
+    level: S
+    role: 配分函数只依赖 x 与参考策略，是 Gibbs 形式与后续奖励反解/相消的前提
+    pdf_page: 15
+    printed_page: "附录 A.1（p.15）"
+    quote: >
+      Note that the partition function is a function of only x and the reference policy πref, but does
+      not depend on the policy π.
+  - key: 2305.18290_dpo
+    level: S
+    role: 配分函数的显式定义（Σ_y π_ref·exp(r/β)），本章缺这一行
+    pdf_page: 6
+    printed_page: "§4（p.6）"
+    quote: >
+      The operator f simply normalizes the reward function with the logarithm of the partition function
+      of πr.
+
+claims:
+  - id: c1
+    text: >
+      本章第 82-83 行使用 1/Z(x) 但未定义；第 10 章 (10.6) 在同一位置给出定义，
+      因此这是接口章与后续章的缺口，而不是新的记号约定。
+    evidence: 推导：content/ch10.md 第 98-111 行的 (10.6) 与 Z(x) 的有限性讨论；2305.18290_dpo p.15 说明其只依赖 x
+    status: 已核对
+  - id: c2
+    text: >
+      缺 Z(x) 会让第 10 章 (10.9) 反解式里多出的 β_KL log Z(x) 失去出处，
+      也使 (10.10) 的"同一 prompt 相消"看起来像近似而不是恒等。
+    evidence: 推导：content/ch10.md 第 174-191 行（反解与相消）；2305.18290_dpo p.6 的归一化算子
+    status: 已核对
+  - id: c3
+    text: >
+      (95.4) 本身没有写错；缺的是紧随其后的一行定义与"只依赖 x、有限为正"的半句。
+    evidence: 推导：对照 content/ch10.md 第 98-111 行可见 (95.4) 与 (10.6) 的正文只是省略了定义
+    status: 已核对
+
+planned_fix:
+  - 第 84 行 (95.4) 之后补一行独立公式：Z(x)=Σ_y π_ref(y|x)exp(r(x,y)/β_KL)，并注明"只依赖 x、不依赖策略，有限词表下有限且为正"。
+  - 第 87 行之后补一句："Z(x) 是归一化常数，第 10.2.1 节用它把奖励反解成对数比，并在同一 prompt 的成对比较中相消。"
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    基准版本 2026-10-20 22:18（251 行，式号 95.4 在第 84 行）。施工时若补一行独立公式，
+    按 content/_STYLE.md 第 8 节，公式不要放进 ::: 框内；放在正文流即可。

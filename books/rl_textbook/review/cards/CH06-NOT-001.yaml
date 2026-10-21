@@ -1,0 +1,63 @@
+issue_id: CH06-NOT-001
+chapter: 6
+severity: P1
+status: 已有依据
+title: 式 (6.18) 里 φ 同时参数化策略与 critic，与算法 6-3 及全书 θ=actor／φ=critic 的约定冲突
+summary: |-
+  第 295 行的策略损失写成 \(J_\pi(\phi)=\mathbb{E}[\alpha_{\mathrm{ent}}\log\pi_\phi(a\mid s)-Q_\phi(s,a)]\)：同一个 φ 既定义策略 \(\pi_\phi\)，又定义 critic \(Q_\phi\)。第 320–327 行的算法 6-3 又改用 \(Q_{\theta_i}\) 表示 critic、\(\pi_\phi\) 表示策略，与式 (6.18) 自相矛盾；第 299 行再引入第三个符号 ψ 表示目标价值网络。
+  SAC 原文的对应关系是 \(V_\psi\)、\(Q_\theta\)、\(\pi_\phi\)，策略损失里的 critic 明确写作 \(Q_\theta\)（引文）。而 _CONVENTIONS §2 规定 θ=actor/policy、φ=critic，与本章 6.1–6.3.3 一直使用的 \(Q_\phi\) 正好相反。结果是同一章里 φ 至少有四个所指：critic 参数、策略参数、目标价值网络之外的策略参数、以及6.2.4 里与 α/β 并列的局部记号。读者无法从符号判断哪一组参数在被更新，抄写式 (6.18) 时把 critic 也当成策略网络的输出是必然的。
+current_text:
+  file: content/ch06.md
+  lines: 292-299, 318-333, 341
+  excerpt: |-
+    第 295 行：J_\pi(\phi)=\mathbb{E}_{s\sim\mathcal{D},\,\epsilon}\Bigl[\alpha_{\mathrm{ent}}\log\pi_\phi\bigl(a\mid s\bigr)-Q_\phi\bigl(s,a\bigr)\Bigr]
+    第 299 行：训练两个 Q 网络并取较小值……维护一个目标价值网络 \bar\psi 做软更新
+    第 320 行：输入：策略 π_φ、两个 Q 网络 Q_θ1, Q_θ2、目标 Q 网络、α_ent
+sources:
+- key: 1801.01290_sac
+  level: S
+  role: 原文的三组参数符号：价值 V_ψ、软 Q_θ、策略 π_φ
+  pdf_page: 4
+  printed_page: §4 从软策略迭代到软 actor-critic（纸面 p.4）
+  quote: |-
+    will consider a parameterized state value function Vψ(st),
+    soft Q-function Qθ(st, at), and a tractable policy πφ(at|st).
+    The parameters of these networks are ψ, θ, and φ. For
+- key: 1801.01290_sac
+  level: S
+  role: 策略损失的原文形式：J_π(φ) 中的 critic 写作 Q_θ，不是 Q_φ
+  pdf_page: 5
+  printed_page: 式 (12)（纸面 p.5）
+  quote: Jπ(φ) = Est∼D,ϵt∼N [log πφ(fφ(ϵt; st)|st) −Qθ(st, fφ(ϵt; st))] ,
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 纯符号问题，不需要实验。检查方法：把式 (6.18) 与算法 6-3 第 4–5 行的 critic 符号并列读，即可看出同一章里 critic 既是 Q_φ 又是 Q_θ。
+claims:
+- id: c1
+  text: SAC 原文用 V_ψ、Q_θ、π_φ 三组参数，φ 专指策略。
+  evidence: 1801.01290_sac p0004 原文 "Vψ(st), soft Q-function Qθ(st, at), and a tractable policy πφ(at|st)"
+  status: 已核对
+- id: c2
+  text: 原文策略损失 J_π(φ) 里的 critic 是 Q_θ，本章式 (6.18) 写成 Q_φ。
+  evidence: 1801.01290_sac p0005 式 (12)；对照式 (6.18) 第 295 行
+  status: 已核对
+- id: c3
+  text: 章内自相矛盾：式 (6.18) 用 Q_φ，算法 6-3 第 320–327 行用 Q_{θ_i}。
+  evidence: 式 (6.18) 与算法 6-3 原文逐行对照（content/ch06.md:295,320-327）
+  status: 已核对
+- id: c4
+  text: _CONVENTIONS §2 规定 θ=actor、φ=critic，本章前半部分的 Q_φ 与之相反。
+  evidence: content/_CONVENTIONS.md 第 40 行；文献库无对应条目，属项目规范
+  status: 替代证据
+planned_fix:
+- 第 295 行式 (6.18) 的 Q_φ 改为 Q_θ；若坚持用 φ 表示 critic，则算法 6-3 的 Q_{θ_i} 与第 299 行的 \bar\psi 一并改写，二选一。
+- 6.3.4 开头补一句符号声明：策略参数、两个 critic 参数、目标价值网络参数、目标 critic 参数分别记作什么。
+- 与 _CONVENTIONS §2 对齐（θ=actor、φ=critic）；若沿用 SAC 原文的 θ=Q/φ=π，须显式写"本小节局部重定义，仅限 6.3.4"。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: 本条只针对符号；SAC 的 α_ent 与学习率 α 在 6.3.4 第 310–316 行是分开的（写法正确），不要与 NOT-002 混为一谈。

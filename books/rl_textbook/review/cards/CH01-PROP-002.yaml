@@ -1,0 +1,82 @@
+issue_id: CH01-PROP-002
+chapter: 1
+severity: P2
+status: 已有依据
+title: 第 71 行把常数步长写成「非平稳分布唯一正确的选择」，与文献和本章 1.2.4 的口径都不一致
+summary: >
+  第 71 行：「1/n 是样本平均（平稳分布最优），α 是指数遗忘（非平稳分布唯一正确的选择）」。
+  文献的措辞是「one of the most popular ways」（S&B p.54，§2.5 开头），而且同节明确说常数
+  步长「never completely converge but continue to vary」，之所以可接受是因为非平稳环境下
+  正是要跟踪而非收敛（p.55）。把代价那一半抹掉、又称其唯一，读者会以为非平稳只有一条路；
+  实际滑窗平均（§2.5）与习题 2.7 的无偏常数步长 β_n=α/ō_n 都是同一诉求的合法实现。更麻
+  烦的是本章 1.2.4（第 136 行）刚说过「跟踪与收敛不可兼得」，两处口径相反。另「平稳分布」
+  一词在 MDP 语境里指状态分布，此处应为「平稳奖励分布」。
+
+current_text:
+  file: content/ch01.md
+  lines: "71"
+  excerpt: >
+    于是步长可从 1/n 换成一般的 α_n——1/n 是样本平均（平稳分布最优），
+    α 是指数遗忘（非平稳分布唯一正确的选择）。第 3 章会以"时序差分"的名字重现这个形式。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 常数步长只是「最常用方式之一」，不是唯一选择
+    pdf_page: 54
+    printed_page: "§2.5 开头（纸面 p.32）"
+    quote: >
+      One of the most popular ways of doing this is to use a constant
+      step-size parameter.
+    note: 该句前一句是「In such cases it makes sense to give more weight to recent rewards than to long-past rewards」，说明诉求而非唯一性。
+  - key: RLbook2020
+    level: S
+    role: 常数步长不满足 Σα²<∞，估计永不收敛，其价值是跟踪而非收敛
+    pdf_page: 55
+    printed_page: "§2.5（纸面 p.33）"
+    quote: >
+      In the latter case, the second condition is not met, indicating that the estimates never completely
+      converge but continue to vary in response to the most recently received rewards. As we mentioned
+      above, this is actually desirable in a nonstationary environment
+    note: 同一页习题 2.7 给出无偏常数步长 β_n=α/ō_n（式 (2.8)(2.9)），是第三条可实现路径。
+
+derivation_file: review/derivations/CH01-PROP-002.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    定性判断，不需要数值实验。若要演示，可用 10 臂测试台跑常数步长与滑窗平均两条曲线，
+    但那只是说明两条路都可行，不是本条的证据来源。
+
+claims:
+  - id: c1
+    text: 常数（指数遗忘）步长在非平稳环境是常用做法，但文献只说 it is one of the most popular ways，并未称其唯一正确。
+    evidence: RLbook2020 p.54「One of the most popular ways…」
+    status: 已核对
+  - id: c2
+    text: 常数步长不满足 Σα_n²<∞，估计永不收敛，这是它的已知代价而非"正确"。
+    evidence: RLbook2020 p.55「never completely converge…」
+    status: 已核对
+  - id: c3
+    text: 滑窗平均与无偏常数步长 β_n=α/ō_n 是实现同一诉求的另外两条路径。
+    evidence: RLbook2020 p.55 习题 2.7 式 (2.8)(2.9) 与 §2.5 的滑窗讨论
+    status: 已核对
+  - id: c4
+    text: 第 71 行的「唯一正确」与第 136 行「跟踪与收敛不可兼得」口径相反，属章内不一致。
+    evidence: 推导第 3 节（review/derivations/CH01-PROP-002.md）；content/ch01.md 第 71 行与第 136 行对照
+    status: 已核对
+
+planned_fix:
+  - 第 71 行改为：1/n 对应样本平均，在平稳奖励下无偏、方差按 1/n 收缩；常数 α 给出指数遗忘的平均，它不收敛（式 (1.8) 第二条不满足），但在非平稳环境下正是要的跟踪行为。
+  - 同句补一句：滑窗平均与无偏常数步长（β_n=α/ō_n）是同一诉求的另两种实现，故不存在"唯一正确的选择"。
+  - 把「平稳分布最优」改成「平稳奖励分布下合适」，避免与 MDP 里的状态平稳分布混淆。
+  - 与第 136 行统一措辞：两处都表述为「让步长不趋于零以跟踪漂移，代价是放弃收敛保证」。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条是措辞与口径问题，不影响式 (1.4) 本身。1.2.4 节（RM 条件四件事）方向正确，
+    修订时不要在那一节里反向引入"常数步长能收敛"的说法。

@@ -1,0 +1,96 @@
+issue_id: CH08-ALG-001
+chapter: 8
+severity: P1
+status: 已有依据
+title: IQL 的 expectile 被四处写成"分位数"，与式 (8.8) 的平方损失自相矛盾
+summary: >
+  正文第 148 行"用期望回归把价值函数学成一个数据内的高分位数"、第 279 行"改用惩罚或
+  分位数"、第 400 行"用期望回归在数据内拟合高分位数"、第 473 行"优化的是数据内的分位数"
+  ——四处把 expectile 叫成 quantile。式 (8.8) 用的是 \(|\tau-\mathbb{1}\{u<0\}|u^{2}\)
+  （非对称平方损失），这正是 IQL 原文 p.4 给出的 expectile 定义；quantile 回归用的是
+  非对称绝对值 (\(\ell_1\)) 损失，两者不是同一个统计量。在两点分布 {0,1} 上，
+  0.9-expectile = 0.9，而 0.9-分位数 = 1：把 IQL 说成"学高分位数"会让读者以为
+  \(\tau=0.9\) 已经取到数据内最大值，实际要 \(\tau\to1\) 才逼近（第 157 行的说法反而是对的）。
+
+current_text:
+  file: content/ch08.md
+  lines: "148; 159; 281; 404; 477"
+  excerpt: >
+    第 148 行：于是 IQL 用期望回归（expectile regression）把价值函数学成一个**数据内的高分位数**，替掉最大值：
+    第 473 行：注意它优化的是数据内的分位数，不是最优价值。
+
+sources:
+  - key: 2110.06169_iql
+    level: S
+    role: expectile 的定义与非对称平方损失
+    pdf_page: 4
+    printed_page: "§4.1 Eq.(6)"
+    quote: >
+      The τ ∈ (0, 1) expectile of some random variable X is defined as a solution to the
+      asymmetric least squares problem: arg min mτ Ex∼X[Lτ 2(x − mτ)], where Lτ 2(u) =
+      |τ − 1(u < 0)|u2.
+    note: >
+      同页随后写 "Expectile regression is closely related to quantile regression …
+      The quantile regression loss is defined as an asymmetric ℓ1 loss."，可作
+      "两者只差损失幂次"的直接依据。
+  - key: 2110.06169_iql
+    level: S
+    role: τ 的两种极限（均值 / 数据内最大值），用于说明它不可能是"分位数"
+    pdf_page: 5
+    printed_page: "§4.3"
+    quote: >
+      τ = 0.5 correspond to the conditional mean statistics of the distribution, while
+      τ ≈ 1 approximates the maximum operator over in-support values of y.
+    note: 正文第 157 行写的正是这一条，因此正文内部就存在"高期望值"与"高分位数"两种互相矛盾的称谓。
+  - key: 2110.06169_iql
+    level: S
+    role: 强调 IQL 不估计价值分布——这从侧面否定"分位数"读法
+    pdf_page: 3
+    printed_page: "§3 related work"
+    quote: >
+      our aim is not to estimate the distribution of values that results from stochastic
+      transitions, but rather estimate expectiles of the state value function with respect
+      to random actions.
+    note: 若它真是"分位数"，就必须先有（或隐式构造）价值分布；IQL 的卖点恰恰相反。
+
+derivation_file: review/derivations/CH08-ALG-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    两点分布 {0,1} 的解析解已在推导文件第 2 节给出（expectile=τ、quantile=1），
+    不需要数值程序；若施工时想加一句脚注，可直接引用该表的 τ=0.5/0.9 两行。
+
+claims:
+  - id: c1
+    text: expectile 用非对称平方损失，quantile 用非对称绝对值损失，两者是不同的统计量。
+    evidence: 2110.06169_iql p.4 定义与同页对 quantile 回归（ℓ1）的对照
+    status: 已核对
+  - id: c2
+    text: 两点分布 {0,1} 上 0.9-expectile=0.9，而 0.9-分位数=1，量值不同。
+    evidence: 推导见 review/derivations/CH08-ALG-001.md 第 2 节（解 f'(m)=0 得 m=τ）
+    status: 已核对
+  - id: c3
+    text: 式 (8.8) 的 (|τ−1{u<0}|·u²) 与 IQL 原文一致，只需改称谓，不需改公式。
+    evidence: 2110.06169_iql p.4 的定义式逐项对照（式 (8.8) 与本卡第 1 节引文相同）
+    status: 已核对
+  - id: c4
+    text: 正文第 157 行"τ→1 逼近数据内最大值、τ=0.5 退化为均方回归"本身正确，与第 148 行冲突。
+    evidence: 2110.06169_iql p.5 的 τ=0.5 / τ≈1 表述
+    status: 已核对
+
+planned_fix:
+  - 第 148 行"学成一个数据内的高分位数"改为"学成一个数据内的高期望值（upper expectile）"，并在括号里保留英文术语。
+  - 第 279 行"改用惩罚或分位数把不确定性吸收进价值估计"改为"改用惩罚或上期望值把不确定性吸收进价值估计"。
+  - 第 400 行"用期望回归在数据内拟合高分位数"改为"用期望回归在数据内拟合上期望值"。
+  - 第 473 行"注意它优化的是数据内的分位数，不是最优价值"改为"注意它优化的是数据内的上期望值（expectile），不是最优价值"。
+  - 在 8.2.4 节式 (8.8) 之后补一句方法论备注：expectile 用平方损失、quantile 用绝对值损失；τ=0.5 给均值、τ→1 给数据内最大值，两点分布 {0,1} 上分别给出 0.9 与 1。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    这条不是排版问题：术语错了会让读者把 IQL 与 QR-DQN / iQN 一类"分位数价值"方法混为一谈，
+    而 IQL 的全部卖点是不估计分布、只在数据内取上期望值。

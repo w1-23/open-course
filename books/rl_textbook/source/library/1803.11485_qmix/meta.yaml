@@ -1,0 +1,25 @@
+key: 1803.11485_qmix
+version: 2026-10-20
+level: S
+role: algorithm
+title: "QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning"
+authors:
+  - Tabish Rashid
+  - Mikayel Samvelyan
+  - Christian Schroeder de Witt
+  - Gregory Farquhar
+  - Jakob Foerster
+  - Shimon Whiteson
+year: 2018
+published: 2018-03-30
+arxiv_id: 1803.11485
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1803.11485_qmix.pdf
+bytes: 3808951
+pages: 14
+sha256: 3b26488b9e3279e9f290fe1d1d242e73ffaf6db2d84f28d23053733862f85d0b
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

@@ -1,0 +1,60 @@
+issue_id: CH10-DPO-003
+chapter: 10
+severity: P1
+status: 已有依据
+title: 小结把"配分函数不可算"当结论——应写成"输出空间巨大、难以直接精确求和"
+summary: >
+  第 105 行写得准确："Z(x) 要对全部可能的回答求和，而语言模型的输出空间是指数大的；
+  即使用重要性采样去估，估计的方差在长序列上也不可接受"——这是"工程上不可直接用"，
+  不是"原理上不可计算"。但小结第 391 行把它压成"闭式解里的配分函数**不可算**"，越过了
+  原文的表述：DPO 原文只说估计 Z(x)"仍然很贵（expensive）"、使这一表示"难以在实践中
+  利用"。Z(x) 对有限奖励、给定 β 是有限正数，本身可写、可估，只是代价高。这个措辞直接
+  影响读者对"DPO 为什么存在"的理解：消掉 Z 是为了省代价，不是因为 Z 不存在。
+
+current_text:
+  file: content/ch10.md
+  lines: "103-107, 389-393"
+  excerpt: >
+    第 105 行：Z(x) 要对全部可能的回答求和，而语言模型的输出空间是指数大的；即使用重要性
+    采样去估，估计的方差在长序列上也不可接受。
+    第 391 行：第二，KL 正则目标有闭式最优解，但闭式解里的配分函数不可算。这个"有解却算不动"
+    的困境是本章所有方法的共同起点……
+
+sources:
+  - key: 2305.18290_dpo
+    level: S
+    role: DPO 对 Z(x) 的原始表述（"昂贵/难以利用"，不是"不可计算"）
+    pdf_page: 4
+    printed_page: "§4 Eq. (4) 之后（p.4）"
+    quote: >
+      it is still expensive to estimate the partition function Z(x) [19, 15], which makes this
+      representation hard to utilize in practice.
+
+claims:
+  - id: c1
+    text: 第 105 行的表述正确：输出空间指数大、求和代价高、重要性采样在长序列上方差不可接受。
+    evidence: 2305.18290_dpo p.4；content/ch10.md 第 105 行
+    status: 已核对
+  - id: c2
+    text: >
+      第 391 行"配分函数不可算"是过强表述，与 105 行及 DPO 原文"expensive to estimate"
+      冲突；正确说法是"难以直接精确求和，且采样估计方差过大"。
+    evidence: 2305.18290_dpo p.4 原句；推导：对有限奖励与 β>0，Z(x)=Σ_y π_ref exp(r/β) 是有限正数
+    status: 已核对
+  - id: c3
+    text: 该措辞不影响 10.3 的推导（(10.9) 只用 Z(x) 存在且只依赖 x 这一性质）。
+    evidence: 式 (10.9)、(10.10)
+    status: 已核对
+
+planned_fix:
+  - 第 391 行改为"闭式解里的配分函数在巨大输出空间上难以直接精确求和，用采样估计的方差在长序列上又不可接受"。
+  - 同段末尾补半句"它存在且有限，只是代价高——消掉它是为了省代价，不是为了绕过不存在的东西"，与 105 行口径统一。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    同类措辞要全章扫一遍：正文 105 行、图 10-1 题注、关键公式前的小标题都不应出现"不可算/无法计算"。

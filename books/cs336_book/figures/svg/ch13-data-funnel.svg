@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="446" viewBox="0 0 820 446">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#3b4148"/>
+    </marker>
+  </defs>
+
+  <text x="14" y="24" font-family="Times New Roman, serif" font-size="14" fill="#1f2328">一条数据流水线：每一步都在做选择，也都在留痕</text>
+  <text x="14" y="42" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_13.py 第 41–42 行的「live service → raw data → processed data」拆解；偏差与许可两列由第 258–262、264–271、390–398、546–554、612–615 行归纳。</text>
+
+  <!-- 表头 -->
+  <text x="22" y="72" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">阶段</text>
+  <text x="250" y="72" font-family="Times New Roman, serif" font-size="10.5" fill="#7a5a2e">这一步引入的采样偏差</text>
+  <text x="530" y="72" font-family="Times New Roman, serif" font-size="10.5" fill="#3f5f7f">这一步必须留下的痕迹</text>
+  <line x1="20" y1="78" x2="800" y2="78" stroke="#1f2328" stroke-width="0.8"/>
+
+  <!-- 第 1 行：活服务器 -->
+  <rect x="20" y="90" width="210" height="48" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="32" y="112" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">活服务器（live web）</text>
+  <text x="32" y="130" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">不能直接训练，只能抓取</text>
+  <text x="250" y="108" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">没有"互联网"这个东西：只有某组种子</text>
+  <text x="250" y="124" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">能到达的一片；被链接得多的站点被过度代表。</text>
+  <text x="530" y="108" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">内容归他人所有——这一步没有任何许可</text>
+  <text x="530" y="124" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">痕迹，只有"别人拥有的东西"这个事实。</text>
+  <line x1="125" y1="138" x2="125" y2="152" stroke="#3b4148" stroke-width="1.1" marker-end="url(#ah)"/>
+
+  <!-- 第 2 行：爬取快照 -->
+  <rect x="20" y="154" width="210" height="48" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="32" y="176" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">爬取快照（WARC / WET）</text>
+  <text x="32" y="194" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">选择 / 礼貌 / 重访三种策略</text>
+  <text x="250" y="172" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">robots.txt、ToS、Cloudflare、限速共同决定</text>
+  <text x="250" y="188" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">可达性，而限制随年份上升（同意在衰退）。</text>
+  <text x="530" y="172" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">dump 编号 + 抓取日期 = 唯一可复现的锚；</text>
+  <text x="530" y="188" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">写"用了 C4"而不写年份，等于没写。</text>
+  <line x1="125" y1="202" x2="125" y2="216" stroke="#3b4148" stroke-width="1.1" marker-end="url(#ah)"/>
+
+  <!-- 第 3 行：抽取为文本 -->
+  <rect x="20" y="218" width="210" height="48" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="32" y="240" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">抽取为文本（HTML→text）</text>
+  <text x="32" y="258" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">trafilatura / resiliparse / jusText</text>
+  <text x="250" y="236" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">WET 是有损的；抽取器选择直接影响模型</text>
+  <text x="250" y="252" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">的下游精度（DCLM 的实验证据）。</text>
+  <text x="530" y="236" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">抽取器名称与版本要写；Nemotron-CC 因为</text>
+  <text x="530" y="252" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">jusText 返回更多 token 而选它——这是决策。</text>
+  <line x1="125" y1="266" x2="125" y2="280" stroke="#3b4148" stroke-width="1.1" marker-end="url(#ah)"/>
+
+  <!-- 第 4 行：过滤与去重 -->
+  <rect x="20" y="282" width="210" height="48" rx="3" fill="#fdf3e3" stroke="#c79a5a" stroke-width="1"/>
+  <text x="32" y="304" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">过滤与去重</text>
+  <text x="32" y="322" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">规则 / 分类器 / MinHash / Bloom</text>
+  <text x="250" y="300" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">语种过滤伤低资源语言；"删含 { 的页面"等于</text>
+  <text x="250" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">删代码；分类器把"好数据"锚在它的正例上。</text>
+  <text x="530" y="300" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">规则全集与顺序、分类器训练集与阈值、</text>
+  <text x="530" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">去重参数（n-gram 长度、Jaccard 阈值）全留档。</text>
+  <line x1="125" y1="330" x2="125" y2="344" stroke="#3b4148" stroke-width="1.1" marker-end="url(#ah)"/>
+
+  <!-- 第 5 行：训练语料 -->
+  <rect x="20" y="346" width="210" height="48" rx="3" fill="#fbe3e3" stroke="#b06060" stroke-width="1"/>
+  <text x="32" y="368" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">配比成训练语料</text>
+  <text x="32" y="386" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">各来源按比例混合</text>
+  <text x="250" y="364" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">配比会把上游的缺失放大：小语种在每一步被</text>
+  <text x="250" y="380" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">削一点，最后在分母里几乎消失。</text>
+  <text x="530" y="364" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">逐条许可不能由集合许可推出（Dolma 是</text>
+  <text x="530" y="380" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">ODC-By，但不等于每条都是）；警惕洗许可。</text>
+
+  <line x1="20" y1="404" x2="800" y2="404" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="20" y="422" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">三条可执行的检查（教材补全）：换一个来源重跑同套过滤看剩下什么；报告被删掉的部分而不只是保留的部分；在小语种/小领域上单独评测。</text>
+  <text x="20" y="438" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">图中箭头的方向是数据流，不是因果链——每一列都在同一行上同时成立，任何一步的改动都会改变最终语料的分布。</text>
+</svg>

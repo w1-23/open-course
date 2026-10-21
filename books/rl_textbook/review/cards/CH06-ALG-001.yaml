@@ -1,0 +1,67 @@
+issue_id: CH06-ALG-001
+chapter: 6
+severity: P1
+status: 已有依据
+title: 终止掩码在五个目标式与算法 6-1 中全部缺失，且全文未区分 terminated 与 truncated
+summary: '第 32、88、216–218、239、287 行的目标式都是 \(r+\gamma\cdot(\cdot)\) 的直接形式：式 (6.2)、式 (6.4)、式 (6.12)、式 (6.14) 与式 (6.17) 里都没有终止掩码 \((1-d_t)\)，终止转移的标签仍带着 \(\gamma Q(s'',\cdot)\)。算法 6-1 第 6 行（第 157 行）同样缺这一项，而它是本章唯一给读者照抄的
+  DQN 实现配方：照此实现在每个回合末尾都会把下一回合首状态的价值混进终止转移的标签，回合越长、价值量级越大，偏差越大。
+
+  更麻烦的是 terminated 与 truncated 被合成一个 done：算法 6-2 第 1 行（第 261 行）与算法 6-3 第 1 行（第 322 行）只存 done，第 4 行与第 3 行用 \((1-\text{done})\)。按 _CONVENTIONS §1.2，因时间上限或采样预算造成的截断必须保留自举，否则价值被系统性低估；正文没有任何一段说明两者区别，读者无法知道自己实现的是哪一种。
+
+  原文对终止的处理是显式的：Atari 上把"掉一条命"构造为终止状态并把折扣置 0（引文）。本章既没写这一惯例，也没写它的代价——它把连续的命制游戏切成人为的回合边界，改变了被优化的那个任务。'
+current_text:
+  file: content/ch06.md
+  lines: 30-36, 88, 148-161, 216-218, 239, 261-268
+  excerpt: '第 32 行：L(\phi)=\mathbb{E}_{(s,a,r,s'')\sim\mathcal{D}}\Bigl[\bigl(r+\gamma\max_{a''}Q_{\bar\phi}(s'',a'')-Q_\phi(s,a)\bigr)^2\Bigr]
+
+    第 157 行：6:   计算 δ_j = R_j + γ Q_φ-(S''_j, arg max_a Q_φ(S''_j, a)) - Q_φ(S_j, A_j)
+
+    第 264 行：4: y = r + γ (1 - done) · min(Q_φ-1(s'', ã''), Q_φ-2(s'', ã''))'
+sources:
+- key: RLbook2020
+  level: S
+  role: 终止状态的价值必须为 0：终止转移不参与自举，正是本章五个目标式缺的那个因子
+  pdf_page: 96
+  printed_page: §4.1 策略评估（迭代策略评估，纸面 p.74）
+  quote: 'each mapping S+ to R (the real numbers). The initial approximation, v0, is chosen
+
+    arbitrarily (except that the terminal state, if any, must be given value 0), and each'
+- key: 1811.12560_intro-to-deep-rl
+  level: C
+  role: Atari 实践：把「掉一条命」构造为终止状态并把折扣置 0（书内转述，非一手实验）
+  pdf_page: 32
+  printed_page: §4 深度强化学习实践
+  quote: 'player has multiple lives, one trick is also to associate a terminal state
+
+    to the loss of a life such that the agent avoids these terminal states (in
+
+    a terminal state the discount factor is set to 0).'
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 本条不需要数值实验：把式 (6.2) 与算法 6-1 第 6 行按终止/非终止两种转移各算一次即可看出差异；若要量化，可用 5×5 网格世界（每回合 20 步上限）比较"缺掩码 / 只掩终止 / 掩终止并保留截断自举"三种实现的价值偏差。
+claims:
+- id: c1
+  text: 终止转移的目标应为 R_{t+1}，不含 γ·max Q(S',·)：等价于把终止处的折扣置 0。
+  evidence: RLbook2020 p0096 原文 "the terminal state, if any, must be given value 0"；对照式 (6.2) 第 32 行
+  status: 已核对
+- id: c2
+  text: 式 (6.2)(6.4)(6.12)(6.14)(6.17) 与算法 6-1 第 6 行都缺掩码，照抄实现会把跨回合价值写进终止标签。
+  evidence: 式 (6.2) 第 32 行、算法 6-1 第 6 行第 157 行逐字核对
+  status: 已核对
+- id: c3
+  text: 截断（时间上限、采样预算）不等于终止，必须保留自举；本章用单一 done 无法表达这个区别。
+  evidence: _CONVENTIONS §1.2「终止与截断（强制）」；文献库内没有对应条目，属项目规范而非文献结论
+  status: 替代证据
+planned_fix:
+- 第 32 行式 (6.2) 之后补一段定义掩码：d_t 为 1 表示终止、0 表示继续，目标写成 r+γ(1−d_t)max_a' Q(s',a')；式 (6.4)(6.12)(6.14)(6.17) 同步加上 (1−d_t)。
+- 第 157 行算法 6-1 第 6 行改为 δ_j = R_j + γ(1 − terminated_j)·Q_φ-(S'_j, argmax) − Q_φ(S_j, A_j)，并在第 1 行把 done 拆成 terminated / truncated 两个字段。
+- 算法 6-2 第 1 行与算法 6-3 第 1 行同样拆分两个字段，第 4 行与第 3 行的 (1−done) 改为 (1−terminated)；并在 6.4.3 补一句：时间上限造成的截断保留自举，否则价值被低估。
+- 6.5.1 补一段 Atari 惯例：掉命即终止、终止折扣置 0；说明它把命制游戏切成人为回合，会改变被优化的任务。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: 施工口径（2026-10-20）：六处目标式 + 三个伪代码块已全部带 (1−d_t)/(1−terminated)，伪代码字段改为 terminated / truncated，6.1.2 新增"终止 vs 截断"两段；关键公式中 Double 与 TD3 两条目标式也同步补了掩码。V(terminal)=0 的依据见 RLbook2020 p0096。

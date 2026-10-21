@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <defs>
+    <marker id="a16" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#3b4148"/>
+    </marker>
+  </defs>
+
+  <text x="10" y="20" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">RLVR 的一步：G 条采样 → 程序判定 → 组内归一化 → 带 KL 的策略更新</text>
+
+  <!-- 第一行：采样与判定 -->
+  <rect x="12" y="44" width="92" height="46" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="24" y="64" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">问题 q</text>
+  <text x="24" y="80" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">可判分数据集</text>
+
+  <line x1="104" y1="67" x2="134" y2="67" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a16)"/>
+
+  <rect x="138" y="44" width="104" height="46" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="148" y="64" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">策略 π_θ 采样</text>
+  <text x="148" y="80" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">G 条，on-policy</text>
+
+  <line x1="242" y1="67" x2="272" y2="67" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a16)"/>
+
+  <rect x="276" y="36" width="146" height="62" rx="3" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
+  <text x="286" y="54" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">o₁ , o₂ , … , o_G</text>
+  <text x="286" y="71" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">长度不一，长尾分布</text>
+  <text x="286" y="87" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">p29：CoT 越训越长</text>
+
+  <line x1="422" y1="67" x2="452" y2="67" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a16)"/>
+
+  <rect x="456" y="36" width="134" height="62" rx="3" fill="#f7f0e8" stroke="#b08a5a" stroke-width="1"/>
+  <text x="466" y="54" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">验证器 V（程序）</text>
+  <text x="466" y="71" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">准确性 + 格式</text>
+  <text x="466" y="87" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">p28：无参数、无代理误差</text>
+
+  <line x1="590" y1="67" x2="620" y2="67" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a16)"/>
+
+  <rect x="624" y="44" width="118" height="46" rx="3" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
+  <text x="634" y="64" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">r_i ∈ {0,1}</text>
+  <text x="634" y="80" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">每条回答一个标量</text>
+
+  <!-- 折返箭头：奖励回到组内归一化 -->
+  <path d="M683,90 C683,124 320,124 320,140" fill="none" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a16)"/>
+
+  <!-- 第二行：归一化与更新 -->
+  <rect x="200" y="144" width="238" height="58" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="210" y="163" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">A_i = (r_i − mean) / (std + 1e-4)</text>
+  <text x="210" y="180" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">p18、p20；std = 0 时整组无梯度</text>
+  <text x="210" y="194" font-family="Times New Roman, serif" font-size="10" fill="#8a4b2a">std 除法不是合法 baseline（p23）</text>
+
+  <line x1="438" y1="172" x2="468" y2="172" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a16)"/>
+
+  <rect x="472" y="144" width="176" height="58" rx="3" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
+  <text x="482" y="163" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">min(ρA, clip(ρ,1±ε)A)</text>
+  <text x="482" y="180" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">ρ = π_θ / π_old，ε = 0.2</text>
+  <text x="482" y="194" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">A_i 在一条序列内是常数</text>
+
+  <text x="660" y="168" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">− β · KL</text>
+  <text x="660" y="184" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">逐 token，p14</text>
+
+  <!-- 底部：成本 -->
+  <line x1="12" y1="222" x2="748" y2="222" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="12" y="242" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">成本结构：</text>
+  <text x="86" y="242" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">单步 rollout token 数 = B · G · |o|；B=512、G=8、|o|=8192 时约 3.4×10⁷ token</text>
+  <text x="12" y="262" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">采样必须自回归逐 token 生成（慢），训练侧再过一遍前反向；长尾长度使 batch 完成时间不均（p45）</text>
+  <text x="12" y="288" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_16.pdf p18、p20、p23、p28、p45 与教材补全的量级计算重绘。成本数字是本书按公式估的，课程未给该数。</text>
+</svg>

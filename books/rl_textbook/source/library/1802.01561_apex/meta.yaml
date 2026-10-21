@@ -1,0 +1,31 @@
+key: 1802.01561_apex
+version: 2026-10-19
+level: S
+role: algorithm
+title: "IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Learner Architectures"
+authors:
+  - Lasse Espeholt
+  - Hubert Soyer
+  - Remi Munos
+  - Karen Simonyan
+  - Volodymir Mnih
+  - Tom Ward
+  - Yotam Doron
+  - Vlad Firoiu
+  - Tim Harley
+  - Iain Dunning
+  - Shane Legg
+  - Koray Kavukcuoglu
+year: 2018
+published: 2018-02-05
+arxiv_id: 1802.01561
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1802.01561_apex.pdf
+bytes: 5601159
+pages: 22
+sha256: a6314455ae8d10055fcfd9848125807ed57449b97b25711eabfe4fa3e54dce0d
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

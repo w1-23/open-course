@@ -1,0 +1,55 @@
+issue_id: CH05-PROP-006
+chapter: 5
+severity: P2
+status: 已核验
+title: 算法 5-2 第 6 行的 GAE 定长求和跨越回合边界，与第 ② 项“terminated/truncated 分别处理”冲突
+summary: 第 ② 项要求分开记录 terminated/truncated，第 5 行的 δ_t 也确实带了 (1−terminated)；但第 6 行把 Â_t 一路求和到 rollout 末尾
+  T−1，没有按回合边界截断。只要某个环境在一个 rollout 内结束过一回合，下一回合的 δ 就会被累进上一条优势（λ>0 时明显），与 ② 声称的“分别处理”直接矛盾。
+current_text:
+  file: content/ch05.md
+  lines: 368-392
+  excerpt: '算法 5-2 第 6 行：Â_t = δ_t + (γλ) δ_{t+1} + ... + (γλ)^{T-t-1} δ_{T-1}   # ③ GAE；第 4 行：记录 terminated
+    与 truncated 两个标志，分别处理   # ②；第 392 行：第 ② 项：终止与截断必须分开记录……'
+sources:
+- key: 1707.06347_ppo
+  level: S
+  role: 原文 Algorithm 1 只写跑 T 步、算 Â_1..Â_T，没有回合边界掩码；本章第 ② 项是超出原文的要求，故必须写进递推
+  pdf_page: 5
+  printed_page: 原文第 5 页 Algorithm 1
+  quote: Run policy πθold in environment for T timesteps
+- key: 1707.06347_ppo
+  level: S
+  role: 同上，Â 在原文只有一行，无边界处理
+  pdf_page: 5
+  printed_page: 原文第 5 页 Algorithm 1
+  quote: Compute advantage estimates ˆA1, . . . , ˆAT end for
+derivation_file: review/derivations/CH05-PROP-006.md
+reproduction_result:
+  note: 推导第 2 节给两回合数值例子：不截断时 Â_0 混入下一回合 δ，误差随 (γλ)^k 衰减但不消失。
+claims:
+- id: c1
+  text: (1−terminated) 只保证终止步的即时自举为零，挡不住后面的 δ 被累进。
+  evidence: 推导第 1 节（展开 Â_t 求和）
+  status: 已核对
+- id: c2
+  text: λ>0 时污染按 (γλ)^k 衰减但不消失；回合越短、复用越多越重。
+  evidence: 推导第 2 节的两回合数值例子
+  status: 已核对
+- id: c3
+  text: 第 ② 项与第 6 行必须同时改，否则算法自相矛盾。
+  evidence: 推导第 1 节；本章第 373 与 375 行对照
+  status: 已核对
+- id: c4
+  text: 修订复核：当前 content/ch05.md 已按本卡修正。
+  evidence: 推导复核（对照原文与现行正文）：算法 5-2 第 6 行现为 Â_t = δ_t + (γλ)(1−done_t)·Â_{t+1}（第 379 行），并在第 398 行补了“终止步与截断步都必须切断跨回合递推”；本卡已落实。
+  status: 已核对
+planned_fix:
+- 第 6 行改为 Â_t = δ_t + (γλ)(1−done_t)·Â_{t+1}，并在第 375 行前补 done_t = terminated_t ∨ truncated_t。
+- 第 392 行补一句：终止步与截断步都要切断跨回合递推，区别只在是否保留 V_φ(s_T) 自举。
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: '2026-10-20'
+  notes: 审计对象 content/ch05.md（562 行）；引文均从 source/pages/ 切片；本章自产实验数字已用 figures/ch05_figs.py 重跑复现（cache/ch05_figs_log.txt）。

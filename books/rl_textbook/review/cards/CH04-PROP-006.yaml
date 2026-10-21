@@ -1,0 +1,67 @@
+issue_id: CH04-PROP-006
+chapter: 4
+severity: P2
+status: 已有依据
+title: 两处数字与表格不一致：不动点比值区间写成 1.045–1.10，d=6 的"两个特征值"未说明是极值
+summary: >
+  第 267 行称"TD 不动点与最优投影只差 1.045 到 1.10 倍"，但按表 4-1 的五行数算出的比值是
+  1.0445、1.1078、1.0887、1.0616、1.0393，区间应为 1.039–1.108，两端都与正文不符（下界差 0.006，
+  上界差 0.008）。第 242 行称"实测 d=6 时 A 的特征值为 0.0144 与 0.0218"：d=6 时 A 是 6×6，
+  有六个特征值，只列两个且未说明它们是极小/极大，读者无法复核。两处都是可机械核对的数字，
+  不影响结论，但会让"实验可复现"的说法打折。
+
+current_text:
+  file: content/ch04.md
+  lines: "242, 257-267"
+  excerpt: >
+    第 267 行：TD 不动点与最优投影只差 1.045 到 1.10 倍
+    第 242 行：实测 d=6 时 A 的特征值为 0.0144 与 0.0218，仍为正实数，迭代稳定
+    表 4-1（第 257–263 行）：d=2/4/6/8/10 的最优投影与不动点两行
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: VE 的定义与量纲（表中各列都是 \|V_\theta-V^\pi\|_\mu^2），用于确认比值应按同一量纲计算
+    pdf_page: 291
+    printed_page: "§11.5 Gradient Descent in the Bellman Error（纸面 p.269）"
+    quote: >
+      The size of this vector, in the norm, is another measure of error in the approximate
+      value function.
+
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: >
+    用表 4-1 的五行直接算比值：5.87/5.62=1.0445，2.26/2.04=1.1078，3.19/2.93=1.0887，
+    2.24/2.11=1.0616，8.73/8.40=1.0393，区间 1.039–1.108。
+    （d=6 的特征值已用 figures/ch04_figs.py 的 experiment1() 复跑核对：脚本打印
+    "d=6 时 A 的最小/最大特征值: 0.0144 / 0.0218"，与正文数字一致，确认这两个数分别是极小与极大特征值。）
+
+claims:
+  - id: c1
+    text: 表 4-1 五行给出的比值区间是 1.039–1.108，不是正文写的 1.045–1.10。
+    evidence: content/ch04.md 第 260–261 行两行数字逐行相除，见本卡 reproduction_result 的复现算式
+    status: 已核对
+  - id: c2
+    text: 0.0144 与 0.0218 分别是 d=6 时 A 的极小与极大特征值（已复跑验证），但正文写成"A 的特征值为 0.0144 与 0.0218"，未说明这只是两个极值，读者会以为 A 只有两个特征值。
+    evidence: figures/ch04_figs.py 的 experiment1() 复跑输出与式 (4.15) 中 A 的维数 d×d
+    status: 已核对
+  - id: c3
+    text: 两处都不改变结论（不动点确实接近最优投影，A 确实正定），但按本书"数字必须可复核"的标准应改。
+    evidence: 式 (4.18) 给出的界与第 267 行结论句对照
+    status: 已核对
+
+planned_fix:
+  - 第 267 行改为"只差 1.04 到 1.11 倍"（或给出五个比值的小表），与表 4-1 对齐。
+  - 第 242 行改为"实测 d=6 时 A 的六个特征值落在 0.0144 到 0.0218 之间，全为正实数"，并注明由 `figures/ch04_figs.py` 生成。
+  - 表 4-1 的表题补一句"比值为每行'不动点/最优投影'，按同列量纲相除"，方便读者复算。
+
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条是数字一致性核对，优先级最低但仍属"可机械证伪"的问题；
+    d=6 的六个特征值不在本卡断言范围内，标为待核验。

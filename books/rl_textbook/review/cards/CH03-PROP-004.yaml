@@ -1,0 +1,77 @@
+issue_id: CH03-PROP-004
+chapter: 3
+severity: P2
+status: 已有依据
+title: ε-软最优策略的价值差写成 O(ε)，漏掉 1/(1−γ) 因子
+summary: >
+  3.2.3 节末句说"最终学到的只是最优的 ε-软策略，价值与最优值相差 O(ε)"。
+  正确量级是 O(ε/(1−γ))：由 ε-贪心对 Q* 展开可直接推出
+  V^*(s) − V^{π*_ε}(s) ≤ ε(R_max−R_min)/(1−γ)。漏掉 1/(1−γ) 会让读者以为探索代价与折扣无关，
+  与本章"折扣决定有效视野"的主线矛盾。S&B 在 p.122 只给 ε-软定义、p.125 只说
+  "best policy among the ε-soft policies"，并未给出界，所以这是作者自加的量化表述，必须写全常数。
+
+current_text:
+  file: content/ch03.md
+  lines: "147-154"
+  excerpt: >
+    称满足式 (3.10) 的策略为 ε-软策略：它把覆盖变成策略自身的性质，代价是最终学到的只是
+    最优的 ε-软策略，价值与最优值相差 \(O(\varepsilon)\)。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: ε-软策略与 ε-贪心的定义（覆盖的定量形式）
+    pdf_page: 122
+    printed_page: "§5.4 Monte Carlo Control without Exploring Starts（纸面 p.100）"
+    quote: >
+      The ε-greedy policies are examples of ε-soft policies, defined as policies for which
+      π(a|s) ≥ ε/|A(s)| for all states and actions, for some ε > 0. Among ε-soft policies,
+      ε-greedy policies are in some sense those that are closest to greedy.
+  - key: RLbook2020
+    level: S
+    role: 上确界式的结论（只到"ε-软策略集中的最优者"，没有给价值差的数量级）
+    pdf_page: 125
+    printed_page: "§5.4 末（纸面 p.103）"
+    quote: >
+      This brings us to roughly the same point as in the previous section. Now we only achieve
+      the best policy among the ε-soft policies, but on the other hand, we have eliminated the
+      assumption of exploring starts.
+    note: >
+      同页紧接 5.5 节进入离策略；全书没有给出 ε-软最优策略与最优策略的价值差公式，
+      因此该量化表述须由正文自行给出并证明（见 derivation_file）。
+
+derivation_file: review/derivations/CH03-PROP-004.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    界由解析推导给出；数值示意只需代入 ε=0.1、R∈[0,1]：γ=0.9 时界为 1.0，γ=0.99 时界为 10.0，
+    相差 10 倍，说明 1/(1−γ) 不能省略。
+
+claims:
+  - id: c1
+    text: V^*(s) − V^{π_ε}(s) = ε[max_a Q^*(s,a) − (1/|A|)Σ_a Q^*(s,a)]，对 ε-贪心策略成立。
+    evidence: 推导第 2 节（把 V^{π_ε} 按 π_ε 展开并整理）
+    status: 已核对
+  - id: c2
+    text: 有界奖励下 V^*(s) − Q^*(s,a) ≤ (R_max−R_min)/(1−γ)，故差距 ≤ ε(R_max−R_min)/(1−γ)，即 O(ε/(1−γ))。
+    evidence: 推导第 2 节的两步夹逼
+    status: 已核对
+  - id: c3
+    text: S&B 未给出该界，正文的 O(ε) 属自加表述，不能以"教材如此"为由保留。
+    evidence: RLbook2020 p.122 与 p.125 原文（只给定义与"best among ε-soft"）
+    status: 已核对
+
+planned_fix:
+  - 第 154 行把 "\(O(\varepsilon)\)" 改为 "\(\varepsilon(R_{\max}-R_{\min})/(1-\gamma)\)，即 \(O(\varepsilon/(1-\gamma))\)"，并标 [精确]。
+  - 第 154 行后补一句："界对 ε 线性、对 γ 是 1/(1−γ) 的——折扣越接近 1，固定的探索成本越大。"
+  - 若不愿给常数，退而写"价值损失随 ε 线性、随 1/(1−γ) 放大"，不得只留 O(ε)。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    ε-软策略集非空、最优 ε-软策略存在，只需有限 MDP 与 γ<1，无需额外假设；
+    本条与 3.5.2 节 GLIE 讨论互为呼应（探索率与折扣的耦合），施工时可一并校口径。

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="246" viewBox="0 0 380 246">
+<style>text{font-family:"Times New Roman",SimSun}.en{font-family:Times New Roman}</style>
+<defs><marker id="ar5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8a4b4b"/></marker></defs>
+<rect x="20" y="12" width="340" height="38" rx="3" fill="#f2f4f7" stroke="#5b6b7f" stroke-width="0.9"/>
+<text x="34" y="27" font-size="8.5" fill="#666"><tspan class="en">2022</tspan></text>
+<text x="78" y="27" font-size="9.5" fill="#1f2328">控制流程</text>
+<text x="78" y="41" font-size="8.2" fill="#555"><tspan class="en">ReAct · Thought–Action–Observation</tspan></text>
+<rect x="20" y="56" width="340" height="38" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="0.9"/>
+<text x="34" y="71" font-size="8.5" fill="#666"><tspan class="en">2023</tspan></text>
+<text x="78" y="71" font-size="9.5" fill="#1f2328">任务内经验记忆</text>
+<text x="78" y="85" font-size="8.2" fill="#555"><tspan class="en">Reflexion · 语言反思记录</tspan></text>
+<rect x="20" y="100" width="340" height="38" rx="3" fill="#e8f0e4" stroke="#7d9b6a" stroke-width="0.9"/>
+<text x="34" y="115" font-size="8.5" fill="#666"><tspan class="en">2023</tspan></text>
+<text x="78" y="115" font-size="9.5" fill="#1f2328">可执行技能库</text>
+<text x="78" y="129" font-size="8.2" fill="#555"><tspan class="en">Voyager · 可组合技能程序</tspan></text>
+<rect x="20" y="144" width="340" height="38" rx="3" fill="#fdf3e3" stroke="#c9a25c" stroke-width="0.9"/>
+<text x="34" y="159" font-size="8.5" fill="#666"><tspan class="en">2023</tspan></text>
+<text x="78" y="159" font-size="9.5" fill="#1f2328">上下文管理</text>
+<text x="78" y="173" font-size="8.2" fill="#555"><tspan class="en">MemGPT · 分层存储接口</tspan></text>
+<rect x="20" y="188" width="340" height="38" rx="3" fill="#f3ecf5" stroke="#9b7da3" stroke-width="0.9"/>
+<text x="34" y="203" font-size="8.5" fill="#666"><tspan class="en">2024</tspan></text>
+<text x="78" y="203" font-size="9.5" fill="#1f2328">代理计算机接口</text>
+<text x="78" y="217" font-size="8.2" fill="#555"><tspan class="en">SWE-agent · Agent-Computer Interface</tspan></text>
+<text x="190" y="238" font-size="8" text-anchor="middle" fill="#5b6b7f">按功能分类；年份仅表示发表时间</text>
+</svg>

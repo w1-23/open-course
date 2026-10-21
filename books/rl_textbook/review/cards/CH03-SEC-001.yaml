@@ -1,0 +1,80 @@
+issue_id: CH03-SEC-001
+chapter: 3
+severity: P2
+status: 已有依据
+title: 「TD 收敛快但停在偏差上」缺常数步长条件，与定理 3.1 的 Robbins–Monro 步长冲突
+summary: >
+  3.3.3 节末句写"TD 每步把估计拉向 T^πV，MC 每步把估计拉向一个无偏样本；前者收敛快但停在偏差上"。
+  "停在偏差上"只对常数步长成立（此时收敛到 V^π 附近宽 O(α) 的邻域，S&B p.55）；
+  在定理 3.1 所用的 Robbins–Monro 步长下，TD 与 Q-learning 都以概率 1 收敛到真值（S&B p.153）。
+  同一章两处对"TD 收敛到哪里"给出不同答案，须限定步长类型。
+
+current_text:
+  file: content/ch03.md
+  lines: "210-221"
+  excerpt: >
+    蒙特卡洛的不动点也是 v^π（样本量趋于无穷时），区别在到达路径：TD 每步把估计拉向 T^πV，
+    MC 每步把估计拉向一个无偏样本；前者收敛快但停在偏差上，后者慢慢消除偏差。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 常数步长下"永不精确收敛、只在真值附近游走"的原文，是"停在偏差上"的唯一依据
+    pdf_page: 55
+    printed_page: "§2.7 步长条件（纸面 p.33）"
+    quote: >
+      Note that both convergence conditions are met for the sample-average case, α_n(a) = 1/n,
+      but not for the case of constant step-size parameter, α_n(a) = α. In the latter case, the
+      second condition is not met, indicating that the estimates never completely converge but
+      continue to vary in response to the most recently received rewards.
+  - key: RLbook2020
+    level: S
+    role: Robbins–Monro 步长下 Q-learning 以概率 1 收敛到 q*，与"停在偏差上"的普遍化表述冲突
+    pdf_page: 153
+    printed_page: "§6.5 Q-learning（纸面 p.131）"
+    quote: >
+      However, all that is required for correct convergence is that all pairs continue to be
+      updated. As we observed in Chapter 5, this is a minimal requirement in the sense that any
+      method guaranteed to find optimal behavior in the general case must require it. Under this
+      assumption and a variant of the usual stochastic approximation conditions on the sequence
+      of step-size parameters, Q has been shown to converge with probability 1 to q*.
+
+derivation_file: review/derivations/CH03-SEC-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条不需要新实验：第 3 章的图 3-3 用的正是常数步长（MC α=0.02、TD α=0.30），曲线后期在
+    0.10 附近抖动而不归零，正是 O(α) 邻域的实测形态；若换成 1/N 步长，两条曲线都会趋于 0。
+
+claims:
+  - id: c1
+    text: 式 (3.15) 的期望更新不动点满足 V=T^πV，即 V^π；"TD(0) 解给定策略的贝尔曼方程"这一句正确。
+    evidence: 由式 (3.15) 取期望更新直接得到（推导同节式 (3.14)）
+    status: 已核对
+  - id: c2
+    text: 原文「停在偏差上」只对常数步长成立：此时估计在 V^π 附近 O(α) 邻域游走，不精确收敛。
+    evidence: RLbook2020 p.55 原文（常数步长不满足 Σα²<∞，"never completely converge"）
+    status: 已核对
+  - id: c3
+    text: 在 Σα=∞、Σα²<∞ 的步长下（定理 3.1 的条件），TD/Q-learning 以概率 1 收敛到真值，"停在偏差上"不能作为普遍性质。
+    evidence: RLbook2020 p.153 原文（Q "converge with probability 1 to q*"）
+    status: 已核对
+  - id: c4
+    text: 该句混用了两个概念：不动点意义下的"解的是贝尔曼方程"（V^π）与有限步长下的"残余偏差"（O(α)），二者不是一回事。
+    evidence: 推导见本节式 (3.15) 与 p.55 的常数步长讨论
+    status: 已核对
+
+planned_fix:
+  - 第 221 行改为："常数步长下 TD 只收敛到 V^π 附近宽 O(α) 的邻域；若改用 Robbins–Monro 步长，两者都以概率 1 收敛到同一个 v^π，差别只是速度而非极限。"并标 [渐近]。
+  - 第 221 行后补一句与 3.5.2 节对齐的指引："表 3-1 里 TD(0) 的'偏差'指有限步长/有限数据下的残余偏差，不是它的不动点性质。"
+  - 检查表 3-1（第 243 行）"TD(0) ｜ 偏差 有，O(γ‖V−v^π‖)"的口径，使其与修正后的第 221 行一致（O(γ‖V−v^π‖) 是自举偏差，不是 O(α) 残余偏差，两处应分别命名）。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条是"条件缺失"而非"结论错误"：作为经验描述（常数步长、有限样本）它是对的，
+    但正文用的是无条件的说法，且与同章定理 3.1 的步长条件直接冲突，属于必须限定的一类表述。

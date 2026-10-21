@@ -1,0 +1,42 @@
+'no': 0
+status: reviewed
+reviewer: author-ch6（独立审校）
+reviewed_at: '2026-10-21'
+source_hash: 'sha256:9137772757a61976'
+equations:
+  - '0.1'
+  - '0.2'
+  - '0.3'
+  - '0.4'
+  - '0.5'
+primary_sources:
+  - RLbook2020
+notes: >-
+  复审通过（首轮 blocked）。5 式逐式判定：4 式五项全 ✓，式 (0.1) 的 S 记 △（T^π 本章未定义，
+  按 lead 意见靠指向第 2 章 2.3 节解决，报告里另给了一条 20 字括注备选）。
+  首轮 5 条缺陷：L87 的 γ^k 速率缺 γ<1 与奖励有界、L145 的 Gibbs 解缺三前提、L20 的"不可计算"过强
+  ——三条已施工并逐字确认；式 (0.1) 的 T^π 与 L69 的 d^π/d^π_γ 两条按 lead 意见保留，措辞已附。
+  与文献比对 3 处（RLbook2020 p.81 Bellman 期望方程、p.126 重要性采样、p.290 投影矩阵 11.13）均等价。
+residual:
+  - id: CH00-MATH-004
+    line: 114
+    equation: '0.1'
+    summary: T^π 本章未定义；lead 意见为导航章按"指向定义"处理，保留
+    proposal: （\(T^\pi\) 为贝尔曼期望算子，见 2.3 节）
+    chars: 20
+  - id: CH00-MATH-005
+    line: 69
+    equation: ''
+    summary: 正文 d^π 与表 0-3 登记的 d^π_γ 不一致；lead 同意见，建议顺手统一
+    proposal: （第 4 章起记 \(d^\pi_\gamma\)）
+    chars: 12
+fixed:
+  - id: CH00-MATH-001
+    line: 87
+    summary: γ^k 收敛速率补回"γ<1 且奖励有界"
+  - id: CH00-MATH-002
+    line: 145
+    summary: Gibbs 解补"逐上下文、π_ref 全支撑、配分函数有限为正"
+  - id: CH00-MATH-003
+    line: 20
+    summary: "「不可计算」改为「只在少数结构下可解，一般状态空间下没有可计算的通用解」"

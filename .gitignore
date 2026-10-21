@@ -1,0 +1,25 @@
+# 缓存、临时输出与原始来源快照
+__pycache__/
+*.py[cod]
+.cache/
+**/cache/
+**/tmp/
+**/tmp_preview/
+.DS_Store
+Thumbs.db
+
+# 构建产生的逐章/中间 PDF；正式合订 PDF 放在仓库根目录。
+books/**/output/**/*.pdf
+books/**/deliverables/**/*.pdf
+
+# 不分发的第三方原文与网页快照。
+books/**/source/pdf/
+books/**/source/html/
+books/**/source/pages/
+books/**/source/text/
+books/**/source/book/
+books/cs336_book/sources/official_course/
+books/cs336_book/sources/assignments/
+books/cs336_book/sources/inputs/course_html/
+books/cs336_book/sources/inputs/course_appendix/
+books/cs336_book/sources/inputs/previous_build/

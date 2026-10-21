@@ -1,0 +1,19 @@
+key: cs285_index
+version: 2026-10-19
+level: A
+role: teaching
+title: CS 185/285
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/cs285_index.html
+bytes: 85519
+pages: null
+sha256: 2552b8477a675d8485dea7fa45369e9a7ca3da923607c8cfb0cb2d2d9886cafd
+retrieved: 2026-10-20
+license_note: "课程讲义/博客：本地核验与教学参考用，引用时标注出处与链接。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

@@ -1,0 +1,492 @@
+[
+ {
+  "arxiv_id": "2310.08560",
+  "id_url": "http://arxiv.org/abs/2310.08560v2",
+  "title": "MemGPT: Towards LLMs as Operating Systems",
+  "published": "2023-10-12T17:51:32Z",
+  "updated": "2024-02-12T18:59:46Z",
+  "authors": [
+   "Charles Packer",
+   "Sarah Wooders",
+   "Kevin Lin",
+   "Vivian Fang",
+   "Shishir G. Patil",
+   "Ion Stoica"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2405.15793",
+  "id_url": "http://arxiv.org/abs/2405.15793v3",
+  "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+  "published": "2024-05-06T17:41:33Z",
+  "updated": "2024-11-11T20:01:15Z",
+  "authors": [
+   "John Yang",
+   "Carlos E. Jimenez",
+   "Alexander Wettig",
+   "Kilian Lieret",
+   "Shunyu Yao",
+   "Karthik Narasimhan"
+  ],
+  "license": null,
+  "primary": "cs.SE"
+ },
+ {
+  "arxiv_id": "2310.04406",
+  "id_url": "http://arxiv.org/abs/2310.04406v3",
+  "title": "Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models",
+  "published": "2023-10-06T17:55:11Z",
+  "updated": "2024-06-06T02:51:17Z",
+  "authors": [
+   "Andy Zhou",
+   "Kai Yan",
+   "Michal Shlapentokh-Rothman",
+   "Haohan Wang",
+   "Yu-Xiong Wang"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2407.21787",
+  "id_url": "http://arxiv.org/abs/2407.21787v3",
+  "title": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+  "published": "2024-07-31T17:57:25Z",
+  "updated": "2024-12-30T19:03:24Z",
+  "authors": [
+   "Bradley Brown",
+   "Jordan Juravsky",
+   "Ryan Ehrlich",
+   "Ronald Clark",
+   "Quoc V. Le",
+   "Christopher Ré"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2504.15228",
+  "id_url": "http://arxiv.org/abs/2504.15228v2",
+  "title": "A Self-Improving Coding Agent",
+  "published": "2025-04-21T16:58:18Z",
+  "updated": "2025-05-16T20:58:56Z",
+  "authors": [
+   "Maxime Robeyns",
+   "Martin Szummer",
+   "Laurence Aitchison"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2210.03629",
+  "id_url": "http://arxiv.org/abs/2210.03629v3",
+  "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+  "published": "2022-10-06T01:00:32Z",
+  "updated": "2023-03-10T01:00:17Z",
+  "authors": [
+   "Shunyu Yao",
+   "Jeffrey Zhao",
+   "Dian Yu",
+   "Nan Du",
+   "Izhak Shafran",
+   "Karthik Narasimhan"
+  ],
+  "license": null,
+  "primary": "cs.CL"
+ },
+ {
+  "arxiv_id": "2305.16291",
+  "id_url": "http://arxiv.org/abs/2305.16291v2",
+  "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+  "published": "2023-05-25T17:46:38Z",
+  "updated": "2023-10-19T16:27:03Z",
+  "authors": [
+   "Guanzhi Wang",
+   "Yuqi Xie",
+   "Yunfan Jiang",
+   "Ajay Mandlekar",
+   "Chaowei Xiao",
+   "Yuke Zhu"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2305.20050",
+  "id_url": "http://arxiv.org/abs/2305.20050v1",
+  "title": "Let's Verify Step by Step",
+  "published": "2023-05-31T17:24:00Z",
+  "updated": "2023-05-31T17:24:00Z",
+  "authors": [
+   "Hunter Lightman",
+   "Vineet Kosaraju",
+   "Yura Burda",
+   "Harri Edwards",
+   "Bowen Baker",
+   "Teddy Lee"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2110.14168",
+  "id_url": "http://arxiv.org/abs/2110.14168v2",
+  "title": "Training Verifiers to Solve Math Word Problems",
+  "published": "2021-10-27T04:49:45Z",
+  "updated": "2021-11-18T00:23:45Z",
+  "authors": [
+   "Karl Cobbe",
+   "Vineet Kosaraju",
+   "Mohammad Bavarian",
+   "Mark Chen",
+   "Heewoo Jun",
+   "Lukasz Kaiser"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2507.21046",
+  "id_url": "http://arxiv.org/abs/2507.21046v4",
+  "title": "A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve on the Path to Artificial Super Intelligence",
+  "published": "2025-07-28T17:59:05Z",
+  "updated": "2026-01-16T20:59:08Z",
+  "authors": [
+   "Huan-ang Gao",
+   "Jiayi Geng",
+   "Wenyue Hua",
+   "Mengkang Hu",
+   "Xinzhe Juan",
+   "Hongzhang Liu"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2212.08073",
+  "id_url": "http://arxiv.org/abs/2212.08073v1",
+  "title": "Constitutional AI: Harmlessness from AI Feedback",
+  "published": "2022-12-15T06:19:23Z",
+  "updated": "2022-12-15T06:19:23Z",
+  "authors": [
+   "Yuntao Bai",
+   "Saurav Kadavath",
+   "Sandipan Kundu",
+   "Amanda Askell",
+   "Jackson Kernion",
+   "Andy Jones"
+  ],
+  "license": null,
+  "primary": "cs.CL"
+ },
+ {
+  "arxiv_id": "1707.06347",
+  "id_url": "http://arxiv.org/abs/1707.06347v2",
+  "title": "Proximal Policy Optimization Algorithms",
+  "published": "2017-07-20T02:32:33Z",
+  "updated": "2017-08-28T09:20:06Z",
+  "authors": [
+   "John Schulman",
+   "Filip Wolski",
+   "Prafulla Dhariwal",
+   "Alec Radford",
+   "Oleg Klimov"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2402.03300",
+  "id_url": "http://arxiv.org/abs/2402.03300v3",
+  "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+  "published": "2024-02-05T18:55:32Z",
+  "updated": "2024-04-27T15:25:53Z",
+  "authors": [
+   "Zhihong Shao",
+   "Peiyi Wang",
+   "Qihao Zhu",
+   "Runxin Xu",
+   "Junxiao Song",
+   "Xiao Bi"
+  ],
+  "license": null,
+  "primary": "cs.CL"
+ },
+ {
+  "arxiv_id": "2305.18290",
+  "id_url": "http://arxiv.org/abs/2305.18290v3",
+  "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+  "published": "2023-05-29T17:57:46Z",
+  "updated": "2024-07-29T22:26:36Z",
+  "authors": [
+   "Rafael Rafailov",
+   "Archit Sharma",
+   "Eric Mitchell",
+   "Stefano Ermon",
+   "Christopher D. Manning",
+   "Chelsea Finn"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2408.06292",
+  "id_url": "http://arxiv.org/abs/2408.06292v3",
+  "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+  "published": "2024-08-12T16:58:11Z",
+  "updated": "2024-09-01T00:41:18Z",
+  "authors": [
+   "Chris Lu",
+   "Cong Lu",
+   "Robert Tjarko Lange",
+   "Jakob Foerster",
+   "Jeff Clune",
+   "David Ha"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2505.22954",
+  "id_url": "http://arxiv.org/abs/2505.22954v3",
+  "title": "Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents",
+  "published": "2025-05-29T00:26:15Z",
+  "updated": "2026-03-12T23:47:40Z",
+  "authors": [
+   "Jenny Zhang",
+   "Shengran Hu",
+   "Cong Lu",
+   "Robert Lange",
+   "Jeff Clune"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2401.10020",
+  "id_url": "http://arxiv.org/abs/2401.10020v3",
+  "title": "Self-Rewarding Language Models",
+  "published": "2024-01-18T14:43:47Z",
+  "updated": "2025-03-28T00:06:51Z",
+  "authors": [
+   "Weizhe Yuan",
+   "Richard Yuanzhe Pang",
+   "Kyunghyun Cho",
+   "Xian Li",
+   "Sainbayar Sukhbaatar",
+   "Jing Xu"
+  ],
+  "license": null,
+  "primary": "cs.CL"
+ },
+ {
+  "arxiv_id": "2303.11366",
+  "id_url": "http://arxiv.org/abs/2303.11366v4",
+  "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+  "published": "2023-03-20T18:08:50Z",
+  "updated": "2023-10-10T05:21:45Z",
+  "authors": [
+   "Noah Shinn",
+   "Federico Cassano",
+   "Edward Berman",
+   "Ashwin Gopinath",
+   "Karthik Narasimhan",
+   "Shunyu Yao"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2203.14465",
+  "id_url": "http://arxiv.org/abs/2203.14465v2",
+  "title": "STaR: Bootstrapping Reasoning With Reasoning",
+  "published": "2022-03-28T03:12:15Z",
+  "updated": "2022-05-20T13:52:54Z",
+  "authors": [
+   "Eric Zelikman",
+   "Yuhuai Wu",
+   "Jesse Mu",
+   "Noah D. Goodman"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "1706.03741",
+  "id_url": "http://arxiv.org/abs/1706.03741v4",
+  "title": "Deep reinforcement learning from human preferences",
+  "published": "2017-06-12T17:23:59Z",
+  "updated": "2023-02-17T17:00:34Z",
+  "authors": [
+   "Paul Christiano",
+   "Jan Leike",
+   "Tom B. Brown",
+   "Miljan Martic",
+   "Shane Legg",
+   "Dario Amodei"
+  ],
+  "license": null,
+  "primary": "stat.ML"
+ },
+ {
+  "arxiv_id": "cs/0309048",
+  "id_url": "http://arxiv.org/abs/cs/0309048v5",
+  "title": "Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements",
+  "published": "2003-09-25T15:59:46Z",
+  "updated": "2006-12-17T23:01:13Z",
+  "authors": [
+   "Juergen Schmidhuber"
+  ],
+  "license": null,
+  "primary": "cs.LO"
+ },
+ {
+  "arxiv_id": "2503.14476",
+  "id_url": "http://arxiv.org/abs/2503.14476v2",
+  "title": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+  "published": "2025-03-18T17:49:06Z",
+  "updated": "2025-05-20T01:37:34Z",
+  "authors": [
+   "Qiying Yu",
+   "Zheng Zhang",
+   "Ruofei Zhu",
+   "Yufeng Yuan",
+   "Xiaochen Zuo",
+   "Yu Yue"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2408.08435",
+  "id_url": "http://arxiv.org/abs/2408.08435v2",
+  "title": "Automated Design of Agentic Systems",
+  "published": "2024-08-15T21:59:23Z",
+  "updated": "2025-03-02T05:13:28Z",
+  "authors": [
+   "Shengran Hu",
+   "Cong Lu",
+   "Jeff Clune"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2203.02155",
+  "id_url": "http://arxiv.org/abs/2203.02155v1",
+  "title": "Training language models to follow instructions with human feedback",
+  "published": "2022-03-04T07:04:42Z",
+  "updated": "2022-03-04T07:04:42Z",
+  "authors": [
+   "Long Ouyang",
+   "Jeff Wu",
+   "Xu Jiang",
+   "Diogo Almeida",
+   "Carroll L. Wainwright",
+   "Pamela Mishkin"
+  ],
+  "license": null,
+  "primary": "cs.CL"
+ },
+ {
+  "arxiv_id": "2603.06333",
+  "id_url": "http://arxiv.org/abs/2603.06333v1",
+  "title": "SAHOO: Safeguarded Alignment for High-Order Optimization Objectives in Recursive Self-Improvement",
+  "published": "2026-03-06T14:44:51Z",
+  "updated": "2026-03-06T14:44:51Z",
+  "authors": [
+   "Subramanyam Sahoo",
+   "Aman Chadha",
+   "Vinija Jain",
+   "Divya Chaudhary"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2503.14499",
+  "id_url": "http://arxiv.org/abs/2503.14499v4",
+  "title": "Measuring AI Ability to Complete Long Software Tasks",
+  "published": "2025-03-18T17:59:31Z",
+  "updated": "2026-07-10T21:48:09Z",
+  "authors": [
+   "Thomas Kwa",
+   "Ben West",
+   "Joel Becker",
+   "Amy Deng",
+   "Katharyn Garcia",
+   "Max Hasin"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2312.08935",
+  "id_url": "http://arxiv.org/abs/2312.08935v3",
+  "title": "Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations",
+  "published": "2023-12-14T13:41:54Z",
+  "updated": "2024-02-19T14:07:53Z",
+  "authors": [
+   "Peiyi Wang",
+   "Lei Li",
+   "Zhihong Shao",
+   "R. X. Xu",
+   "Damai Dai",
+   "Yifei Li"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2408.03314",
+  "id_url": "http://arxiv.org/abs/2408.03314v1",
+  "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+  "published": "2024-08-06T17:35:05Z",
+  "updated": "2024-08-06T17:35:05Z",
+  "authors": [
+   "Charlie Snell",
+   "Jaehoon Lee",
+   "Kelvin Xu",
+   "Aviral Kumar"
+  ],
+  "license": null,
+  "primary": "cs.LG"
+ },
+ {
+  "arxiv_id": "2410.04444",
+  "id_url": "http://arxiv.org/abs/2410.04444v4",
+  "title": "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement",
+  "published": "2024-10-06T10:49:40Z",
+  "updated": "2025-05-31T07:33:17Z",
+  "authors": [
+   "Xunjian Yin",
+   "Xinyi Wang",
+   "Liangming Pan",
+   "Li Lin",
+   "Xiaojun Wan",
+   "William Yang Wang"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ },
+ {
+  "arxiv_id": "2510.21614",
+  "id_url": "http://arxiv.org/abs/2510.21614v3",
+  "title": "Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine",
+  "published": "2025-10-24T16:19:41Z",
+  "updated": "2025-10-29T13:57:25Z",
+  "authors": [
+   "Wenyi Wang",
+   "Piotr Piękos",
+   "Li Nanbo",
+   "Firas Laakom",
+   "Yimeng Chen",
+   "Mateusz Ostaszewski"
+  ],
+  "license": null,
+  "primary": "cs.AI"
+ }
+]

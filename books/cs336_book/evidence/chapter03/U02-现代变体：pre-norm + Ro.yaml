@@ -1,0 +1,21 @@
+unit_id: CH03-U02
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 现代变体：pre-norm + RoPE + SwiGLU
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p4
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'What you implemented – simple, modern variant / Differences: / • / LayerNorm is in front of
+    the block / • / Rotary position embeddings (RoPE) / • / FF layers use SwiGLU, not ReLU / • / Linear
+    layers (and layernorm) have no / bias (constant) terms / Why did we pick these? / What should you
+    pick?'
+technical_evidence: []
+knowledge_slot:
+  why_it_matters: 作业里实现的现代变体与原版的四点差异
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: course_only
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

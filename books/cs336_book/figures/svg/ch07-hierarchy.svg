@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="336" viewBox="0 0 720 336">
+  <!-- MuPDF 不解析 <style>，全部内联属性。横轴为对数刻度：95 px ≈ 10 倍带宽。 -->
+  <text x="10" y="22" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">多卡通信的带宽阶梯：从 HBM 到以太网约 4×10⁴ 倍落差</text>
+  <line x1="150" y1="40" x2="150" y2="292" stroke="#c9ccd1" stroke-width="1"/>
+  <text x="12" y="322" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">横轴为对数刻度，每 95 px 约 10 倍（图上不标刻度线）；数值取自 lecture_07.py 第 212–220 行。</text>
+
+  <text x="12" y="71" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">HBM（单卡内）</text>
+  <rect x="150" y="58" width="466" height="20" rx="2" fill="#33414f"/>
+  <text x="622" y="72" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">8 TB/s</text>
+
+  <text x="12" y="117" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">NVLink 5.0 / NVSwitch</text>
+  <rect x="150" y="104" width="404" height="20" rx="2" fill="#4a6076"/>
+  <text x="560" y="118" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">1.8 TB/s（节点内 8 卡）</text>
+
+  <text x="12" y="163" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">PCIe 7.0 ×16</text>
+  <rect x="150" y="150" width="322" height="20" rx="2" fill="#71879c"/>
+  <text x="478" y="164" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">242 GB/s</text>
+
+  <text x="12" y="209" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">InfiniBand</text>
+  <rect x="150" y="196" width="256" height="20" rx="2" fill="#9aabbb"/>
+  <text x="412" y="210" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">≈0.05 TB/s（跨节点）</text>
+
+  <text x="12" y="255" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">Ethernet</text>
+  <rect x="150" y="242" width="29" height="20" rx="2" fill="#c9ccd1"/>
+  <text x="185" y="256" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">≈200 MB/s</text>
+
+  <text x="12" y="304" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">编程模型上的层级（L1/共享内存 → HBM → NVLink → InfiniBand → 以太网）见第 28–32 行。</text>
+</svg>

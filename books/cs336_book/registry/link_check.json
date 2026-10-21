@@ -1,0 +1,196 @@
+{
+ "total": 45,
+ "broken": 1,
+ "commented": 1,
+ "ignored": [
+  "https://fonts.googleapis.com",
+  "https://fonts.gstatic.com",
+  "https://fonts.googleapis.com/css?family=Roboto:400,300"
+ ],
+ "commented_links": [
+  "https://github.com/stanford-cs336/spring2026-lectures/blob/main/nonexecutable/Lecture%207%20-%20Parallelism%20basics.pdf"
+ ],
+ "checked": [
+  {
+   "url": "https://cs336.stanford.edu/",
+   "status": 200
+  },
+  {
+   "url": "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css",
+   "status": 200
+  },
+  {
+   "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
+   "status": 200
+  },
+  {
+   "url": "https://nlp.stanford.edu/",
+   "status": 200
+  },
+  {
+   "url": "https://crfm.stanford.edu",
+   "status": 200
+  },
+  {
+   "url": "https://thashim.github.io/",
+   "status": 200
+  },
+  {
+   "url": "https://cs.stanford.edu/~pliang/",
+   "status": 200
+  },
+  {
+   "url": "https://brunborg.com",
+   "status": 200
+  },
+  {
+   "url": "https://marcel.roed.me",
+   "status": 200
+  },
+  {
+   "url": "https://stevenxcao.github.io/",
+   "status": 200
+  },
+  {
+   "url": "https://campus-map.stanford.edu/?srch=Skilling+Auditorium",
+   "status": 200
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=JuoVZkPBiKk&amp;list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment1-basics/tree/main",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment2-systems/tree/main",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment3-scaling/tree/main",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment4-data/tree/main",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment5-alignment/tree/main",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment5-alignment/blob/main/cs336_spring2025_assignment5_supplement_safety_rlhf.pdf",
+   "status": 404
+  },
+  {
+   "url": "https://modal.com",
+   "status": 200
+  },
+  {
+   "url": "https://modal.com/pricing",
+   "status": 200
+  },
+  {
+   "url": "https://lambda.ai",
+   "status": 200
+  },
+  {
+   "url": "https://lambda.ai/pricing",
+   "status": 200
+  },
+  {
+   "url": "https://www.runpod.io",
+   "status": 200
+  },
+  {
+   "url": "https://www.runpod.io/pricing",
+   "status": 200
+  },
+  {
+   "url": "https://nebius.com/",
+   "status": 200
+  },
+  {
+   "url": "https://nebius.com/prices",
+   "status": 200
+  },
+  {
+   "url": "https://www.together.ai/",
+   "status": 200
+  },
+  {
+   "url": "https://www.together.ai/pricing#gpu-clusters",
+   "status": 200
+  },
+  {
+   "url": "https://ed.stanford.edu/academics/masters-handbook/honor-code",
+   "status": 200
+  },
+  {
+   "url": "https://docs.google.com/document/d/1SZAlExB1qAc9izHt54gwunNpjKE6wXb8Y7yA_e-baK8",
+   "status": 200
+  },
+  {
+   "url": "https://gist.github.com/1cg/a6c6f2276a1fe5ee172282580a44a7ac",
+   "status": 200
+  },
+  {
+   "url": "https://modal.jobs/",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_04.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_05.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment2-systems/blob/main/cs336_assignment2_systems.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_08.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_09.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment3-scaling/blob/main/cs336_assignment3_scaling.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment4-data/blob/main/cs336_assignment4_data.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_15.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/lectures/blob/main/lecture_16.pdf",
+   "status": 200
+  },
+  {
+   "url": "https://github.com/stanford-cs336/assignment5-alignment/blob/main/cs336_spring2026_assignment5_alignment.pdf",
+   "status": 200
+  }
+ ],
+ "generated": "2026-10-20 18:23"
+}

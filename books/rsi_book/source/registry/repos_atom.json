@@ -1,0 +1,22 @@
+{
+ "MaximeRobeyns/self_improving_coding_agent": {
+  "branch": "master",
+  "head_commit": "ed8275dca4d3c5dbf77229964351fe9b424797dc",
+  "date": "2025-04-23T23:28:08Z"
+ },
+ "jennyzzt/dgm": {
+  "branch": "main",
+  "head_commit": "a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2",
+  "date": "2025-08-13T10:40:14Z"
+ },
+ "metauto-ai/HGM": {
+  "branch": "main",
+  "head_commit": "013872d95da978483f5b540e531db063d23890da",
+  "date": "2026-02-07T21:30:42Z"
+ },
+ "sakanaai/AI-Scientist": {
+  "branch": "main",
+  "head_commit": "1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb",
+  "date": "2025-12-19T07:46:21Z"
+ }
+}

@@ -1,0 +1,734 @@
+﻿chapter,slot,slug,idx,file,src,w,h,kb,kind,action,reason,status
+01,1,lecture01-overview-tokenization,0,000.jpg,assets/cover.jpg,1280,720,40.4,cover-art,keep,封面素材，无文字信息,assigned
+01,1,lecture01-overview-tokenization,1,001.png,assets/gpt4-no-details.png,1115,444,180.0,photo,keep,照片/实物图，保留原图,assigned
+01,1,lecture01-overview-tokenization,2,002.png,assets/roller-flops.png,600,474,154.2,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+01,1,lecture01-overview-tokenization,3,003.png,assets/wei-emergence-plot.png,777,549,101.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+01,1,lecture01-overview-tokenization,4,004.png,assets/divine-benevolence.png,1267,245,92.0,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+01,1,lecture01-overview-tokenization,5,005.png,assets/transformer-architecture.png,965,837,163.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+01,1,lecture01-overview-tokenization,6,006.png,assets/compute-memory.png,709,621,16.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+01,1,lecture01-overview-tokenization,7,007.png,assets/prefill-decode.png,647,248,28.6,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+01,1,lecture01-overview-tokenization,8,008.png,assets/chinchilla-isoflop.png,2421,727,195.4,photo,keep,照片/实物图，保留原图,assigned
+01,1,lecture01-overview-tokenization,9,009.png,assets/tokenized-example.png,2395,983,151.3,photo,keep,照片/实物图，保留原图,assigned
+01,1,lecture01-overview-tokenization,10,010.jpg,assets/tokenizer-roundtrip-runtime.jpg,1920,1080,202.5,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,11,011.jpg,assets/tokenizer-compression-runtime.jpg,1920,1080,216.2,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,12,012.jpg,assets/character-tokenizer-runtime.jpg,1920,1080,229.6,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,13,013.jpg,assets/byte-tokenizer-runtime.jpg,1920,1080,182.7,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,14,014.jpg,assets/word-tokenizer-runtime.jpg,1920,1080,181.8,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,15,015.jpg,assets/bpe-first-merge-runtime.jpg,1920,1080,116.5,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,16,016.jpg,assets/bpe-encode-runtime.jpg,1920,1080,157.2,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+01,1,lecture01-overview-tokenization,17,017.jpg,assets/tokenization-final-properties.jpg,1920,1080,181.3,photo,keep,照片/实物图，保留原图,assigned
+02,2,lecture02-pytorch-einops,0,000.jpg,assets/cover.jpg,1280,720,40.5,cover-art,keep,封面素材，无文字信息,assigned
+02,2,lecture02-pytorch-einops,1,001.jpg,assets/video-capacity-12-bytes-per-parameter.jpg,1920,1080,210.3,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,2,002.png,assets/fp32.png,2064,262,38.9,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+02,2,lecture02-pytorch-einops,3,003.png,assets/fp16.png,1081,281,30.8,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+02,2,lecture02-pytorch-einops,4,004.png,assets/bf16.png,1096,277,25.0,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+02,2,lecture02-pytorch-einops,5,005.png,assets/cpu-gpu.png,850,273,34.9,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+02,2,lecture02-pytorch-einops,6,006.jpg,assets/video-mfu-definition.jpg,1920,1080,190.2,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,7,007.jpg,assets/video-arithmetic-intensity-threshold.jpg,1920,1080,181.0,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,8,008.jpg,assets/video-matmul-compute-bound.jpg,1920,1080,180.2,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,9,009.jpg,assets/video-roofline.jpg,1920,1080,120.8,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,10,010.png,assets/deep-network.png,1637,319,17.8,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+02,2,lecture02-pytorch-einops,11,011.jpg,assets/video-training-flops-6np.jpg,1920,1080,164.6,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,12,012.jpg,assets/video-gradient-accumulation.jpg,1920,1080,147.3,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,13,013.jpg,assets/video-checkpoint-frequency.jpg,1920,1080,193.1,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+02,2,lecture02-pytorch-einops,14,014.jpg,assets/video-lecture-summary.jpg,1920,1080,228.3,video-frame,drop,视频关键帧，信息重复且分辨率低，正文用文字描述替代,assigned
+03,3,lecture03-architectures,0,000.jpg,assets/cover.jpg,1280,720,50.0,cover-art,keep,封面素材，无文字信息,assigned
+03,3,lecture03-architectures,1,001.jpg,assets/slides/slide-001.jpg,1300,732,38.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,2,002.jpg,assets/slides/slide-002.jpg,1300,732,67.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,3,003.jpg,assets/slides/slide-003.jpg,1300,732,86.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,4,004.jpg,assets/slides/slide-004.jpg,1300,732,82.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,5,005.jpg,assets/slides/slide-005.jpg,1300,732,127.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,6,006.jpg,assets/slides/slide-006.jpg,1300,732,123.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,7,007.jpg,assets/slides/slide-007.jpg,1300,732,104.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,8,008.jpg,assets/slides/slide-008.jpg,1300,732,56.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,9,009.jpg,assets/slides/slide-009.jpg,1300,732,97.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,10,010.jpg,assets/slides/slide-010.jpg,1300,732,101.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,11,011.jpg,assets/slides/slide-011.jpg,1300,732,92.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,12,012.jpg,assets/slides/slide-012.jpg,1300,732,100.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,13,013.jpg,assets/slides/slide-013.jpg,1300,732,66.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,14,014.jpg,assets/slides/slide-014.jpg,1300,732,63.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,15,015.jpg,assets/slides/slide-015.jpg,1300,732,72.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,16,016.jpg,assets/slides/slide-016.jpg,1300,732,76.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,17,017.jpg,assets/slides/slide-017.jpg,1300,732,80.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,18,018.jpg,assets/slides/slide-018.jpg,1300,732,58.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,19,019.jpg,assets/slides/slide-019.jpg,1300,732,74.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,20,020.jpg,assets/slides/slide-020.jpg,1300,732,46.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,21,021.jpg,assets/slides/slide-021.jpg,1300,732,71.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,22,022.jpg,assets/slides/slide-022.jpg,1300,732,68.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,23,023.jpg,assets/slides/slide-023.jpg,1300,732,71.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,24,024.jpg,assets/slides/slide-024.jpg,1300,732,72.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,25,025.jpg,assets/slides/slide-025.jpg,1300,732,110.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,26,026.jpg,assets/slides/slide-026.jpg,1300,732,57.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,27,027.jpg,assets/slides/slide-027.jpg,1300,732,58.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,28,028.jpg,assets/slides/slide-028.jpg,1300,732,118.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,29,029.jpg,assets/slides/slide-029.jpg,1300,732,109.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,30,030.jpg,assets/slides/slide-030.jpg,1300,732,78.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,31,031.jpg,assets/slides/slide-031.jpg,1300,732,85.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,32,032.jpg,assets/slides/slide-032.jpg,1300,732,77.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,33,033.jpg,assets/slides/slide-033.jpg,1300,732,94.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,34,034.jpg,assets/slides/slide-034.jpg,1300,732,56.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,35,035.jpg,assets/slides/slide-035.jpg,1300,732,87.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,36,036.jpg,assets/slides/slide-036.jpg,1300,732,72.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,37,037.jpg,assets/slides/slide-037.jpg,1300,732,62.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,38,038.jpg,assets/slides/slide-038.jpg,1300,732,84.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,39,039.jpg,assets/slides/slide-039.jpg,1300,732,101.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,40,040.jpg,assets/slides/slide-040.jpg,1300,732,59.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,41,041.jpg,assets/slides/slide-041.jpg,1300,732,78.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,42,042.jpg,assets/slides/slide-042.jpg,1300,732,96.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,43,043.jpg,assets/slides/slide-043.jpg,1300,732,89.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,44,044.jpg,assets/slides/slide-044.jpg,1300,732,71.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,45,045.jpg,assets/slides/slide-045.jpg,1300,732,100.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,46,046.jpg,assets/slides/slide-046.jpg,1300,732,77.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,47,047.jpg,assets/slides/slide-047.jpg,1300,732,80.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,48,048.jpg,assets/slides/slide-048.jpg,1300,732,58.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,49,049.jpg,assets/slides/slide-049.jpg,1300,732,72.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,50,050.jpg,assets/slides/slide-050.jpg,1300,732,92.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,51,051.jpg,assets/slides/slide-051.jpg,1300,732,106.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,52,052.jpg,assets/slides/slide-052.jpg,1300,732,79.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,53,053.jpg,assets/slides/slide-053.jpg,1300,732,63.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,54,054.jpg,assets/slides/slide-054.jpg,1300,732,85.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,55,055.jpg,assets/slides/slide-055.jpg,1300,732,90.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,56,056.svg,assets/qk-norm-flow.svg,0,0,3.9,vector-source,svg,源文件就是矢量图，直接以 SVG 重绘/复用，避免位图化,assigned
+03,3,lecture03-architectures,57,057.jpg,assets/slides/slide-056.jpg,1300,732,85.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,58,058.jpg,assets/slides/slide-057.jpg,1300,732,64.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,59,059.jpg,assets/slides/slide-058.jpg,1300,732,74.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,60,060.jpg,assets/slides/slide-059.jpg,1300,732,78.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,61,061.jpg,assets/slides/slide-060.jpg,1300,732,68.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,62,062.jpg,assets/slides/slide-061.jpg,1300,732,87.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,63,063.jpg,assets/slides/slide-062.jpg,1300,732,76.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,64,064.jpg,assets/slides/slide-063.jpg,1300,732,76.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,65,065.jpg,assets/slides/slide-064.jpg,1300,732,82.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,66,066.jpg,assets/slides/slide-065.jpg,1300,732,75.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,67,067.jpg,assets/slides/slide-066.jpg,1300,732,82.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+03,3,lecture03-architectures,68,068.jpg,assets/slides/slide-067.jpg,1300,732,99.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,0,000.jpg,assets/cover.jpg,1280,720,62.2,cover-art,keep,封面素材，无文字信息,assigned
+04,4,lecture04-attention-alternatives,1,001.jpg,assets/slides/slide-001.jpg,1300,732,32.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,2,002.jpg,assets/slides/slide-002.jpg,1300,732,73.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,3,003.jpg,assets/slides/slide-003.jpg,1300,732,92.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,4,004.jpg,assets/slides/slide-004.jpg,1300,732,66.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,5,005.jpg,assets/slides/slide-005.jpg,1300,732,70.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,6,006.jpg,assets/slides/slide-006.jpg,1300,732,104.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,7,007.jpg,assets/slides/slide-007.jpg,1300,732,94.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,8,008.jpg,assets/slides/slide-008.jpg,1300,732,77.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,9,009.jpg,assets/slides/slide-009.jpg,1300,732,82.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,10,010.jpg,assets/slides/slide-010.jpg,1300,732,84.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,11,011.jpg,assets/slides/slide-011.jpg,1300,732,101.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,12,012.jpg,assets/slides/slide-012.jpg,1300,732,108.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,13,013.jpg,assets/slides/slide-013.jpg,1300,732,108.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,14,014.jpg,assets/slides/slide-014.jpg,1300,732,100.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,15,015.jpg,assets/slides/slide-015.jpg,1300,732,79.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,16,016.jpg,assets/slides/slide-016.jpg,1300,732,64.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,17,017.jpg,assets/slides/slide-017.jpg,1300,732,87.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,18,018.jpg,assets/slides/slide-018.jpg,1300,732,69.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,19,019.jpg,assets/slides/slide-019.jpg,1300,732,75.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,20,020.jpg,assets/slides/slide-020.jpg,1300,732,62.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,21,021.jpg,assets/slides/slide-021.jpg,1300,732,71.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,22,022.jpg,assets/slides/slide-022.jpg,1300,732,102.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,23,023.jpg,assets/slides/slide-023.jpg,1300,732,78.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,24,024.jpg,assets/slides/slide-024.jpg,1300,732,110.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,25,025.jpg,assets/slides/slide-025.jpg,1300,732,74.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,26,026.jpg,assets/slides/slide-026.jpg,1300,732,32.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,27,027.jpg,assets/slides/slide-027.jpg,1300,732,86.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,28,028.jpg,assets/slides/slide-028.jpg,1300,732,63.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,29,029.jpg,assets/slides/slide-029.jpg,1300,732,83.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,30,030.jpg,assets/slides/slide-030.jpg,1300,732,81.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,31,031.jpg,assets/slides/slide-031.jpg,1300,732,79.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,32,032.jpg,assets/slides/slide-032.jpg,1300,732,94.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,33,033.jpg,assets/slides/slide-033.jpg,1300,732,99.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,34,034.jpg,assets/slides/slide-034.jpg,1300,732,86.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,35,035.jpg,assets/slides/slide-035.jpg,1300,732,81.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,36,036.jpg,assets/slides/slide-036.jpg,1300,732,59.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,37,037.jpg,assets/slides/slide-037.jpg,1300,732,98.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,38,038.jpg,assets/slides/slide-038.jpg,1300,732,79.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,39,039.jpg,assets/slides/slide-039.jpg,1300,732,88.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,40,040.jpg,assets/slides/slide-040.jpg,1300,732,83.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,41,041.jpg,assets/slides/slide-041.jpg,1300,732,62.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,42,042.jpg,assets/slides/slide-042.jpg,1300,732,83.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,43,043.jpg,assets/slides/slide-043.jpg,1300,732,94.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,44,044.jpg,assets/slides/slide-044.jpg,1300,732,105.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,45,045.jpg,assets/slides/slide-045.jpg,1300,732,87.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,46,046.jpg,assets/slides/slide-046.jpg,1300,732,73.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,47,047.jpg,assets/slides/slide-047.jpg,1300,732,100.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,48,048.jpg,assets/slides/slide-048.jpg,1300,732,87.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,49,049.jpg,assets/slides/slide-049.jpg,1300,732,82.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,50,050.jpg,assets/slides/slide-050.jpg,1300,732,86.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,51,051.jpg,assets/slides/slide-051.jpg,1300,732,82.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,52,052.jpg,assets/slides/slide-052.jpg,1300,732,94.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,53,053.jpg,assets/slides/slide-053.jpg,1300,732,67.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,54,054.jpg,assets/slides/slide-054.jpg,1300,732,72.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,55,055.jpg,assets/slides/slide-055.jpg,1300,732,89.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,56,056.jpg,assets/slides/slide-056.jpg,1300,732,75.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,57,057.jpg,assets/slides/slide-057.jpg,1300,732,87.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,58,058.jpg,assets/slides/slide-058.jpg,1300,732,105.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,59,059.jpg,assets/slides/slide-059.jpg,1300,732,125.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+04,4,lecture04-attention-alternatives,60,060.jpg,assets/slides/slide-060.jpg,1300,732,52.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,0,000.jpg,assets/cover.jpg,1280,720,51.2,cover-art,keep,封面素材，无文字信息,assigned
+05,5,lecture05-gpus-tpus,1,001.jpg,assets/slides/slide-001.jpg,1300,732,26.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,2,002.jpg,assets/slides/slide-002.jpg,1300,732,103.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,3,003.jpg,assets/slides/slide-003.jpg,1300,732,85.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,4,004.jpg,assets/slides/slide-004.jpg,1300,732,46.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,5,005.jpg,assets/slides/slide-005.jpg,1300,732,75.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,6,006.jpg,assets/slides/slide-006.jpg,1300,732,95.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,7,007.jpg,assets/slides/slide-007.jpg,1300,732,68.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,8,008.jpg,assets/slides/slide-008.jpg,1300,732,90.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,9,009.jpg,assets/slides/slide-009.jpg,1300,732,119.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,10,010.jpg,assets/slides/slide-010.jpg,1300,732,162.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,11,011.jpg,assets/slides/slide-011.jpg,1300,732,116.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,12,012.jpg,assets/slides/slide-012.jpg,1300,732,89.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,13,013.jpg,assets/slides/slide-013.jpg,1300,732,103.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,14,014.jpg,assets/slides/slide-014.jpg,1300,732,99.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,15,015.jpg,assets/slides/slide-015.jpg,1300,732,81.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,16,016.jpg,assets/slides/slide-016.jpg,1300,732,86.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,17,017.jpg,assets/slides/slide-017.jpg,1300,732,64.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,18,018.jpg,assets/slides/slide-018.jpg,1300,732,87.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,19,019.jpg,assets/slides/slide-019.jpg,1300,732,87.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,20,020.jpg,assets/slides/slide-020.jpg,1300,732,87.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,21,021.jpg,assets/slides/slide-021.jpg,1300,732,59.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,22,022.jpg,assets/slides/slide-022.jpg,1300,732,45.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,23,023.jpg,assets/slides/slide-023.jpg,1300,732,81.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,24,024.jpg,assets/slides/slide-024.jpg,1300,732,61.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,25,025.jpg,assets/slides/slide-025.jpg,1300,732,71.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,26,026.jpg,assets/slides/slide-026.jpg,1300,732,80.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,27,027.jpg,assets/slides/slide-027.jpg,1300,732,80.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,28,028.jpg,assets/slides/slide-028.jpg,1300,732,77.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,29,029.jpg,assets/slides/slide-029.jpg,1300,732,61.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,30,030.jpg,assets/slides/slide-030.jpg,1300,732,74.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,31,031.jpg,assets/slides/slide-031.jpg,1300,732,66.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,32,032.jpg,assets/slides/slide-032.jpg,1300,732,66.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,33,033.jpg,assets/slides/slide-033.jpg,1300,732,63.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,34,034.jpg,assets/slides/slide-034.jpg,1300,732,69.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,35,035.jpg,assets/slides/slide-035.jpg,1300,732,74.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,36,036.jpg,assets/slides/slide-036.jpg,1300,732,67.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,37,037.jpg,assets/slides/slide-037.jpg,1300,732,113.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,38,038.jpg,assets/slides/slide-038.jpg,1300,732,101.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,39,039.jpg,assets/slides/slide-039.jpg,1300,732,74.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,40,040.jpg,assets/slides/slide-040.jpg,1300,732,88.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,41,041.jpg,assets/slides/slide-041.jpg,1300,732,96.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,42,042.jpg,assets/slides/slide-042.jpg,1300,732,94.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,43,043.jpg,assets/slides/slide-043.jpg,1300,732,74.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,44,044.jpg,assets/slides/slide-044.jpg,1300,732,86.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,45,045.jpg,assets/slides/slide-045.jpg,1300,732,74.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,46,046.jpg,assets/slides/slide-046.jpg,1300,732,75.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,47,047.jpg,assets/slides/slide-047.jpg,1300,732,73.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,48,048.jpg,assets/slides/slide-048.jpg,1300,732,73.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,49,049.jpg,assets/slides/slide-049.jpg,1300,732,89.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,50,050.jpg,assets/slides/slide-050.jpg,1300,732,91.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,51,051.jpg,assets/slides/slide-051.jpg,1300,732,55.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,52,052.jpg,assets/slides/slide-052.jpg,1300,732,75.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,53,053.jpg,assets/slides/slide-053.jpg,1300,732,82.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,54,054.jpg,assets/slides/slide-054.jpg,1300,732,77.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+05,5,lecture05-gpus-tpus,55,055.jpg,assets/slides/slide-055.jpg,1300,732,97.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+06,6,lecture06-kernels-triton-xla,0,000.jpg,assets/cover.jpg,1280,720,52.8,cover-art,keep,封面素材，无文字信息,assigned
+06,6,lecture06-kernels-triton-xla,1,001.svg,assets/performance-loop.svg,0,0,2.3,vector-source,svg,源文件就是矢量图，直接以 SVG 重绘/复用，避免位图化,assigned
+06,6,lecture06-kernels-triton-xla,2,002.png,assets/gpu-hardware.png,1189,933,50.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+06,6,lecture06-kernels-triton-xla,3,003.jpg,assets/gpu-generation-memory-bandwidth-table.jpg,1920,1080,141.2,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,4,004.jpg,assets/occupancy-register-pressure-example.jpg,1920,1080,145.7,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,5,005.svg,assets/coalescing-bank-conflict.svg,0,0,4.5,vector-source,svg,源文件就是矢量图，直接以 SVG 重绘/复用，避免位图化,assigned
+06,6,lecture06-kernels-triton-xla,6,006.jpg,assets/wave-quantization-148-plus-12-blocks.jpg,1920,1080,200.5,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,7,007.jpg,assets/matmul-scaling-benchmark-results.jpg,1920,1080,164.7,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,8,008.jpg,assets/gelu-three-implementations-results.jpg,1920,1080,183.3,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,9,009.svg,assets/gelu-fusion-memory.svg,0,0,2.7,vector-source,svg,源文件就是矢量图，直接以 SVG 重绘/复用，避免位图化,assigned
+06,6,lecture06-kernels-triton-xla,10,010.jpg,assets/gelu-naive-multi-kernel-profile.jpg,1920,1080,261.9,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,11,011.jpg,assets/gelu-compiled-triton-profile.jpg,1920,1080,136.4,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,12,012.jpg,assets/triton-gelu-load-compute-store.jpg,1920,1080,131.7,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,13,013.jpg,assets/ptx-thread-coarsening.jpg,1920,1080,193.2,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,14,014.png,assets/triton-softmax.png,1536,426,92.3,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,15,015.png,assets/triton-row-sum.png,1077,871,146.0,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+06,6,lecture06-kernels-triton-xla,16,016.png,assets/gemm-tiled.png,850,368,55.9,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+06,6,lecture06-kernels-triton-xla,17,017.jpg,assets/triton-matmul-k-tile-loop.jpg,1920,1080,207.5,photo,keep,照片/实物图，保留原图,assigned
+06,6,lecture06-kernels-triton-xla,18,018.svg,assets/xla-pipeline.svg,0,0,3.1,vector-source,svg,源文件就是矢量图，直接以 SVG 重绘/复用，避免位图化,assigned
+07,7,lecture07-parallelism,0,000.jpg,assets/cover.jpg,1280,720,48.9,cover-art,keep,封面素材，无文字信息,assigned
+07,7,lecture07-parallelism,1,001.jpg,assets/collective-overview.jpg,1880,1040,52.4,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,2,002.jpg,assets/all-reduce-relation.jpg,1880,1040,73.6,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,3,003.jpg,assets/all-to-all-moe.jpg,1880,1040,87.5,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,4,004.jpg,assets/hardware-topology.jpg,1880,1040,79.0,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,5,005.jpg,assets/rdma-roce.jpg,1880,1040,98.9,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,6,006.jpg,assets/nccl-pytorch-stack.jpg,1880,1040,84.8,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,7,007.jpg,assets/all-reduce-code.jpg,1880,1040,80.4,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,8,008.jpg,assets/all-reduce-bandwidth-code.jpg,1880,1040,75.1,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,9,009.jpg,assets/collective-benchmark-output.jpg,1880,1040,183.8,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,10,010.png,assets/data-parallelism.png,625,889,23.4,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,11,011.jpg,assets/ddp-gradient-sync.jpg,1880,1040,72.3,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,12,012.png,assets/tensor-parallelism.png,699,897,24.0,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,13,013.jpg,assets/tensor-all-gather-code.jpg,1880,1040,59.1,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,14,014.png,assets/pipeline-parallelism.png,699,897,23.3,photo,keep,照片/实物图，保留原图,assigned
+07,7,lecture07-parallelism,15,015.svg,assets/pipeline-bubble.svg,0,0,3.9,vector-source,svg,源文件就是矢量图，直接以 SVG 重绘/复用，避免位图化,assigned
+07,7,lecture07-parallelism,16,016.jpg,assets/lecture-summary.jpg,1880,1040,109.7,photo,keep,照片/实物图，保留原图,assigned
+08,8,lecture08-parallelism,0,000.jpg,assets/slides/slide-001.jpg,1300,732,28.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,1,001.jpg,assets/slides/slide-002.jpg,1300,732,53.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,2,002.jpg,assets/slides/slide-003.jpg,1300,732,43.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,3,003.jpg,assets/slides/slide-004.jpg,1300,732,84.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,4,004.jpg,assets/slides/slide-005.jpg,1300,732,56.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,5,005.jpg,assets/slides/slide-006.jpg,1300,732,106.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,6,006.jpg,assets/slides/slide-007.jpg,1300,732,97.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,7,007.jpg,assets/slides/slide-008.jpg,1300,732,82.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,8,008.jpg,assets/slides/slide-009.jpg,1300,732,91.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,9,009.jpg,assets/slides/slide-010.jpg,1300,732,88.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,10,010.jpg,assets/slides/slide-011.jpg,1300,732,89.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,11,011.jpg,assets/slides/slide-012.jpg,1300,732,127.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,12,012.jpg,assets/slides/slide-013.jpg,1300,732,57.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,13,013.jpg,assets/slides/slide-014.jpg,1300,732,52.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,14,014.jpg,assets/slides/slide-015.jpg,1300,732,70.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,15,015.jpg,assets/slides/slide-016.jpg,1300,732,61.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,16,016.jpg,assets/slides/slide-017.jpg,1300,732,87.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,17,017.jpg,assets/slides/slide-018.jpg,1300,732,79.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,18,018.jpg,assets/slides/slide-019.jpg,1300,732,73.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,19,019.jpg,assets/slides/slide-020.jpg,1300,732,82.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,20,020.jpg,assets/slides/slide-021.jpg,1300,732,81.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,21,021.jpg,assets/slides/slide-022.jpg,1300,732,78.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,22,022.jpg,assets/slides/slide-023.jpg,1300,732,97.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,23,023.jpg,assets/slides/slide-024.jpg,1300,732,78.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,24,024.jpg,assets/slides/slide-025.jpg,1300,732,91.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,25,025.jpg,assets/slides/slide-026.jpg,1300,732,105.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,26,026.jpg,assets/slides/slide-027.jpg,1300,732,74.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,27,027.jpg,assets/slides/slide-028.jpg,1300,732,83.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,28,028.jpg,assets/slides/slide-029.jpg,1300,732,67.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,29,029.jpg,assets/slides/slide-030.jpg,1300,732,76.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,30,030.jpg,assets/slides/slide-031.jpg,1300,732,84.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,31,031.jpg,assets/slides/slide-032.jpg,1300,732,65.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,32,032.jpg,assets/slides/slide-033.jpg,1300,732,56.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,33,033.jpg,assets/slides/slide-034.jpg,1300,732,77.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,34,034.jpg,assets/slides/slide-035.jpg,1300,732,71.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,35,035.jpg,assets/slides/slide-036.jpg,1300,732,62.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,36,036.jpg,assets/slides/slide-037.jpg,1300,732,111.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,37,037.jpg,assets/slides/slide-038.jpg,1300,732,101.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,38,038.jpg,assets/slides/slide-039.jpg,1300,732,65.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,39,039.jpg,assets/slides/slide-040.jpg,1300,732,79.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,40,040.jpg,assets/slides/slide-041.jpg,1300,732,106.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,41,041.jpg,assets/slides/slide-042.jpg,1300,732,54.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,42,042.jpg,assets/slides/slide-043.jpg,1300,732,93.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,43,043.jpg,assets/slides/slide-044.jpg,1300,732,67.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,44,044.jpg,assets/slides/slide-045.jpg,1300,732,68.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,45,045.jpg,assets/slides/slide-046.jpg,1300,732,87.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,46,046.jpg,assets/slides/slide-047.jpg,1300,732,84.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,47,047.jpg,assets/slides/slide-048.jpg,1300,732,103.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,48,048.jpg,assets/slides/slide-049.jpg,1300,732,91.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,49,049.jpg,assets/slides/slide-050.jpg,1300,732,78.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,50,050.jpg,assets/slides/slide-051.jpg,1300,732,77.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,51,051.jpg,assets/slides/slide-052.jpg,1300,732,129.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,52,052.jpg,assets/slides/slide-053.jpg,1300,732,103.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,53,053.jpg,assets/deepep-overlap.jpg,1920,1080,315.1,photo,keep,照片/实物图，保留原图,assigned
+08,8,lecture08-parallelism,54,054.jpg,assets/slides/slide-054.jpg,1300,732,62.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,55,055.jpg,assets/slides/slide-055.jpg,1300,732,111.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,56,056.jpg,assets/slides/slide-056.jpg,1300,732,101.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,57,057.jpg,assets/slides/slide-057.jpg,1300,732,116.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,58,058.jpg,assets/slides/slide-058.jpg,1300,732,109.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,59,059.jpg,assets/slides/slide-059.jpg,1300,732,138.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,60,060.jpg,assets/slides/slide-060.jpg,1300,732,77.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,61,061.jpg,assets/slides/slide-061.jpg,1300,732,74.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,62,062.jpg,assets/slides/slide-062.jpg,1300,732,64.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,63,063.jpg,assets/slides/slide-063.jpg,1300,732,118.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,64,064.jpg,assets/slides/slide-064.jpg,1300,732,150.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,65,065.jpg,assets/slides/slide-065.jpg,1300,732,101.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,66,066.jpg,assets/slides/slide-066.jpg,1300,732,134.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,67,067.jpg,assets/slides/slide-067.jpg,1300,732,93.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,68,068.jpg,assets/slides/slide-068.jpg,1300,732,102.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,69,069.jpg,assets/slides/slide-069.jpg,1300,732,59.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,70,070.jpg,assets/slides/slide-070.jpg,1300,732,109.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,71,071.jpg,assets/slides/slide-071.jpg,1300,732,101.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,72,072.jpg,assets/slides/slide-072.jpg,1300,732,86.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+08,8,lecture08-parallelism,73,073.jpg,assets/slides/slide-073.jpg,1300,732,63.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,0,000.jpg,assets/cover.jpg,1280,720,35.2,cover-art,keep,封面素材，无文字信息,assigned
+09,9,lecture09-scaling-laws,1,001.jpg,assets/slides/slide-001.jpg,1300,732,27.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,2,002.jpg,assets/slides/slide-002.jpg,1300,732,64.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,3,003.jpg,assets/slides/slide-003.jpg,1300,732,100.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,4,004.jpg,assets/slides/slide-004.jpg,1300,732,79.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,5,005.jpg,assets/slides/slide-005.jpg,1300,732,45.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,6,006.jpg,assets/slides/slide-006.jpg,1300,732,86.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,7,007.jpg,assets/slides/slide-007.jpg,1300,732,105.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,8,008.jpg,assets/slides/slide-008.jpg,1300,732,82.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,9,009.jpg,assets/slides/slide-009.jpg,1300,732,89.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,10,010.jpg,assets/slides/slide-010.jpg,1300,732,91.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,11,011.jpg,assets/slides/slide-011.jpg,1300,732,135.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,12,012.jpg,assets/slides/slide-012.jpg,1300,732,50.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,13,013.jpg,assets/slides/slide-013.jpg,1300,732,86.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,14,014.jpg,assets/slides/slide-014.jpg,1300,732,62.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,15,015.jpg,assets/slides/slide-015.jpg,1300,732,61.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,16,016.jpg,assets/slides/slide-016.jpg,1300,732,86.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,17,017.jpg,assets/slides/slide-017.jpg,1300,732,58.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,18,018.jpg,assets/slides/slide-018.jpg,1300,732,86.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,19,019.jpg,assets/slides/slide-019.jpg,1300,732,97.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,20,020.jpg,assets/slides/slide-020.jpg,1300,732,78.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,21,021.jpg,assets/slides/slide-021.jpg,1300,732,70.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,22,022.jpg,assets/slides/slide-022.jpg,1300,732,86.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,23,023.jpg,assets/slides/slide-023.jpg,1300,732,126.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,24,024.jpg,assets/slides/slide-024.jpg,1300,732,100.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,25,025.jpg,assets/slides/slide-025.jpg,1300,732,96.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,26,026.jpg,assets/slides/slide-026.jpg,1300,732,122.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,27,027.jpg,assets/slides/slide-027.jpg,1300,732,61.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,28,028.jpg,assets/slides/slide-028.jpg,1300,732,81.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,29,029.jpg,assets/slides/slide-029.jpg,1300,732,44.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,30,030.jpg,assets/slides/slide-030.jpg,1300,732,65.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,31,031.jpg,assets/slides/slide-031.jpg,1300,732,94.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,32,032.jpg,assets/slides/slide-032.jpg,1300,732,72.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,33,033.jpg,assets/slides/slide-033.jpg,1300,732,70.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,34,034.jpg,assets/slides/slide-034.jpg,1300,732,110.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,35,035.jpg,assets/slides/slide-035.jpg,1300,732,83.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,36,036.jpg,assets/slides/slide-036.jpg,1300,732,108.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,37,037.jpg,assets/slides/slide-037.jpg,1300,732,94.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,38,038.jpg,assets/slides/slide-038.jpg,1300,732,74.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,39,039.jpg,assets/slides/slide-039.jpg,1300,732,73.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,40,040.jpg,assets/slides/slide-040.jpg,1300,732,130.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,41,041.jpg,assets/slides/slide-041.jpg,1300,732,82.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,42,042.jpg,assets/slides/slide-042.jpg,1300,732,73.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,43,043.jpg,assets/slides/slide-043.jpg,1300,732,87.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,44,044.jpg,assets/slides/slide-044.jpg,1300,732,88.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,45,045.jpg,assets/slides/slide-045.jpg,1300,732,76.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,46,046.jpg,assets/slides/slide-046.jpg,1300,732,91.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,47,047.jpg,assets/slides/slide-047.jpg,1300,732,119.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,48,048.jpg,assets/slides/slide-048.jpg,1300,732,133.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,49,049.jpg,assets/slides/slide-049.jpg,1300,732,136.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,50,050.jpg,assets/slides/slide-050.jpg,1300,732,63.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,51,051.jpg,assets/slides/slide-051.jpg,1300,732,92.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,52,052.jpg,assets/slides/slide-052.jpg,1300,732,105.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,53,053.jpg,assets/slides/slide-053.jpg,1300,732,86.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,54,054.jpg,assets/slides/slide-054.jpg,1300,732,82.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,55,055.jpg,assets/slides/slide-055.jpg,1300,732,88.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,56,056.jpg,assets/slides/slide-056.jpg,1300,732,65.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+09,9,lecture09-scaling-laws,57,057.jpg,assets/slides/slide-057.jpg,1300,732,57.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+10,10,lecture10-inference,0,000.jpg,assets/cover.jpg,1280,720,47.6,cover-art,keep,封面素材，无文字信息,assigned
+10,10,lecture10-inference,1,001.png,assets/inference-schema.png,1498,519,31.6,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,2,002.jpg,assets/metrics-overview.jpg,1920,1080,243.1,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,3,003.jpg,assets/transformer-shapes.jpg,1920,1080,157.8,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,4,004.jpg,assets/kv-prefill-decode.jpg,1920,1080,174.7,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,5,005.jpg,assets/attention-private-kv.jpg,1920,1080,165.3,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,6,006.jpg,assets/batch-performance-stats.jpg,1920,1080,215.2,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,7,007.png,assets/gqa-speed.png,789,490,50.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,8,008.png,assets/gqa-accuracy.png,1501,318,87.7,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+10,10,lecture10-inference,9,009.png,assets/mla-schema.png,1853,525,136.5,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,10,010.png,assets/mla-accuracy.png,1886,673,217.2,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,11,011.png,assets/mla-accuracy2.png,912,298,91.3,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+10,10,lecture10-inference,12,012.png,assets/cla-diagram.png,795,820,84.7,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,13,013.png,assets/cla-results.png,1119,838,212.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,14,014.png,assets/longformer-attention.png,1861,421,111.2,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,15,015.png,assets/deepseek-v4-attention.png,1726,871,132.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,16,016.png,assets/awq-schema.png,2632,651,213.5,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,17,017.png,assets/pruning-kd-loop.png,2196,941,243.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,18,018.png,assets/pruning-kd.png,944,762,120.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,19,019.jpg,assets/speculative-decoding-flow.jpg,1920,1080,72.0,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,20,020.png,assets/speculative-sampling-algorithm.png,1943,1376,317.0,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,21,021.png,assets/speculative-sampling-results.png,1962,772,270.0,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,22,022.png,assets/speculative-sampling-stats.png,1943,820,175.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,23,023.png,assets/medusa-eagle.png,1168,397,84.1,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+10,10,lecture10-inference,24,024.jpg,assets/continuous-batching.jpg,1920,1080,263.7,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,25,025.jpg,assets/selective-batching.jpg,1920,1080,175.8,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,26,026.png,assets/paged-attention-fragmentation.png,2601,453,133.0,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,27,027.png,assets/paged-attention-blocks.png,1240,570,56.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,28,028.png,assets/paged-attention-logical.png,1457,642,115.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+10,10,lecture10-inference,29,029.png,assets/paged-attention-sharing.png,1595,637,133.6,photo,keep,照片/实物图，保留原图,assigned
+10,10,lecture10-inference,30,030.png,assets/paged-attention-parallel.png,1496,688,111.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+11,11,lecture11-scaling-laws,0,000.jpg,assets/cover.jpg,1280,720,32.9,cover-art,keep,封面素材，无文字信息,assigned
+11,11,lecture11-scaling-laws,1,001.jpg,assets/slides/slide-001.jpg,1300,732,28.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,2,002.jpg,assets/slides/slide-002.jpg,1300,732,59.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,3,003.jpg,assets/slides/slide-003.jpg,1300,732,100.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,4,004.jpg,assets/slides/slide-004.jpg,1300,732,99.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,5,005.jpg,assets/slides/slide-005.jpg,1300,732,56.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,6,006.jpg,assets/slides/slide-006.jpg,1300,732,85.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,7,007.jpg,assets/slides/slide-007.jpg,1300,732,116.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,8,008.jpg,assets/slides/slide-008.jpg,1300,732,127.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,9,009.jpg,assets/slides/slide-009.jpg,1300,732,81.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,10,010.jpg,assets/slides/slide-010.jpg,1300,732,63.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,11,011.jpg,assets/slides/slide-011.jpg,1300,732,122.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,12,012.jpg,assets/slides/slide-012.jpg,1300,732,51.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,13,013.jpg,assets/slides/slide-013.jpg,1300,732,93.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,14,014.jpg,assets/slides/slide-014.jpg,1300,732,133.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,15,015.jpg,assets/slides/slide-015.jpg,1300,732,68.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,16,016.jpg,assets/slides/slide-016.jpg,1300,732,79.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,17,017.jpg,assets/slides/slide-017.jpg,1300,732,63.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,18,018.jpg,assets/slides/slide-018.jpg,1300,732,95.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,19,019.jpg,assets/slides/slide-019.jpg,1300,732,53.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,20,020.jpg,assets/slides/slide-020.jpg,1300,732,128.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,21,021.jpg,assets/slides/slide-021.jpg,1300,732,72.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,22,022.jpg,assets/slides/slide-022.jpg,1300,732,113.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,23,023.jpg,assets/slides/slide-023.jpg,1300,732,88.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,24,024.jpg,assets/slides/slide-024.jpg,1300,732,97.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,25,025.jpg,assets/slides/slide-025.jpg,1300,732,151.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,26,026.jpg,assets/slides/slide-026.jpg,1300,732,104.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,27,027.jpg,assets/slides/slide-027.jpg,1300,732,91.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,28,028.jpg,assets/slides/slide-028.jpg,1300,732,91.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,29,029.jpg,assets/slides/slide-029.jpg,1300,732,92.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,30,030.jpg,assets/slides/slide-030.jpg,1300,732,92.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,31,031.jpg,assets/slides/slide-031.jpg,1300,732,78.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,32,032.jpg,assets/slides/slide-032.jpg,1300,732,79.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,33,033.jpg,assets/slides/slide-033.jpg,1300,732,103.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,34,034.jpg,assets/slides/slide-034.jpg,1300,732,97.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,35,035.jpg,assets/slides/slide-035.jpg,1300,732,89.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,36,036.jpg,assets/slides/slide-036.jpg,1300,732,89.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,37,037.jpg,assets/slides/slide-037.jpg,1300,732,92.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,38,038.jpg,assets/slides/slide-038.jpg,1300,732,91.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,39,039.jpg,assets/slides/slide-039.jpg,1300,732,99.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,40,040.jpg,assets/slides/slide-040.jpg,1300,732,109.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,41,041.jpg,assets/slides/slide-041.jpg,1300,732,91.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,42,042.jpg,assets/slides/slide-042.jpg,1300,732,91.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,43,043.jpg,assets/slides/slide-043.jpg,1300,732,93.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,44,044.jpg,assets/slides/slide-044.jpg,1300,732,129.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,45,045.jpg,assets/slides/slide-045.jpg,1300,732,100.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,46,046.jpg,assets/slides/slide-046.jpg,1300,732,81.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,47,047.jpg,assets/slides/slide-047.jpg,1300,732,82.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,48,048.jpg,assets/slides/slide-048.jpg,1300,732,92.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,49,049.jpg,assets/slides/slide-049.jpg,1300,732,88.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,50,050.jpg,assets/slides/slide-050.jpg,1300,732,74.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,51,051.jpg,assets/slides/slide-051.jpg,1300,732,133.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,52,052.jpg,assets/slides/slide-052.jpg,1300,732,97.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,53,053.jpg,assets/slides/slide-053.jpg,1300,732,58.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,54,054.jpg,assets/slides/slide-054.jpg,1300,732,121.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,55,055.jpg,assets/slides/slide-055.jpg,1300,732,89.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,56,056.jpg,assets/slides/slide-056.jpg,1300,732,93.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,57,057.jpg,assets/slides/slide-057.jpg,1300,732,95.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+11,11,lecture11-scaling-laws,58,058.jpg,assets/slides/slide-058.jpg,1300,732,71.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+12,12,lecture12-evaluation,0,000.jpg,assets/cover.jpg,1280,720,44.2,cover-art,keep,封面素材，无文字信息,assigned
+12,12,lecture12-evaluation,1,001.png,assets/intelligence-index.png,1740,672,175.1,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,2,002.png,assets/intelligence-cost-frontier.png,1741,687,178.4,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,3,003.png,assets/gpt2-zero-shot-perplexity.png,2039,472,149.5,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,4,004.png,assets/lambada-cloze.png,1266,535,165.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,5,005.png,assets/mmlu-pro.png,2143,674,296.6,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,6,006.png,assets/gpqa-validation.png,1630,1278,614.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,7,007.png,assets/hle-pipeline.png,2239,642,150.8,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,8,008.png,assets/hle-results.png,1110,605,64.6,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,9,009.png,assets/arena-pairwise.png,1623,1032,298.7,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,10,010.png,assets/alpacaeval-length-control.png,1386,1345,275.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,11,011.png,assets/wildbench-checklist.png,1945,795,571.0,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,12,012.png,assets/swebench-executable-eval.png,1901,913,510.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,13,013.png,assets/cybench-agent-loop.png,1562,938,264.7,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,14,014.png,assets/mlebench-loop.png,1379,460,110.4,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,15,015.jpg,assets/agent-scaffold-frame.jpg,960,540,50.1,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,16,016.jpg,assets/arc-agi-1-frame.jpg,960,540,70.1,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,17,017.png,assets/arc-agi-3-interface.png,503,658,163.7,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+12,12,lecture12-evaluation,18,018.jpg,assets/airbench-taxonomy-frame.jpg,960,540,86.1,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,19,019.png,assets/gcg-jailbreak-examples.png,1811,1143,1393.7,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,20,020.png,assets/gdpval-work-tasks.png,1288,735,698.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,21,021.png,assets/clio-real-use.png,1966,1274,231.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,22,022.png,assets/contamination-order-test.png,1666,702,403.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,23,023.jpg,assets/benchmark-quality-frame.jpg,960,540,70.8,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,24,024.jpg,assets/agent-benchmark-errors-frame.jpg,960,540,72.4,photo,keep,照片/实物图，保留原图,assigned
+12,12,lecture12-evaluation,25,025.png,assets/nanogpt-method-eval.png,1199,811,190.7,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+12,12,lecture12-evaluation,26,026.jpg,assets/evaluation-takeaways-frame.jpg,960,540,44.4,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,0,000.jpg,assets/cover.jpg,1280,720,51.7,cover-art,keep,封面素材，无文字信息,assigned
+13,13,lecture13-data-sources-datasets,1,001.png,assets/llama3-data.png,1608,257,91.9,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+13,13,lecture13-data-sources-datasets,2,002.png,assets/olmo2-pretraining.png,1478,711,210.5,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+13,13,lecture13-data-sources-datasets,3,003.png,assets/olmo2-dolmino.png,1219,1214,317.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+13,13,lecture13-data-sources-datasets,4,004.png,assets/tulu.png,1613,1294,411.7,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+13,13,lecture13-data-sources-datasets,5,005.png,assets/decline-consent.png,1345,1041,279.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+13,13,lecture13-data-sources-datasets,6,006.png,assets/anthropic-crawling.png,760,554,103.6,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+13,13,lecture13-data-sources-datasets,7,007.jpg,assets/commoncrawl-crawler-architecture.jpg,1280,720,67.1,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,8,008.png,assets/dclm-wet.png,486,180,25.8,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+13,13,lecture13-data-sources-datasets,9,009.jpg,assets/wikipedia-dump-poisoning.jpg,1280,720,125.1,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,10,010.jpg,assets/c4-filtering-rules.jpg,1280,720,95.1,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,11,011.jpg,assets/pile-domain-mixture.jpg,1280,720,158.5,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,12,012.jpg,assets/dolma-data-mixture.jpg,1280,720,97.3,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,13,013.png,assets/dclm-filter.png,1949,912,256.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+13,13,lecture13-data-sources-datasets,14,014.png,assets/dclm-quality.png,1370,526,146.8,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,15,015.png,assets/nemotron-results.png,1902,384,125.1,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+13,13,lecture13-data-sources-datasets,16,016.png,assets/stackv2-pr1.png,437,521,56.8,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+13,13,lecture13-data-sources-datasets,17,017.png,assets/stackv2-pr2.png,691,480,68.2,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,18,018.png,assets/commonpile.png,1266,451,112.3,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,19,019.png,assets/comma-results.png,1831,570,117.9,photo,keep,照片/实物图，保留原图,assigned
+13,13,lecture13-data-sources-datasets,20,020.jpg,assets/lecture-summary.jpg,1280,720,114.0,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,0,000.jpg,assets/cover.jpg,1280,720,42.7,cover-art,keep,封面素材，无文字信息,assigned
+14,14,lecture14-data,1,001.png,assets/dclm-wet.png,486,180,25.8,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+14,14,lecture14-data,2,002.jpg,assets/finepdfs-layout.jpg,1920,1080,234.3,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,3,003.png,assets/raw-target-schema.png,1651,861,48.1,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,4,004.jpg,assets/phi1-filtering-results.jpg,1920,1080,261.7,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,5,005.png,assets/data-filtering-scale.png,1930,1094,429.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,6,006.jpg,assets/c4-repeated-description.jpg,1920,1080,210.6,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,7,007.jpg,assets/exact-dedup-c4-warning.jpg,1920,1080,187.0,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,8,008.jpg,assets/jaccard-example.jpg,1920,1080,132.0,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,9,009.jpg,assets/minhash-definition.jpg,1920,1080,140.4,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,10,010.jpg,assets/lsh-bands.jpg,1920,1080,122.0,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,11,011.jpg,assets/lsh-collision-probability.jpg,1920,1080,171.5,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,12,012.jpg,assets/lsh-increase-r.jpg,1920,1080,139.0,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,13,013.jpg,assets/lsh-increase-b.jpg,1920,1080,156.4,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,14,014.jpg,assets/lsh-real-threshold.jpg,1920,1080,102.0,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,15,015.png,assets/marin-token-viewer.png,2335,834,125.5,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,16,016.jpg,assets/the-pile-mixture.jpg,1920,1080,252.8,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,17,017.jpg,assets/mixing-baselines.jpg,1920,1080,159.1,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,18,018.jpg,assets/mixture-epoching-overfit.jpg,1920,1080,172.3,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,19,019.jpg,assets/unimax-cap.jpg,1920,1080,224.1,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,20,020.png,assets/regmix.png,1265,788,267.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,21,021.png,assets/data-mixing-methods.png,1311,738,211.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,22,022.jpg,assets/simulated-epoching.jpg,1920,1080,197.7,photo,keep,照片/实物图，保留原图,assigned
+14,14,lecture14-data,23,023.png,assets/openthoughts-sources.png,804,722,319.3,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,24,024.png,assets/openthoughts-pipeline.png,1330,672,106.1,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,25,025.png,assets/swe-smith.png,1372,405,145.2,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+14,14,lecture14-data,26,026.png,assets/swezero-noexec.png,947,299,68.9,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+14,14,lecture14-data,27,027.png,assets/swezero-prompt.png,952,823,276.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,28,028.png,assets/swezero-results.png,1303,893,217.6,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+14,14,lecture14-data,29,029.png,assets/swe-rebench.png,870,472,96.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+15,15,lecture15-mid-post-training,0,000.jpg,assets/cover.jpg,1280,720,50.0,cover-art,keep,封面素材，无文字信息,assigned
+15,15,lecture15-mid-post-training,1,001.jpg,assets/slides/slide-001.jpg,1300,732,30.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,2,002.jpg,assets/slides/slide-002.jpg,1300,732,81.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,3,003.jpg,assets/slides/slide-003.jpg,1300,732,131.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,4,004.jpg,assets/slides/slide-004.jpg,1300,732,60.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,5,005.jpg,assets/slides/slide-005.jpg,1300,732,97.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,6,006.jpg,assets/slides/slide-006.jpg,1300,732,88.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,7,007.jpg,assets/slides/slide-007.jpg,1300,732,77.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,8,008.jpg,assets/slides/slide-008.jpg,1300,732,53.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,9,009.jpg,assets/slides/slide-009.jpg,1300,732,89.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,10,010.jpg,assets/slides/slide-010.jpg,1300,732,177.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,11,011.jpg,assets/slides/slide-011.jpg,1300,732,85.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,12,012.jpg,assets/slides/slide-012.jpg,1300,732,160.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,13,013.jpg,assets/slides/slide-013.jpg,1300,732,150.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,14,014.jpg,assets/slides/slide-014.jpg,1300,732,77.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,15,015.jpg,assets/slides/slide-015.jpg,1300,732,60.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,16,016.jpg,assets/slides/slide-016.jpg,1300,732,123.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,17,017.jpg,assets/slides/slide-017.jpg,1300,732,65.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,18,018.jpg,assets/slides/slide-018.jpg,1300,732,130.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,19,019.jpg,assets/slides/slide-019.jpg,1300,732,130.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,20,020.jpg,assets/slides/slide-020.jpg,1300,732,84.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,21,021.jpg,assets/slides/slide-021.jpg,1300,732,55.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,22,022.jpg,assets/slides/slide-022.jpg,1300,732,101.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,23,023.jpg,assets/slides/slide-023.jpg,1300,732,138.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,24,024.jpg,assets/slides/slide-024.jpg,1300,732,81.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,25,025.jpg,assets/slides/slide-025.jpg,1300,732,123.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,26,026.jpg,assets/slides/slide-026.jpg,1300,732,65.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,27,027.jpg,assets/slides/slide-027.jpg,1300,732,67.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,28,028.jpg,assets/slides/slide-028.jpg,1300,732,62.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,29,029.jpg,assets/slides/slide-029.jpg,1300,732,68.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,30,030.jpg,assets/slides/slide-030.jpg,1300,732,78.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,31,031.jpg,assets/slides/slide-031.jpg,1300,732,87.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,32,032.jpg,assets/slides/slide-032.jpg,1300,732,69.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,33,033.jpg,assets/slides/slide-033.jpg,1300,732,86.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,34,034.jpg,assets/slides/slide-034.jpg,1300,732,44.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,35,035.jpg,assets/slides/slide-035.jpg,1300,732,79.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,36,036.jpg,assets/slides/slide-036.jpg,1300,732,66.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,37,037.jpg,assets/slides/slide-037.jpg,1300,732,129.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,38,038.jpg,assets/slides/slide-038.jpg,1300,732,140.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,39,039.jpg,assets/slides/slide-039.jpg,1300,732,71.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,40,040.jpg,assets/slides/slide-040.jpg,1300,732,100.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,41,041.jpg,assets/slides/slide-041.jpg,1300,732,46.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,42,042.jpg,assets/slides/slide-042.jpg,1300,732,78.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,43,043.jpg,assets/slides/slide-043.jpg,1300,732,118.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,44,044.jpg,assets/slides/slide-044.jpg,1300,732,83.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,45,045.jpg,assets/slides/slide-045.jpg,1300,732,74.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,46,046.jpg,assets/slides/slide-046.jpg,1300,732,100.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,47,047.jpg,assets/slides/slide-047.jpg,1300,732,58.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,48,048.jpg,assets/slides/slide-048.jpg,1300,732,82.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,49,049.jpg,assets/slides/slide-049.jpg,1300,732,57.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,50,050.jpg,assets/slides/slide-050.jpg,1300,732,57.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,51,051.jpg,assets/slides/slide-051.jpg,1300,732,112.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,52,052.jpg,assets/slides/slide-052.jpg,1300,732,134.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,53,053.jpg,assets/slides/slide-053.jpg,1300,732,72.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,54,054.jpg,assets/slides/slide-054.jpg,1300,732,71.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,55,055.jpg,assets/slides/slide-055.jpg,1300,732,82.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,56,056.jpg,assets/slides/slide-056.jpg,1300,732,64.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,57,057.jpg,assets/slides/slide-057.jpg,1300,732,91.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,58,058.jpg,assets/slides/slide-058.jpg,1300,732,77.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,59,059.jpg,assets/slides/slide-059.jpg,1300,732,56.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,60,060.jpg,assets/slides/slide-060.jpg,1300,732,62.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,61,061.jpg,assets/slides/slide-061.jpg,1300,732,101.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,62,062.jpg,assets/slides/slide-062.jpg,1300,732,68.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,63,063.jpg,assets/slides/slide-063.jpg,1300,732,99.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,64,064.jpg,assets/slides/slide-064.jpg,1300,732,78.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+15,15,lecture15-mid-post-training,65,065.jpg,assets/slides/slide-065.jpg,1300,732,49.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,0,000.jpg,assets/cover.jpg,1280,720,44.3,cover-art,keep,封面素材，无文字信息,assigned
+16,16,lecture16-rlvr,1,001.jpg,assets/slides/slide-001.jpg,1300,732,35.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,2,002.jpg,assets/slides/slide-002.jpg,1300,732,61.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,3,003.jpg,assets/slides/slide-003.jpg,1300,732,85.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,4,004.jpg,assets/slides/slide-004.jpg,1300,732,69.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,5,005.jpg,assets/slides/slide-005.jpg,1300,732,73.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,6,006.jpg,assets/slides/slide-006.jpg,1300,732,93.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,7,007.jpg,assets/slides/slide-007.jpg,1300,732,91.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,8,008.jpg,assets/slides/slide-008.jpg,1300,732,106.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,9,009.jpg,assets/slides/slide-009.jpg,1300,732,83.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,10,010.jpg,assets/slides/slide-010.jpg,1300,732,91.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,11,011.jpg,assets/slides/slide-011.jpg,1300,732,98.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,12,012.jpg,assets/slides/slide-012.jpg,1300,732,88.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,13,013.jpg,assets/slides/slide-013.jpg,1300,732,134.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,14,014.jpg,assets/slides/slide-014.jpg,1300,732,89.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,15,015.jpg,assets/slides/slide-015.jpg,1300,732,86.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,16,016.jpg,assets/slides/slide-016.jpg,1300,732,75.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,17,017.jpg,assets/slides/slide-017.jpg,1300,732,61.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,18,018.jpg,assets/slides/slide-018.jpg,1300,732,116.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,19,019.jpg,assets/slides/slide-019.jpg,1300,732,103.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,20,020.jpg,assets/slides/slide-020.jpg,1300,732,78.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,21,021.jpg,assets/slides/slide-021.jpg,1300,732,76.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,22,022.jpg,assets/slides/slide-022.jpg,1300,732,91.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,23,023.jpg,assets/slides/slide-023.jpg,1300,732,83.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,24,024.jpg,assets/slides/slide-024.jpg,1300,732,87.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,25,025.jpg,assets/slides/slide-025.jpg,1300,732,65.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,26,026.jpg,assets/slides/slide-026.jpg,1300,732,68.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,27,027.jpg,assets/slides/slide-027.jpg,1300,732,82.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,28,028.jpg,assets/slides/slide-028.jpg,1300,732,74.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,29,029.jpg,assets/slides/slide-029.jpg,1300,732,80.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,30,030.jpg,assets/slides/slide-030.jpg,1300,732,102.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,31,031.jpg,assets/slides/slide-031.jpg,1300,732,55.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,32,032.jpg,assets/slides/slide-032.jpg,1300,732,96.3,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,33,033.jpg,assets/slides/slide-033.jpg,1300,732,92.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,34,034.jpg,assets/slides/slide-034.jpg,1300,732,110.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,35,035.jpg,assets/slides/slide-035.jpg,1300,732,64.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,36,036.jpg,assets/slides/slide-036.jpg,1300,732,102.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,37,037.jpg,assets/slides/slide-037.jpg,1300,732,98.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,38,038.jpg,assets/slides/slide-038.jpg,1300,732,156.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,39,039.jpg,assets/slides/slide-039.jpg,1300,732,45.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,40,040.jpg,assets/slides/slide-040.jpg,1300,732,63.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,41,041.jpg,assets/slides/slide-041.jpg,1300,732,126.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,42,042.jpg,assets/slides/slide-042.jpg,1300,732,77.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,43,043.jpg,assets/slides/slide-043.jpg,1300,732,91.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,44,044.jpg,assets/slides/slide-044.jpg,1300,732,86.2,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,45,045.jpg,assets/slides/slide-045.jpg,1300,732,82.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,46,046.jpg,assets/slides/slide-046.jpg,1300,732,92.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,47,047.jpg,assets/slides/slide-047.jpg,1300,732,106.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,48,048.jpg,assets/slides/slide-048.jpg,1300,732,89.9,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,49,049.jpg,assets/slides/slide-049.jpg,1300,732,70.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,50,050.jpg,assets/slides/slide-050.jpg,1300,732,64.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,51,051.jpg,assets/slides/slide-051.jpg,1300,732,61.5,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,52,052.jpg,assets/slides/slide-052.jpg,1300,732,101.1,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,53,053.jpg,assets/slides/slide-053.jpg,1300,732,77.4,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,54,054.jpg,assets/slides/slide-054.jpg,1300,732,106.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,55,055.jpg,assets/slides/slide-055.jpg,1300,732,71.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,56,056.jpg,assets/slides/slide-056.jpg,1300,732,74.8,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,57,057.jpg,assets/slides/slide-057.jpg,1300,732,46.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,58,058.jpg,assets/slides/slide-058.jpg,1300,732,97.6,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,59,059.jpg,assets/slides/slide-059.jpg,1300,732,89.0,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,60,060.jpg,assets/slides/slide-060.jpg,1300,732,94.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+16,16,lecture16-rlvr,61,061.jpg,assets/slides/slide-061.jpg,1300,732,47.7,ppt-page,text+svg,PPT 页截图：文字转写成要点，结构图另行重绘为 SVG,assigned
+17,17,lecture17-alignment-multimodality,0,000.jpg,assets/cover.jpg,1280,720,41.8,cover-art,keep,封面素材，无文字信息,assigned
+17,17,lecture17-alignment-multimodality,1,001.png,assets/multimodality.png,1536,1024,1484.5,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,2,002.png,assets/clip.png,2073,760,178.0,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,3,003.png,assets/clip-code.png,1020,930,195.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,4,004.png,assets/vit.png,1558,895,270.4,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,5,005.png,assets/clip-efficiency.png,1225,809,113.2,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,6,006.png,assets/siglip-code.png,1519,764,152.9,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,7,007.png,assets/siglip-parallelism.png,2124,693,202.7,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,8,008.png,assets/llava-architecture.png,1722,585,123.9,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,9,009.png,assets/llava-gen.png,1710,1070,589.0,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,10,010.png,assets/llava-example.png,1383,1378,692.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,11,011.png,assets/llava-onevision-anyres.png,2424,748,399.9,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,12,012.png,assets/llava-onevision-modalities.png,2011,754,624.0,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,13,013.png,assets/llava-onevision-training.png,2153,1088,244.6,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,14,014.png,assets/llava-onevision-transfer-s1.png,1823,916,369.1,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,15,015.png,assets/llava-onevision-transfer-s2.png,1485,1357,556.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,16,016.png,assets/llava-onevision-transfer-s8.png,1038,1496,781.2,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,17,017.png,assets/qwen-vl-stages.png,2367,936,256.6,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,18,018.png,assets/qwen2-vl-architecture.png,2179,1375,813.1,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,19,019.png,assets/qwen2-vl-mrope.png,2061,504,321.6,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,20,020.png,assets/qwen3-vl.png,1958,1133,914.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,21,021.png,assets/qwen3-vl-pretraining.png,1814,325,102.5,small-figure,text,小尺寸截图，文字为主，转写后更可读,assigned
+17,17,lecture17-alignment-multimodality,22,022.png,assets/qwen3-vl-results.png,1003,1479,499.0,photo,keep,照片/实物图，保留原图,assigned
+17,17,lecture17-alignment-multimodality,23,023.png,assets/chameleon.png,963,541,144.6,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,24,024.png,assets/chameleon-example.png,1110,995,577.6,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+17,17,lecture17-alignment-multimodality,25,025.png,assets/vq-vae.png,1693,929,1177.8,chart,keep,数据/结构图，信息无法用文字等价表达，保留原图并加图注,assigned
+18,19,guest-lecture-dan-fu,0,000.jpg,assets/cover.jpg,1280,720,42.7,cover-art,keep,封面素材，无文字信息,assigned
+18,19,guest-lecture-dan-fu,1,001.jpg,assets/inference-engine-overview.jpg,1920,1080,133.0,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,2,002.jpg,assets/workload-sla.jpg,1920,1080,204.8,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,3,003.jpg,assets/request-to-token.jpg,1920,1080,114.2,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,4,004.jpg,assets/continuous-batching.jpg,1920,1080,194.1,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,5,005.jpg,assets/kv-prefix-sharing.jpg,1920,1080,126.7,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,6,006.jpg,assets/production-debugging.jpg,1920,1080,162.9,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,7,007.jpg,assets/kv-cache-hierarchy.jpg,1920,1080,171.8,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,8,008.jpg,assets/cache-aware-routing.jpg,1920,1080,144.9,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,9,009.jpg,assets/kernel-launch-stragglers.jpg,1920,1080,134.6,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,10,010.jpg,assets/fused-megakernel.jpg,1920,1080,218.4,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,11,011.jpg,assets/whole-model-megakernel.jpg,1920,1080,280.2,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,12,012.jpg,assets/fine-grained-overlap.jpg,1920,1080,285.1,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,13,013.jpg,assets/thunderkittens-benchmark.jpg,1920,1080,134.9,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,14,014.jpg,assets/parcae-overview.jpg,1920,1080,228.6,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,15,015.jpg,assets/loop-training-instability.jpg,1920,1080,149.9,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,16,016.jpg,assets/residual-dynamic-system.jpg,1920,1080,90.9,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,17,017.jpg,assets/spectral-radius-analysis.jpg,1920,1080,154.4,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,18,018.jpg,assets/parcae-stable-parameterization.jpg,1920,1080,164.8,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,19,019.jpg,assets/parcae-stable-loss.jpg,1920,1080,126.6,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,20,020.jpg,assets/parcae-quality-results.jpg,1920,1080,128.4,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,21,021.jpg,assets/recurrence-scaling-law.jpg,1920,1080,125.6,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,22,022.jpg,assets/equal-flops-looping.jpg,1920,1080,176.4,photo,keep,照片/实物图，保留原图,assigned
+18,19,guest-lecture-dan-fu,23,023.jpg,assets/full-stack-takeaway.jpg,1920,1080,163.9,photo,keep,照片/实物图，保留原图,assigned

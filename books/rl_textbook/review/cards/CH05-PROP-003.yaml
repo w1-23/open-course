@@ -1,0 +1,51 @@
+issue_id: CH05-PROP-003
+chapter: 5
+severity: P1
+status: 已核验
+title: 第 208 行把命题 B 用到自举的 δ_t 上，称 critic 误差“不改变期望”，与第 238 行和 S&B 相反
+summary: 第 208 行：critic 误差经 δ_t 传进 actor 更新，“虽然按命题 B 它不改变期望，但它会放大方差”。命题 B 的前提是权重取 G_t − b(s_t)；而这里权重是自举的
+  δ_t = r + γV_φ(s') − V_φ(s)，V_φ 的误差乘在后继状态上，不是纯状态函数，偏差随之出现——本章第 238 行自己就这么写，S&B 也说 critic 引入偏差。同句既说“是偏差的来源”又说“不改变期望”，内部已矛盾。
+current_text:
+  file: content/ch05.md
+  lines: 188-208
+  excerpt: 第 208 行：也是偏差的来源：critic 的误差会通过 δ_t 传进 actor 的更新，虽然按命题 B 它不改变期望，但它会放大方差。式 (5.15)：θ ← θ + α_θ
+    δ_t ∇log π；第 238 行：λ<1 时自举把 V_φ 的误差乘进了优势……于是偏差出现。
+sources:
+- key: RLbook2020
+  level: S
+  role: 一手文献明确说 critic 会给 actor 的梯度估计引入偏差
+  pdf_page: 359
+  printed_page: §13.5（纸面 p.337）
+  quote: The critic introduces bias into the actor’s gradient estimates
+derivation_file: review/derivations/CH05-PROP-003.md
+reproduction_result:
+  note: 推导给出两状态解析例子：V_φ 偏一点，δ_t 权重的期望就偏一个正比于 γ(V_φ−V^π)(s') 的量。
+claims:
+- id: c1
+  text: δ_t 的误差项 γ(V_φ−V^π)(s') 含后继状态，不是状态函数，消不掉。
+  evidence: 推导第 1 节（把 δ_t 拆成 A^π 项加误差项）
+  status: 已核对
+- id: c2
+  text: 命题 B 只覆盖真回报 G_t 减状态基线，用到 δ_t 上是越界使用。
+  evidence: 式 (5.11) 的权重是 G_t；推导第 2 节
+  status: 已核对
+- id: c3
+  text: 第 208 行“不改变期望”与第 238 行“λ<1 时偏差出现”矛盾（λ=0 时 GAE 就是 δ_t）。
+  evidence: 推导第 1 节；本章第 231、238 行
+  status: 已核对
+- id: c4
+  text: 修订复核：当前 content/ch05.md 已按本卡修正。
+  evidence: 推导复核（对照原文与现行正文）：第 208 行现为“命题 B 只对式 (5.11) 的 MC 权重成立，δ_t 版本带来的是偏差，不只是方差”，与第 238 行自洽；本卡指出的“按命题
+    B 不改变期望”已删除。
+  status: 已核对
+planned_fix:
+- 第 208 行改为：δ_t 依赖后继状态上的 V_φ，不再是纯状态函数，命题 B 不再适用，偏差随 γ、λ 出现（见第 238 行），换来的是方差大幅下降。
+- 在第 198 行式 (5.15) 后补限定：该更新在 V_φ ≠ V^π 时有偏，属偏差换方差；无偏版本要用 G_t。
+- 第 204 行“两个更新共用同一个 δ_t”与 5.2.3 的偏差讨论前后呼应。
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: '2026-10-20'
+  notes: 审计对象 content/ch05.md（562 行）；引文均从 source/pages/ 切片；本章自产实验数字已用 figures/ch05_figs.py 重跑复现（cache/ch05_figs_log.txt）。

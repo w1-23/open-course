@@ -1,0 +1,73 @@
+issue_id: CH02-SEC-002
+chapter: 2
+severity: P1
+status: 已有依据
+title: 习题 5 断言"只在 s0 改进也会使别处变差"，与定理 2.5 直接矛盾
+summary: >
+  习题 5 与 :364 的说明都声称「π' 只在 s0 上改进、其余状态与 π 相同时，可能存在
+  其他状态 s 使 V^{π'}(s)<V^π(s)」。这是错的：π' 与 π 相同的那些状态一步优势恒为 0，
+  「全状态非劣」成立，定理 2.5 因此给出全局非劣，别处不可能变差。要让别处变差，
+  π' 必须在别处退化（一步优势为负），也就是违反前提。两状态数值见证：
+  π'=(good,stay) 得 D=(+10,0)（非负）；π'=(good,drop) 才得 D=(+5.5,−5)。
+  已按此改写习题 5 与 :364，并把见证写成可复现脚本。
+
+current_text:
+  file: content/ch02.md
+  lines: "364, 503"
+  excerpt: >
+    5. 用式 (2.22) 证明：若策略 π' 只在某一个状态 s0 上改进，其余状态与 π 相同，
+    则 V^{π'}(s0)>V^π(s0)，但可能存在其他状态 s 使 V^{π'}(s)<V^π(s)。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 策略改进定理的严格性表述：条件按状态逐点给出，把结论推到所有状态
+    pdf_page: 100
+    printed_page: "§4.2, p.78, 式 (4.7)(4.8)"
+    quote: >
+      Moreover, if there is strict inequality of (4.7) at any state, then there must be
+      strict inequality of (4.8) at that state.
+    note: >
+      (4.7) 对每个状态单独成立才推出 (4.8) 对每个状态成立；π' 与 π 相同的状态上
+      q_π(s,π'(s))=v_π(s)，(4.7) 以等号成立，因此这些状态同样被结论覆盖。
+
+derivation_file: review/derivations/CH02-SEC-002.md
+reproduction_file: review/reproductions/CH02-THM-002_two_state.py
+reproduction_result:
+  note: >
+    运行 `python review/reproductions/CH02-THM-002_two_state.py` → exit 0。
+    情形 A 得 D=(+10.0000, +0.0000)，情形 B 得 D=(+5.5000, -5.0000)；两种情形下
+    式 (2.22) 的复核偏差均为 0.00e+00。
+
+claims:
+  - id: c1
+    text: π' 在其余状态与 π 相同时，那些状态的一步优势为 0，故「全状态非劣」成立。
+    evidence: 由 A(s)=E_{a∼π'}Q^π(s,a)−V^π(s) 直接代入，见 derivation_file 第 1 节
+    status: 已核对
+  - id: c2
+    text: 因此「可能使其他状态变差」为假；变差需要 π' 在别处的一步优势为负。
+    evidence: 复现脚本情形 A/B 的数值对比（D=(+10,0) 与 (+5.5,−5)）
+    status: 已核对
+  - id: c3
+    text: :364「若只在部分状态改进，则只能得到该部分状态的价值不减」同源失真，应区分两种情形。
+    evidence: 对照 RLbook2020 p.100 (4.7)(4.8) 的状态逐点结构，见 derivation_file 第 3 节
+    status: 已核对
+  - id: c4
+    text: 正确写法给出可构造的数值反例：(+10)→s1 与 (−0.5) 自环、γ=0.9 时 D=(+5.5,−5)。
+    evidence: reproduction_file 与 derivation_file 第 2 节的表格
+    status: 已核对
+
+planned_fix:
+  - 习题 5 改写为「构造 π' 在 s0 改进、在 s1 退化的两状态 MDP，得 V^{π'}(s0)>V^π(s0) 而 V^{π'}(s1)<V^π(s1)（提示数值 (+5.5,−5)）」，并补问相反情形为什么不成立。
+  - 把 :364 的「只能得到该部分状态的价值不减」改为区分两种情形：别处退化时全局非劣失效；别处与 π 相同时全局非劣自动成立、改进处严格增大。
+  - 在习题 5 答案要点（若有教师版）中引用 review/reproductions/CH02-THM-002_two_state.py 的两情形输出，避免学生复制旧断言的错证。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    本条是在补 THM-002 的数值复现时发现的：定理 2.5 的陈述无误，但习题 5 把
+    「条件不能省」误解成「只改一处就会让别处变差」。施工与 rev 同批完成。

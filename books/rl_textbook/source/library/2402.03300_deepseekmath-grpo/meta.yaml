@@ -1,0 +1,30 @@
+key: 2402.03300_deepseekmath-grpo
+version: 2026-10-19
+level: S
+role: algorithm
+title: "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models"
+authors:
+  - Zhihong Shao
+  - Peiyi Wang
+  - Qihao Zhu
+  - Runxin Xu
+  - Junxiao Song
+  - Xiao Bi
+  - Haowei Zhang
+  - Mingchuan Zhang
+  - Y. K. Li
+  - Y. Wu
+  - Daya Guo
+year: 2024
+published: 2024-02-05
+arxiv_id: 2402.03300
+doi: ""
+journal_ref: ""
+primary_category: cs.CL
+path: source/papers/2402.03300_deepseekmath-grpo.pdf
+bytes: 1844642
+pages: 30
+sha256: 6cc20b3c5b8d25b8b53868fc4ec1792c144f07d67bdf7395138efd4422197e7b
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

@@ -1,0 +1,20 @@
+unit_id: CH03-U10
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 长上下文：full 与局部注意力层间交替
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p65
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Current standard trick – interleave ‘full’ and ‘LR’ attention / From Cohere Command A – Every
+    4th layer is a full attention / Long-range info via NoPE, short-range info via RoPE + SWA. / Other
+    models – LLaMA 4, Gemma 3, Gemma 4, OLMo 3 does SWA+Full RoPE.
+technical_evidence: []
+knowledge_slot:
+  why_it_matters: Command A 的全/局部注意力混排与 NoPE 长程信息
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: course_only
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

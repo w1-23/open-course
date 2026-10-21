@@ -1,0 +1,89 @@
+issue_id: CH01-THM-001
+chapter: 1
+severity: P1
+status: 已有依据
+title: 定理 1.2 让 c 自由却把常数 8 当作通用常数——8 只对应 c=√2，而本章实验取 c=2
+summary: >
+  式 (1.9) 把 UCB 索引写成 Q_t(a)+c√(ln t/N_t(a)) 并声明 c>0 任意，第 151 行还说
+  「c 是置信水平的手柄」；定理 1.2 紧接着给出常数 8 的界，隐含 c 已被固定。按标准分析，
+  索引 Q+c√(ln t/N) 的遗憾首项常数是 4c²（Hoeffding + 并集界，见推导第 2 节），
+  4c²=8 给出 c=√2，正是 Auer 等 (2002) 原版半径 √(2 ln t/N)（Lattimore 与 Szepesvári
+  把原版写成 √(α ln t/n_t(a)) 并注明 α=2）。而本章表 1-2 的实验用的是 c=2，对应常数 16。
+  于是定理 1.2 按 (1.9) 的表述对 c=2 为假；对 c≤1/√2 连尾部级数都不收敛、索引不再是
+  有效上置信界，结论同样不成立。
+
+current_text:
+  file: content/ch01.md
+  lines: "146-149,157-165"
+  excerpt: >
+    第 146-149 行（式 1.9）：A_t=argmax_a{Q_t(a)+c√(ln t/N_t(a))}，c>0。
+    第 157-159 行（定理 1.2）：设 K 个臂的奖励独立同分布、取值于 [0,1]……则 UCB1 的期望遗憾满足下面的界。
+    第 161-165 行（式 1.10）：Regret(T) ≤ 8 Σ_{a:Δ_a>0} ln T/Δ_a + (1+π²/3) Σ_a Δ_a。
+    第 255 行（实验设定）：UCB1（式 (1.9) 取 c=2）。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: UCB 索引里 c 是自由参数，原文只说它控制探索程度，没有指定值
+    pdf_page: 58
+    printed_page: "§2.7（纸面 p.36）"
+    quote: >
+      the number c > 0 controls
+      the degree of exploration. If Nt(a) = 0, then a is considered to be a maximizing action.
+    note: 确认 (1.9) 的自由 c 与教材原版一致，问题出在把常数 8 挂到这个自由参数上。
+  - key: 1904.07272_bandit-algorithms
+    level: S
+    role: UCB1 的原版置信半径是 √(α ln t/n_t(a)) 且 α=2，即 (1.9) 的 c=√2
+    pdf_page: 17
+    printed_page: "第 1 章 §1.5（纸面 p.13）"
+    quote: >
+      with α = 2; note that log T is replaced with log t compared to the exposition in this chapter (see (1.5)). This
+      version allows for the same regret bounds, at the cost of a somewhat more complicated analysis.
+    note: 该句紧接在原版半径公式 (1.15) 之后，α=2 即置信半径系数为 √2。
+
+derivation_file: review/derivations/CH01-THM-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条是分析性结论，不需要数值实验：常数依赖由推导第 2 节的 Hoeffding 界给出，
+    4c² 对 c 的线性依赖是显式的。若要数值演示，可比较 c=√2 与 c=2 的 UCB 遗憾曲线斜率，
+    但那只能显示常数差别，不能证明界。
+
+claims:
+  - id: c1
+    text: UCB 索引 Q+c√(ln t/N) 的遗憾首项常数是 4c²，来自 Hoeffding 偏差概率 t^(−2c²) 与必然情形的计数约束 n ≤ 4c² ln t/Δ²。
+    evidence: 推导第 2 节（review/derivations/CH01-THM-001.md），式 (*)
+    status: 已核对
+  - id: c2
+    text: 4c²=8 当且仅当 c=√2；Auer 等 (2002) 的 UCB1 原版半径是 √(2 ln t/N)，即 c=√2。
+    evidence: 1904.07272_bandit-algorithms p.17 式 (1.15) 后「with α = 2」+ 推导第 3 节
+    status: 已核对
+  - id: c3
+    text: 本章表 1-2 的实验用 c=2，对应的常数应为 16，与式 (1.10) 的 8 不一致。
+    evidence: content/ch01.md 第 255 行；推导第 3 节
+    status: 已核对
+  - id: c4
+    text: 若 c ≤ 1/√2，则 2c² ≤ 1，尾部级数 Σ t^(−2c²) 发散，(1.10) 的界不成立，索引也不再是有效上置信界。
+    evidence: 推导第 2 节末（尾部级数收敛条件 2c²>1）
+    status: 已核对
+  - id: c5
+    text: 因此定理 1.2 按 (1.9) 的表述（c 自由）为假，须固定 c=√2 或把常数写成 4c²。
+    evidence: 推导第 4 节（review/derivations/CH01-THM-001.md）的结论部分；式 (1.9) 与式 (1.10) 对照
+    status: 已核对
+
+planned_fix:
+  - 在式 (1.9) 后补一句「本节固定 c=√2，即 Auer 等 (2002) 的置信半径 √(2 ln t/N)」，并删去「c 是置信水平的手柄」里暗示可任取的表述。
+  - 或把式 (1.10) 的首项常数改成 4c²，并在定理前提里补 c>1/√2（保证偏差尾部级数收敛）。
+  - 表 1-2 的设定行与第 1.4.4 节正文同步：若实验仍取 c=2，须注明「实验参数与定理 1.2 的 c=√2 不同，此处的界不适用于该实验」。
+  - 第 171 行「UCB1 在间隙不太小的实例上遗憾按 ln T 增长」的数值算例基于式 (1.10)，改常数后同步复核 8 与 4c² 的乘积。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条只涉及常数对 c 的依赖，与 CH01-THM-002（标签）同段落但不同问题：
+    修 (1.10) 的常数不改变它「对每个有限 T 成立」这一性质，标签另议。
+    另注意：S&B 原书图 2.4 也用 c=2，本章实验沿用该值并非错误，错在把 8 与之配套。

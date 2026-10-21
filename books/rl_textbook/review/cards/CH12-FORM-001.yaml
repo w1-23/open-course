@@ -1,0 +1,70 @@
+issue_id: CH12-FORM-001
+chapter: 12
+severity: P1
+status: 已有依据
+title: 转移分解把观测 o_t 写进了右式却没写进左式；且 s=(h,e) 与 π(a|h) 并列却没有点明这是 POMDP
+summary: >
+  12.2.1 先把状态写成 s_t=(h_t,e_t)（式 (12.6)），e_t 是工具或环境的内部状态；随后把转移
+  分解成 P(h_{t+1},e_{t+1}|h_t,e_t,a_t)=P_llm(h_{t+1}|h_t,a_t)·P_env(e_{t+1},o_t|e_t,a_t)。
+  两处都有问题。其一，h_{t+1}=h_t⊕a_t⊕o_t，观测 o_t 由环境产生却必须进入上下文，因此
+  正确的分解应把 o_t 放进左式（P(h_{t+1},e_{t+1},o_t|h_t,e_t,a_t)），或把"追加"写成
+  确定性映射再对 o_t 积分；现在右式含 o_t、左式不含，等式两侧不是一个事件。其二，状态
+  含 e_t 而策略写成 π(a|h)（12.3.2 节），即策略看不到 e_t——这是标准的 POMDP（观测是
+  h_t、状态是 (h_t,e_t)），正文从未点明"部分可观测"，也没有说明价值函数 V_φ(h_t) 不是
+  状态的充分统计量、由此引入的近似属于哪一类。这两点直接影响 12.2.2"不能把步骤当成
+  token"的论证力度（那里的理由是价值头没在含观测的前缀上训练过，而不是状态不可观测）。
+
+current_text:
+  file: content/ch12.md
+  lines: "100-119"
+  excerpt: >
+    第 103 行：s_t=(h_t, e_t)，其中 h_t 是上下文，e_t 是工具或环境的内部状态（文件树、
+    浏览器会话、代码运行时）。
+    第 110-113 行：P(h_{t+1},e_{t+1}|h_t,e_t,a_t) = P_llm(h_{t+1}|h_t,a_t)·P_env(e_{t+1},o_t|e_t,a_t)，
+    第一步由策略决定（生成的内容进上下文），第二步由环境决定（工具的执行结果既改变 e，
+    也作为观测 o_t 进入 h）。
+
+sources:
+  - key: 2210.03629_react
+    level: S
+    role: agent 循环的原始描述：动作去外部环境取信息、观测回到模型
+    pdf_page: 1
+    printed_page: "ICLR 2023 摘要（p.1）"
+    quote: >
+      while actions allow it to interface with and gather additional information from external
+      sources such as knowledge bases or environments.
+
+claims:
+  - id: c1
+    text: >
+      式 (12.6) 的状态含 e_t，而策略是 π(a|h)（12.3.2 节第 174 行），策略观测不到 e_t，
+      因此这是 POMDP；正文没有出现"部分可观测/POMDP"的说明。
+    evidence: 推导：content/ch12.md 第 103 行与第 174 行的 π(a|h) 对照
+    status: 已核对
+  - id: c2
+    text: >
+      转移分解的左右两侧事件不一致：h_{t+1} 含 o_t，而左式没把 o_t 列为随机变量，右式
+      却对 o_t 取条件；正确写法应把 o_t 放进左式，或把追加写成确定性映射。
+    evidence: 推导：h_{t+1}=h_t⊕a_t⊕o_t 由构造决定
+    status: 已核对
+  - id: c3
+    text: >
+      "第一步由策略决定、第二步由环境决定"的定性结论不受上述问题影响（P_llm 可微、
+      P_env 不可微的不对称仍然成立）。
+    evidence: 推导：content/ch12.md 第 115-119 行的梯度讨论
+    status: 已核对
+
+planned_fix:
+  - 第 110-113 行把左式改为 P(h_{t+1},e_{t+1},o_t|h_t,e_t,a_t)，或改为"h_{t+1}=h_t⊕a_t⊕o_t，其中 o_t~P_env(·|e_t,a_t)"的确定性映射加环境核两行。
+  - 第 107 行后补一句："策略只观测 h_t，状态含 e_t，因此这是部分可观测 MDP；V_φ(h_t) 是对观测而非状态的估计，12.2.2 的第二条限制与此同源。"
+  - 12.2.2 第 125 行"不能套用之二"的理由补半句"即使不看训练分布问题，V(h) 也不是状态的充分统计量"，使两条理由分开。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条只改形式化与一句限定，不动图 12-2 与 12.2.2 的三条结论；施工时与 12.3.2 的 π(a|h)
+    记号保持一致（若改用 π(a|o) 需全章统一）。

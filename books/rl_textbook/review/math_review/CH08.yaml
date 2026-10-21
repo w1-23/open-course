@@ -1,0 +1,56 @@
+'no': 8
+status: reviewed
+reviewer: author-ch4（独立审校）
+reviewed_at: '2026-10-21'
+source_hash: 50e1a76a6354
+equations:
+  - '8.1'
+  - '8.2'
+  - '8.3'
+  - '8.4'
+  - '8.5'
+  - '8.6'
+  - '8.7'
+  - '8.8'
+  - '8.9'
+  - '8.10'
+  - '8.11'
+  - '8.12'
+  - '8.13'
+  - '8.14'
+  - '8.15'
+  - '8.16'
+  - '8.17'
+  - '8.18'
+  - '8.19'
+  - '8.20'
+  - '8.21'
+primary_sources:
+  - 2110.06169_iql
+  - 2006.04779_cql
+  - 1812.02900_bcq
+  - 1011.0686_dagger
+  - RLbook2020
+notes: >-
+  复审 reviewed：21 式全部五项判定通过（21/21 全 ✓），6 处与原文逐字比对（IQL、CQL、BCQ、DAgger、RLbook）。
+  首轮 2 条 P2 已修合并复核：式 (8.5) 第二项改 \mathbb{E}_{(s,a)\sim\mathcal{D}} 后动作被绑定；
+  式 (8.9) 补 (1-d_t) 掩码并在式后区分 terminated/truncated，与第 10 章 (10.7) 及 _CONVENTIONS 1.2 一致。
+  本轮无新增缺陷；IS 无偏性、κ^T、ESS、WIS 方差收敛、DR 一致性、复合误差 T²ε 与 CQL 两定理条件均无误。
+defects:
+  - id: CH08-MATH-001
+    severity: P2
+    status: fixed
+    line: 115
+    equation: '8.5'
+    summary: CQL 目标第二项的动作 a 未绑定（首轮）
+    fix: 已改为 \mathbb{E}_{(s,a)\sim\mathcal{D}}[(Q(s,a)-\hat{\mathcal{B}}\hat Q(s,a))^{2}]
+    verified: 复审确认五项全 ✓
+  - id: CH08-MATH-002
+    severity: P2
+    status: fixed
+    line: 166
+    equation: '8.9'
+    summary: IQL 的 Q 备份缺终止掩码（首轮）
+    fix: 已改为 r+\gamma(1-d_t)V_\psi(s')，并在式后说明 d_t 的 terminated/truncated 语义
+    verified: 复审确认掩码方向与 _CONVENTIONS 1.2 一致
+new_findings: []

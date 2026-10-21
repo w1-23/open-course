@@ -1,0 +1,87 @@
+issue_id: CH12-CL-002
+chapter: 12
+severity: P1
+status: 已有依据
+title: EWC 只写了两任务单锚点形式 (12.14)，却用 K 任务的 Ω 表述并在三任务实验上使用
+summary: >
+  12.4.2 给出的式 (12.14) 是 L_k = L_k^data + (λ/2)Σ_i F_i(θ_i−θ*_i)²，锚点只有一组
+  θ*，即两任务（A→B）版本；而 12.3.5 的式 (12.12) 把约束写成 Ω(θ,θ*_{1:k-1})（全部
+  先前任务），12.4.4 的实验又确实在三任务序列上训练 EWC（λ=10）。正文没有说明多任务时
+  惩罚如何累积（逐任务相加、还是把 Fisher 累加成在线 EWC），也没有交代二次惩罚成立
+  所依赖的近似：EWC 原文是把后验近似成以 θ*_A 为均值、以 Fisher 对角为精度的高斯
+  （Laplace 近似），二次惩罚是这一近似的产物，因而只在 θ*_A 邻域内有效、且忽略了参数
+  相关性。正文只写了"F 只在一个点上估计"，方向对但没把这两条前提写全。
+
+current_text:
+  file: content/ch12.md
+  lines: "198-207, 241-257, 300-308"
+  excerpt: >
+    第 246 行：L_k(θ)=L_k^data(θ)+(λ/2)Σ_i F_i(θ_i−θ*_i)²，其中 F_i 是 Fisher 信息
+    对角元，衡量第 i 个参数对旧任务有多重要。
+    第 207 行：其中 Ω 是约束项，θ*_{1:k-1} 是先前任务的解。
+
+sources:
+  - key: 1612.00796_ewc
+    level: S
+    role: 二次惩罚的来源：后验的高斯（Laplace）近似、精度取 Fisher 对角
+    pdf_page: 3
+    printed_page: "§2 EWC 推导（p.3）"
+    quote: >
+      we approximate the posterior as a Gaussian distribution with mean given by the parameters
+  - key: 1612.00796_ewc
+    level: S
+    role: 第三个任务的处理方式：两个二次惩罚可相加，等价于一个二次惩罚
+    pdf_page: 3
+    printed_page: "§2 式 (3) 之后（p.3）"
+    quote: >
+      When moving to a third task, task C, EWC will try to keep the network parameters close to
+      the learned parameters of both task A and B.
+  - key: 1612.00796_ewc
+    level: S
+    role: 弹簧比喻的来源（与本书措辞一致，不构成问题）
+    pdf_page: 2
+    printed_page: "§1（p.2）"
+    quote: >
+      This constraint is implemented as a quadratic penalty, and can therefore be imagined as a
+      spring anchoring the parameters to the previous solution
+
+claims:
+  - id: c1
+    text: >
+      式 (12.14) 是两任务、单锚点形式；与式 (12.12) 的 Ω(θ,θ*_{1:k-1}) 及 12.4.4 的
+      三任务实验不匹配，正文没有给出多任务累积形式。
+    evidence: 1612.00796_ewc p.3（第三任务用两个惩罚相加）；content/ch12.md 第 203 行与第 302 行
+    status: 已核对
+  - id: c2
+    text: >
+      二次惩罚的成立条件是 Laplace/高斯后验近似与 Fisher 对角化（忽略参数相关性），
+      因而只在 θ* 邻域内有效；正文只写了"F 只在一个点上估计"。
+    evidence: 1612.00796_ewc p.3 原句；推导：对角 Fisher 丢弃非对角项
+    status: 已核对
+  - id: c3
+    text: >
+      正文的"弹簧"比喻与 EWC 原文一致（anchoring the parameters to the previous solution），
+      不需要改。
+    evidence: 1612.00796_ewc p.2
+    status: 已核对
+  - id: c4
+    text: >
+      12.4.4 的实验实现（三任务时是否逐任务累加惩罚、λ 是否全局共享）在正文中没有写出，
+      无法从文字核实其与 (12.14) 的对应关系。
+    evidence: 未找到实现说明；content/ch12.md 第 302 行只给超参
+    status: 待核验
+
+planned_fix:
+  - 式 (12.14) 前加一句"下面先写两任务形式"，并在其后补多任务形式 L_k = L_k^data + (λ/2)Σ_{j<k}Σ_i F^{(j)}_i(θ_i−θ^{*(j)}_i)²，注明"逐任务相加等价于一个二次惩罚；工程上也常把 Fisher 累加成一个（在线 EWC）"。
+  - 第 257 行"F 只在一个点上估计"扩成两句：Laplace/高斯后验近似 + Fisher 对角化（忽略参数相关性），并说明两者共同决定"只在 θ* 邻域有效"。
+  - 12.4.4 第 302 行补一句实验实现："EWC 在三任务上按逐任务惩罚相加，λ 全局共享"，使实验与公式对得上。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条只涉及 12.4.2 与 12.4.4 的公式与一句话；12.4.5 的权衡实验用的是同一实现，改公式时
+    要保证 λ 的含义（全局 vs 每任务）在 12.4.5 仍然自洽。

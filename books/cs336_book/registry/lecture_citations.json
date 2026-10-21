@@ -1,0 +1,188 @@
+{
+ "1": {
+  "slot": 1,
+  "file": "lecture_01.py",
+  "py_refs": [
+   "adam_2014",
+   "adamw_2017",
+   "auxfree_2024",
+   "bengio_2003",
+   "bert_2018",
+   "bloom_2022",
+   "blt_2024",
+   "brants_2007",
+   "byt5_2021",
+   "chinchilla_2022",
+   "dpo_2023",
+   "elmo_2018",
+   "gdn_2024",
+   "glorot_2010",
+   "gpipe_2018",
+   "gpt2_2019",
+   "gqa_2023",
+   "hnet_2025",
+   "layernorm_2016",
+   "llama_2023",
+   "lstm_1997",
+   "megabyte_2023",
+   "mixtral_2024",
+   "moe_2017",
+   "mtp_2024",
+   "muon_2024",
+   "mup_2022",
+   "olmix_2026",
+   "palm_2022",
+   "ppo_2017",
+   "regmix_2025",
+   "rope_2021",
+   "sennrich_2016",
+   "seq2seq_2014",
+   "shannon_1950",
+   "shazeer_2020",
+   "soap_2024",
+   "t5_2019",
+   "tfree_2024",
+   "transformer_2017",
+   "wrap_2024",
+   "zero_2019"
+  ],
+  "pdf_hits": [],
+  "py_lines": 762
+ },
+ "2": {
+  "slot": 2,
+  "file": "lecture_02.py",
+  "py_refs": [
+   "adagrad_2011"
+  ],
+  "pdf_hits": [],
+  "py_lines": 856
+ },
+ "3": {
+  "slot": 3,
+  "file": "lecture_03.pdf",
+  "py_refs": [],
+  "pdf_hits": [
+   {
+    "ref": "transformer_2017",
+    "title": "Attention Is All You Need",
+    "pages": [
+     61
+    ]
+   }
+  ],
+  "pdf_pages": 67
+ },
+ "4": {
+  "slot": 4,
+  "file": "lecture_04.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 60
+ },
+ "5": {
+  "slot": 5,
+  "file": "lecture_05.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 55
+ },
+ "6": {
+  "slot": 6,
+  "file": "lecture_06.py",
+  "py_refs": [],
+  "pdf_hits": [],
+  "py_lines": 745
+ },
+ "7": {
+  "slot": 7,
+  "file": "lecture_07.py",
+  "py_refs": [],
+  "pdf_hits": [],
+  "py_lines": 619
+ },
+ "8": {
+  "slot": 8,
+  "file": "lecture_08.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 73
+ },
+ "9": {
+  "slot": 9,
+  "file": "lecture_09.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 57
+ },
+ "10": {
+  "slot": 10,
+  "file": "lecture_10.py",
+  "py_refs": [
+   "gqa_2023",
+   "longformer_2020"
+  ],
+  "pdf_hits": [],
+  "py_lines": 611
+ },
+ "11": {
+  "slot": 11,
+  "file": "lecture_11.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 58
+ },
+ "12": {
+  "slot": 12,
+  "file": "lecture_12.py",
+  "py_refs": [
+   "mmlu_2021"
+  ],
+  "pdf_hits": [],
+  "py_lines": 394
+ },
+ "13": {
+  "slot": 13,
+  "file": "lecture_13.py",
+  "py_refs": [
+   "alpaca_2023",
+   "dclm_2024",
+   "gopher_2021",
+   "gpt2_2019",
+   "openwebtext_2019"
+  ],
+  "pdf_hits": [],
+  "py_lines": 622
+ },
+ "14": {
+  "slot": 14,
+  "file": "lecture_14.py",
+  "py_refs": [
+   "dclm_2024",
+   "dolma_2024"
+  ],
+  "pdf_hits": [],
+  "py_lines": 464
+ },
+ "15": {
+  "slot": 15,
+  "file": "lecture_15.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 65
+ },
+ "16": {
+  "slot": 16,
+  "file": "lecture_16.pdf",
+  "py_refs": [],
+  "pdf_hits": [],
+  "pdf_pages": 61
+ },
+ "17": {
+  "slot": 17,
+  "file": "lecture_17.py",
+  "py_refs": [],
+  "pdf_hits": [],
+  "py_lines": 302
+ }
+}

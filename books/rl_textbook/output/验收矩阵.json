@@ -1,0 +1,240 @@
+[
+ {
+  "no": 1,
+  "title": "Bandit 与探索",
+  "pages": 17,
+  "budget": [
+   15,
+   17
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_UNREVIEWED",
+   "SOURCE_UNVERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 2,
+  "title": "MDP 与 Bellman 理论",
+  "pages": 22,
+  "budget": [
+   19,
+   22
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 3,
+  "title": "动态规划、蒙特卡洛与时序差分",
+  "pages": 20,
+  "budget": [
+   18,
+   20
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_UNREVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 4,
+  "title": "函数逼近与离策略学习",
+  "pages": 23,
+  "budget": [
+   20,
+   23
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 5,
+  "title": "策略梯度、信赖域与 PPO",
+  "pages": 22,
+  "budget": [
+   20,
+   22
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 6,
+  "title": "深度强化学习：从 DQN 家族到连续控制",
+  "pages": 21,
+  "budget": [
+   19,
+   21
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 7,
+  "title": "模型、规划与搜索",
+  "pages": 19,
+  "budget": [
+   18,
+   21
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 8,
+  "title": "离线强化学习与策略评估",
+  "pages": 21,
+  "budget": [
+   19,
+   22
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 9,
+  "title": "层次、多智能体与安全约束",
+  "pages": 19,
+  "budget": [
+   17,
+   19
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 10,
+  "title": "RLHF 与偏好优化",
+  "pages": 21,
+  "budget": [
+   19,
+   22
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 11,
+  "title": "RLVR 与推理强化学习",
+  "pages": 20,
+  "budget": [
+   19,
+   22
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 12,
+  "title": "Agentic RL 与持续学习",
+  "pages": 18,
+  "budget": [
+   16,
+   18
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 0,
+  "title": "全书导航：这本书在讲什么",
+  "pages": 14,
+  "budget": [
+   12,
+   16
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ },
+ {
+  "no": 95,
+  "title": "语言模型作为策略",
+  "pages": 12,
+  "budget": [
+   11,
+   14
+  ],
+  "states": [
+   "BUILD_PASS",
+   "STRUCTURE_PASS",
+   "MATH_REVIEWED",
+   "SOURCE_VERIFIED",
+   "REPRODUCED"
+  ],
+  "notes": []
+ }
+]

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html><head><title>ch01</title></head><body>
+<article class="md-content__inner">
+<h1 id="c1h1">第 1 章　引言与动机：从智能爆炸到递归自我改进</h1>
+
+<h2 id="c1s1">1.1 智能爆炸：一个 1965 年的论证</h2>
+<p>递归自我改进（Recursive Self-Improvement，RSI）的思想源头，通常追溯到英国数学家 I. J. Good 在 1965 年的一篇短文《关于第一台超智能机器的推测》（<i>Speculations Concerning the First Ultraintelligent Machine</i>）。Good 给出了后来被反复引用的"智能爆炸"论证：</p>
+
+<div class="admonition"><div class="admonition-title">Good（1965）论证内容转述</div>
+<p>Good（1965）提出：如果一台机器的智力活动远超人类，而且设计更智能机器本身也是智力活动，那么它可能设计出更好的机器，使后续改进进一步加快。Good 将这一设想称为"智能爆炸"，并指出控制条件仍须成立。此处为论证内容转述，不是逐字引文。</p></div>
+
+<p>本书从设计能力、改进速度与幅度、初始系统可行性三个方面重构 Good 的论证。这一划分属于本书的分析框架，三项条件之间可能存在依赖关系。</p>
+<p><b>设计能力条件：</b>系统能力的提高需要能够转化为后续系统设计或改进能力的提高，才能形成递归增益。这是对递归增益条件的分析，不是独立于具体系统假设的定理。</p>
+<p><b>改进速度与幅度条件：</b>递归改进的时间尺度受到单轮迭代耗时、性能增益和资源消耗共同影响。Good 的原始论证未提供现代机器系统与人类研究者之间的实证速度比较。</p>
+<p><b>初始系统条件：</b>系统须具备启动改进过程所需的初始能力和反馈机制。具体能力要求取决于可用的学习信号、改进机制和任务环境。</p>
+
+<p>以下引入简化的离散动力学模型，分析递归增益的形成条件。设 \(x_t\) 表示第 \(t\) 代系统在指定度量下的能力，改进过程写作</p>
+\[ x_{t+1} = f(x_t) \]
+<p>若某一区间内 \(f(x)>x\)，迭代值会在该区间内增加，但这一条件本身不意味着增长无界。若 \(x^*\) 为不动点且 \(f'(x^*)>1\)，该点在局部迭代下不稳定；后续轨迹还取决于函数形状、可达范围和资源约束。该模型由本书引入，属于对 Good 论证的形式化重构 [E5]。现有系统的跨任务迁移能力与持续递归增益仍需通过独立实验验证。</p>
+
+<p>1993 年，数学家兼科幻作家 Vernor Vinge 在《The Coming Technological Singularity》中讨论了技术奇点：若技术进步使超人智能出现，社会变化可能超出既有经验的可靠外推范围。2001 年前后，Eliezer Yudkowsky 提出 <b>Seed AI</b> 概念，对种子系统的讨论关注初始系统能否通过学习和自我修改提高能力。本书将分析这一问题时使用三个检查项：系统能否描述与修改部分自身实现，能否获得有效反馈，以及能否依据明确标准保留改动。这是本书的分析提纲，不是 Yudkowsky 原文逐项列出的条件。2020 年代的部分语言模型智能体能读取或提议修改提示词与代码，也能调用基准或验证器；这并不证明它们已具备可靠自我理解、可持续改进与稳健目标判定。把这些局部能力说成"Seed AI 已实现"，证据不够。</p>
+
+<h2 id="c1s2">1.2 从哲学命题到工程对象</h2>
+<p>在深度学习兴起之前，RSI 主要出现在超级智能与智能爆炸的理论讨论中。Bostrom《超级智能》（2014）区分了窄范围与强形式的自我改进；第 2 章进一步依据更新对象以及改进算子是否发生变化，对相关机制进行分类。</p>
+
+<div class="admonition"><div class="admonition-title">定义 1-1　自我改进系统</div>
+<p>代理系统 \(P_t\) 能够生成针对自身或其组成部分的变更，且下一状态 \(P_{t+1}\) 在预先规定的评估条件下优于 \(P_t\) 时，本书称其为自我改进系统。单一指标情形需预先指定度量和约束；多目标情形需说明权衡规则或 Pareto 支配关系。</p></div>
+<div class="admonition"><div class="admonition-title">定义 1-2　递归自我改进（RSI）</div>
+<p>本书将递归自我改进限定为：系统的更新机制能够修改其后续产生、评估或保留更新的能力，且该变化进入后续更新循环。更新阶数用于描述改进算子 \(U\) 是否也成为更新对象，不由记忆是否跨任务保存决定。Bostrom 对强形式自我改进的讨论与此相关，但术语范围并不等同于本书的操作性判据。</p></div>
+
+<p>大语言模型为若干有限范围的自修改实验提供了可操作对象，主要包括以下三类。这些条件便于构造有限范围的实验，并不代表 RSI 已经得到解决。</p>
+<p><b>其一，部分改进对象变成了文本与代码。</b>语言模型可以读取和提议修改提示、工具与控制流，因此某些系统修改无需重新训练权重。但提出代码补丁不等于理解全部系统，也不等于补丁有效；隔离执行、外部测试和回滚仍是必需条件。第 5、6 章讨论这些受限的工程实例。</p>
+<p><b>其二，部分任务可以自动评估。</b>代码执行、单元测试和数学答案核对能够提供不依赖逐条人工标注的反馈。自动反馈仍可能不完整或有误；评估方法的覆盖范围和可靠性，是第 4 章与第 7 章讨论的重点。</p>
+<p><b>其三，系统包含多个可更新的组成部分。</b>一个大模型应用可以分解为模型权重、脚手架、记忆、任务接口与评估器五个部分（1.3 节）。分析自我改进时，需要分别说明更新对象、更新时间、反馈来源和评估方法。</p>
+
+<div class="figwrap">
+  <div class="figure"><img src="fig:selfimprove_survey2507/01.png" alt="trajectory"></div>
+  <div class="caption">图 1-1　来源综述对语言模型与智能体系统组成的整理（改绘自 arXiv:2507.21046）。图示用于说明组成部分，不表示系统能力必然逐级增长</div>
+</div>
+
+<h2 id="c1s3">1.3 系统表示与更新对象</h2>
+<p>为比较不同研究中的系统，本书采用如下代理模型。一个智能体表示为五元组</p>
+\[ P = (M,\; S,\; R,\; T,\; E) \]
+<p>其中 \(M\) 为模型权重（model），\(S\) 为脚手架（scaffold：提示词、控制流、工具集、规划算法），\(R\) 为记忆与技能库（repertoire），\(T\) 为任务接口（可改写的目标与环境），\(E\) 为评估器（evaluator/verifier）。一次自我改进可表示为系统状态在反馈和改进算子作用下的更新：</p>
+\[ P_{t+1}=U(P_t,F_t), \qquad P_t=(M_t,S_t,R_t,T_t,E_t) \]
+<p>分析单个分量时，可用 \(i_X\) 表示对分量 \(X\) 的具体改动。第 3 章讨论模型参数更新，第 5 章讨论脚手架和记忆更新；第 6 章分析系统代码及改进算子的变化。第 7 章讨论评估器是否随系统更新，以及评估偏差的影响。</p>
+
+<div class="figwrap">
+  <div class="figure"><img src="dia:good_loop.svg" alt="good loop"></div>
+  <div class="caption">图 1-2　本书对 Good 论证的概念性重构。正反馈依赖设计能力随系统能力提高、每轮更新产生净增益及资源条件允许等假设；该图不表示增长必然发生或无界</div>
+</div>
+
+<h2 id="c1s4">1.4 简史时间轴（2017–2026）</h2>
+<p>表 1-1 按时间列出本书讨论的代表性研究及其主要更新对象。分类用于描述研究范围，不表示技术继承关系或能力等级。</p>
+<table class="dense" data-format="three-line">
+<tr><th style="width:11.6%">年份</th><th style="width:34.8%">研究或方法</th><th style="width:29.0%">主要更新对象</th><th style="width:24.6%">相关章节</th></tr>
+<tr><td style="text-align:center">2017</td><td>AlphaZero：自我对弈驱动的策略-价值联合进化；Christiano 等将人类偏好接入 RL（RLHF 前身）</td><td style="text-align:center">\(M\)（权重）</td><td style="text-align:center">3.2</td></tr>
+<tr><td style="text-align:center">2022-03</td><td>STaR：通过自训练迭代更新模型</td><td style="text-align:center">\(M\)（参数）</td><td style="text-align:center">3.2</td></tr>
+<tr><td style="text-align:center">2022-10</td><td>ReAct：推理、行动与环境观察交替进行</td><td style="text-align:center">\(S\)（控制流程）</td><td style="text-align:center">5.2</td></tr>
+<tr><td style="text-align:center">2023</td><td>Reflexion：语言反思；Voyager：可执行技能库；Constitutional AI：AI 反馈训练</td><td style="text-align:center">\(S,R,M\)</td><td style="text-align:center">3.3，5.3–5.4</td></tr>
+<tr><td style="text-align:center">2024</td><td>Self-Rewarding LMs：模型生成偏好评审并迭代 DPO；ADAS：搜索代理设计；AI Scientist：自动化研究流程；DeepSeekMath：提出 GRPO</td><td style="text-align:center">\(M,S,E\)（依研究而异）</td><td>3.4–3.5，6.3，6.7</td></tr>
+<tr><td style="text-align:center">2025</td><td>Gödel Agent：运行时代码修改；ADAS：程序搜索代理设计；SICA：自修改编码代理；HGM：基于谱系指标选择候选</td><td style="text-align:center">\(S,U\)（依实现而异）</td><td style="text-align:center">6.2–6.6</td></tr>
+<tr><td style="text-align:center">2026</td><td>DGM 作为 ICLR 2026 论文发表；SAHOO 于 ICLR 2026 RSI 工作坊发表；Duan 等提出 RSI 自主性路线图与 HCI；AIDE² 和 Dream-RSI 发布预印本。</td><td><code>S, E, U</code>（依系统边界而异）</td><td style="text-align:center">6.5、6.8、7.3、8</td></tr>
+</table>
+
+<h2 id="c1s5">1.5 分析范围</h2>
+<p>本书以系统更新对象、改进过程和评估条件为主线，比较模型训练、测试时扩展、代理记忆与代码修改等研究。研究结论按其任务、模型、指标和资源条件限定适用范围。</p>
+<p><b>预备知识。</b>理解第 3、4 章需要机器学习、概率和搜索的基本概念；第 5、6 章涉及代理系统、程序执行与代码修改；第 7 章讨论评估、安全和能力边界。第 8 章汇总近期研究，并将这些概念用于分析具体案例。</p>
+
+<h2 id="c1s6">本章小结与思考题</h2>
+<p>本章介绍了 Good 的递归改进论证、Seed AI 对初始能力条件的讨论，以及大语言模型系统中可更新对象的类型。后续章节使用五元组 \(P=(M,S,R,T,E)\) 表示代理系统，以 \(U\) 表示整体改进算子，并以 \(i_X\) 表示对单个组成部分的改动。</p>
+<p><b>思考题 1-1</b>　在 \(x_{t+1}=f(x_t)\) 模型中加入与能力水平相关的计算成本，写出包含资源约束的更新条件，并说明 METR 时间地平线数据能够为哪些假设提供证据。</p>
+<p><b>思考题 1-2</b>　依据本章列出的代码修改、反馈获取和改动验收条件，分析当前编码代理的能力，并指出支持判断所需的实验依据。</p>
+<p><b>思考题 1-3</b>　分别列出 DGM 与 STaR 的更新对象、候选生成及保留规则。依据第 2 章判据分析两种方法的更新阶数和开放式搜索特征。</p>
+</article>
+</body></html>

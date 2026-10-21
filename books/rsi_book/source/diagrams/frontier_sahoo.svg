@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="318" height="211" viewBox="0 0 352 234">
+<style>text{font-family:"Times New Roman",SimSun}.en{font-family:Times New Roman;font-style:italic}</style>
+<defs><marker id="ar7" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5b6b7f"/></marker></defs>
+<!-- axes: x = quality gain, y = cumulative drift GDI -->
+<line x1="46" y1="192" x2="336" y2="192" stroke="#333" stroke-width="1.2" marker-end="url(#ar7)"/>
+<line x1="46" y1="192" x2="46" y2="20" stroke="#333" stroke-width="1.2" marker-end="url(#ar7)"/>
+<text x="192" y="210" font-size="9" text-anchor="middle">质量增益 Δ<tspan class="en">Q</tspan>（相对基线）</text>
+<text x="22" y="106" font-size="9" text-anchor="middle" transform="rotate(-90 22 106)">累积目标漂移 <tspan class="en">GDI</tspan></text>
+<!-- threshold line -->
+<line x1="46" y1="60" x2="336" y2="60" stroke="#b05252" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="332" y="55" font-size="8" text-anchor="end" fill="#b05252">论文报告校准阈值 0.44</text>
+<!-- benign zone -->
+<rect x="54" y="150" width="112" height="38" fill="#eef5ea" stroke="#7d9b6a" stroke-width="0.9" stroke-dasharray="3 2"/>
+<text x="110" y="166" font-size="8.5" text-anchor="middle" fill="#5c7a4c">低漂移区</text>
+<text x="110" y="178" font-size="8" text-anchor="middle" fill="#5c7a4c">示意：质量增益较高、约束保持较好</text>
+<!-- costly zone -->
+<rect x="214" y="76" width="112" height="46" fill="#fdf3e7" stroke="#c9873f" stroke-width="0.9" stroke-dasharray="3 2"/>
+<text x="270" y="93" font-size="8.5" text-anchor="middle" fill="#8a5a20">高漂移增量区</text>
+<text x="270" y="105" font-size="8.5" text-anchor="middle" fill="#8a5a20">单位质量增益对应漂移量增加</text>
+<!-- frontier curve -->
+<path d="M54,188 C100,179 138,166 170,148 C202,130 228,108 250,90 C272,72 292,58 320,40" fill="none" stroke="#4a6fa5" stroke-width="1.6"/>
+<text x="322" y="32" font-size="8.5" text-anchor="end" fill="#4a6fa5">能力—对齐前沿</text>
+<!-- cycle dots -->
+<circle cx="72" cy="185" r="3" fill="#7d9b6a"/>
+<circle cx="102" cy="177" r="3" fill="#7d9b6a"/>
+<circle cx="138" cy="163" r="3" fill="#7d9b6a"/>
+<circle cx="174" cy="144" r="3" fill="#c9873f"/>
+<circle cx="212" cy="120" r="3" fill="#c9873f"/>
+<circle cx="252" cy="88" r="3" fill="#b05252"/>
+<circle cx="296" cy="56" r="3" fill="#b05252"/>
+<text x="72" y="200" font-size="7.5" text-anchor="middle" fill="#666">周期1</text>
+<text x="296" y="70" font-size="7.5" text-anchor="middle" fill="#666">周期20</text>
+<text x="186" y="226" font-size="8" text-anchor="middle" fill="#666">自绘概念示意，不是 SAHOO 的原始数据曲线（框架见 arXiv:2603.06333）</text>
+</svg>

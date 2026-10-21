@@ -1,0 +1,49 @@
+{
+ "Arvid-pku/Godel_Agent": {
+  "status": 200,
+  "default_branch": "main",
+  "license": "MIT",
+  "pushed": "2025-09-17T22:21:44Z",
+  "desc": "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement",
+  "head_commit": "bbb508796be31c7140cdfc7106efd830a1324242",
+  "commit_date": "2025-09-17T22:21:40Z"
+ },
+ "ShengranHu/ADAS": {
+  "status": 200,
+  "default_branch": "main",
+  "license": "Apache-2.0",
+  "pushed": "2025-01-28T06:37:51Z",
+  "desc": "[ICLR 2025] Automated Design of Agentic Systems"
+ },
+ "MaximeRobeyns/self_improving_coding_agent": {
+  "status": 403,
+  "default_branch": null,
+  "license": null,
+  "pushed": null,
+  "desc": ""
+ },
+ "jennyzzt/dgm": {
+  "status": 403,
+  "default_branch": null,
+  "license": null,
+  "pushed": null,
+  "desc": ""
+ },
+ "metauto-ai/HGM": {
+  "status": 403,
+  "default_branch": null,
+  "license": null,
+  "pushed": null,
+  "desc": ""
+ },
+ "sakanaai/AI-Scientist": {
+  "status": 403,
+  "default_branch": null,
+  "license": null,
+  "pushed": null,
+  "desc": ""
+ },
+ "stanford-cs329a": {
+  "status": 403
+ }
+}

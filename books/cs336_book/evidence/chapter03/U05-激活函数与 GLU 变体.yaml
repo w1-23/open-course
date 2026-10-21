@@ -1,0 +1,56 @@
+unit_id: CH03-U05
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 激活函数与 GLU 变体
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p20
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Activations / A whole zoo of activations .. / ReLU, GeLU, Swish, ELU, GLU, GeGLU, ReGLU, SeLU,
+    SwiGLU, LiGLU / What are these things? What do people use? Does it matter?
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p21
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'A few of the common activations / ReLU / 𝐹𝐹𝑥= max 0, 𝑥𝑊1 𝑊2 / GeLU / 𝐹𝐹𝑥= GELU 𝑥𝑊1 𝑊2 / 𝐺𝐸𝐿𝑈𝑥≔𝑥Φ(𝑥)
+    / SwiGLU / GeGLU (next slide..) / Notable models: / Original transformer, T5, / Gopher, Chinchilla,
+    OPT / Notable models: / GPT1/2/3, GPTJ, GPT-Neox, / BLOOM / Notable models: / Llama, PaLM,T5 v1.1,
+    most / models post 2023'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p22
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Gated activations (*GLU) / GLUs modify the ‘first part’ of a FF layer / 𝐹𝐹𝑥= max 0, 𝑥𝑊1 𝑊2 /
+    Instead of a linear + ReLU, augment the above with an (entrywise) linear term / max 0, 𝑥𝑊1 →max 0,
+    𝑥𝑊1 ⊗(𝑥𝑉) / This gives the gated variant (ReGLU) – note that we have an extra parameter (V) / FFReGLU
+    𝑥= (max 0, 𝑥𝑊1 ⊗𝑥𝑉) 𝑊2
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p23
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Gated variants of standard FF layers / GeGLU / SwiGLU (swish is 𝑥∗sigmoid(𝑥)) / Note: Gated
+    models use smaller dimensions for the 𝑑𝑓𝑓 by 2/3 / Notable models: / T5 v1.1, mT5, LaMDA, Phi3, /
+    Gemma 2, Gemma 3, Gemma 4 / Notable models: / LLaMa 1/2/3, PaLM, Mistral, / OlMo, most models post
+    2023'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p26
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Gating, activations / • / Many variations (ReLU, GeLU, *GLU) across models. / • / *GLU isn’t
+    necessary for a working model (see GPT3), but it’s rare to see others.. / Some outlier models.. /
+    Nemotron 340B (Squared ReLU) / • / Evidence points towards somewhat consistent gains from Swi/GeGLU
+technical_evidence:
+- source_id: arXiv:2002.05202
+  ref_name: shazeer_2020
+  title: GLU Variants Improve Transformer
+  authors:
+  - Noam Shazeer
+  year: '2020'
+  url: https://arxiv.org/pdf/2002.05202.pdf
+  arxiv_id: '2002.05202'
+  arxiv_verified: true
+  locator: ''
+knowledge_slot:
+  why_it_matters: ReLU/GeLU/*GLU 的取舍与 d_ff 缩放
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: verified
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

@@ -1,0 +1,95 @@
+issue_id: CH08-ALG-004
+chapter: 8
+severity: P2
+status: 已有依据
+title: 定理 8.1 把 CQL 的 Thm 3.3 与 Thm 3.4 合并成一条，条件归属不准；α 的语义也不全
+summary: >
+  原文 CQL 有两条结论：Theorem 3.3（在学习到的 Q 值下界意义上保守，条件是策略慢变
+  \(D_{\mathrm{TV}}(\hat\pi_{k+1},\pi_{\hat Q_k})\le\varepsilon\)，并需要一个关于
+  \(\hat\pi_{\hat Q_k}/\hat\pi_\beta\) 的期望不等式）与 Theorem 3.4（间隙扩张，条件是
+  "α_k 足够大"）。正文的定理 8.1 把两者压成一条，且第 132 行写成"当 α_off 足够大时，
+  有两点结论"——把 Thm 3.3 的慢变条件也归给了 α。另外第 128 行说"α_off 的量纲与奖励相同"，
+  原文只称它为 tradeoff factor，并明确说"保证下界所需的 α 理论值随数据量增加而下降"；
+  结论（换奖励尺度必须同步缩放）成立，但理由应写成"α 与奖励尺度相乘"而不是"量纲相同"。
+  本条不质疑符号方向：式 (8.5)(8.6) 与原文 Eq (2)(4) 逐项一致，方向（压数据外、抬数据内）正确。
+
+current_text:
+  file: content/ch08.md
+  lines: "128; 132; 142"
+  excerpt: >
+    第 132 行：……当 \(\alpha_{\mathrm{off}}\) 足够大时，有两点结论。第一，对任意状态 \(s\)，
+    数据动作与数据外动作之间的估值差被**扩张**……第二，此时 \(\hat V_{k+1}(s)\le V_{k+1}(s)\)……
+
+sources:
+  - key: 2006.04779_cql
+    level: S
+    role: Theorem 3.3 的慢变条件与所需的期望不等式
+    pdf_page: 5
+    printed_page: "§3.2 Theorem 3.3"
+    quote: >
+      Theorem 3.3 (CQL learns lower-bounded Q-values). Let π ˆ Qk(a|s) ∝exp( ˆQk(s, a)) and
+      assume that DTV(ˆπk+1, π ˆ Qk) ≤ε (i.e., ˆπk+1 changes slowly w.r.t to ˆQk). Then, the
+      policy value under ˆQk, lower-bounds the actual policy value, ˆV k+1(s) ≤V k+1(s)
+    note: 条件里没有出现 α；α 只出现在紧接着的 Theorem 3.4。
+  - key: 2006.04779_cql
+    level: S
+    role: Theorem 3.4 的"α 足够大"与间隙扩张不等式
+    pdf_page: 5
+    printed_page: "§3.2 Theorem 3.4"
+    quote: >
+      Theorem 3.4 (CQL is gap-expanding). At any iteration k, CQL expands the difference in
+      expected Q-values under the behavior policy πβ(a|s) and µk, such that for large enough
+      values of αk, we have that ∀s, Eπβ(a|s)[ ˆQk(s, a)] −Eµk(a|s)[ ˆQk(s, a)] > …
+    note: 正文式 (8.7) 与这条不等式完全一致，只需把条件写对。
+  - key: 2006.04779_cql
+    level: S
+    role: α 的语义——tradeoff factor，且理论所需取值随数据量下降
+    pdf_page: 4
+    printed_page: "§3.1"
+    quote: >
+      We also note that as more data becomes available and |D(s, a)| increases, the
+      theoretical value of α that is needed to guarantee a lower bound decreases, which
+      indicates that in the limit of infinite data, a lower bound can be obtained by using
+      extremely small values of α.
+    note: 同页 Theorem 3.2 的 α 下界公式里含 √|D(s)| 与 π/π̂β 的比值，说明 α 的最优量级随数据覆盖变化。
+
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条是"定理陈述与原文条件对齐"的问题，不需要数值实验。若施工时想保守，可只在
+    定理框内保留 Theorem 3.4（间隙扩张），把价值下界改写成一句正文说明并注明"条件是慢变策略"。
+
+claims:
+  - id: c1
+    text: 价值下界（Thm 3.3）的条件是策略慢变 + 一个期望不等式，与 α 是否足够大无关。
+    evidence: 2006.04779_cql p.5 Theorem 3.3 原文（条件里无 α）
+    status: 已核对
+  - id: c2
+    text: 间隙扩张（Thm 3.4）的条件才是"α_k 足够大"。
+    evidence: 2006.04779_cql p.5 Theorem 3.4 原文 "for large enough values of αk"
+    status: 已核对
+  - id: c3
+    text: 保证下界所需的 α 理论值随 |D(s,a)| 增大而下降，不是固定常数。
+    evidence: 2006.04779_cql p.4 "the theoretical value of α that is needed … decreases"
+    status: 已核对
+  - id: c4
+    text: 式 (8.5)(8.6) 与原文 Eq (2)(4) 逐项一致，符号方向正确，本条不构成对符号的质疑。
+    evidence: 2006.04779_cql p.3 Eq (2) 与 p.4 Eq (4)；对照 content/ch08.md 第 112-113、123-124 行
+    status: 已核对
+
+planned_fix:
+  - 定理 8.1 框内拆成两条结论并各带条件："第一（间隙扩张，α_off 足够大）……第二（价值下界，需 \(D_{\mathrm{TV}}(\hat\pi_{k+1},\pi_{\hat Q_k})\le\varepsilon\) 与 \(\mathbb{E}_{\pi_{\hat Q_k}}[\pi_{\hat Q_k}/\hat\pi_\beta-1]\ge\max_a(\pi_{\hat Q_k}/\hat\pi_\beta)\cdot\varepsilon\)）……"。
+  - 第 132 行"当 α_off 足够大时，有两点结论"改为"在策略慢变（\(D_{\mathrm{TV}}\le\varepsilon\)）且 α_off 足够大时"，把两个条件分开归属。
+  - 第 128 行"α_off 的量纲与奖励相同"改为"α_off 与奖励尺度相乘，因此换奖励尺度必须同步缩放"，并补一句"理论所需 α 随数据量增加而下降，所以 α 的合适取值同时取决于奖励尺度与数据覆盖"。
+  - 第 142 行的条件清单同步加上"策略慢变"与"α 随数据量选"两条，避免读者把 \(D_{\mathrm{TV}}\le\varepsilon\) 漏掉。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    优先级低于 CH08-ALG-001：结论与不等式都对，只是条件被合并后归属模糊；
+    但若施工时只改这一处而不动 α 的表述，会留下"α 足够大就等价于定理成立"的误读。

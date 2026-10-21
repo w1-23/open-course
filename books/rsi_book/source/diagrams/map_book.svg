@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="252" viewBox="0 0 330 252">
+<style>text{font-family:"Times New Roman",SimSun}</style>
+<defs>
+<marker id="ar8" markerWidth="7" markerHeight="7" refX="5" refY="2.4" orient="auto"><path d="M0,0 L5,2.4 L0,5 Z" fill="#9aa5b1"/></marker>
+<marker id="ar8a" markerWidth="7" markerHeight="7" refX="5" refY="2.4" orient="auto"><path d="M0,0 L5,2.4 L0,5 Z" fill="#4a6fa5"/></marker>
+<marker id="ar8b" markerWidth="7" markerHeight="7" refX="5" refY="2.4" orient="auto"><path d="M0,0 L5,2.4 L0,5 Z" fill="#7d9b6a"/></marker>
+<marker id="ar8c" markerWidth="7" markerHeight="7" refX="5" refY="2.4" orient="auto"><path d="M0,0 L5,2.4 L0,5 Z" fill="#c9873f"/></marker>
+</defs>
+<!-- chapter boxes -->
+<g font-size="8.5" text-anchor="middle">
+<rect x="14" y="26" width="58" height="26" fill="#f2f4f8" stroke="#5b6b7f" stroke-width="1"/><text x="43" y="37">第1章</text><text x="43" y="47" font-size="7">动机</text>
+<rect x="92" y="26" width="58" height="26" fill="#f2f4f8" stroke="#5b6b7f" stroke-width="1"/><text x="121" y="37">第2章</text><text x="121" y="47" font-size="7">分类与评估</text>
+<rect x="170" y="26" width="58" height="26" fill="#f2f4f8" stroke="#5b6b7f" stroke-width="1"/><text x="199" y="37">第3章</text><text x="199" y="47" font-size="7">模型侧</text>
+<rect x="248" y="26" width="58" height="26" fill="#f2f4f8" stroke="#5b6b7f" stroke-width="1"/><text x="277" y="37">第4章</text><text x="277" y="47" font-size="7">验证器</text>
+<rect x="14" y="118" width="58" height="26" fill="#f2f4f8" stroke="#5b6b7f" stroke-width="1"/><text x="43" y="129">第5章</text><text x="43" y="139" font-size="7">脚手架</text>
+<rect x="92" y="118" width="58" height="26" fill="#eef2fa" stroke="#4a6fa5" stroke-width="1.2"/><text x="121" y="129">第6章</text><text x="121" y="139" font-size="7">开放式进化</text>
+<rect x="170" y="118" width="58" height="26" fill="#eef2fa" stroke="#4a6fa5" stroke-width="1.2"/><text x="199" y="129">第7章</text><text x="199" y="139" font-size="7">评估·安全</text>
+<rect x="248" y="118" width="58" height="26" fill="#f2f4f8" stroke="#5b6b7f" stroke-width="1"/><text x="277" y="129">第8章</text><text x="277" y="139" font-size="7">后续阅读</text>
+</g>
+<!-- topic associations (gray) -->
+<g stroke="#9aa5b1" stroke-width="0.9" fill="none">
+<path d="M72,39 L92,39" marker-end="url(#ar8)"/>
+<path d="M150,39 L170,39" marker-end="url(#ar8)"/>
+<path d="M228,39 L248,39" marker-end="url(#ar8)"/>
+<path d="M43,52 L43,118" marker-end="url(#ar8)"/>
+<path d="M121,52 L121,118" marker-end="url(#ar8)"/>
+<path d="M72,131 L92,131" marker-end="url(#ar8)"/>
+<path d="M150,131 L170,131" marker-end="url(#ar8)"/>
+<path d="M228,131 L248,131" marker-end="url(#ar8)"/>
+<path d="M277,52 C270,78 230,96 208,118" marker-end="url(#ar8)"/>
+</g>
+<!-- path A blue: 3 -> 4 -> 6 -->
+<path d="M210,52 C214,84 150,96 130,118" fill="none" stroke="#4a6fa5" stroke-width="1.6" stroke-dasharray="7 3" marker-end="url(#ar8a)"/>
+<text x="196" y="92" font-size="8" fill="#4a6fa5">A 算法 3→4→6</text>
+<!-- path B green: 5 -> 6 -> 7 -->
+<path d="M43,144 C43,164 110,166 121,146" fill="none" stroke="#7d9b6a" stroke-width="1.6" stroke-dasharray="7 3" marker-end="url(#ar8b)"/>
+<path d="M150,138 C160,152 180,152 190,140" fill="none" stroke="#7d9b6a" stroke-width="1.6" stroke-dasharray="7 3" marker-end="url(#ar8b)"/>
+<text x="150" y="176" font-size="8" fill="#5c7a4c">B 系统 5→6→7</text>
+<!-- path C orange: 2 -> 4 -> 7 -->
+<path d="M132,26 C160,8 240,8 270,24" fill="none" stroke="#c9873f" stroke-width="1.6" stroke-dasharray="7 3" marker-end="url(#ar8c)"/>
+<path d="M289,52 C306,78 250,100 218,122" fill="none" stroke="#c9873f" stroke-width="1.6" stroke-dasharray="7 3" marker-end="url(#ar8c)"/>
+<text x="200" y="12" font-size="8" fill="#8a5a20">C 评估与治理 2→4→7</text>
+<!-- legend -->
+<text x="165" y="206" font-size="8" text-anchor="middle" fill="#666">灰色箭头 = 主题关联；彩色虚线 = 建议路径（A 蓝 / B 绿 / C 橙）。</text>
+<text x="165" y="220" font-size="8" text-anchor="middle" fill="#666">箭头表示主题衔接；各路径均以第 0 章的概念与记号为预备。</text>
+<text x="165" y="234" font-size="8" text-anchor="middle" fill="#666">附录 A.1 文献总表可按章节号直接检索。</text>
+</svg>

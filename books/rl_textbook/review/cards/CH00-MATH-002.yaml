@@ -1,0 +1,75 @@
+issue_id: CH00-MATH-002
+chapter: 0
+severity: P2
+status: 已有依据
+title: 第 145 行的 Gibbs 最优解缺三个前提（逐上下文、参考策略全支撑、配分函数有限），第 10 章写了而第 0 章没写
+summary: >
+  第 145 行写："在目标 max_π E_π[r] − β_KL D_KL(π‖π_ref) 下，最优解是 π* ∝ π_ref exp(r/β_KL)"。
+  这句话要成立，至少需要三件事：(a) 目标对每个上下文 x 分别成立，π 在该上下文上取遍所有分布；
+  (b) π_ref 对同一上下文的所有动作有正支撑，否则最优解在支撑外不可定义；(c) 配分函数
+  Z(x)=Σ_a π_ref exp(r/β_KL) 有限且为正——有限动作用集合上 (c) 自动成立，但第 0 章紧接着就要
+  在第 10 章把它用在语言模型（十万量级词表、序列级乘积）上，那里的 Z(x) 是否可求和正是全章的
+  困难起点。第 10 章命题 10.1 与 (10.6) 把这三条都写了，第 13prep 章 (P.4) 也在 L88 补了定义；
+  唯独第 0 章——读者第一次见到这个结论的地方——一句没写，只留了一个游离的 "∝"。
+  修法很轻：在句末加一个括注即可，不必重写段落。
+  另注：同一行"β_KL 本身是这一族的温度"与第 13prep 章注框（ch13prep:92-94，称这是"常见误读"）
+  互相矛盾，那一处已记在 review/math_review/CH13PREP.md 缺陷 3，本条不重复计入。
+
+current_text:
+  file: content/ch00.md
+  lines: "145-145"
+  excerpt: >
+    第 145 行：本书用 \(\beta_{\mathrm{KL}}>0\) 记 KL 正则化系数。在目标
+    \(\max_\pi\mathbb{E}_\pi[r]-\beta_{\mathrm{KL}}D_{\mathrm{KL}}(\pi\,\|\,\pi_{\mathrm{ref}})\) 下，
+    最优解是 \(\pi^\star\propto\pi_{\mathrm{ref}}\exp(r/\beta_{\mathrm{KL}})\)。指数上的分母就是 …
+
+sources:
+  - key: 2305.18290_dpo
+    level: S
+    role: 配分函数只依赖 x 与参考策略，是 Gibbs 形式成立的前提之一
+    pdf_page: 15
+    printed_page: "附录 A.1（p.15）"
+    quote: >
+      Note that the partition function is a function of only x and the reference policy πref, but does not depend on the policy π.
+  - key: RLbook2020
+    level: S
+    role: 对照：教材在给最优策略的形式结论时总要附带存在性与唯一性条件
+    pdf_page: 81
+    printed_page: "§3.7（p.59）"
+    quote: >
+      Equation (3.14) is the Bellman equation for v⇡. It expresses a relationship between the value of a state and the values of
+      its successor states.
+
+claims:
+  - id: c1
+    text: >
+      (0.4) 之后的这句是"逐上下文"的结论：把 λ 乘子按上下文分别解，才得到 π* ∝ π_ref exp(r/β)；
+      全局目标是各上下文之和，因此最优解在每个上下文上分别取 Gibbs 形式，第 0 章没有交代这一层。
+    evidence: 推导：对每个 x 单独做带归一化约束的变分，乘子由 Σ_y π*=1 定出；见 content/ch10.md 命题 10.1
+    status: 已核对
+  - id: c2
+    text: >
+      缺少"π_ref 全支撑"时，分母 π_ref(a|s) 出现在 π* 的表达式里却可能为 0，π* 在该动作上不可定义；
+      第 10 章 (10.6) 与第 13prep 章 L88 都把这一点写出来了。
+    evidence: 推导：π*(y|x)=(1/Z)π_ref(y|x)exp(r/β)，支撑外 π_ref=0 ⇒ π*=0，但 KL 项同时发散
+    status: 已核对
+  - id: c3
+    text: >
+      配分函数 Z(x) 有限且为正是"最优解存在且可归一化"的前提；在语言模型上这正是全章困难的来源
+      （第 10 章 (10.6) 之后一整段在讲 Z(x) 求不动），第 0 章不写会读者以为 exp(r/β) 天然可归一化。
+    evidence: 推导：content/ch10.md 中 Z(x) 的有限性讨论；2305.18290_dpo p.15 说明 Z 只依赖 x
+    status: 已核对
+
+planned_fix:
+  - 第 145 行句末补括注："（对每个上下文分别成立；要求 \(\pi_{\mathrm{ref}}\) 全支撑、配分函数 \(\sum_a\pi_{\mathrm{ref}}\exp(r/\beta_{\mathrm{KL}})\) 有限，推导见第 10 章 10.2.1 节）"。
+  - 若版面紧张，改成一句独立的短句附在段末即可，不必动前面的公式。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-21"
+  notes: >
+    基准版本为 2026-10-21 的 content/ch00.md（259 行）。本条只针对 L145 的散文结论；
+    (0.4) 作为 KL 的定义式无误，不计数。

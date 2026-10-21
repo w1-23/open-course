@@ -1,0 +1,19 @@
+key: spinningup_td3
+version: 2026-10-19
+level: B
+role: docs
+title: "Twin Delayed DDPG &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_td3.html
+bytes: 42651
+pages: null
+sha256: 060fa2596b15c5164f5df2100dc90d6a03c5bc2272c6be68f5d688ff94443a60
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

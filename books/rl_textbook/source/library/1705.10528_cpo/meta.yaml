@@ -1,0 +1,23 @@
+key: 1705.10528_cpo
+version: 2026-10-20
+level: S
+role: algorithm
+title: Constrained Policy Optimization
+authors:
+  - Joshua Achiam
+  - David Held
+  - Aviv Tamar
+  - Pieter Abbeel
+year: 2017
+published: 2017-05-30
+arxiv_id: 1705.10528
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1705.10528_cpo.pdf
+bytes: 1013867
+pages: 18
+sha256: 3f93760d9b472af5b17f2f4b887950beaaad7fc501962390986857f242549a59
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

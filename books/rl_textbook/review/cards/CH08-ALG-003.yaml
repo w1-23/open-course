@@ -1,0 +1,90 @@
+issue_id: CH08-ALG-003
+chapter: 8
+severity: P2
+status: 已有依据
+title: 重要性采样只写了"方差大"，漏掉"方差可以无穷"，WIS 为何可用也没给机制
+summary: >
+  8.5.1 节说 IS"无偏但方差大"，8.5.2 节用 \(\kappa^{T}\)（式 8.17）说明方差随回合长度
+  指数增长，8.5.2 末用"有偏但方差显著下降"解释 WIS。这三处都停在"大/小"的程度描述，
+  漏掉了 OPE 最关键的一条事实：**普通重要性采样的方差可以是无穷的**（当缩放回报的二阶矩
+  无穷时），而 WIS 之所以在实践中可用，是因为它把单个回报的权重压在 ≤1，即使比率的方差
+  无穷、有界回报下它的方差仍收敛到零。式 (8.17) 的 \(\kappa^{T}\) 推导本身正确，但它以
+  "二阶矩 \(\kappa\) 存在"为前提，正文没有把这个前提和"前提不成立时 IS 连大数定律都不保证"
+  写出来。
+
+current_text:
+  file: content/ch08.md
+  lines: "292; 311-341; 384"
+  excerpt: >
+    第 288 行：**重要性采样（IS）**假设 \(\mu\) 覆盖 \(\pi\)，用权重把 \(\mu\) 下的回报
+    纠正成 \(\pi\) 下的期望，无偏但方差大。
+    第 318 行：式 (8.17) 是 OPE 最重要的一条事实……
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 普通 IS 与 WIS 的偏差—方差对比，以及"最大权重为 1"这一机制
+    pdf_page: 127
+    printed_page: "p.105 §5.5"
+    quote: >
+      Ordinary importance sampling is unbiased whereas weighted importance sampling is
+      biased (though the bias converges asymptotically to zero). On the other hand, the
+      variance of ordinary importance sampling is in general unbounded because the variance
+      of the ratios can be unbounded, whereas in the weighted estimator the largest weight
+      on any single return is one.
+    note: 同页紧接着给出结论：有界回报下 WIS 的方差收敛到零，即使比率本身的方差无穷。
+  - key: RLbook2020
+    level: S
+    role: 无穷方差的具体例子（含环路的离策略轨迹），说明这不是病态构造
+    pdf_page: 128
+    printed_page: "p.106 Example 5.5"
+    quote: >
+      Example 5.5: Infinite Variance The estimates of ordinary importance sampling will
+      typically have infinite variance, and thus unsatisfactory convergence properties,
+      whenever the scaled returns have infinite variance—and this can easily happen in
+      off-policy learning when trajectories contain loops.
+    note: >
+      书里第 8.5.4 节的实验用的是固定回合长度 8 的有限 MDP，权重有界，所以测不出无穷方差；
+      这一点要在正文里说清，否则读者会以为"IS 顶多噪声大一点"。
+
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: >
+    本章 8.5.4 的实测（表 8-2）只覆盖有界权重的情形，不能证明"方差可以无穷"。
+    若要补实验，可用 RLbook 例 5.5 的两动作环路 MDP：单状态、左动作以 0.9 概率回到自身，
+    目标策略全选右、行为策略各半，则 IS 权重的二阶矩发散而 WIS 仍收敛。
+
+claims:
+  - id: c1
+    text: 普通重要性采样无偏，但方差一般无界、可以无穷。
+    evidence: RLbook2020 p.127（"the variance of ordinary importance sampling is in general unbounded"）与 p.128 例 5.5
+    status: 已核对
+  - id: c2
+    text: WIS 有偏但方差可收敛到零，机制是单个回报的权重被压在 ≤1，即使比率方差无穷。
+    evidence: RLbook2020 p.127 的同一段（"the largest weight on any single return is one"）
+    status: 已核对
+  - id: c3
+    text: 式 (8.17) 的 κ^T 是有条件结论，前提是每步比率二阶矩 κ 存在。
+    evidence: 对照 content/ch08.md 定理 8.3 的假设"若各步的比率相互独立且 E_μ[ρ_t²]=κ>1"与式 (8.17)
+    status: 已核对
+  - id: c4
+    text: 正文只写"方差大"，弱化了"无偏与可用之间的取舍"这一 OPE 主线。
+    evidence: 对照 content/ch08.md 第 288、318、337 行；RLbook2020 p.127 的偏差—方差对照
+    status: 已核对
+
+planned_fix:
+  - 第 288 行"无偏但方差大"改为"无偏，但方差可能无穷——这是它不实用的根本原因"，并把"无偏"与"可用"的措辞统一。
+  - 8.5.2 节第 307 行标题下补一句："式 (8.17) 假设比率二阶矩有限；若二阶矩不存在（含环路的离策略轨迹，见 RLbook 例 5.5），普通 IS 的方差直接发散，连大数定律都不保证。"
+  - 第 337 行讲 WIS 时补机制句："WIS 把每个回报的权重归一化到 ≤1，因此有界回报下它的方差收敛到零，即使比率的方差无穷（RLbook p.105）"——这句正好解释了为什么"有偏"的估计量反而更可用。
+  - 8.5.4 节第 380 行后补一句限定：本章实验的权重有界（固定回合长度、行为策略覆盖较宽），因此只能展示"方差大"，展示不了"方差无穷"。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    这条属于"结论不错但不完整"：读者按正文会以为 IS 的问题只是噪声大，因而低估
+    "必须报告 ESS / 必须与 DR 交叉检查"的必要性。

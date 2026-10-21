@@ -1,0 +1,65 @@
+'no': 6
+status: reviewed
+reviewer: author-ch2（独立审校）
+reviewed_at: '2026-10-21'
+source_hash: '5c531ea5849b1173'
+equations:
+  - '6.1'
+  - '6.2'
+  - '6.3'
+  - '6.4'
+  - '6.5'
+  - '6.6'
+  - '6.7'
+  - '6.8'
+  - '6.9'
+  - '6.10'
+  - '6.11'
+  - '6.12'
+  - '6.13'
+  - '6.14'
+  - '6.15'
+  - '6.16'
+  - '6.17'
+  - '6.18'
+  - '6.19'
+  - '6.20'
+primary_sources:
+  - RLbook2020
+  - 1509.06461_double-dqn
+  - 1511.06581_dueling-dqn
+  - 1511.05952_prioritized-replay
+  - 1509.02971_ddpg
+  - 1802.09477_td3
+  - 1801.01290_sac
+  - 1802.01561_apex
+notes: >-
+  第三轮复审：首轮 5 条与第二轮 2 条 P1 全部消解，判 reviewed。(6.11) 已声明 d^mu_gamma 为未归一化
+  （sum_s d = 1/(1-gamma)），与本章 J = E[sum_t gamma^t r]、第 5 章 (5.5)(5.6) 及 DPG 原文一致；
+  (6.19) 已恢复负号 min E[-alpha(log pi + Hbar)]，导数 H - Hbar，与「熵低则升温」自洽；
+  (6.16) 的 rho_pi 已在 :292 定义。20 式逐式判定 P/S/L/D/U 全填（CH06.md 第 1 节），
+  文献比对五处（SAC 目标与 1801.01290_sac p3 式 (1) 逐字一致；PER 的 (6.8)(6.9)(6.4) 与 1511.05952 p5
+  算法 1 逐行对应；V-trace 截断代价与 1802.01561 p4 一致；DQN 的 29/46 与 22 个超过人类与
+  RLbook2020 p460 逐项一致）。仍存三条接口性提示（按 lead 意见记 notes 保留、不阻塞）：
+  :313 的入口句仍写 hat H 而式用 Hbar（同一量两名，建议统一为 Hbar）；:288 的 (6.16) 不带折扣而
+  (6.17) 含 gamma(1-d)，与 SAC 原文一致但建议补一句「按原文省略 gamma^t」；:129 的 (6.7)
+  「V 与 A 各偏移一个常数」建议改为「V 的语义从最大值换成均值」。
+defects:
+  - id: CH06-MATH-001
+    severity: P3
+    line: 313
+    equation: '6.19'
+    summary: 入口句写「给定目标熵 hat H」，式与解释用 Hbar；同一量两个名字（已记录，按现状保留）
+    fix: 下轮统一为 Hbar
+  - id: CH06-MATH-002
+    severity: P2
+    line: 288
+    equation: '6.16'
+    summary: (6.16) 不带折扣而 (6.17) 含 gamma(1-d)；与 SAC 原文式 (1) 一致，但需一句提示（已记录，按现状保留）
+    fix: (6.16) 后补半句「此处按原文省略 gamma^t」
+  - id: CH06-MATH-003
+    severity: P3
+    line: 129
+    equation: '6.7'
+    summary: 「V 与 A 各偏移一个常数」含糊；减均值实际把 V 的语义从 max_a A 换成 E_a A（已记录，按现状保留）
+    fix: 改为「(6.7) 把 V 的语义从最大值换成均值」

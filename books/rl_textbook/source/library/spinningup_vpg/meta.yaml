@@ -1,0 +1,19 @@
+key: spinningup_vpg
+version: 2026-10-19
+level: B
+role: docs
+title: "Vanilla Policy Gradient &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_vpg.html
+bytes: 36797
+pages: null
+sha256: 552b2fe444b3709b93d2a876c09dc68766e5fffbe92d02eaa6a1a8509c72bafb
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

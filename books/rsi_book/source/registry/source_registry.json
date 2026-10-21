@@ -1,0 +1,791 @@
+{
+  "generated_utc": "2026-10-21T03:22:11Z",
+  "sources": [
+    {
+      "source_id": "PAPER-SURVEY",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "selfimprove_survey2507",
+      "arxiv_id": "2507.21046",
+      "version": "2507.21046v4",
+      "title": "A Survey of Self-Evolving Agents: What, When, How, and Where to Evolve on the Path to Artificial Super Intelligence",
+      "first_author": "Huan-ang Gao",
+      "published": "2025-07-28",
+      "url": "https://arxiv.org/abs/2507.21046",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_selfimprove_survey2507_v4.html",
+      "chapter_map": [
+        2,
+        5,
+        7
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-SAHOO",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "harness_survey2603",
+      "arxiv_id": "2603.06333",
+      "version": "2603.06333v1",
+      "title": "SAHOO: Safeguarded Alignment for High-Order Optimization Objectives in Recursive Self-Improvement",
+      "first_author": "Subramanyam Sahoo",
+      "published": "2026-03-06",
+      "url": "https://arxiv.org/abs/2603.06333",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_harness_survey2603_v1.html",
+      "chapter_map": [
+        7
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-SICA",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "roadmap2504",
+      "arxiv_id": "2504.15228",
+      "version": "2504.15228v2",
+      "title": "A Self-Improving Coding Agent",
+      "first_author": "Maxime Robeyns",
+      "published": "2025-04-21",
+      "url": "https://arxiv.org/abs/2504.15228",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_roadmap2504_v2.html",
+      "chapter_map": [
+        6
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true,
+      "official_repo": {
+        "url": "https://github.com/MaximeRobeyns/self_improving_coding_agent",
+        "head_commit": "ed8275dca4d3c5dbf77229964351fe9b424797dc",
+        "commit_date": "2025-04-23T23:28:08Z",
+        "license": "MIT",
+        "tier": "P0 (author repo; backlink pending per-repo check)"
+      }
+    },
+    {
+      "source_id": "PAPER-STAR",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "star2203",
+      "arxiv_id": "2203.14465",
+      "version": "2203.14465v2",
+      "title": "STaR: Bootstrapping Reasoning With Reasoning",
+      "first_author": "Eric Zelikman",
+      "published": "2022-03-28",
+      "url": "https://arxiv.org/abs/2203.14465",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_star2203_v2.html",
+      "chapter_map": [
+        3
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-CAI",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "cai2212",
+      "arxiv_id": "2212.08073",
+      "version": "2212.08073v1",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "first_author": "Yuntao Bai",
+      "published": "2022-12-15",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_cai2212_v1.html",
+      "chapter_map": [
+        3
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-SELFREWARD",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "self_rewarding2401",
+      "arxiv_id": "2401.10020",
+      "version": "2401.10020v3",
+      "title": "Self-Rewarding Language Models",
+      "first_author": "Weizhe Yuan",
+      "published": "2024-01-18",
+      "url": "https://arxiv.org/abs/2401.10020",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_self_rewarding2401_v3.html",
+      "chapter_map": [
+        3
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-DEEPSEEKMATH",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "deepseekmath2402",
+      "arxiv_id": "2402.03300",
+      "version": "2402.03300v3",
+      "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "first_author": "Zhihong Shao",
+      "published": "2024-02-05",
+      "url": "https://arxiv.org/abs/2402.03300",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_deepseekmath2402_v3.html",
+      "chapter_map": [
+        3
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-DAPO",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "dapo2503",
+      "arxiv_id": "2503.14476",
+      "version": "2503.14476v2",
+      "title": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+      "first_author": "Qiying Yu",
+      "published": "2025-03-18",
+      "url": "https://arxiv.org/abs/2503.14476",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_dapo2503_v2.html",
+      "chapter_map": [
+        3
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-VERIFIERS",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "cobbe2110",
+      "arxiv_id": "2110.14168",
+      "version": "2110.14168v2",
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "first_author": "Karl Cobbe",
+      "published": "2021-10-27",
+      "url": "https://arxiv.org/abs/2110.14168",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_cobbe2110_v2.html",
+      "chapter_map": [
+        4
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-PRM",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "prm2305",
+      "arxiv_id": "2305.20050",
+      "version": "2305.20050v1",
+      "title": "Let's Verify Step by Step",
+      "first_author": "Hunter Lightman",
+      "published": "2023-05-31",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_prm2305_v1.html",
+      "chapter_map": [
+        4
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-MATHSHEP",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "math_shepherd2312",
+      "arxiv_id": "2312.08935",
+      "version": "2312.08935v3",
+      "title": "Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations",
+      "first_author": "Peiyi Wang",
+      "published": "2023-12-14",
+      "url": "https://arxiv.org/abs/2312.08935",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_math_shepherd2312_v3.html",
+      "chapter_map": [
+        4
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-MONKEYS",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "llm_monkeys2407",
+      "arxiv_id": "2407.21787",
+      "version": "2407.21787v3",
+      "title": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+      "first_author": "Bradley Brown",
+      "published": "2024-07-31",
+      "url": "https://arxiv.org/abs/2407.21787",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_llm_monkeys2407_v3.html",
+      "chapter_map": [
+        4
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-SNELL",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "snell2408",
+      "arxiv_id": "2408.03314",
+      "version": "2408.03314v1",
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "first_author": "Charlie Snell",
+      "published": "2024-08-06",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_snell2408_v1.html",
+      "chapter_map": [
+        4
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-LATS",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "lats2310",
+      "arxiv_id": "2310.04406",
+      "version": "2310.04406v3",
+      "title": "Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models",
+      "first_author": "Andy Zhou",
+      "published": "2023-10-06",
+      "url": "https://arxiv.org/abs/2310.04406",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_lats2310_v3.html",
+      "chapter_map": [
+        4
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-REACT",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "react2210",
+      "arxiv_id": "2210.03629",
+      "version": "2210.03629v3",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "first_author": "Shunyu Yao",
+      "published": "2022-10-06",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_react2210_v3.html",
+      "chapter_map": [
+        5
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-REFLEXION",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "reflexion2303",
+      "arxiv_id": "2303.11366",
+      "version": "2303.11366v4",
+      "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "first_author": "Noah Shinn",
+      "published": "2023-03-20",
+      "url": "https://arxiv.org/abs/2303.11366",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_reflexion2303_v4.html",
+      "chapter_map": [
+        5
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-VOYAGER",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "voyager2305",
+      "arxiv_id": "2305.16291",
+      "version": "2305.16291v2",
+      "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "first_author": "Guanzhi Wang",
+      "published": "2023-05-25",
+      "url": "https://arxiv.org/abs/2305.16291",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_voyager2305_v2.html",
+      "chapter_map": [
+        5
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-MEMGPT",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "memgpt2310",
+      "arxiv_id": "2310.08560",
+      "version": "2310.08560v2",
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "first_author": "Charles Packer",
+      "published": "2023-10-12",
+      "url": "https://arxiv.org/abs/2310.08560",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_memgpt2310_v2.html",
+      "chapter_map": [
+        5
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-SWEAGENT",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "codemonkeys2405",
+      "arxiv_id": "2405.15793",
+      "version": "2405.15793v3",
+      "title": "SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering",
+      "first_author": "John Yang",
+      "published": "2024-05-06",
+      "url": "https://arxiv.org/abs/2405.15793",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_codemonkeys2405_v3.html",
+      "chapter_map": [
+        5
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-GODEL-AGENT",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "godel_agent2410",
+      "arxiv_id": "2410.04444",
+      "version": "2410.04444v4",
+      "title": "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement",
+      "first_author": "Xunjian Yin",
+      "published": "2024-10-06",
+      "url": "https://arxiv.org/abs/2410.04444",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "local_html": "source/html/arxiv_godel_agent2410_v4.html",
+      "chapter_map": [
+        6
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true,
+      "official_repo": {
+        "url": "https://github.com/Arvid-pku/Godel_Agent",
+        "head_commit": "bbb508796be31c7140cdfc7106efd830a1324242",
+        "commit_date": "2025-09-17T22:21:40Z",
+        "license": "MIT",
+        "tier": "P0 (author repo; backlink pending per-repo check)"
+      }
+    },
+    {
+      "source_id": "PAPER-ADAS",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "adas2408",
+      "arxiv_id": "2408.08435",
+      "version": "2408.08435v2",
+      "title": "Automated Design of Agentic Systems",
+      "first_author": "Shengran Hu",
+      "published": "2024-08-15",
+      "url": "https://arxiv.org/abs/2408.08435",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_adas2408_v2.html",
+      "chapter_map": [
+        6
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true,
+      "official_repo": {
+        "url": "https://github.com/ShengranHu/ADAS",
+        "head_commit": null,
+        "commit_date": null,
+        "license": "Apache-2.0",
+        "tier": "P0 (author repo; backlink pending per-repo check)"
+      }
+    },
+    {
+      "source_id": "PAPER-AI-SCIENTIST",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "ai_scientist2408",
+      "arxiv_id": "2408.06292",
+      "version": "2408.06292v3",
+      "title": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+      "first_author": "Chris Lu",
+      "published": "2024-08-12",
+      "url": "https://arxiv.org/abs/2408.06292",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_ai_scientist2408_v3.html",
+      "chapter_map": [
+        6
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true,
+      "official_repo": {
+        "url": "https://github.com/sakanaai/AI-Scientist",
+        "head_commit": "1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb",
+        "commit_date": "2025-12-19T07:46:21Z",
+        "license": "unknown",
+        "tier": "P0 (author repo; backlink pending per-repo check)"
+      }
+    },
+    {
+      "source_id": "PAPER-DGM",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "dgm2505",
+      "arxiv_id": "2505.22954",
+      "version": "2505.22954v3",
+      "title": "Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents",
+      "first_author": "Jenny Zhang",
+      "published": "2025-05-29",
+      "url": "https://arxiv.org/abs/2505.22954",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_dgm2505_v3.html",
+      "chapter_map": [
+        6,
+        7
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true,
+      "official_repo": {
+        "url": "https://github.com/jennyzzt/dgm",
+        "head_commit": "a565fd2d1dca504ef5104a7cc0f3bdc4ab9b4fd2",
+        "commit_date": "2025-08-13T10:40:14Z",
+        "license": "Apache-2.0",
+        "tier": "P0 (author repo; backlink pending per-repo check)"
+      },
+      "peer_reviewed_publication": {
+        "venue": "ICLR 2026",
+        "status": "published"
+      }
+    },
+    {
+      "source_id": "PAPER-HGM",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "hgm2510",
+      "arxiv_id": "2510.21614",
+      "version": "2510.21614v3",
+      "title": "Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine",
+      "first_author": "Wenyi Wang",
+      "published": "2025-10-24",
+      "url": "https://arxiv.org/abs/2510.21614",
+      "license": "CC BY-NC-SA 4.0",
+      "local_html": "source/html/arxiv_hgm2510_v3.html",
+      "chapter_map": [
+        6
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true,
+      "official_repo": {
+        "url": "https://github.com/metauto-ai/HGM",
+        "head_commit": "013872d95da978483f5b540e531db063d23890da",
+        "commit_date": "2026-02-07T21:30:42Z",
+        "license": "Apache-2.0",
+        "tier": "P0 (author repo; backlink pending per-repo check)"
+      }
+    },
+    {
+      "source_id": "PAPER-METR",
+      "tier": "P0",
+      "source_type": "paper",
+      "book_label": "metr2503",
+      "arxiv_id": "2503.14499",
+      "version": "2503.14499v4",
+      "title": "Measuring AI Ability to Complete Long Software Tasks",
+      "first_author": "Thomas Kwa",
+      "published": "2025-03-18",
+      "url": "https://arxiv.org/abs/2503.14499",
+      "license": "CC BY 4.0",
+      "local_html": "source/html/arxiv_metr2503_v4.html",
+      "chapter_map": [
+        7,
+        8
+      ],
+      "fetched_at_utc": "2026-10-21T03:22:11Z",
+      "locator_support": true,
+      "status": "fetched+normalized",
+      "cached": true
+    },
+    {
+      "source_id": "PAPER-RSI-ROADMAP-DUAN",
+      "tier": "P0",
+      "source_type": "paper",
+      "arxiv_id": "2609.11873",
+      "version": "2609.11873v3",
+      "title": "The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement",
+      "first_author": "Yi Duan",
+      "published": "2026-09-10",
+      "url": "https://arxiv.org/abs/2609.11873",
+      "license": "CC BY-NC-ND 4.0",
+      "chapter_map": [
+        0,
+        8
+      ],
+      "cached": false,
+      "status": "metadata+abstract+version checked online; not cached locally"
+    },
+    {
+      "source_id": "PAPER-AIDE2",
+      "tier": "P0",
+      "source_type": "paper",
+      "arxiv_id": "2609.26457",
+      "version": "2609.26457v1",
+      "title": "Recursive self-improvement of AI research agents",
+      "first_author": "Dhruv Srikanth",
+      "published": "2026-09-22",
+      "url": "https://arxiv.org/abs/2609.26457",
+      "license": "arXiv non-exclusive license to distribute",
+      "chapter_map": [
+        6,
+        8
+      ],
+      "cached": false,
+      "status": "metadata+abstract+version checked online; not cached locally"
+    },
+    {
+      "source_id": "PAPER-DREAM-RSI",
+      "tier": "P0",
+      "source_type": "paper",
+      "arxiv_id": "2609.14858",
+      "version": "2609.14858v2",
+      "title": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds",
+      "first_author": "Tong Zheng",
+      "published": "2026-09-14",
+      "url": "https://arxiv.org/abs/2609.14858",
+      "license": "arXiv non-exclusive license to distribute",
+      "chapter_map": [
+        6,
+        8
+      ],
+      "cached": false,
+      "status": "version v2 and abstract checked online on 2026-10-21; not cached locally"
+    },
+    {
+      "source_id": "PAPER-GODELMACHINE",
+      "tier": "P0",
+      "source_type": "paper",
+      "arxiv_id": "cs/0309048",
+      "version": "v5 (per export API id)",
+      "title": "Gödel Machines: Fully Self-Referential Optimal Universal Self-Improvers",
+      "published": "2003-09-25",
+      "url": "https://arxiv.org/abs/cs/0309048",
+      "chapter_map": [
+        1,
+        6
+      ],
+      "cached": false,
+      "status": "metadata-verified (abstract-level), full text not mirrored"
+    },
+    {
+      "source_id": "PAPER-DPO",
+      "tier": "P1",
+      "arxiv_id": "2305.18290",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "published": "2023-05-29",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "chapter_map": [
+        3
+      ],
+      "cached": false,
+      "status": "metadata-verified; cited in A.2 only"
+    },
+    {
+      "source_id": "PAPER-PPO",
+      "tier": "P1",
+      "arxiv_id": "1707.06347",
+      "title": "Proximal Policy Optimization Algorithms",
+      "published": "2017-07-20",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "chapter_map": [
+        3
+      ],
+      "cached": false,
+      "status": "metadata-verified; cited in A.2 only"
+    },
+    {
+      "source_id": "PAPER-RLHF",
+      "tier": "P1",
+      "arxiv_id": "1706.03741",
+      "title": "Deep reinforcement learning from human preferences",
+      "published": "2017-06-12",
+      "url": "https://arxiv.org/abs/1706.03741",
+      "chapter_map": [
+        3
+      ],
+      "cached": false,
+      "status": "metadata-verified; cited in A.2 only"
+    },
+    {
+      "source_id": "PAPER-INSTRUCTGPT",
+      "tier": "P1",
+      "arxiv_id": "2203.02155",
+      "title": "Training language models to follow instructions with human feedback",
+      "published": "2022-03-04",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "chapter_map": [
+        3
+      ],
+      "cached": false,
+      "status": "metadata-verified; cited in A.2 only"
+    },
+    {
+      "source_id": "INST-SAKANA-DGM",
+      "tier": "P0",
+      "source_type": "institution_page",
+      "url": "https://sakana.ai/dgm/",
+      "sha256": "3427fdd07f4f39a9",
+      "fetched_at_utc": "2026-10-20T13:07:39Z",
+      "local": "source/P0/institutions/sakana_dgm.html",
+      "notes": "objective-hacking / tool-use hallucination sabotage example + sandbox wording + 20->50 / 14.2->30.7 confirmed verbatim",
+      "chapter_map": [
+        6,
+        7
+      ],
+      "status": "verified"
+    },
+    {
+      "source_id": "INST-METR-TH",
+      "tier": "P0",
+      "source_type": "institution_page",
+      "url": "https://metr.org/time-horizons/",
+      "sha256": "c5135c54ec569546",
+      "fetched_at_utc": "2026-10-20T13:07:41Z",
+      "local": "source/P0/institutions/metr_horizons.html",
+      "notes": "page states no longer actively updated; LAST UPDATED 2026-09-08; 50%-time-horizon = duration at which agent predicted to succeed half the time; >100 diverse software tasks; human-duration estimates likely overestimates",
+      "chapter_map": [
+        7,
+        8
+      ],
+      "status": "verified"
+    },
+    {
+      "source_id": "COURSE-CS329A",
+      "tier": "P0",
+      "source_type": "course",
+      "url": "https://cs329a.stanford.edu/",
+      "local": "source/html/web_cs329a.html",
+      "chapter_map": [
+        0,
+        2,
+        8
+      ],
+      "status": "fetched (schedule cached turn 1)"
+    },
+    {
+      "source_id": "ORG-CS329A-GH",
+      "tier": "P1",
+      "source_type": "repos_index",
+      "url": "https://github.com/stanford-cs329a",
+      "local": "source/P0/course/cs329a_org.html",
+      "sha256": "7672a8ae75ae52fa",
+      "fetched_at_utc": "2026-10-20T13:07:44Z",
+      "notes": "org page cached; per-HW repo commits not pinned (GitHub API rate-limited during run); treat as index only",
+      "chapter_map": [
+        0
+      ],
+      "status": "partial"
+    },
+    {
+      "source_id": "BOOK-SYNTHESIS",
+      "tier": "P0-self",
+      "source_type": "editorial",
+      "notes": "FIG-RSI-01 loop, 五元组记号, 一阶/二阶术语, 锚维度, 判据 2-1/4-1/7-1 = 本书综合框架, 不得写成来源结论",
+      "chapter_map": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "status": "editorial"
+    },
+    {
+      "source_id": "REPORT-METR-TH11",
+      "tier": "P0",
+      "source_type": "institution_report",
+      "book_label": "metr_time_horizon_11",
+      "title": "Time Horizon 1.1",
+      "first_author": "METR",
+      "published": "2026-01-29",
+      "url": "https://metr.org/blog/2026-01-29-time-horizon-1-1/",
+      "license": "Not stated on report page",
+      "chapter_map": [
+        7,
+        8
+      ],
+      "fetched_at_utc": "2026-10-21T04:26:00Z",
+      "locator_support": true,
+      "status": "online_checked",
+      "cached": false
+    }
+  ]
+}

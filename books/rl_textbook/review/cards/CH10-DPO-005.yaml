@@ -1,0 +1,74 @@
+issue_id: CH10-DPO-005
+chapter: 10
+severity: P2
+status: 已有依据
+title: 隐式奖励 (10.13) 丢掉了 β_KL·log Z(x)，"任何一个语言模型都隐含着奖励"应限定在等价类意义上
+summary: >
+  10.3.1 第五步把隐式奖励写成 r̂_θ = β_KL·log(π_θ/π_ref)，紧接着说"任何一个语言模型都
+  隐含着一个奖励函数，只要指定参考策略和 β_KL"。按 DPO 定理 1，这个重参数化只给出奖励
+  等价类中的一个代表：同一最优策略对应的奖励可以相差任意只依赖 x 的函数（推导里正是
+  β_KL·log Z(x)，第一步的式 (10.9) 也写出来了，第二步相减时抵消）。因此"隐含着奖励函数"
+  应写成"在相差一个只依赖 x 的常数的意义上"，否则读者会以为 (10.13) 给出了唯一的奖励，
+  进而把不同 prompt 的 r̂ 值直接比较。本章后面（10.5.1、10.5.2）确实在跨 prompt 比较
+  隐式奖励，这个限定时必须显式写出。
+
+current_text:
+  file: content/ch10.md
+  lines: "207-215"
+  excerpt: >
+    第 214 行：式 (10.13) 是本章最值得停一下的公式。它告诉我们：在式 (10.5) 的目标下，
+    "奖励"与"策略偏离参考策略的程度"是同一件事的两种写法。任何一个语言模型都隐含着一个
+    奖励函数，只要指定参考策略和 β_KL。
+
+sources:
+  - key: 2305.18290_dpo
+    level: S
+    role: 定理 1：重参数化只在奖励等价类意义上成立
+    pdf_page: 6
+    printed_page: "§5 Theorem 1（p.6）"
+    quote: >
+      Under mild assumptions, all reward classes consistent with the Plackett-Luce (and
+      Bradley-Terry in particular) models can be represented with the reparameterization
+  - key: 2305.18290_dpo
+    level: S
+    role: 投影算子 f 的作用是"用配分函数的对数归一化奖励"，即只固定等价类的一个代表
+    pdf_page: 6
+    printed_page: "§5 定理 1 证明草稿（p.6）"
+    quote: >
+      The operator f simply normalizes the reward function with the logarithm of the partition
+      function of
+
+claims:
+  - id: c1
+    text: >
+      式 (10.13) 是奖励等价类的一个代表：真奖励与它相差 β_KL·log Z(x)，后者只依赖 x，
+      因此在同一 prompt 内的差值与偏好概率中不影响任何结论。
+    evidence: 式 (10.9) 与式 (10.10) 的相消；2305.18290_dpo p.6 定理 1
+    status: 已核对
+  - id: c2
+    text: >
+      第 214 行"任何一个语言模型都隐含着一个奖励函数"应加"在相差只依赖 x 的函数的
+      意义上"，否则会被读成唯一奖励。
+    evidence: 2305.18290_dpo p.6；推导：Z(x) 只依赖 x
+    status: 已核对
+  - id: c3
+    text: >
+      10.5.2 的跨 prompt 比较（长度残差回归、受控胜率）用的是同一批 prompt 内的成对
+      比较，未直接比较不同 x 的 r̂ 数值——因此该限定不影响 10.5 现有的度量，但必须写明。
+    evidence: 推导：content/ch10.md 第 336-353 行的度量都按同一 prompt 的成对样本定义
+    status: 已核对
+
+planned_fix:
+  - 第 214 行在"任何一个语言模型都隐含着一个奖励函数"后补："准确地说，是在相差一个只依赖 x 的常数（推导里的 β_KL log Z(x)）的意义上——同一个策略可以对应一整族奖励。"
+  - 第 214 行后补一句使用规则："跨 prompt 比较 r̂ 的绝对数值没有意义；成对比较与同一 prompt 内的差值是合法的。"
+  - 关键公式（第 434-437 行）给出 (10.13) 时加注"定义到相差 β_KL log Z(x) 为止"。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条与 CH10-DPO-003 相邻（都关于 Z(x)），但施工落点不同：003 改小结措辞，005 改 10.3.1
+    第 214 行与关键公式注释，可一并施工。

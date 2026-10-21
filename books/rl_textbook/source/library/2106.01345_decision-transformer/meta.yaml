@@ -1,0 +1,28 @@
+key: 2106.01345_decision-transformer
+version: 2026-10-20
+level: S
+role: algorithm
+title: "Decision Transformer: Reinforcement Learning via Sequence Modeling"
+authors:
+  - Lili Chen
+  - Kevin Lu
+  - Aravind Rajeswaran
+  - Kimin Lee
+  - Aditya Grover
+  - Michael Laskin
+  - Pieter Abbeel
+  - Aravind Srinivas
+  - Igor Mordatch
+year: 2021
+published: 2021-06-02
+arxiv_id: 2106.01345
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/2106.01345_decision-transformer.pdf
+bytes: 704784
+pages: 21
+sha256: 6ff675a7b8286ca7bf8e01e4b90a41bf5c90f4c3c007e17fdb4d24e26fd05e28
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

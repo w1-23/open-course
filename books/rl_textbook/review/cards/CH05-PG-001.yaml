@@ -1,0 +1,103 @@
+issue_id: CH05-PG-001
+chapter: 5
+severity: P1
+status: 已有依据
+title: 占用测度在两套归一化记号间切换——本章自洽，但与第 2 章同名不同义
+summary: >
+  5.1 节把未归一化占用测度 d^π_γ 明确定义为总质量 1/(1−γ)（式 5.5），并给出
+  归一化版本 d̄=(1−γ)d 与带 1/(1−γ) 因子的等价式 (5.7)，正文用整段篇幅警告
+  "混用会直接错掉一个 1/(1−γ) 的尺度"，全章没有出现同一节内两种写法混用而不
+  说明的情况——本条判定为**本章无误**。真正的问题在跨章：第 2 章式 (2.8) 用同一个
+  符号 d^π_γ 表示**归一化**分布（总质量 1），与本章同名不同义。读者若按第 2 章的
+  记忆套用 5.1 节的公式，会漏掉 1/(1−γ)。本章第 61 行已经点明这一差异（"第 2 章的
+  式 (2.8) 用的是归一化版本但仍写作 d^π_γ"），但只在正文一句话里，属需要全书层面
+  决策的记号冲突。
+
+current_text:
+  file: content/ch05.md
+  lines: "50-90"
+  excerpt: >
+    第 50 行："两种写法是同一个梯度的两副面孔，但它们的**归一化因子不同**，混用会直接错掉一个 1/(1−γ) 的尺度。"
+    第 57 行（式 5.5）："∑_s d^π_γ(s) = 1/(1−γ)"
+    第 61 行："它的总质量不是 1，而是 1/(1−γ)……归一化版本记作 d̄^π_γ=(1−γ)d^π_γ，它才是一个概率分布。第 2 章的式 (2.8) 用的是归一化版本但仍写作 d^π_γ……"
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 策略梯度定理的"比例常数"写法，说明 ∝ 的常数正是归一化换算的来源
+    pdf_page: 348
+    printed_page: "§13.2, p.326"
+    quote: >
+      The symbol ∝ here means "proportional to". In the episodic case, the constant of
+      proportionality is the average length of an episode, and in the continuing case it is 1,
+      so that the relationship is actually an equality. The distribution µ here (as in
+      Chapters 9 and 10) is the on-policy distribution under π.
+    note: >
+      抽文把 ∝ 抽成了 "/"，此处按原式转写为 ∝。该书 µ 是**归一化**的 on-policy 分布
+      （第 199 页定义），因此"∝"里吸收的正是 1/(1−γ) 这类常数；这解释了为什么换用
+      归一化测度必须显式乘回该因子。
+  - key: 1502.05477_trpo
+    level: S
+    role: 原始论文对"未归一化访问频率"的定义，以及把状态求和换成期望时显式出现 1/(1−γ)
+    pdf_page: 2
+    printed_page: "§3, p.2"
+    quote: >
+      Let ρπ be the (unnormalized) discounted visitation frequencies
+      ρπ(s)=P(s0 = s)+γP(s1 = s)+γ2P(s2 = s)+. . . , where s0 ∼ρ0 and the actions are
+      chosen according to π.
+    note: >
+      原文自己用括号标注 unnormalized，与本章式 (5.5) 的 d^π_γ 同义；这是"未归一化"
+      写法在文献中的直接依据。
+  - key: 1502.05477_trpo
+    level: S
+    role: 把 Σ_s ρ_θold 换成期望时补上 1/(1−γ) 的那一步，是本章式 (5.7) 的同一换算
+    pdf_page: 4
+    printed_page: "§5, p.4"
+    quote: >
+      We first replace Σs ρθold(s)[. . . ] in the objective by the expectation
+      1/(1−γ) Es∼ρθold [. . . ]. Next, we replace the advantage values Aθold by the
+      Q-values Qθold in Equation (13), which only changes the objective by a constant.
+    note: >
+      这一段是"归一化测度 + 1/(1−γ) 因子"写法在原始文献中的出处；可直接用于向读者
+      说明本章式 (5.6)/(5.7) 的换算不是自创。
+
+claims:
+  - id: c1
+    text: 式 (5.5) 说未归一化 d^π_γ 的总质量是 1/(1−γ)，这在几何折扣下正确。
+    evidence: 由 Σ_{t≥0}γ^t=1/(1−γ) 直接求和，见 derivation_file 第 1 节；并有 1502.05477_trpo p.2 的 unnormalized 定义作旁证
+    status: 已核对
+  - id: c2
+    text: 式 (5.6) 与式 (5.7) 严格相等，差且只差 1/(1−γ)。
+    evidence: derivation_file 第 2 节逐项化简；1502.05477_trpo p.4 出现同一换算式
+    status: 已核对
+  - id: c3
+    text: 本章 5.1 节内部没有混用两种写法而不加说明。
+    evidence: 逐处核对 content/ch05.md 第 50–90 行（式 5.5/5.6/5.7/5.8 与第 61 行说明）；换算关系见 derivation_file 第 1、2 节
+    status: 已核对
+  - id: c4
+    text: 第 2 章式 (2.8) 用 d^π_γ 指归一化分布，与本章同名不同义，属跨章记号冲突。
+    evidence: content/ch02.md 式 (2.8) 与本章第 61 行的对照；本章已点明但未统一
+    status: 已核对
+
+planned_fix:
+  - "在 5.1.2 节第 61 行之后补一句原文对照：TRPO 第 3–4 页把 Σ_s ρ_θold 换成 (1/(1−γ))E_{s∼ρ_θold}，正是式 (5.6)→(5.7) 的同一步，读者可据此自查是否漏因子。"
+  - "全书记号统一（需 lead 决策）：把第 2 章式 (2.8) 的符号改成 d̄^π_γ，或在第 2 章该式后加脚注'第 5 章将区分归一化与未归一化版本'，避免跨章同名不同义。"
+  - "在「关键公式」一节并列式 (5.6) 与式 (5.7) 处加半行提示：'两式差 1/(1−γ)，不是两个不同的目标'，与正文第 50 行呼应。"
+
+derivation_file: review/derivations/CH05-PG-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条是符号与换算核对，判据是"同一个梯度在两套测度下的系数是否一致"，属逐项代数，
+    不需要数值实验。若后续改动 5.1.2 的公式，可用 4 状态链式 MDP 的解析梯度做一次
+    有限差分回归（该书第 5 章图 5-4 的实验脚本已具备解析梯度）。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条结论是"第 5 章无误、跨章需决策"，不要据此改第 5 章正文的核心公式；改动只限
+    上面三条 planned_fix，且第 2 条必须由 lead 拍板。

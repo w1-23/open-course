@@ -1,0 +1,84 @@
+issue_id: CH95-FORM-001
+chapter: 95
+severity: P1
+status: 已有依据
+title: 逐 token 的 KL 惩罚式缺 \mathbf{1}\{t=|y|\} 指示函数，与第 10 章 (10.7) 不一致，照抄会把序列奖励重复 |y| 次
+summary: >
+  第 95.5 式把"把 KL 折进奖励"写成 r̃_t = r_t^task − β_KL log(π_θ/π_ref)，其中 r_t^task 从未定义。
+  第 10 章的对应式是 r_t = 1{t=|y|}·r_φ(x,y) − β_KL log(π_θ/π_ref)，并在正文用整段篇幅警告
+  "稀疏奖励必须挂在序列末尾那一个 token 上，如果错误地摊到每个 token，等价于把同一条奖励
+  重复计算了 |y| 次，梯度尺度会随长度漂移"。本章是接口章，读者正是要照这一式去实现；
+  缺了指示函数，恰好落入第 10 章点名的那类错误，且后果是"梯度尺度随长度漂移"，不是排版问题。
+  DeepSeekMath 式 (2) 虽然把 r_φ 写成对前缀打分，但正文同时声明"通常只有最后一个 token
+  被奖励模型赋分"，与参考书的指示函数写法相容；本章没有任何等价说明。
+  同一节还完全没有提第 10 章 (10.8) 与第 11 章 (11.11) 所用的 k3 低方差 KL 估计器，
+  于是第 118 行说"恰好等于序列 KL"，读者到第 11 章会看到一个从未在本章定义过的 D̂_KL(i,t)。
+
+current_text:
+  file: content/ch13prep.md
+  lines: "93-100"
+  excerpt: >
+    第 93 行：第一种是把 KL 折进奖励：在序列末尾给出任务奖励 r(x,y)，同时在每个 token 上扣一项；
+    第 96 行：r̃_t = r_t^task − β_KL log(π_θ(y_t|x,y_<t)/π_ref(y_t|x,y_<t))；
+    第 100 行：于是整条序列的累计惩罚恰好等于序列 KL。
+
+sources:
+  - key: 2203.02155_instructgpt
+    level: S
+    role: 奖励在回合末给出、KL 逐 token 惩罚的原始实现
+    pdf_page: 9
+    printed_page: "§3.5（p.9）"
+    quote: >
+      Given the prompt and response, it produces a reward determined by the reward model and ends the
+      episode. In addition, we add a per-token KL penalty from the SFT model at each token to mitigate
+      over-optimization of the reward model.
+  - key: 2402.03300_deepseekmath-grpo
+    level: S
+    role: 只有序列末尾的 token 被奖励模型赋分，逐 token 的奖励项因此不能用常数广播
+    pdf_page: 13
+    printed_page: "§4.1（p.13）"
+    quote: >
+      While in the LLM context, usually only the last token is assigned a reward score by the reward
+      model, which may complicate the training of a value function that is accurate at each token.
+
+claims:
+  - id: c1
+    text: >
+      第 95.5 式缺少 1{t=|y|} 指示函数，而第 10 章 (10.7) 有；两式并排读会得到不同的梯度：
+      前者对每条序列求和时把任务奖励算 |y| 次，后者只算一次。
+    evidence: 推导：content/ch10.md 第 119-129 行的 (10.7) 与本章第 96 行逐项对照；2203.02155_instructgpt p.9 也把奖励描述为回合末给出
+    status: 已核对
+  - id: c2
+    text: >
+      若照本章写法实现，Σ_t r̃_t 中的任务奖励项变成 |y|·r(x,y)，与第 10 章第 129 行
+      "等价于把同一条奖励重复计算了 |y| 次，梯度尺度会随长度漂移"完全对应。
+    evidence: 推导：对 t=1..|y| 求和，把 r(x,y) 视作与 t 无关的常数即得 |y|·r(x,y)；2402.03300 p.13 声明只有末 token 赋分
+    status: 已核对
+  - id: c3
+    text: >
+      第 100 行"于是整条序列的累计惩罚恰好等于序列 KL"同样不准：逐 token 扣掉的是样本上的
+      对数比之和 β_KL log(π_θ(y|x)/π_ref(y|x))，只有取期望才等于 β_KL·D_KL。
+    evidence: 推导：见 review/derivations/CH95-FORM-002.md 第四节的同一结论；第 10 章 (10.7) 的写法也把 KL 项放在逐 token 的奖励里
+    status: 已核对
+  - id: c4
+    text: >
+      本章没有定义 k3 估计器，而第 11 章 (11.11) 直接使用 D̂_KL(i,t)=π_ref/π_θ−log(π_ref/π_θ)−1；
+      接口章缺这一行，读者在第 11 章会以为 KL 项就是精确的对数比。
+    evidence: 2402.03300_deepseekmath-grpo p.14 称其为 unbiased estimator (Schulman, 2020)；对照 content/ch11.md 第 151-156 行
+    status: 已核对
+
+planned_fix:
+  - 第 96 行式 (95.5) 改为 r̃_t = 1{t=|y|}·r(x,y) − β_KL log(π_θ(y_t|x,y_<t)/π_ref(y_t|x,y_<t))，并把 r_t^task 这个记号删掉（未定义）。
+  - 第 93-100 行补一句："任务奖励只挂在最后一个位置；把它摊到每个 token 等于重复 |y| 次，梯度尺度随长度漂移（第 10 章 10.2.2 节）。"
+  - 第 100 行"恰好等于序列 KL"改为"其期望等于序列 KL（式 95.6–95.7）"。
+  - 第 100 行之后补一句 k3 估计器：实现中多用 D̂_KL=π_ref/π_θ−log(π_ref/π_θ)−1（非负、无偏、方差更小），见第 10 章 (10.8) 与第 11 章 (11.11)。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    核对基准版本为 2026-10-20 22:18 的 content/ch13prep.md（251 行，式号 95.1–95.9，图 95-1–95-4）。
+    审计期间该章的标签在 P.k → 13.k → 95.k 之间改过两次，行号稳定、式号不稳，施工前请重取行号。

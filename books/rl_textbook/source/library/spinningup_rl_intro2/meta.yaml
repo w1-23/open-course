@@ -1,0 +1,19 @@
+key: spinningup_rl_intro2
+version: 2026-10-19
+level: B
+role: docs
+title: "Part 2: Kinds of RL Algorithms &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_rl_intro2.html
+bytes: 31483
+pages: null
+sha256: d01a270db26548138b1d435400ecfe39462f108ef6b8dfc89bf31eab584eaeeb
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

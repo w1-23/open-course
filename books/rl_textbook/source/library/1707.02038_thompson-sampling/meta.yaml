@@ -1,0 +1,24 @@
+key: 1707.02038_thompson-sampling
+version: 2026-10-20
+level: S
+role: algorithm
+title: A Tutorial on Thompson Sampling
+authors:
+  - Daniel Russo
+  - Benjamin Van Roy
+  - Abbas Kazerouni
+  - Ian Osband
+  - Zheng Wen
+year: 2017
+published: 2017-07-07
+arxiv_id: 1707.02038
+doi: ""
+journal_ref: "Foundations and Trends in Machine Learning, Vol. 11, No. 1, pp. 1-96, 2018"
+primary_category: cs.LG
+path: source/papers/1707.02038_thompson-sampling.pdf
+bytes: 3259310
+pages: 102
+sha256: d366c2b3e6185738ca2d240868f9637ed030f6fbd6be754066ca24196c467057
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

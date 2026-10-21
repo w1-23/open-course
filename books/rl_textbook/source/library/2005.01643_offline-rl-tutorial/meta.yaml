@@ -1,0 +1,23 @@
+key: 2005.01643_offline-rl-tutorial
+version: 2026-10-20
+level: C
+role: survey
+title: "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems"
+authors:
+  - Sergey Levine
+  - Aviral Kumar
+  - George Tucker
+  - Justin Fu
+year: 2020
+published: 2020-05-04
+arxiv_id: 2005.01643
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/2005.01643_offline-rl-tutorial.pdf
+bytes: 1968659
+pages: 43
+sha256: 3c5e18cbf6efeeb129e0b6fc6f2b076c4349291b7d34e5920913744df1411342
+retrieved: 2026-10-20
+license_note: "综述：只用于建立方法地图，不得作为关键定理的唯一依据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

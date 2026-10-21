@@ -1,0 +1,78 @@
+issue_id: CH07-PROP-001
+chapter: 7
+severity: P2
+status: 已有依据
+title: 「推得越远方差越小」只在确定性模型下成立，本章却按普遍规律陈述
+summary: >
+  §7.2.3 用"偏差—方差权衡"解释短 rollout：h 增大时方差下降、偏差上升。方差下降的理由
+  写在破折号后——"因为模型内部是确定性的"，这其实是前提，但句子本身被当成普遍结论。同一章
+  在 7.2.1、7.3.1、7.3.3 三处都主张模型要建模分布（随机转移），PETS 的轨迹采样更是每一步
+  都按概率预测重采样粒子。在随机模型下方差并不下降：取两状态模型（转移等概率、奖励 0/1、
+  γ=0.9、V_φ≡0），Var(Ĝ_h)=1.3158(1−0.81^h) 随 h 单调上升并收敛到 1.3158。
+  结论"存在最优 h"仍成立，但理由必须写成"h 把权重从价值函数搬到模型"，并说明模型随机性归哪一侧。
+
+current_text:
+  file: content/ch07.md
+  lines: "109-116"
+  excerpt: >
+    这样做的理由是**偏差—方差权衡**：h 增大，估计的方差下降——因为模型内部是确定性的，
+    几步推演把随机性压缩掉了；但偏差上升——每一步都乘上一次模型误差。
+
+sources:
+  - key: 1805.12114_pets
+    level: S
+    role: 随机模型的轨迹采样在每一步都按概率预测重采样，随机性被传播而不是被"压缩掉"
+    pdf_page: 2
+    printed_page: "Figure 1 图注（论文 p.2）"
+    quote: >
+      Our trajectory sampling (TS) propagation technique uses our dynamics model to re-sample
+      each particle (with associated bootstrap) according to its probabilistic prediction at each
+      point in time, up until horizon T.
+  - key: 1906.08253_mbpo
+    level: S
+    role: 长 rollout 的代价被归因于误差累积（偏差一侧），未给出"方差一定下降"的依据
+    pdf_page: 4
+    printed_page: "§4.2（论文 p.4）"
+    quote: >
+      the analysis relies on running full rollouts through the model, allowing model errors to
+      compound
+
+derivation_file: review/derivations/CH07-PROP-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    闭式即可复核：两状态、转移等概率、r(A)=1、r(B)=0、γ=0.9、V_φ≡0 时
+    Var(Ĝ_h)=0.25·Σ_{k<h}0.81^k=1.3158(1−0.81^h)，h=0,1,2,5,10 依次为
+    0、0.250、0.4525、0.8585、1.229，单调上升。见推导第 2 节的表。
+
+claims:
+  - id: c1
+    text: 方差下降的论证依赖"模型确定性"这一前提，正文只把它写成理由从句，未限定适用范围。
+    evidence: 推导第 1 节对 ch07 `:116` 与 `:72` 的对照；同章 `:72` 要求模型对分布建模
+    status: 已核对
+  - id: c2
+    text: 随机模型下 Var(Ĝ_h) 随 h 上升，闭式为 1.3158(1−0.81^h)（给定 V_φ 无方差）。
+    evidence: 推导第 2 节的逐项计算与数值表
+    status: 已核对
+  - id: c3
+    text: 若 V_φ 自身有方差 σ_v²，则 Var(Ĝ_h)=1.3158(1−0.81^h)+0.81^h σ_v²，只有 σ_v²>1.3158 时方差才随 h 下降。
+    evidence: 推导第 2 节的通式
+    status: 已核对
+  - id: c4
+    text: 「存在最优 h」的结论不受影响，受影响的是它的理由：h 是在模型误差与价值误差之间换手，不是单向降方差。
+    evidence: 推导第 3 节；偏差一侧由式 (7.5) 的 hε_m 给出
+    status: 已核对
+
+planned_fix:
+  - 把 `:116` 的破折号从句改写为：「h 增大，偏差上升（每步乘一次模型误差，量级 hε_m）；方差是升是降取决于模型是否确定——确定性模型下 γ^{2h} 把价值函数的方差压掉，随机模型下模型噪声会把方差补回来甚至更大（PETS 的轨迹采样正是每一步都重采样）。两股力量方向相反，所以存在最优视野。」
+  - 在 `:116` 之后补一句适用范围：「本章 7.3 节的 PETS 与 Dreamer 都是随机模型，那里的 h 主要由偏差一侧决定；只有确定性模型（如表格 Dyna）才适用"推得越远方差越小"。」
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    已施工（2026-10-20）：`:119` 改为「误差换手」——偏差 hε_m 上升、方差升降取决于模型是否确定（确定性 γ^{2h} 压掉价值方差，随机模型下模型噪声补回），并点明 7.3 节的 PETS 与 Dreamer 属随机模型；「存在最优 h」的结论保留。
+    施工复核：`main.py --only 7` → 18 页 / 6 图 / 12 编号式；`check_content.py --only 7` OK 15522 字 0 问题；`verify.py` 五列全 0、thin 0。
+    `:96` 的「在认识性不确定性大的地方，推得越远越不可信」讲的是认识性不确定性，表述无误，本条不改它。

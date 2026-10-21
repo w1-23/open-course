@@ -1,0 +1,77 @@
+issue_id: CH10-BT-001
+chapter: 10
+severity: P2
+status: 已有依据
+title: 式 (10.1) 前的"概率之比等于强度之比的指数"写错，且 BT 的比较独立性假设未交代
+summary: >
+  第 22 行把 Bradley–Terry 的比值性质写成"两个回答被选中的概率之比等于各自'强度'之比的
+  指数"。正确的比值恒等式是 P(y_w≻y_l)/P(y_l≻y_w) = exp(r_w − r_l)：若"强度"取
+  s_i = r_i（对数强度），比值是 exp(强度差) 而不是 exp(强度比)；若"强度"取 BT 原式的
+  π_i，比值就是强度比本身。两种读法下原句都不成立。另外 10.1.2 只写了"同一上下文、
+  同一奖励函数"与 logistic 形式，没有写"各对比较在给定奖励下相互独立（或至少不被同一
+  标注者的当天状态系统性污染）"——而 10.1.3 讨论标注者异质性时默认了这一点，前后口径
+  不一致。这是定义处的表述错误，不影响式 (10.1) 与式 (10.2)。
+
+current_text:
+  file: content/ch10.md
+  lines: "20-33"
+  excerpt: >
+    第 22 行：最常用的偏好模型来自 Bradley–Terry 配对比较模型：两个回答被选中的概率之比
+    等于各自"强度"之比的指数。
+    第 33 行：它意味着奖励函数只在"差"的意义上被数据约束，任何常数平移都不改变似然，
+    也意味着两个回答的奖励必须落在同一个可比较的尺度上（同一上下文、同一奖励函数）。
+
+sources:
+  - key: 1706.03741_christiano-rlhf
+    level: S
+    role: BT 型偏好模型的原始用法（偏好概率随"奖励之和"指数增长，等价于 logistic 奖励差）
+    pdf_page: 5
+    printed_page: "§2.2.3 Fitting the Reward Function（p.5）"
+    quote: >
+      assume that the human's probability of preferring a segment σi depends exponentially on the
+      value of the latent reward summed over the length of the clip
+  - key: 2305.18290_dpo
+    level: S
+    role: BT 作为 DPO 推导的偏好模型，定理明确写下"奖励只在等价类意义上可辨识"
+    pdf_page: 6
+    printed_page: "§5 Theorem 1（p.6）"
+    quote: >
+      Under mild assumptions, all reward classes consistent with the Plackett-Luce (and
+      Bradley-Terry in particular) models can be represented with the reparameterization
+
+claims:
+  - id: c1
+    text: 式 (10.1) 本身（σ(奖励差)）与"只约束奖励差、常数平移不变"的论述正确。
+    evidence: 式 (10.1)、式 (10.3)；推导：σ(r_w+c−r_l−c)=σ(r_w−r_l)
+    status: 已核对
+  - id: c2
+    text: >
+      第 22 行的比值表述错误：P(w≻l)/P(l≻w)=exp(r_w−r_l) 是"强度差"的指数（强度取
+      exp(r) 时是强度比本身），不是"强度之比的指数"。
+    evidence: 由式 (10.1) 直接计算；1706.03741_christiano-rlhf p.5 的指数形式
+    status: 已核对
+  - id: c3
+    text: >
+      BT 的隐含假设中，"同一 prompt、logistic 噪声、同一奖励尺度"已写；"各对比较在给定
+      奖励下相互独立"未写，而 10.1.3 的标注者异质性讨论默认了它。
+    evidence: 推导；content/ch10.md 第 33 行与第 61 行的口径对照
+    status: 已核对
+  - id: c4
+    text: 该表述错误不影响式 (10.2) 的负对数似然与后文 DPO 推导（后文一律直接用奖励差）。
+    evidence: 式 (10.2)、式 (10.10) 都只用奖励差
+    status: 已核对
+
+planned_fix:
+  - 第 22 行改为"两个回答被选中的赔率之比等于 exp(奖励差)：P(y_w≻y_l)/P(y_l≻y_w)=exp(r_w−r_l)；若把 exp(r) 叫强度，它就是强度比本身"。
+  - 第 33 行后补一句假设清单：同一上下文、同一奖励函数、logistic 噪声，以及"各对比较在给定奖励下相互独立"，并说明违反独立性时 MLE 仍可用但不再是有效似然。
+  - 10.1.3 第 61 行讨论标注者异质性时，把"同一个 logistic 等价于假设所有标注者共享奖励"与 c3 的独立性假设对照，避免两处口径不一致。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条只动定义处的措辞与假设清单，不改式 (10.1)(10.2)；施工时连同图 10-2 的题注核对一遍
+    （题注写"奖励差为零时概率恰为一半"，正确）。

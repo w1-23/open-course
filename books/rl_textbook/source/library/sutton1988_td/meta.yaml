@@ -1,0 +1,19 @@
+key: sutton1988_td
+version: 2026-10-20
+level: S
+role: algorithm
+title: sutton1988_td
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/papers/sutton1988_td.pdf
+bytes: 499942
+pages: 36
+sha256: 42d1430f27bd834c599a8f655bea50f199c9e67ecc74c92033de0ad849ab0ae4
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

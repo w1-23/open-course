@@ -1,0 +1,19 @@
+key: spinningup_trpo
+version: 2026-10-19
+level: B
+role: docs
+title: "Trust Region Policy Optimization &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_trpo.html
+bytes: 36800
+pages: null
+sha256: 05d66b9666aea86e10eac21034c4a6eb5ffed0e96d59d3d76992599f43b6be23
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

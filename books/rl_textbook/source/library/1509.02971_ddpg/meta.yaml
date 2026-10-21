@@ -1,0 +1,27 @@
+key: 1509.02971_ddpg
+version: 2026-10-19
+level: S
+role: algorithm
+title: Continuous control with deep reinforcement learning
+authors:
+  - Timothy P. Lillicrap
+  - Jonathan J. Hunt
+  - Alexander Pritzel
+  - Nicolas Heess
+  - Tom Erez
+  - Yuval Tassa
+  - David Silver
+  - Daan Wierstra
+year: 2015
+published: 2015-09-09
+arxiv_id: 1509.02971
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1509.02971_ddpg.pdf
+bytes: 663643
+pages: 14
+sha256: 34ef677ecdee8c2a72721c70c7d849191be72af39ac8691a12e8c2979a28feda
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

@@ -1,0 +1,85 @@
+issue_id: CH03-PROP-002
+chapter: 3
+severity: P1
+status: 已有依据
+title: 蒙特卡洛的无偏性被归因于"样本相互独立"，且"每次访问对单个样本有偏"与原文和表 3-1 矛盾
+summary: >
+  第 103 行把无偏的理由写成"首次访问的样本在给定状态后相互独立，因而 G_t 是无偏样本"。
+  无偏的真正来源是"回合按 π 生成、过程马尔可夫"，独立性只决定平均值的方差（式 3.7 的 σ²/N），
+  不是无偏的原因。第 110 行更进一步说"每次访问对单个样本有偏"：每个每次访问回报 G_t 的
+  条件期望仍是 v^π(s)，单个样本无偏；偏差来自访问次数 N_s 随机且与回报相关的比值结构。
+  S&B p.115 只说 every-visit "less straightforward, but converges"，未断言有偏；
+  同章表 3-1 写的是"偏差 小（样本相关）"，与正文自相矛盾。
+
+current_text:
+  file: content/ch03.md
+  lines: "96-117"
+  excerpt: >
+    第 103 行：首次访问的样本在给定状态后相互独立，因而 G_t 是 v^π(S_t) 的无偏样本
+    第 110 行：[精确]；每次访问对单个样本有偏（重复访问相关），但两种估计在样本量趋于无穷时都收敛 [渐近]
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 首次访问与每次访问的定义（两种方法都只是"对哪些访问的回报取平均"）
+    pdf_page: 114
+    printed_page: "§5.1 Monte Carlo Prediction（纸面 p.92）"
+    quote: >
+      The first-visit MC method estimates v_π(s) as the average of the returns following first
+      visits to s, whereas the every-visit MC method averages the returns following all visits
+      to s. These two Monte Carlo (MC) methods are very similar but have slightly different
+      theoretical properties.
+  - key: RLbook2020
+    level: S
+    role: >
+      无偏性与 1/√n 的论证（i.i.d. 用于大数定律与标准差，不是用于无偏性本身），以及每次访问"也收敛"而非"有偏"的说法
+    pdf_page: 115
+    printed_page: "§5.1 Monte Carlo Prediction（纸面 p.93）"
+    quote: >
+      In this case each return is an independent, identically distributed estimate of v_π(s)
+      with finite variance. By the law of large numbers the sequence of averages of these
+      estimates converges to their expected value. Each average is itself an unbiased estimate,
+      and the standard deviation of its error falls as 1/√n, where n is the number of returns
+      averaged. Every-visit MC is less straightforward, but its estimates also converge
+      quadratically to v_π(s) (Singh and Sutton, 1996).
+
+derivation_file: review/derivations/CH03-PROP-002.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条是概念与因果链的核对，不需要数值实验。若要加一个演示，可用两状态 MDP 比较
+    "首次访问估计的期望"与"每次访问估计的期望"（后者因 N_s 随机而与 v^π 有偏），
+    但该偏在小样本上即可观察，属可选材料。
+
+claims:
+  - id: c1
+    text: E[G_t|S_t=s]=v^π(s) 的前提是回合按 π 生成且过程马尔可夫，与样本间是否独立无关。
+    evidence: 由 v^π 与 G_t 的定义直接得到；RLbook2020 p.115 把 i.i.d. 用在大数定律与 1/√n 上
+    status: 已核对
+  - id: c2
+    text: 独立性真正支撑的是式 (3.7) 的 Var(N 条回报均值)=σ²/N 与大数定律，正文这一段的结论本身没错。
+    evidence: RLbook2020 p.115 原文 "the standard deviation of its error falls as 1/√n"
+    status: 已核对
+  - id: c3
+    text: 原文"每次访问对单个样本有偏"的说法不成立：每个 G_t 的条件期望仍是 v^π(s)，偏差来自随机访问次数 N_s 的比值结构。
+    evidence: 推导第 2 节（比值估计量的偏）；RLbook2020 p.115 只说 every-visit 收敛、未说单个样本有偏
+    status: 已核对
+  - id: c4
+    text: 正文第 110 行与同章表 3-1"每次访问 MC ｜ 偏差 小（样本相关）"自相矛盾，属章内不一致。
+    evidence: content/ch03.md 第 242 行表 3-1 该行与第 110 行对照；另见 RLbook2020 p.115 原文只说 every-visit 收敛
+    status: 已核对
+
+planned_fix:
+  - 第 103 行拆成两句：先给无偏的真正理由（G_t 是沿 π 的实际回报，E[G_t|S_t=s]=v^π(s)），再给独立性的作用（跨回合独立同分布 ⇒ 式 3.7 的 σ²/N 与大数定律）。
+  - 第 110 行改为"每次访问的单个样本仍无偏；偏差来自访问次数 N_s 随机且与回报相关的比值结构，量级小，两种估计在样本量趋于无穷时都收敛"，与表 3-1 的"小（样本相关）"对齐。
+  - 第 105–107 行把条件期望的记号说明补全："期望同时对 A_{t+k}~π 与 S_{t+k+1}~P 取"，避免读者误以为只对状态取期望。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    第 120 行 warn 框"无偏不等于收敛"方向完全正确，与 CORE 规范一致，本条不涉及；
+    需要修的是"无偏从哪里来"这一步因果，以及把每次访问的偏差机制写反的问题。

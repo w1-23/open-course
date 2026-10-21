@@ -1,0 +1,77 @@
+issue_id: CH07-THM-001
+chapter: 7
+severity: P1
+status: 已有依据
+title: 误差随深度累积在本章有三种互不相容的说法，且"压缩核⇒几何增长"方向说反了
+summary: >
+  定理 7.1 与式 (7.5) 给出的是线性界 ‖P̂_h−P_h‖_TV ≤ hε_m（标 [精确]）；但紧随其后的
+  评注说"实践中往往更接近几何增长（若转移核是压缩的）"，§7.4.4 又说"误差分支式相乘而非
+  相加"。三者是三种不同增长率，不可能同时成立。其中线性界本身正确；"压缩核⇒几何增长"
+  方向反了——压缩会把误差压成有界 ε_m/(1−λ)，只有扩张动力学才会指数增长；"分支式相乘"
+  也不成立——单条推演路径的误差仍按 h 累积，随深度指数增长的是叶子数 b^h。外部文献
+  （MBPO 定理 4.2）对模型误差给出的也是线性项 kε_m/(1−γ)。
+
+current_text:
+  file: content/ch07.md
+  lines: "118-129, 282"
+  excerpt: >
+    第 129 行：界是紧的当且仅当误差同号累积，实践中往往更接近几何增长（若转移核是压缩的）或更快（若动力学不稳定）。
+    第 282 行：式 (7.5) 的线性增长在搜索里更严重：树越深，每个叶子依赖更多次模型查询，误差分支式相乘而非相加。
+
+sources:
+  - key: 1906.08253_mbpo
+    level: S
+    role: 长 rollout 会让模型误差逐层累积（本章"深度放大误差"的同一现象，原文用 compounding 描述）
+    pdf_page: 4
+    printed_page: "§4.2 Interpolating model-based and model-free updates（论文 p.4）"
+    quote: >
+      the analysis relies on running full rollouts through the model, allowing model errors to
+      compound
+  - key: 1906.08253_mbpo
+    level: S
+    role: 该文的理论结论是"缩短 rollout 以缓解误差累积"，与"单路径误差线性于长度"相容
+    pdf_page: 8
+    printed_page: "§6 Experiments（论文 p.8）"
+    quote: >
+      This result agrees with our theoretical analysis which prescribes short model-based
+      rollouts to mitigate compounding modeling errors.
+
+derivation_file: review/derivations/CH07-THM-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    不需要数值实验：压缩情形下的有界性有闭式证明 d_{h+1} ≤ λ d_h + ε ⇒ d_h ≤ λ^h d_0 +
+    ε(1−λ^h)/(1−λ) ≤ d_0 + ε/(1−λ)，见推导第 2 节。若要数值对照，可用二维线性系统
+    x_{t+1}=A x_t + w（‖A‖<1）比较开环推演误差曲线——它应收敛到平台而非指数上升。
+
+claims:
+  - id: c1
+    text: 式 (7.5) 与定理 7.1 的线性界正确，证明只需逐项三角不等式。
+    evidence: 推导第 2 节 (a)；ch07 `:121` `:126` 的陈述本身
+    status: 已核对
+  - id: c2
+    text: 「压缩核 ⇒ 几何增长」方向说反：λ-压缩下 d_h ≤ d_0 + ε_m/(1−λ)，误差有界而不增长。
+    evidence: 推导第 2 节 (b) 的闭式递推与上界
+    status: 已核对
+  - id: c3
+    text: 「误差分支式相乘」不成立：单条路径误差仍 ~hε_m，随深度指数增长的是叶子数 b^h。
+    evidence: 推导第 2 节 (c)；与本章定理 7.1 直接冲突
+    status: 已核对
+  - id: c4
+    text: MBPO 定理 4.2 的模型项为 k(ε_m+2ε_π)/(1−γ)，对 rollout 长度与模型误差都线性，佐证"线性而非相乘"。
+    evidence: 1906.08253_mbpo p.4 的 Theorem 4.2 转写与推导第 2 节末段
+    status: 已核对
+
+planned_fix:
+  - 把 `:129` 的评注改为：「界是紧的当且仅当各步误差同向累积；若转移核在总变差下是 λ-压缩，误差被压到 ε_m/(1−λ) 而不再随 h 增长；只有动力学扩张时才会出现更快的（指数）增长。」
+  - 把 `:282` 改为：「式 (7.5) 的线性增长在搜索里更严重：每个叶子都要走 h 次模型查询，单叶误差约 hε_m；而叶子数随深度按 b^h 增长，整棵树的误差预算因此被放大——这是"深树不可信"的算术来源，不是单条路径的误差被逐层相乘。」
+  - 若保留 §7.4.4 的三种边界列举，在该段开头补一句"这里说的放大指搜索树覆盖的叶子数，不是单条推演的误差律"，避免与定理 7.1 并列时被读成同一条。
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    已施工（2026-10-20）：`:132` 评注改为「压缩只会让误差有界（λ-压缩下 ≤ ε_m/(1−λ)），只有扩张动力学才会比线性更快」；§7.4.4 第二条改为「单叶误差 hε_m 线性、指数增长的是叶子数 b^h」，并引 MBPO 的 k(ε_m+2ε_π)/(1−γ) 作线性佐证；定理 7.1 与式 (7.5) 未动。
+    施工复核：`main.py --only 7` → 18 页 / 6 图 / 12 编号式；`check_content.py --only 7` OK 15522 字 0 问题；`verify.py` 五列全 0、thin 0。

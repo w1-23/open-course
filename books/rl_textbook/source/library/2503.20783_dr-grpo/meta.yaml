@@ -1,0 +1,27 @@
+key: 2503.20783_dr-grpo
+version: 2026-10-20
+level: S
+role: algorithm
+title: "Understanding R1-Zero-Like Training: A Critical Perspective"
+authors:
+  - Zichen Liu
+  - Changyu Chen
+  - Wenjun Li
+  - Penghui Qi
+  - Tianyu Pang
+  - Chao Du
+  - Wee Sun Lee
+  - Min Lin
+year: 2025
+published: 2025-03-26
+arxiv_id: 2503.20783
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/2503.20783_dr-grpo.pdf
+bytes: 1620055
+pages: 20
+sha256: 98243d51297f011fb5baad8a70a972d061ffbef618f1d7cfc10deea37c5887d0
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

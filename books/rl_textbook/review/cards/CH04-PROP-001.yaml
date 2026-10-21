@@ -1,0 +1,77 @@
+issue_id: CH04-PROP-001
+chapter: 4
+severity: P1
+status: 已有依据
+title: 式 (4.17) 的第二个等号不成立：uᵀAu 只是 ≥ (1−γ)‖v‖²_μ，不是恒等
+summary: >
+  第 234–238 行的式 (4.17) 写成 uᵀAu = Σ_s μ(s)v(s)[v(s)−γ(P^πv)(s)] = (1−γ)‖v‖²_μ > 0，
+  第 240 行解释第二个等号"用了 μᵀP^π=μ"。该等号不成立：平稳性只给出质量守恒
+  Σ_s μ(s)(P^πv)(s) = Σ_s μ(s)v(s)，对乘积项 ⟨v,P^πv⟩_μ 没有任何约束。正确的推导是
+  uᵀAu = ‖v‖²_μ − γ⟨v,P^πv⟩_μ ≥ ‖v‖²_μ − γ‖v‖_μ‖P^πv‖_μ ≥ (1−γ)‖v‖²_μ，
+  两处不等式分别来自 Cauchy–Schwarz 与 P^π 在 μ-范数下的非扩张性。结论（on-policy 时 A 正定）
+  仍然成立，但证明链断裂；第 497 行"关键公式"第 4 条又把同一式子当作恒等式复述了一遍。
+  第 242 行"非平稳时等式不成立"的说法进一步暗示"平稳时成立"，把错误包装成了条件命题。
+
+current_text:
+  file: content/ch04.md
+  lines: "232-242, 496-499"
+  excerpt: >
+    第 236 行：(1-\gamma)\|v\|_\mu^2>0（承接 235 行的 =\sum_s\mu(s)v(s)[v(s)-\gamma(P^\pi v)(s)]）
+    第 240 行：第一个等号按 s 展开并合并两项，第二个等号用了 \mu^\top P^\pi=\mu（\mu 是 \pi 的平稳分布），右端严格为正
+    第 497 行：u^\top Au=(1-\gamma)\|\Phi u\|_\mu^2>0
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 投影贝尔曼误差的定义位置（把算子与值函数拉回可表示子空间），用于确认 (4.17) 讨论的对象是投影后的算子
+    pdf_page: 291
+    printed_page: "§11.5 Gradient Descent in the Bellman Error（纸面 p.269）"
+    quote: >
+      In this case we are interested in the projection of the Bellman error vector back into
+      the representable space. This is the projected Bellman error vector
+
+derivation_file: review/derivations/CH04-PROP-001.md
+reproduction_file: review/reproductions/CH04-PROP-001.py
+reproduction_result:
+  note: >
+    3 状态不可约链（γ=0.9，平稳分布 (0.2187,0.4844,0.2969)，Φ 三行两列满列秩）：
+    u=(1,−1) 时 uᵀAu=0.362344，(1−γ)‖v‖²_μ=0.051562，比值 7.03；
+    u=(1,2) 比值 2.12；u=(−2,1) 比值 5.09。不等式在三组上都成立，等号一次都不成立。
+
+claims:
+  - id: c1
+    text: uᵀAu = ‖v‖²_μ − γ⟨v,P^πv⟩_μ 的展开正确，问题出在把 ⟨v,P^πv⟩_μ 换成 ‖v‖²_μ 的那一步。
+    evidence: 推导 §1；reproduction 中三组 u 的数值表
+    status: 已核对
+  - id: c2
+    text: 平稳性 μᵀP^π=μ 只保证 Σ_s μ(s)(P^πv)(s)=Σ_s μ(s)v(s)，不能推出 ⟨v,P^πv⟩_μ=‖v‖²_μ。
+    evidence: 推导 §1（乘积型量 vs 质量守恒）；reproduction 中 μ 满支撑时等号仍不成立
+    status: 已核对
+  - id: c3
+    text: 正确的下界由 Cauchy–Schwarz 与 ‖P^πv‖_μ≤‖v‖_μ 给出，结论"on-policy 时 A 正定"依然成立。
+    evidence: 推导 §2；式 (4.17) 的结论方向不需要修改，只需要把等号换成不等号
+    status: 已核对
+  - id: c4
+    text: 第 242 行"非平稳时等式不成立"暗示平稳时成立，但该等式在任何分布下都不成立（等号要求 P^πv=v）。
+    evidence: 推导 §3；reproduction 的不可约链上 μ 是严格平稳分布，等号仍不成立
+    status: 已核对
+  - id: c5
+    text: 第 497 行的关键公式第 4 条复述了同一个错误，需要同步改。
+    evidence: content/ch04.md 第 496–499 行与式 (4.17) 对照
+    status: 已核对
+
+planned_fix:
+  - 第 234–238 行的式 (4.17) 改为三行不等式链：uᵀAu=‖v‖²_μ−γ⟨v,P^πv⟩_μ ≥ ‖v‖²_μ−γ‖v‖_μ‖P^πv‖_μ ≥ (1−γ)‖v‖²_μ>0。
+  - 第 240 行把"第二个等号用了 μᵀP^π=μ"改为"第二个不等号用了 Cauchy–Schwarz、第三个用了 μ 平稳时 ‖P^πv‖_μ≤‖v‖_μ"。
+  - 第 242 行删去"非平稳时等式并不成立"的暗示，改为"实验里 μ 是归一化折扣访问分布、非扩张性只是近似成立；式 (4.17) 本身是不等式"。
+  - 第 497 行"关键公式"第 4 条同步改为 uᵀAu ≥ (1−γ)‖Φu‖²_μ>0。
+
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条不影响 4.3.4 节的定理结论（正定性仍可证），属于"结论对、证明写错"的类型；
+    但它是本章核心推导，且被复制进"关键公式"，必须修。

@@ -1,0 +1,22 @@
+key: 1609.05140_option-critic
+version: 2026-10-20
+level: S
+role: algorithm
+title: The Option-Critic Architecture
+authors:
+  - Pierre-Luc Bacon
+  - Jean Harb
+  - Doina Precup
+year: 2016
+published: 2016-09-16
+arxiv_id: 1609.05140
+doi: ""
+journal_ref: ""
+primary_category: cs.AI
+path: source/papers/1609.05140_option-critic.pdf
+bytes: 815129
+pages: 9
+sha256: d8089c6012c607f3a9e8b560290dea629c91b174e246e18864ac6615467e208f
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

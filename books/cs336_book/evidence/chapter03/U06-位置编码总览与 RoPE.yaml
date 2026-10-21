@@ -1,0 +1,70 @@
+unit_id: CH03-U06
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 位置编码总览与 RoPE
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p30
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Many variations in position embeddings / Sine embeddings: add sines and cosines that enable
+    localization / 𝐸𝑚𝑏𝑒𝑑𝑥, 𝑖= 𝑣𝑥+ 𝑃𝐸𝑝𝑜𝑠 / Absolute embeddings: add a position vector to the embedding
+    / 𝐸𝑚𝑏𝑒𝑑𝑥, 𝑖= 𝑣𝑥+ 𝑢𝑖 / Relative embeddings: add a vector to the attention computation / Notable models:
+    / Original transformer / Notable models: / GPT1/2/3, OPT / Notable models: / T5, Gopher, Chinchilla
+    / Rope embeddings (next sli'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p31
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'RoPE: rotary position embeddings / High level thought process: a relative position embedding
+    should be some 𝑓(𝑥, 𝑖) s.t. / 𝑓𝑥, 𝑖, 𝑓𝑦, 𝑗 / = 𝑔(𝑥, 𝑦, 𝑖−𝑗) / That is, the attention function only
+    gets to depend on the relative position (i-j). How do / existing embeddings not fulfill this goal?
+    / • / Sine: Has various cross-terms that are not relative / 𝐸𝑚𝑏𝑒𝑑𝑥, 𝑖, 𝐸𝑚𝑏𝑒𝑑𝑦, 𝑖 / = 𝑣𝑥, 𝑣𝑦+ 𝑃𝐸𝑖,
+    𝑣𝑦… / • / Absolute: obviously n'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p32
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'RoPE: rotary position embeddings / How can we solve this problem? / • / We want our embeddings
+    to be invariant to absolute position / • / We know that inner products are invariant to arbitrary
+    rotation. / we / know / Position independent / embedding / we / know / Embedding / “of course we know”
+    / Rotate we by ‘2 positions’ / Rotate we by ‘0 positions’ / we / know / Embedding / “we know that”
+    / know by ‘1 positions’ /'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p33
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'RoPE: rotary position embeddings / There are many rotations, which one do you pick? / Just pair
+    up the coordinates and rotate them in 2d (motivation: complex numbers) / [Su et al 2021] / Gemma 4
+    alternative: just first 2'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p34
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: The actual RoPE math / Multiply with sines and cosines / Difference with sine embeddings – not
+    additive, no cross terms
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p35
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Implementation and code for RoPE / … / Same stuff as the usual multi-head self attention below
+    / Get the RoPE / matrix cos/sin / Multiply / query/key inputs / Usual / attention stuff / Note: embedding
+    at each attention operation to enforce position invariance'
+technical_evidence:
+- source_id: arXiv:2104.09864
+  ref_name: rope_2021
+  title: 'RoFormer: Enhanced Transformer with Rotary Position Embedding'
+  authors:
+  - Jianlin Su
+  - Yu Lu
+  - Shengfeng Pan
+  - Ahmed Murtadha
+  - Bo Wen
+  - Yunfeng Liu
+  year: '2021'
+  url: https://arxiv.org/pdf/2104.09864.pdf
+  arxiv_id: '2104.09864'
+  arxiv_verified: true
+  locator: ''
+knowledge_slot:
+  why_it_matters: 相对位置不变性的动机、二维旋转与实现
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: verified
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

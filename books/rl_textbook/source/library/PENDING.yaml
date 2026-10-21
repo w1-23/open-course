@@ -1,0 +1,49 @@
+# 未能按期获取的权威来源
+
+本文件记录按 v3.1 计划应有、但确实无法获取（已尝试多个地址，均为 404 或不可下载）的
+一手来源，以及替代证据与由此产生的表述限制。**任何依赖这些来源的论断，在正文中一律
+不得声称"依据原始论文"，只能引用替代证据，或标注为「待核验」。**
+
+---
+
+## baird1995_residual-algorithms
+
+- 目标文献：Baird, L. C. (1995). *Residual Algorithms: Reinforcement Learning with Function Approximation.* ICML 1995.
+- 用途：第 4 章讲清"离策略 + 自举 + 函数逼近"下 TD 可能发散的反例。
+- 已尝试地址（全部 HTTP 404，2026-10-20）：
+  - `https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/baird95a.pdf`
+  - `http://www.cs.cmu.edu/~baird/residual.pdf`
+  - `https://www.cs.cmu.edu/~baird/pubs/residual.pdf`
+  - `https://people.cs.umass.edu/~barto/courses/cs687/baird-95.pdf`
+  - `http://incompleteideas.net/papers/baird-95.pdf`
+- 替代证据（已入库、可检索）：
+  - `RLbook2020`（S&B 第二版）第 11 章"*Off-policy Methods with Approximation*"中的
+    Baird 反例与致命三要素（deadly triad）讨论 —— 用于"会发散"的存在性陈述。
+  - `1812.02648_deadly-triad`（van Hasselt 等）—— 用于解释三要素组合的机制。
+- **表述限制**：不得写"Baird 的原始构造如何如何"；只能写"存在一个经典反例（S&B 第二版
+  第 11 章转述），说明离策略 + 自举 + 函数逼近可以发散"。
+
+## precup2000_between-mdps-smdps
+
+- 目标文献：Precup, D., Sutton, R. S., & Singh, S. (2000). *Between MDPs and Semi-MDPs: A Framework for Temporal Abstraction in Reinforcement Learning.* Artificial Intelligence, 112, 181–211.
+- 用途：第 9 章 options / SMDP 的形式化与 Q-学习在 SMDP 上的收敛条件。
+- 已尝试地址（全部 HTTP 404，2026-10-20）：
+  - `https://people.cs.umass.edu/~barto/courses/cs687/precup-sutton-singh-2000.pdf`
+  - `http://incompleteideas.net/papers/between-mdps-semi-mdps.pdf`
+  - `https://people.cs.umass.edu/~barto/courses/cs687/between-mdps-semi-mdps.pdf`
+  - `https://www.cs.mcgill.ca/~dprecup/publications/between-mdps-semi-mdps.pdf`
+- 替代证据（已入库、可检索）：
+  - `1609.05140_option-critic` —— options 框架与半马尔可夫目标的现代表述。
+  - `RLbook2020` 第 17 章（*Frontier*）中关于 options / SMDP 的讨论 —— 用于直觉与
+    术语对齐；**不用于引用收敛性定理的具体假设**。
+- **表述限制**：SMDP Q-学习的收敛条件只能写成"在数据覆盖每一对 (s, o) 且步长满足
+  标准随机逼近条件时"这类通用条件并标 [渐近]，不得声称"依据 Precup 等人的定理 3"。
+
+---
+
+## 处理规则
+
+1. 上述两章若确实需要一手引用，唯一合规做法是用户提供 PDF 或开放获取链接，我再补入
+   `source/papers/` 并重跑 `python scripts\build_library.py --all`。
+2. 在补入之前，相关论断一律走替代证据，并在正文用脚注注明"转述自 xx，未核原文"。
+3. `review/cards/` 中涉及这两篇的 claim，`status` 只能是 `替代证据` 或 `待核验`。

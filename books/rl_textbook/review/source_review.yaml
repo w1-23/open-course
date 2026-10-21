@@ -1,0 +1,80 @@
+chapters:
+- 'no': 1
+  status: pending
+  reviewer: lead（引文机械核验）+ author-ch3（claims 核对）
+  reviewed_at: '2026-10-21'
+  notes: 旧记录覆盖修改前版本。外部审核后重写 Lai–Robbins 下界为 KL_inf 形式，需补齐一手来源卡并复核后再标 reviewed。
+
+- 'no': 2
+  status: reviewed
+  reviewer: author-ch2（来源核对）
+  reviewed_at: '2026-10-20'
+  notes: MDP/Bellman 的 4 张卡（SEC-001/002、THM-001/002）覆盖 Bellman 期望/最优方程的前提、策略改进定理的严格性、MSBE 表述与习题 5 两处硬伤；5 条引文经 verify_quotes --only 2 全部命中（问题 0）。未覆盖：第 2.5 节折扣的数值作用属解释性段落，无独立一手来源。
+- 'no': 3
+  status: reviewed
+  reviewer: lead（引文机械核验）+ author-ch3（claims 核对）
+  reviewed_at: '2026-10-21'
+  notes: 6 张卡、10 条引文经 verify_quotes --only 3 全部命中（问题 0）；首轮 2 处匹配不足的引文已改为从 source/pages 复制的原句（S&B p.311 的 λ 权重、p.166 的 n 步目标）。未覆盖：ε-软策略界的常数量级。
+
+- 'no': 4
+  status: reviewed
+  reviewer: author-ch2（来源核对）
+  reviewed_at: '2026-10-20'
+  notes: 6 张卡（PROP-001…006）覆盖式 (4.17) 的不等式方向、GTD 的双时间尺度与步长条件、半梯度表述、Baird 特征值数字等；7 条引文经 verify_quotes --only 4 全部命中（问题 0）。未覆盖：第 4.6 节的叙述性总结。
+- 'no': 5
+  status: reviewed
+  reviewer: author-ch2（来源核对）
+  reviewed_at: '2026-10-20'
+  notes: 10 张卡（本轮新增 PG/ADV/GAE/PPO 四张，另有 6 张既有 PROP 卡）覆盖策略梯度定理、基线条件、GAE 两端点、TRPO 的常数量级、PPO 十项与 clip 边界；23 条引文经 verify_quotes --only 5 全部命中（问题 0）。未覆盖：第 5.5 节工程经验条目按 [经验规律] 标注，不引一手文献。
+- 'no': 6
+  status: reviewed
+  reviewer: lead（引文机械核验）+ author-ch2（claims 核对）
+  reviewed_at: '2026-10-21'
+  notes: 7 张卡、10 条引文经 verify_quotes --only 6 全部命中（问题 0）；FACT-002 的 29/46 与 22 个超过人类已对 RLbook2020 p.460 逐字核对，FACT-003 的 Thrun–Schwartz 前提已补「误差均匀分布、ε 是半宽」。未覆盖：Ape-X 与 IMPALA 的 key 名错配（该 PDF 实为 IMPALA，已在正文按 IMPALA 引用）。
+
+- 'no': 7
+  status: reviewed
+  reviewer: author-ch2（来源核对）
+  reviewed_at: '2026-10-20'
+  notes: 3 张卡（PROP-001、SEC-001、THM-001）覆盖模型误差随深度累积、背景规划与决策时规划的区分、方差—深度结论；7 条引文经 verify_quotes --only 7 全部命中（问题 0）。未覆盖：第 7.5 节 MuZero 的工程细节。
+- 'no': 8
+  status: reviewed
+  reviewer: author-ch2（来源核对）
+  reviewed_at: '2026-10-20'
+  notes: 6 张卡（ALG-001…005、DER-001）覆盖 IQL 的 expectile、BCQ 的扰动区间、IS 方差可无穷、CQL 定理归属、DAgger 一手引注、ΣTε 求和；14 条引文经 verify_quotes --only 8 全部命中（问题 0）。未覆盖：第 8.6 节 OPE 对比表的具体数字，卡片只核了偏差—方差结论。
+- 'no': 9
+  status: reviewed
+  reviewer: author-ch6（卡片审计）+ lead（引文机械核验）
+  reviewed_at: '2026-10-21'
+  notes: 1 张卡、2 条引文经 verify_quotes --only 9 全部命中（问题 0）。本章的 Options/Markov 博弈/CMDP 定义与 CVaR 公式为教科书级构造性内容，未逐条对应一手文献；风险敏感的 CVaR 表述按 Rockafellar–Uryasev 的通行形式给出，未引其原文（库内无该文献）。
+
+- 'no': 10
+  status: reviewed
+  reviewer: author-ch04（卡片审计）+ lead（引文机械核验）
+  reviewed_at: '2026-10-21'
+  notes: 5 张卡、8 条引文经 verify_quotes --only 10 全部命中（问题 0）；DPO 推导链与原文式 (4)(5)(7)(8) 逐项比对一致，BT 模型与 InstructGPT 的奖励建模处均引原句。未覆盖：DPO 论文附录里对「配分函数相消」的完整条件只做了转述核对。
+
+- 'no': 11
+  status: reviewed
+  reviewer: author-ch04（独立复核）+ lead（引文机械核验）
+  reviewed_at: '2026-10-21'
+  notes: 1 张卡（CH11-GRPO-001）、3 条引文经 verify_quotes --only 11 全部命中（问题 0）；组内基线的 (1−1/G) 缩放由 review/derivations/CH11-GRPO-001.md 独立推导 + review/reproductions/CH11-GRPO-001_mc.py 数值复现（G=2/3/5 实测 0.500000/0.666667/0.800000，相对误差 ≤1.7e-16）。s_r=0 的组按跳过处理，该约定写进了正文。
+
+- 'no': 12
+  status: reviewed
+  reviewer: author-ch04（卡片审计）+ lead（引文机械核验）
+  reviewed_at: '2026-10-21'
+  notes: 3 张卡、5 条引文经 verify_quotes --only 12 全部命中（问题 0）；ReAct/Reflexion 的出处与年份已核，EWC 的二次近似与 KL 的关系按「类比而非等价」表述。未覆盖：ACC/BWT 的定义在库内无综述可逐字比对。
+
+- 'no': 0
+  status: reviewed
+  reviewer: lead（结构核对）
+  reviewed_at: '2026-10-21'
+  notes: 第 0 章是导航章，没有外部事实性断言：对象地图与四类标签均为全书内部约定，未引一手文献，因此「来源核对」退化为「与各章的节号/符号是否一致」的结构核对（check_refs 0 问题）。
+
+- 'no': 95
+  status: reviewed
+  reviewer: lead（结构核对）
+  reviewed_at: '2026-10-21'
+  notes: 预备章讲接口，构造性内容（自回归分解、KL 的链式分解、SFT 即极大似然）不需要一手文献；4 张卡、7 条引文经 verify_quotes --only 95 全部命中（问题 0）。未覆盖：token 级 KL 的方差随长度增长只有推导，未引实验文献。
+

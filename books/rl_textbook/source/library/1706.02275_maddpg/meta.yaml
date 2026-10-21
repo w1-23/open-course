@@ -1,0 +1,25 @@
+key: 1706.02275_maddpg
+version: 2026-10-20
+level: S
+role: algorithm
+title: Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments
+authors:
+  - Ryan Lowe
+  - Yi Wu
+  - Aviv Tamar
+  - Jean Harb
+  - Pieter Abbeel
+  - Igor Mordatch
+year: 2017
+published: 2017-06-07
+arxiv_id: 1706.02275
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1706.02275_maddpg.pdf
+bytes: 1502182
+pages: 16
+sha256: dcbf258875023a4739a266697b3d7377dabfe10993ccef864fd5cc9373027e6e
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

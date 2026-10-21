@@ -1,0 +1,83 @@
+issue_id: CH95-FORM-002
+chapter: 95
+severity: P1
+status: 已有依据
+title: 第 117 行把单条序列的 token KL 之和说成"有偏估计"，按同一节的链式分解它其实无偏，问题在方差
+summary: >
+  第 117 行称"用一条采样序列算出的 token KL 之和，是对序列 KL 的一个有偏（因为前缀分布
+  来自 π_θ 而非 π_ref）或至少高方差的估计"。这与同节 (95.7) 的链式分解直接冲突：
+  E_{y∼π_θ}[Σ_t log(π_θ/π_ref)] = D_KL(π_θ‖π_ref)，所以单条序列上的求和是无偏估计，
+  而"前缀来自 π_θ"恰恰是无偏的原因——若把前缀换成 π_ref（对参考模型的输出做 teacher
+  forcing），内层期望才不再等于逐位置 KL，那时才出现偏差。真正需要提醒读者的是方差：
+  和的方差随序列长度线性增长，标准差不随长度消失，这才是工程上改用 k3 估计器的动机。
+  这一段的教学后果不轻：读者会以为"必须先纠偏"，从而给一个本来就无偏的估计量加修正项。
+  同节的另一处同源表述在第 100 行——"累计惩罚恰好等于序列 KL"，应改为"其期望等于"。
+
+current_text:
+  file: content/ch13prep.md
+  lines: "117-117"
+  excerpt: >
+    第 117 行：其一，**期望**意义上的相等，不保证**单条样本**上的估计相等：用一条采样序列
+    算出的 token KL 之和，是对序列 KL 的一个有偏（因为前缀分布来自 π_θ 而非 π_ref）
+    或至少高方差的估计。
+
+sources:
+  - key: 2402.03300_deepseekmath-grpo
+    level: S
+    role: 逐 token 的 KL 项用"无偏估计器"而不是纠偏形式，说明此处缺的是方差而非偏差
+    pdf_page: 14
+    printed_page: "§4.1（p.14）"
+    quote: >
+      And different from the KL penalty term used in (2), we estimate the KL divergence with the
+      following unbiased estimator (Schulman, 2020):
+  - key: 2305.18290_dpo
+    level: S
+    role: KL 正则目标与参考策略的定义，用于确认本节 (95.6)–(95.7) 的记号与第 10 章一致
+    pdf_page: 15
+    printed_page: "附录 A.1（p.15）"
+    quote: >
+      Note that the partition function is a function of only x and the reference policy πref, but does
+      not depend on the policy π.
+
+claims:
+  - id: c1
+    text: >
+      按 (95.7) 的链式分解，单条序列上的 Σ_t log(π_θ/π_ref) 的期望恰为序列 KL，
+      即该估计量无偏；正文的"有偏"判断错误。
+    evidence: 推导：review/derivations/CH95-FORM-002.md 第二、三步给出 E[Ê]=D_KL 的完整推导；与 2402.03300_deepseekmath-grpo p.14 的"unbiased estimator"表述一致
+    status: 已核对
+  - id: c2
+    text: >
+      偏差的来源是 off-policy 前缀（y_<t ∼ π_ref 而 y_t ∼ π_θ），而不是本章所说的
+      on-policy 前缀；正文把因果方向写反了。
+    evidence: 推导：若前缀改由 π_ref 抽样，E[Σ_t log(π_θ/π_ref)] 的内层期望变为 E_{π_ref}[log(π_θ/π_ref)]，不等 (95.7)；见同一推导文件第二步
+    status: 已核对
+  - id: c3
+    text: >
+      真正需要提醒的是方差：和的方差随 T 线性增长（Θ(T)），单条序列估计长回答 KL 的相对误差不随长度消失；
+      k3 估计器（第 10 章 (10.8)、第 11 章 (11.11)）同为无偏但方差更小，这才是工程选择的理由。
+    evidence: 推导：Var(Ê)=E[Ê²]−KL² 按 t 展开为三项，同阶时 Θ(T)；2402.03300 p.14 的 k3 形式逐 token 非负
+    status: 已核对
+  - id: c4
+    text: >
+      第 100 行"累计惩罚恰好等于序列 KL"与该错误同源：逐 token 扣除的 β_KL Σ_t log(π_θ/π_ref)
+      是一个样本上的对数比，只有取期望才等于 β_KL·D_KL。
+    evidence: 推导：见 review/derivations/CH95-FORM-002.md 第四节；与本章 (95.7) 并列即可看出差一个 E[·]
+    status: 已核对
+
+derivation_file: review/derivations/CH95-FORM-002.md
+
+planned_fix:
+  - 第 117 行改为："一条序列上的 token KL 之和是序列 KL 的**无偏**估计——前缀从 π_θ 抽正是无偏的原因；若前缀取自 π_ref（off-policy）则会引入偏差。它的真正问题是方差随长度线性增长。"
+  - 第 100 行"于是整条序列的累计惩罚恰好等于序列 KL"改为"于是累计的 KL 惩罚等于 β_KL log(π_θ(y|x)/π_ref(y|x))，其期望才是序列 KL"。
+  - 第 117 行之后补一句：工程上用 k3 估计器（非负、无偏、方差更小），见第 10 章 (10.8) 与第 11 章 (11.11)。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    基准版本 2026-10-20 22:18（251 行，式号 95.1–95.9）。本条只针对"有偏"这一数学判断，
+    不涉及 (95.6)–(95.7) 的链式分解本身——那两条是对的，标注 [精确] 也恰当。

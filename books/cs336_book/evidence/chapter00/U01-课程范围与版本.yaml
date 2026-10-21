@@ -1,0 +1,18 @@
+unit_id: CH00-U01
+chapter: '00'
+chapter_title: 导论：这本书怎么读
+title: 课程范围与版本
+course_provenance:
+- source_id: CS336-2026-SITE
+  locator: site:schedule
+  url: https://cs336.stanford.edu/
+  quote: '课程站：Stanford / Spring 2026；日程 19 个讲次；Lectures: Monday/Wednesday 3:00-4:20pm in Skilling Auditorium'
+technical_evidence: []
+knowledge_slot:
+  why_it_matters: 2026 Spring 课程站日程：19 个讲次（17 正式 + 2 嘉宾），本册覆盖其中 18 个
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: course_only
+m0_notes: 教材新增内容，不得表述为课程原文

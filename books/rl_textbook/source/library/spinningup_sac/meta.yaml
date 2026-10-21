@@ -1,0 +1,19 @@
+key: spinningup_sac
+version: 2026-10-19
+level: B
+role: docs
+title: "Soft Actor-Critic &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_sac.html
+bytes: 56074
+pages: null
+sha256: 07e68f583807d1854a0fc5cffb051293226b5198f3fd7194e3afb738e51471a8
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

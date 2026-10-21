@@ -1,0 +1,52 @@
+'no': 7
+status: reviewed
+reviewer: author-ch2（独立审校）
+reviewed_at: '2026-10-21'
+source_hash: 19e568e7c835759f
+equations:
+  - '7.1'
+  - '7.2'
+  - '7.3'
+  - '7.4'
+  - '7.5'
+  - '7.6'
+  - '7.7'
+  - '7.8'
+  - '7.9'
+  - '7.10'
+  - '7.11'
+  - '7.12'
+primary_sources:
+  - RLbook2020
+  - 1906.08253_mbpo
+  - 1712.01815_alphazero
+  - 1911.08265_muzero
+notes: >-
+  第三轮复审：首轮 3 条 P1 与第二轮 1 条 P2 全部消解，判 reviewed。定理 7.1 的证明改为
+  D_{h+1} <= D_h + eps_m 递推并点明逐项相加会得 h(h+1)/2；(7.4)(7.12) 补了终止掩码；
+  MBPO 的模型项已为 2 r_max k eps_m/(1-gamma)（Theorem 4.3），eps_pi = max_s D_TV(pi || pi_D)、
+  pi_D 为收集数据的上一轮策略，与原文 p0005 一致。12 式逐式判定 P/S/L/D/U 全填（CH07.md 第 1 节），
+  文献比对五处（AlphaZero 的 800 模拟、44/24/21 百万局、lr 0.2 三次降到 0.0002 与 1712.01815 p14/p15
+  一致；MuZero 的隐状态语义与 1911.08265 p4 逐字对应；UCT 与访问计数、四步循环与 RLbook2020 p208
+  一致；MBPO 的 k 步分支界与 1906.08253 p5 一致）。仍存三条接口性提示（按 lead 意见记 notes 保留、
+  不阻塞）：:132 的压缩模 lambda 与 (7.3) 的悲观系数一符多义（建议改 kappa）；:119 的 eps_m 未区分
+  统计/近似误差；:180 的四步循环未写 Expansion 可跳过。
+defects:
+  - id: CH07-MATH-001
+    severity: P2
+    line: 132
+    equation: '7.5'
+    summary: 证明里的 lambda（总变差压缩模）与 :101-108 (7.3) 的悲观系数一符多义（已记录，按现状保留）
+    fix: 压缩模改用 kappa；:108「取 +lambda 则是乐观」改为「把 (7.3) 的负号改成正号则是乐观」
+  - id: CH07-MATH-002
+    severity: P3
+    line: 119
+    equation: '7.4'
+    summary: eps_m 未区分统计误差与模型近似误差；定理 7.1 只需前者（已记录，按现状保留）
+    fix: 在 :121 前补半句区分两类误差
+  - id: CH07-MATH-003
+    severity: P3
+    line: 180
+    equation: ''
+    summary: 四步循环写成无条件；S&B p208 明确 Expansion 在某些迭代可跳过（已记录，按现状保留）
+    fix: 补「扩展可以跳过」

@@ -1,0 +1,59 @@
+issue_id: CH95-FORM-003
+chapter: 95
+severity: P2
+status: 已有依据
+title: 组内优势式只写"减均值"，缺第 11 章 (11.7) 的标准差归一化与 s_r=0 整组掩掉
+summary: >
+  第 95.8 式给出 Â_{i,t}=Â_i=r(x,y_i)−r̄，并把它当作"本章的接口约定"。第 11 章的对应量是
+  Â_i=(r_i−r̄)/(s_r+ε_num)，其中 s_r=std(r)、ε_num 只是数值保护、s_r=0 的组整组掩掉（不提供相对信息）。
+  两处差别不是记号问题：除以 s_r 会改变梯度尺度（第 11 章 (11.13) 明写 ∇J∝E[(1/s_r)(r_i−r̄)∇log π]），
+  而 s_r 依赖同一组样本，使估计量变成比率型、有限 G 下没有一般无偏性；s_r=0 的组若不掩掉则会
+  除零或产生纯噪声梯度。读者从本章进第 11 章，会突然多出一个分母、一条掩掉规则和一个 ε_num。
+  本章第 250 行已把 (95.8) 说成 GRPO 的直接应用，这个缺口就更显眼。
+
+current_text:
+  file: content/ch13prep.md
+  lines: "139-144"
+  excerpt: >
+    第 140 行：Â_{i,t} = Â_i = r(x,y_i) − r̄，t=1,…,|y_i|；
+    第 144 行：其中 r̄ 是同一批样本的均值基线。式 (95.8) 的含义是"这条回答整体比平均好多少"，
+    它对每个 token 都成立——同一回答的所有 token 共享同一个优势。
+
+sources:
+  - key: 2402.03300_deepseekmath-grpo
+    level: S
+    role: GRPO 的组内优势同时做中心化与尺度归一化（减均值、除标准差）
+    pdf_page: 14
+    printed_page: "§4.1.2（p.14）"
+    quote: >
+      Subsequently, these rewards are normalized by subtracting the group average and dividing by the
+      group standard deviation.
+
+claims:
+  - id: c1
+    text: >
+      第 95.8 式与第 11 章 (11.7) 不是同一个量：前者只中心化，后者中心化后还除以 s_r+ε_num；
+      若本章的"接口约定"被当作最终形式，第 11 章的分母就成了无出处的突现。
+    evidence: 推导：content/ch11.md 第 108-122 行 (11.7) 与本章第 140 行逐项对照；2402.03300_deepseekmath-grpo p.14 给出同一形式
+    status: 已核对
+  - id: c2
+    text: >
+      除以 s_r 改变梯度尺度（不是无偏变换），且 s_r 依赖同组样本使估计量变成比率型；
+      s_r=0（全组同奖励）时标准做法是整组掩掉，否则除零或只剩噪声。
+    evidence: 推导：content/ch11.md 第 120、174、182-190 行分别给出 ε_num 的数值保护作用、比率型估计的偏差、梯度尺度 1/s_r；2402.03300 p.14 的 std(r) 分母
+    status: 已核对
+
+planned_fix:
+  - 第 140 行式 (95.8) 后补一句："第 11 章的 GRPO 再除以组内标准差（Â_i=(r_i−r̄)/(s_r+ε_num)），s_r=0 的组整组掩掉；本章只写减均值的一般形式，差别在第 11.2 节展开。"
+  - 第 144 行"含义是这条回答整体比平均好多少"补半句："除以 s_r 后还按组内离散度缩放，因而改变梯度尺度，不是对优势的无偏变换。"
+  - 第 250 行把 (95.8) 说成"GRPO 的直接应用"改为"GRPO 的简化形式（组内标准化见第 11 章 (11.7)）"。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    基准版本 2026-10-20 22:18（251 行）。严重度定为 P2：本章写的是通用接口，缺归一化不会让
+    本章的式子错，只会在跨章阅读时留下一个未交代的分母与掩掉规则。

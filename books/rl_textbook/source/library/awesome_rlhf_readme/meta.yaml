@@ -1,0 +1,19 @@
+key: awesome_rlhf_readme
+version: 2026-10-19
+level: C
+role: map
+title: Awesome RLHF (RL with Human Feedback)
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/awesome_rlhf_readme.md
+bytes: 91040
+pages: null
+sha256: c16ad013c0a37c0b9586443015565053c48cc7d424f864e6b466441931c0c15d
+retrieved: 2026-10-20
+license_note: "综述：只用于建立方法地图，不得作为关键定理的唯一依据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

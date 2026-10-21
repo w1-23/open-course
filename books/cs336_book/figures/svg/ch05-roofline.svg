@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="424" viewBox="0 0 800 424">
+  <!-- MuPDF 不解析 <style>/marker/dasharray，样式一律内联。 -->
+  <text x="10" y="22" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">Roofline：一条对角线（带宽墙）与一条水平线（算力墙）决定一个算子最多能跑多快</text>
+
+  <line x1="70" y1="350" x2="716" y2="350" stroke="#8b949e" stroke-width="1"/>
+  <line x1="70" y1="350" x2="70" y2="36" stroke="#8b949e" stroke-width="1"/>
+
+  <line x1="230" y1="40" x2="230" y2="350" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="390" y1="40" x2="390" y2="350" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="550" y1="40" x2="550" y2="350" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="710" y1="40" x2="710" y2="350" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="70" y1="272" x2="710" y2="272" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="70" y1="195" x2="710" y2="195" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="70" y1="117" x2="710" y2="117" stroke="#e6e8eb" stroke-width="0.8"/>
+  <line x1="70" y1="40" x2="710" y2="40" stroke="#e6e8eb" stroke-width="0.8"/>
+
+  <text x="62" y="364" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">0.1</text>
+  <text x="222" y="364" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">1</text>
+  <text x="382" y="364" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">10</text>
+  <text x="542" y="364" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">100</text>
+  <text x="702" y="364" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">1000</text>
+  <text x="62" y="275" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">1</text>
+  <text x="62" y="198" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">10</text>
+  <text x="62" y="120" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">100</text>
+  <text x="62" y="43" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b" text-anchor="end">1000</text>
+
+  <text x="290" y="386" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">算术强度 I = FLOP / Byte（对数轴）</text>
+  <text x="80" y="56" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">纵轴：性能（TFLOPS，对数轴）</text>
+
+  <!-- 带宽墙 -->
+  <line x1="70" y1="309" x2="626" y2="40" stroke="#9a6a2f" stroke-width="1.6"/>
+  <text x="104" y="200" font-family="Times New Roman, serif" font-size="10.5" fill="#7a5a2e">带宽墙：P = I × 3.35 TB/s</text>
+  <text x="104" y="216" font-family="Times New Roman, serif" font-size="10.5" fill="#7a5a2e">沿这条线往下 = 搬多少算多少</text>
+
+  <!-- 算力墙 -->
+  <line x1="626" y1="40" x2="716" y2="40" stroke="#3b6ea5" stroke-width="1.6"/>
+  <text x="632" y="58" font-family="Times New Roman, serif" font-size="10.5" fill="#2f5b88">算力墙 10³ TFLOPS</text>
+
+  <!-- 脊点 -->
+  <line x1="626" y1="350" x2="626" y2="40" stroke="#b0b6bd" stroke-width="0.8"/>
+  <text x="512" y="340" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">脊点 I* ≈ 300：右侧即算力受限</text>
+
+  <!-- 区域 -->
+  <text x="330" y="300" font-family="Times New Roman, serif" font-size="10.5" fill="#8b949e">对角线以下：带宽受限（绝大多数算子在这里）</text>
+
+  <!-- 点子 -->
+  <circle cx="86" cy="302" r="4" fill="#8b3a3a"/>
+  <text x="92" y="326" font-family="Times New Roman, serif" font-size="10.5" fill="#1f2328">ReLU（fp32）：0.125 FLOP/byte</text>
+
+  <circle cx="134" cy="278" r="4" fill="#8b3a3a"/>
+  <text x="146" y="300" font-family="Times New Roman, serif" font-size="10.5" fill="#1f2328">朴素 GEMM：0.25</text>
+
+  <circle cx="471" cy="115" r="4" fill="#2f6b4f"/>
+  <text x="316" y="108" font-family="Times New Roman, serif" font-size="10.5" fill="#1f2328">分块 GEMM（128×128）：32</text>
+
+  <circle cx="626" cy="40" r="4" fill="#2f5b88"/>
+  <text x="632" y="80" font-family="Times New Roman, serif" font-size="10.5" fill="#1f2328">大 GEMM：接近脊点</text>
+
+  <line x1="70" y1="396" x2="716" y2="396" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="70" y="416" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_05.pdf p21–p22 与 p25 的 ReLU 算例绘制；峰值取 10³ TFLOPS 示意，脊点 300 为教材补全。</text>
+</svg>

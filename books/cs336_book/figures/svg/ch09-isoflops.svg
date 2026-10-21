@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="352" viewBox="0 0 720 352">
+  <!-- IsoFLOP 方法：固定算力预算，扫描参数量，损失呈 U 形；各预算的最小点连成幂律。示意图，刻度无数值。 -->
+  <text x="10" y="20" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">IsoFLOP 曲线与最优包络：每个预算先降到最低，再抬升</text>
+
+  <line x1="80" y1="46" x2="80" y2="286" stroke="#3b4148" stroke-width="1.2"/>
+  <line x1="80" y1="286" x2="672" y2="286" stroke="#3b4148" stroke-width="1.2"/>
+  <text x="610" y="306" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">log N（参数量）</text>
+  <text x="20" y="56" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">log L</text>
+
+  <polyline points="100,120 160,150 210,168 260,160 330,126" fill="none" stroke="#9aabbb" stroke-width="1.8"/>
+  <text x="336" y="122" font-family="Times New Roman, serif" font-size="10" fill="#6b7280">预算 10²¹ FLOPs</text>
+
+  <polyline points="110,158 190,190 260,207 330,193 410,154" fill="none" stroke="#6b8aa6" stroke-width="1.8"/>
+  <text x="416" y="150" font-family="Times New Roman, serif" font-size="10" fill="#4a6076">预算 10²² FLOPs</text>
+
+  <polyline points="130,190 230,226 330,246 430,228 510,182" fill="none" stroke="#33414f" stroke-width="1.8"/>
+  <text x="516" y="178" font-family="Times New Roman, serif" font-size="10" fill="#33414f">预算 10²³ FLOPs</text>
+
+  <circle cx="210" cy="168" r="4" fill="#b02020"/>
+  <circle cx="260" cy="207" r="4" fill="#b02020"/>
+  <circle cx="330" cy="246" r="4" fill="#b02020"/>
+  <polyline points="210,168 260,207 330,246" fill="none" stroke="#b02020" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="424" y="252" font-family="Times New Roman, serif" font-size="10.5" fill="#b02020">最小点连线 = N_opt ∝ C^a</text>
+
+  <line x1="210" y1="168" x2="210" y2="286" stroke="#d5d8dc" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="260" y1="207" x2="260" y2="286" stroke="#d5d8dc" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="330" y1="246" x2="330" y2="286" stroke="#d5d8dc" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="150" y="278" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">N*偏小（欠拟合）</text>
+  <text x="440" y="278" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">N 变大 → 训练 token 变少（数据不足），损失回升</text>
+
+  <text x="80" y="330" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">课程第 48 页的表述：固定 FLOP 预算、变化参数总量，取这些凸曲线的最小值，</text>
+  <text x="80" y="346" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">这些最小点构成幂律。曲线左右两臂分别对应"模型太小"与"数据太少"。</text>
+</svg>

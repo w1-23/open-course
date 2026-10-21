@@ -1,0 +1,87 @@
+'no': 10
+status: reviewed
+reviewer: author-ch4（独立审校）
+reviewed_at: '2026-10-21'
+source_hash: 2addfa0d2b71
+equations:
+  - '10.1'
+  - '10.2'
+  - '10.3'
+  - '10.4'
+  - '10.5'
+  - '10.6'
+  - '10.7'
+  - '10.8'
+  - '10.9'
+  - '10.10'
+  - '10.11'
+  - '10.12'
+  - '10.13'
+  - '10.14'
+  - '10.15'
+  - '10.16'
+  - '10.17'
+  - '10.18'
+  - '10.19'
+  - '10.20'
+primary_sources:
+  - 2305.18290_dpo
+  - 2203.02155_instructgpt
+notes: >-
+  复审 reviewed：20 式全部五项判定通过（20/20 全 ✓），6 处与 DPO 原文逐字比对（式 4/5/7、梯度式、
+  逐 token 奖励式、权重不可省的实验结论）。首轮 4 条 P2 已修合：式 (10.3) 改为等价类 \mathcal{E}(r_\phi)；
+  式 (10.7) 价值头 V_\psi、TD 目标 Y_t、h_t 已定义；式 (10.16) 子集改用 y_π/y_base；式 (10.17) 系数改 c_len。
+  复审新发现 3 处改名未同步的残留（P2，不改变结论）：第 133 行 V_\phi(h_T)、第 368 行"系数 γ"、
+  第 309 行 SimPO 的"奖励间隔 γ"。DPO 推导链与 Gibbs 解代回 β log Z 均复核无误。
+defects:
+  - id: CH10-MATH-001
+    severity: P2
+    status: fixed
+    line: 61
+    equation: '10.3'
+    summary: 奖励平移不改变似然被写成恒等式 r ≡ r+c
+    fix: 已改为 \mathcal{E}(r_\phi)=\{r_\phi+c \mid c\in\mathbb{R}\} 并另段说明等价类
+    verified: tag 位置与显示块结构均正常
+  - id: CH10-MATH-002
+    severity: P2
+    status: fixed
+    line: 123
+    equation: '10.7'
+    summary: φ 兼指奖励模型与价值头，y_t 兼指 token 与 TD 目标，h_{t+1} 未定义
+    fix: 价值头改 V_\psi、TD 目标改 Y_t、式前定义 h_t；正文第 133 行仍残留一处 V_\phi(h_T)
+    verified: 式内符号已无冲突，正文残留见 new_findings[0]
+  - id: CH10-MATH-003
+    severity: P2
+    status: fixed
+    line: 350
+    equation: '10.16'
+    summary: 长度子集用数据对长度，与指示函数评的对象不一致
+    fix: '子集改为 \{i: ||y_\pi^{(i)}|-|y_{\mathrm{base}}^{(i)}||\le\delta\}'
+    verified: 子集与指示函数现在同对象
+  - id: CH10-MATH-004
+    severity: P2
+    status: fixed
+    line: 358
+    equation: '10.17'
+    summary: γ 与折扣因子同字母不同义
+    fix: 系数改 c_{\mathrm{len}}；正文第 368 行仍残留"系数 γ"
+    verified: 公式内已统一，正文残留见 new_findings[1]
+new_findings:
+  - id: CH10-MATH-005
+    severity: P2
+    status: open
+    line: 133
+    summary: 要点段仍写 V_\phi(h_T)，应为 V_\psi(h_T)
+    fix: 全局搜索 V_\phi 后替换
+  - id: CH10-MATH-006
+    severity: P2
+    status: open
+    line: 368
+    summary: "正文仍写\"系数 γ 的指数变换\"，式 (10.17) 已改 c_len"
+    fix: 改为 c_{\mathrm{len}}
+  - id: CH10-MATH-007
+    severity: P2
+    status: open
+    line: 309
+    summary: SimPO 的"奖励间隔 γ"与本章折扣因子同字母（首轮遗漏）
+    fix: 改 \gamma_{\mathrm{margin}} 或 c_{\mathrm{margin}}

@@ -1,0 +1,48 @@
+issue_id: CH06-FACT-001
+chapter: 6
+severity: P2
+status: 已有依据
+title: 优先回放的 41/49 与 48%→106% 被记到"均匀回放的 Double DQN"名下，原文比较的是 DQN
+summary: 第 145 行写"原论文在 49 个游戏中的 41 个上优于均匀回放的 Double DQN，归一化得分中位数从 48% 提升到 106%"。原文的比较对象是 DQN 与 DQN+优先回放（引文：adding prioritized replay to DQN … 41 out of 49 … from 48% to 106%），归一化基准是 Double DQN=100%，原文紧接着说优先回放的收益与
+  Double 互补、"再加 Double 又高出一档"。本章把基线写成 Double DQN，等于把两级改进压成一级，读者会以为 PER 单独就把中位数从 48% 提到 106%（超过 Double DQN 一倍），而真实关系是 DQN→DQN+PER 才走完这 58 个百分点。
+current_text:
+  file: content/ch06.md
+  lines: '145'
+  excerpt: 原论文在 49 个游戏中的 41 个上优于均匀回放的 Double DQN，归一化得分中位数从 48% 提升到 106%（Schaul et al., 2016）[经验规律]
+sources:
+- key: 1511.05952_prioritized-replay
+  level: S
+  role: 41/49 与 48%→106% 的比较对象是 DQN 与 DQN+优先回放
+  pdf_page: 7
+  printed_page: §5 Atari 实验（纸面 p.7）
+  quote: |-
+    of 49 games (compare columns 2 and 3 of Table 6 or Figure 9 in the appendix), with the median
+    normalized performance across 49 games increasing from 48% to 106%. Furthermore, we ﬁnd that
+    the boost from prioritized experience replay is complementary to the one from introducing Double
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 不需要实验：核对原文比较的两列（Table 6 的第 2、3 列）即可。
+claims:
+- id: c1
+  text: 41/49 与 48%→106% 都是 DQN 基线下的比较，不是 Double DQN 基线。
+  evidence: 1511.05952_prioritized-replay p0007 原文 "adding prioritized replay to DQN … 41 out of 49 games … from 48% to 106%"
+  status: 已核对
+- id: c2
+  text: 原文随后指出优先回放与 Double Q-learning 的收益互补，叠加后再高一档。
+  evidence: 1511.05952_prioritized-replay p0007 原文 "complementary to the one from introducing Double Q-learning"
+  status: 已核对
+- id: c3
+  text: 本章第 145 行把基线写成"均匀回放的 Double DQN"，与原文不一致。
+  evidence: 式 (6.8)(6.9) 所在小节的第 145 行与原文对照
+  status: 已核对
+planned_fix:
+- 第 145 行改为：原文在 DQN 上加入优先回放，49 个游戏中 41 个提升，中位数从 48% 升到 106%（归一化基准是 Double DQN=100%）；与 Double 组合后进一步提升。
+- 表 6-1 的 PER 行在"代价"一栏补一句：与 Double 正交、可叠加，别把两者收益算成一份。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: α=0.6/β₀=0.4（比例型）与 α=0.7/β₀=0.5（秩型）与原文 p0006 一致，本条不涉及。

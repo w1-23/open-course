@@ -1,0 +1,23 @@
+key: 1912.01603_dreamer
+version: 2026-10-20
+level: S
+role: algorithm
+title: "Dream to Control: Learning Behaviors by Latent Imagination"
+authors:
+  - Danijar Hafner
+  - Timothy Lillicrap
+  - Jimmy Ba
+  - Mohammad Norouzi
+year: 2019
+published: 2019-12-03
+arxiv_id: 1912.01603
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1912.01603_dreamer.pdf
+bytes: 1999946
+pages: 20
+sha256: 318891d59ba0065f57eb0e735735700e5eb528f53bf08b81c773437385586c64
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

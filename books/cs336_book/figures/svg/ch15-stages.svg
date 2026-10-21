@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="308" viewBox="0 0 660 308">
+  <!-- MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <text x="16" y="24" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">后训练的四个阶段：换的不是模型，而是数据形态与目标函数</text>
+
+  <!-- 阶段一 -->
+  <rect x="16" y="96" width="136" height="104" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="28" y="120" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">预训练</text>
+  <text x="28" y="142" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">网页 / 代码 / 书籍</text>
+  <text x="28" y="158" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">万亿 token 级</text>
+  <text x="28" y="182" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">目标：预测下一 token</text>
+
+  <line x1="152" y1="148" x2="168" y2="148" stroke="#3b4148" stroke-width="1.2"/>
+  <polygon points="176,148 165,143.5 165,152.5" fill="#3b4148"/>
+
+  <!-- 阶段二 -->
+  <rect x="178" y="96" width="136" height="104" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="190" y="120" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">mid-training</text>
+  <text x="190" y="142" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">预训练数据 + 少量指令</text>
+  <text x="190" y="158" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">按小比例混入末尾</text>
+  <text x="190" y="182" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">目标：仍是下一 token</text>
+
+  <line x1="314" y1="148" x2="330" y2="148" stroke="#3b4148" stroke-width="1.2"/>
+  <polygon points="338,148 327,143.5 327,152.5" fill="#3b4148"/>
+
+  <!-- 阶段三 -->
+  <rect x="340" y="96" width="136" height="104" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="352" y="120" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">SFT</text>
+  <text x="352" y="142" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">(x, y) 指令–回答对</text>
+  <text x="352" y="158" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">几百到几万条</text>
+  <text x="352" y="182" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">目标：max log π(y|x)</text>
+
+  <line x1="476" y1="148" x2="492" y2="148" stroke="#3b4148" stroke-width="1.2"/>
+  <polygon points="500,148 489,143.5 489,152.5" fill="#3b4148"/>
+
+  <!-- 阶段四 -->
+  <rect x="502" y="96" width="136" height="104" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="514" y="120" font-family="Times New Roman, serif" font-size="12.5" fill="#1f2328">偏好优化</text>
+  <text x="514" y="142" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">(x, y_w, y_l) 成对比较</text>
+  <text x="514" y="158" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">人类或模型标注</text>
+  <text x="514" y="182" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">目标：max E[r] − βKL</text>
+
+  <text x="514" y="86" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">之后：RLVR（第 16 章）</text>
+
+  <line x1="16" y1="226" x2="644" y2="226" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="16" y="246" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">前两阶段共用「预测下一个 token」这个目标；SFT 是提取器，只有偏好优化才把「偏好」这个信号引进来。</text>
+  <text x="16" y="266" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">SFT 的数据量级在「几百到几万」间摆动，因为行为层面很快饱和，长尾能力却一直吃数据（第 27 页）。</text>
+  <text x="16" y="288" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">依据 lecture_15.pdf 第 6 页（两段式路线）、第 29–30 页（mid-training）、第 32 页（模仿 vs 优化）、第 27 页（SFT 三条总结）的重绘。</text>
+</svg>

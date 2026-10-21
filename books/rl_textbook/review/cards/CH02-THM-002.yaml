@@ -1,0 +1,81 @@
+issue_id: CH02-THM-002
+chapter: 2
+severity: P1
+status: 已有依据
+title: 定理 2.5 的严格性证明把「取最大」的不等式用在了「取最小」的场合
+summary: >
+  定理 2.5 的陈述与 RLbook 的策略改进定理 (4.7)(4.8) 一致，含严格性一句，
+  因此结论没问题。问题在 :360 的证明第二段：为证明「某状态一步优势严格为正则
+  该状态价值严格增大」，原文写「否则 D(s0)≥γE[D(s')]≥γD(s0)」，其中第二个
+  不等号 E[D(s')]≥D(s0) 要求 D(s0) 是最小值，而前一段建立的是 D_max≥0（取最大）。
+  缺口可用一步补上：由已得的 D≥0 与式 (2.22)，D(s0)=A(s0)+γE[D(s')]≥A(s0)>0。
+  这段现在是「证明按原文复核会卡住」的状态，属于可施工的证明修订。
+
+current_text:
+  file: content/ch02.md
+  lines: "356-364"
+  excerpt: >
+    若某 s0 的第一步优势严格为正，则在 s0 处 D(s0)>0（否则 D(s0)≥γE[D(s')]≥γD(s0)
+    会与 D(s0)<0 矛盾；严格性由第一步优势的正性与 D 的连续性归纳得到）。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 策略改进定理的严格性表述，用于确认本章陈述本身没有错、错在证明
+    pdf_page: 100
+    printed_page: "§4.2, p.78, 式 (4.7)(4.8)"
+    quote: >
+      Moreover, if there is strict inequality of (4.7) at any state, then there must be
+      strict inequality of (4.8) at that state.
+    note: >
+      同页 (4.7) 是确定性策略的 q_π(s,π'(s))≥v_π(s)；本章把它正确地推广成对
+      a∼π' 的期望（:321、:357），这一步与 p.101「the policy improvement theorem
+      carries through as stated for the stochastic case」一致，故不另立卡。
+
+derivation_file: review/derivations/CH02-THM-002.md
+reproduction_file: review/reproductions/CH02-THM-002_two_state.py
+reproduction_result:
+  note: >
+    `python review/reproductions/CH02-THM-002_two_state.py` → exit 0。两状态 MDP
+    （γ=0.9）：情形 A（π' 只在 s0 改进、其余与 π 相同）一步优势 (+10, 0)、
+    D=(+10.0000, +0.0000)；情形 B（π' 在 s0 改进、s1 退化）(+10, −0.5)、
+    D=(+5.5000, −5.0000)。两情形下式 (2.22) 的复核偏差均为 0.00e+00，说明
+    「极值方向用反」只影响严格性论证，不影响结论本身。情形 A 同时暴露习题 5
+    的旧断言有误，见 CH02-SEC-002。
+
+claims:
+  - id: c1
+    text: 定理 2.5 的陈述（全状态非劣 + 严格性落在该状态）与 RLbook (4.7)(4.8) 一致。
+    evidence: RLbook2020 p.100 的 (4.7)(4.8) 与紧随的 strict inequality 一句
+    status: 已核对
+  - id: c2
+    text: 证明第一段 D_max≥0 正确（在 argmax 处用 E[D(s')]≤D_max）。
+    evidence: derivation_file 第 2 节重写 (R1) 后逐行复核
+    status: 已核对
+  - id: c3
+    text: 证明第二段的 E[D(s')]≥D(s0) 需要 D(s0) 为最小值，与前文取最大不符，属逻辑缺口。
+    evidence: derivation_file 第 3 节；结论本身仍真
+    status: 已核对
+  - id: c4
+    text: 严格性可一步得到：D(s0)=A(s0)+γE[D(s')]≥A(s0)>0，不需要连续性或归纳。
+    evidence: derivation_file 第 4 节的替换证明（由式 (2.22) 直接推出）
+    status: 已核对
+
+planned_fix:
+  - 把 :360 中「（否则 D(s0)≥γE[D(s')]≥γD(s0) 会与 D(s0)<0 矛盾；严格性由第一步优势的正性与 D 的连续性归纳得到）」整段替换为「由上面已得的 D≥0 与式 (2.22)，D(s0)=A(s0)+γE_{s'∼P^{π'}}[D(s')]≥A(s0)>0，故该状态的价值严格增大」。
+  - 同段补一句「若所有状态的一步优势都严格为正，则逐点 V^{π'}(s)>V^π(s)」，把「逐点严格」这一结论的依据写全。
+  - :362 的说明保留原意，但把「遗漏严格性的来源」改成「原证明在取极值的方向上出错」，以免读者照着错证明复核。
+  - 习题 5（:503）的答案要点补一句「缺全状态非劣时只有 D(s0) 的局部结论，且严格性不能由 (2.22) 直接读出」。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    已施工（2026-10-20）：:360 的证明改为「由 D≥0 与式 (2.22) 直接得
+    D(s0)≥A(s0)>0」，并补上「所有状态严格为正则逐点严格」一句；:362 改为
+    「在取极值的方向上出错，严格性仍推不出来」。原 planned_fix 第 4 条
+    （习题 5 答案要点）经数值复现发现习题 5 本身写错，已并入 CH02-SEC-002 处理，
+    本条不再涉及。本条只改证明文字，不改陈述、不改公式编号。

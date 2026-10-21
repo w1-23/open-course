@@ -1,0 +1,50 @@
+unit_id: CH03-U03
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: Pre-norm 与「非残差归一化」
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p10
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Pre-vs-post norm / The one thing everyone agrees on (in 2024) / Figure from Xiong 2020 / Set
+    up LayerNorm so that it doesn’t affect the / main residual signal path (on the left) / Almost all
+    modern LMs use pre-norm (but BERT was post-norm) / (One somewhat funny exception – OPT350M. I don’t
+    know why this is post-norm)
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p13
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'New things – ‘double’ norm or non-residual postnorm / If putting LayerNorms in residual streams
+    is bad.. Why not post-norm outside the stream? / Recent models: Grok, Gemma 2. Olmo 2 only does non-residual
+    post norm'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p19
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'LayerNorm: recap / • / Basically everyone does non-residual norm (often prenorm) / • Intuition
+    – keep the good parts of residual connections / • Observations – nicer gradient propagation, fewer
+    spike / • Some people add a second norm outside the residual stream / • / Most people do RMSnorm /
+    • In practice, works as well as LayerNorm / • But, has fewer parameters to move around, which saves
+    on wallclock time / • Peopl'
+technical_evidence:
+- source_id: arXiv:2002.04745
+  ref_name: pre_post_norm_2020
+  title: On Layer Normalization in the Transformer Architecture
+  authors:
+  - Ruibin Xiong
+  - Yunchang Yang
+  - Di He
+  - Kai Zheng
+  - Shuxin Zheng
+  - Chen Xing
+  year: '2020'
+  url: https://arxiv.org/pdf/2002.04745.pdf
+  arxiv_id: '2002.04745'
+  arxiv_verified: true
+  locator: ''
+knowledge_slot:
+  why_it_matters: 归一化位置如何影响残差主干与训练稳定性
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: verified
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

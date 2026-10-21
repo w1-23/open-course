@@ -1,0 +1,119 @@
+issue_id: CH11-GRPO-001
+chapter: 11
+severity: P0
+status: 已有依据
+title: 组内归一化优势被当成"与动作无关的基线"
+summary: >
+  第 11 章把 (r_i − r̄) 的组均值 r̄ 说成"与当前动作无关的基线"，据此宣称
+  "减去组均值不改变期望梯度"。但 r̄ 含 r_i 本身，是被采样输出的函数，
+  不满足基线恒等式的条件；正确的结论是期望梯度被缩放 (1 − 1/G)，
+  再除以 s_r 后连这个缩放也不成立（有限 G 下是比率估计量）。
+
+current_text:
+  file: content/ch11.md
+  lines: "10, 162-171, 370, 428（修正前行号）"
+  excerpt: >
+    只要 b 不依赖 o_i。式 (11.12) 是习题 1 要证的结论，它说明"减组均值"不是启发式，
+    而是标准的方差缩减；组均值恰好是一个不需要额外网络的基线。
+  note: >
+    这是修正前的原文（不是转述）：它把组均值当成了满足基线恒等式的 b。同类表述共四处：
+    章前第 10 行（"组内标准化作为基线的合法性是 [精确] 的"）、§11.2.4 的 162–171 行、
+    本章小结第 4 条、习题第 1 题。均已按本卡改写完毕。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: MDP 与策略梯度基线理论
+    pdf_page: 359
+    printed_page: "§13.8 Summary（印刷页 337）"
+    quote: >
+      Adding a state-value function as a baseline reduces REINFORCE’s variance
+      without introducing bias.
+    note: >
+      这是全书对"基线"的规范性表述，正式推导在 §13.4（pdf p.351、印刷页 329），
+      那里的 b 被写成**状态**函数 b(s)。由该推导可见恒等式要求 b 不随被采样的动作变化；
+      "可以是随机变量、只要不随动作变化"这一层放宽由本卡的独立推导补足，不冒充原书原句。
+  - key: 2402.03300_deepseekmath-grpo
+    level: S
+    role: GRPO 原始论文
+    pdf_page: 14
+    printed_page: "§4.1.2 Outcome Supervision"
+    quote: >
+      Subsequently, these rewards are normalized by subtracting the group average and dividing by
+      the group standard deviation.
+    note: 同页 Algorithm 1 第 9 行 Compute Â_i,t … through group relative advantage estimation，第 11 行引用 Eq. (21)。
+  - key: 2503.20783_dr-grpo
+    level: S
+    role: 对 GRPO 目标的独立分析（COLM 2025）
+    pdf_page: 6
+    printed_page: "§4"
+    quote: >
+      Note that the effective advantage of GRPO ai,t is equivalent to a reweighted version of the
+      unbiased advantage
+    note: >
+      同页给出两条明确命名的偏差：response-level length bias（除以 |o_i|）与
+      question-level difficulty bias（除以 std(R)）；并指出开源 PPO 实现普遍按
+      response 长度归一化损失，同样引入 unintended length bias。
+
+derivation_file: review/derivations/CH11-GRPO-001.md
+reproduction_file: review/reproductions/CH11-GRPO-001_mc.py
+reproduction_result:
+  setup: >
+    3 臂 bandit，π = [0.5, 0.3, 0.2]，r = [1, 0, −1]；穷举全部 **K^G** 组样本
+    （K=3 个动作，G=2/3/5 → 9/27/243 组）求精确期望，不是 G^G。
+  convention: >
+    s_r = 0 的组（全部样本同动作）在脚本里被跳过，贡献记为 0；这使实际参与的有效
+    概率质量为 0.62 / 0.84 / 0.966（G=2/3/5）。若改为条件期望（仅在 s_r>0 的组上取
+    期望），C/A 变为 1.1237 / 1.1328 / 1.1639 —— 方向不变，但数字必须连同约定一起引用。
+  claim_2_scaling:
+    G2: {measured: 0.500000, expected: 0.5, rel_err: 0.0}
+    G3: {measured: 0.666667, expected: 0.6666667, rel_err: 1.67e-16}
+    G5: {measured: 0.800000, expected: 0.8, rel_err: 1.39e-16}
+  claim_3_after_std:
+    G2: {measured: 0.696684, expected: 0.5, deviates: true}
+    G3: {measured: 0.951592, expected: 0.6666667, diff_vector: [0.108852, -0.067279, -0.041573]}
+    G5: {measured: 1.124487, expected: 0.8, deviates: true}
+  conclusion: >
+    ‖E[(r_i−r̄)∇logπ]‖ / ‖g_i‖ = 1 − 1/G 精确成立（误差 1e-16 量级，前提是
+    on-policy、组内独立同分布、单步更新）；除以 s_r 后不再等于 (1−1/G)，
+    且比值随 G 单调上升并越过 1，"归一化后仍无偏"与"归一化只改变尺度"两种说法都不成立。
+
+claims:
+  - id: c1
+    text: 基线恒等式要求基线 b 不依赖被采样的动作/输出。
+    evidence: RLbook2020 p.359（S 级原文 + 上下文）
+    status: 已核对
+  - id: c2
+    text: >
+      组均值基线把期望梯度精确缩放 (1 − 1/G)，不是零效应；前提是 on-policy 采样、
+      组内独立同分布、单步更新（用旧策略数据会留下交叉项）。
+    evidence: 独立推导（review/derivations/CH11-GRPO-001.md）+ 数值复现（3 种 G，误差 ≤1.7e-16）
+    status: 已核对
+  - id: c3
+    text: 归一化优势在有限 G 下不等于无偏优势，而是"重加权版本"。
+    evidence: 2503.20783_dr-grpo p.6（S 级论文原句）+ 数值复现中 C/A 比值偏离 (1−1/G)
+    status: 已核对
+  - id: c4
+    text: GRPO 官方实现即按组均值与组标准差归一化整条输出的奖励，并广播到所有 token。
+    evidence: 2402.03300_deepseekmath-grpo p.14（S 级原文 + Algorithm 1）
+    status: 已核对
+
+planned_fix:
+  - 式 (11.12) 前的引出句明确"组均值含被采样输出、不满足基线恒等式"。——已改
+  - 式 (11.12) 扩成两行 aligned（常数基线恒等式 + (1−1/G) 缩放），正文补逐项推导、G=1 退化、三条限定。——已改
+  - 式 (11.13) 去掉"只是尺度"，改为"除以 s_r 是比率估计量，有限 G 无一般无偏性；Dr.GRPO p.6 称之为对无偏优势的重加权"。——待办
+  - 整段改为三层表述（[精确] 常数基线 / [精确] (1−1/G) / [经验规律] 归一化后偏差非零）。——已改
+  - 同步章前第 10 行、本章小结第 4 条、习题第 1 题。——已改
+  - 同步 11.5 节（长度偏差、难度偏差）与 11.4 节稳定性讨论，清除"合法基线/无偏"字样。——待办
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 待办
+  independent_reviewer: "author-ch04（review/independent/CH11-GRPO-001_review.md，结论 PASS_WITH_FIXES）"
+  reviewed_at: "2026-10-20"
+  notes: >
+    复核提出的六条已逐条落实：引文改标 §13.8（印刷页 337）；current_text 换成修正前原文
+    并注明四处；复现口径改为 K^G 并写明 s_r=0 的处理（含条件期望下的 1.1237/1.1328/1.1639）；
+    (1−1/G) 补上 on-policy/组内 iid/单步前提；planned_fix 不再指向不存在的 11.6 节。
+    尚待：跨章一致性（与第 5 章 PPO、第 10 章 KL 的记号对齐）。

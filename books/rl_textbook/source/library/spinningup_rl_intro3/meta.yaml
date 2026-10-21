@@ -1,0 +1,19 @@
+key: spinningup_rl_intro3
+version: 2026-10-19
+level: B
+role: docs
+title: "Part 3: Intro to Policy Optimization &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_rl_intro3.html
+bytes: 60306
+pages: null
+sha256: ae75a858eca7155b69b4ff5e414added08c11d7bcc5cc4af752a8d6df25e6877
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

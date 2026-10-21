@@ -1,0 +1,67 @@
+issue_id: CH04-PROP-003
+chapter: 4
+severity: P2
+status: 已有依据
+title: 式 (4.7) 把"重要性采样配平后的半梯度"写成"某个目标的梯度"，与本节的半梯度论述矛盾
+summary: >
+  第 114–118 行的式 (4.7) 写成 E_b[ρ_t δ_t ∇_θ V_θ(S_t)] ≈ ∇_θ(某目标)，右端既未定义，
+  也暗示"把分布配平之后，更新就成了某个标量目标的梯度"。这与第 4.1.4 节"半梯度更新不是任何
+  标量函数的负梯度"和第 4.3.5 节"缺少真梯度"的论述直接冲突：重要性采样只把期望从 b 换成 π，
+  换掉的是分布，不是"半梯度"这一性质；要得到真梯度必须另造目标（残差梯度或 MSPBE 上的 GTD）。
+  正确写法是"配平后等于 on-policy 分布下的半梯度"，并注明它仍不是真梯度。
+
+current_text:
+  file: content/ch04.md
+  lines: "112-120"
+  excerpt: >
+    第 116 行：\mathbb{E}_{b}\bigl[\rho_t\,\delta_t\,\nabla_\theta V_\theta(S_t)\bigr]\approx\nabla_\theta\bigl(\text{某目标}\bigr)
+    第 112 行：修正的手段是重要性采样，把每条样本按其在新旧分布下的概率比加权
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 半梯度方法不是真梯度（目标含参数但求梯度时不计入），因此不能靠重要性采样"变成"真梯度
+    pdf_page: 258
+    printed_page: "§9.12 Summary（纸面 p.236）"
+    quote: >
+      Semi-gradient TD methods are not true gradient methods. In such bootstrapping methods
+      (including DP), the weight vector appears in the update target, yet this is not taken
+      into account in computing the gradient ... As such, they cannot rely on classical SGD results.
+
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 概念与记号核对，不需要数值实验。
+
+claims:
+  - id: c1
+    text: 式 (4.7) 右端的"某目标"没有定义，读者无法判断它是 VE、BE 还是 MSPBE。
+    evidence: content/ch04.md 第 116 行；式 (4.2) 的 VE 与式 (4.22) 的 BE 都在别处定义，此处未回指
+    status: 已核对
+  - id: c2
+    text: 重要性采样只把期望的分布从 d^b 换成 d^π，不改变"目标含参数却不对其求导"的半梯度性质。
+    evidence: RLbook2020 p.258；式 (4.3) 与式 (4.16) 的对照
+    status: 已核对
+  - id: c3
+    text: 该写法与第 4.1.4 节"半梯度不是任何标量函数的负梯度"、第 4.3.5 节"缺少一个真梯度"自相矛盾。
+    evidence: content/ch04.md 第 78 行与第 292 行；式 (4.4) 给出真梯度的对照
+    status: 已核对
+  - id: c4
+    text: 若作者想表达的是"配平后等于 on-policy 半梯度"，应当直接写 E_π[δ∇V] 并保留"仍非真梯度"的限定。
+    evidence: 式 (4.3) 在 μ=d^π 时的期望形式即 E_π[δ∇V]
+    status: 已核对
+
+planned_fix:
+  - 第 116 行的式 (4.7) 右端改为 \mathbb{E}_{\pi}\bigl[\delta_t\nabla_\theta V_\theta(S_t)\bigr]，并在式后加一句"这只是把分布换回 on-policy，半梯度仍是半梯度"。
+  - 第 120 行保留"配平一阶矩解决不了稳定性"的论述，并补一句"要得到真梯度必须换目标（残差梯度或 GTD），见第 4.3.5 节"。
+  - 顺带把"某目标"这一占位符从全章清除（grep 检查），避免同类含糊表述。
+
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    这条属于记号层面的"半句话留白"，但因为它碰到了本章最核心的区分（半梯度 vs 真梯度），
+    按 P2 记录；修法只需改右端记号并补一句限定。

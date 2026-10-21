@@ -1,0 +1,33 @@
+key: 1612.00796_ewc
+version: 2026-10-20
+level: S
+role: algorithm
+title: Overcoming catastrophic forgetting in neural networks
+authors:
+  - James Kirkpatrick
+  - Razvan Pascanu
+  - Neil Rabinowitz
+  - Joel Veness
+  - Guillaume Desjardins
+  - Andrei A. Rusu
+  - Kieran Milan
+  - John Quan
+  - Tiago Ramalho
+  - Agnieszka Grabska-Barwinska
+  - Demis Hassabis
+  - Claudia Clopath
+  - Dharshan Kumaran
+  - Raia Hadsell
+year: 2016
+published: 2016-12-02
+arxiv_id: 1612.00796
+doi: 10.1073/pnas.1611835114
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1612.00796_ewc.pdf
+bytes: 1250137
+pages: 13
+sha256: 5e181839191ab4582da2b5ff9666f5222e40b8b8d2f1cdf4fa7100b3a58d7a29
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

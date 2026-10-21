@@ -1,0 +1,460 @@
+{
+ "figures": {
+  "ch00_f01_map.svg": {
+   "bytes": 169944,
+   "sha256": "6a24242afa62daac"
+  },
+  "ch00_f02_ladder.svg": {
+   "bytes": 145313,
+   "sha256": "5ccc92468d024516"
+  },
+  "ch00_f03_objects.svg": {
+   "bytes": 77885,
+   "sha256": "2d7d631aa7139e84"
+  },
+  "ch00_f04_route.svg": {
+   "bytes": 82947,
+   "sha256": "9ab2d770c12d61c6"
+  },
+  "ch01_f01_agent_env.svg": {
+   "bytes": 53734,
+   "sha256": "2be4dfd21e3b48b5"
+  },
+  "ch01_f01_problem.svg": {
+   "bytes": 124486,
+   "sha256": "f983951c6c29e472"
+  },
+  "ch01_f02_map.svg": {
+   "bytes": 95366,
+   "sha256": "309658e44acd1c86"
+  },
+  "ch01_f02_regret.svg": {
+   "bytes": 106282,
+   "sha256": "b66bb20cc0db79e0"
+  },
+  "ch01_f03_discount.svg": {
+   "bytes": 31809,
+   "sha256": "3d2b2ede318822e1"
+  },
+  "ch01_f03_ucb.svg": {
+   "bytes": 74298,
+   "sha256": "706e62e34c4269cf"
+  },
+  "ch01_f04_context_bridge.svg": {
+   "bytes": 82532,
+   "sha256": "bcb38b0f2ac18244"
+  },
+  "ch01_f04_gridworld.svg": {
+   "bytes": 30250,
+   "sha256": "fba807c9708e0fb3"
+  },
+  "ch01_f05_optimal_values.svg": {
+   "bytes": 51093,
+   "sha256": "b893d82fc90d358a"
+  },
+  "ch01_f06_convergence.svg": {
+   "bytes": 36537,
+   "sha256": "e393a7a15dd36f10"
+  },
+  "ch01_f06_map.svg": {
+   "bytes": 92701,
+   "sha256": "fbebc30a5eed7821"
+  },
+  "ch02_f01_backup_targets.svg": {
+   "bytes": 62378,
+   "sha256": "7f2899bcbbdcec09"
+  },
+  "ch02_f01_bandit_to_mdp.svg": {
+   "bytes": 60570,
+   "sha256": "6a6ce9e6bf8bc927"
+  },
+  "ch02_f02_lambda_spectrum.svg": {
+   "bytes": 62079,
+   "sha256": "76be58633a84e350"
+  },
+  "ch02_f02_loop.svg": {
+   "bytes": 69942,
+   "sha256": "f3c60fa97aa30d82"
+  },
+  "ch02_f03_cliff.svg": {
+   "bytes": 141910,
+   "sha256": "dbfd1a4b8592ef87"
+  },
+  "ch02_f03_contraction.svg": {
+   "bytes": 72189,
+   "sha256": "251f404a31ade1ab"
+  },
+  "ch02_f04_baseline_variance.svg": {
+   "bytes": 82752,
+   "sha256": "6aa61cfcefd963f5"
+  },
+  "ch02_f04_max_operator.svg": {
+   "bytes": 51473,
+   "sha256": "d0f5dbbf7381fdcf"
+  },
+  "ch02_f05_actor_critic.svg": {
+   "bytes": 44771,
+   "sha256": "783be2888a9a6443"
+  },
+  "ch02_f05_residual_bound.svg": {
+   "bytes": 49982,
+   "sha256": "a55b2cc079e6507e"
+  },
+  "ch02_f06_ppo_clip.svg": {
+   "bytes": 46998,
+   "sha256": "581ae0f3b2f08742"
+  },
+  "ch03_f01_dyna.svg": {
+   "bytes": 66822,
+   "sha256": "0e0c78682baa69ad"
+  },
+  "ch03_f01_two_routes.svg": {
+   "bytes": 90450,
+   "sha256": "cd5cc8cd7246b403"
+  },
+  "ch03_f02_compound.svg": {
+   "bytes": 59847,
+   "sha256": "0f84dec16b2e9279"
+  },
+  "ch03_f02_dp_comparison.svg": {
+   "bytes": 129458,
+   "sha256": "0da8d69443bb4bdd"
+  },
+  "ch03_f03_mc_vs_td.svg": {
+   "bytes": 47392,
+   "sha256": "e8edbdd0503917e6"
+  },
+  "ch03_f03_mcts.svg": {
+   "bytes": 58952,
+   "sha256": "c96d259312a23aae"
+  },
+  "ch03_f04_lambda_sweep.svg": {
+   "bytes": 47370,
+   "sha256": "af6da17f2c0b0c5d"
+  },
+  "ch03_f04_ucb.svg": {
+   "bytes": 66705,
+   "sha256": "538882cc372c7975"
+  },
+  "ch03_f05_alphazero.svg": {
+   "bytes": 99284,
+   "sha256": "a08908443a43b568"
+  },
+  "ch03_f05_cliff.svg": {
+   "bytes": 96218,
+   "sha256": "bdd7e5670d3cc2a7"
+  },
+  "ch03_f06_muzero.svg": {
+   "bytes": 65027,
+   "sha256": "6251d149d1e91ec2"
+  },
+  "ch04_f01_triad.svg": {
+   "bytes": 91134,
+   "sha256": "676a1c9dda344103"
+  },
+  "ch04_f02_dqn_loop.svg": {
+   "bytes": 63841,
+   "sha256": "b1bde6688520b6c9"
+  },
+  "ch04_f02_geometry.svg": {
+   "bytes": 51469,
+   "sha256": "9fe299a7683e2b7a"
+  },
+  "ch04_f03_overestimation.svg": {
+   "bytes": 62888,
+   "sha256": "6a7d13d05f9c6646"
+  },
+  "ch04_f03_td_vs_lstd.svg": {
+   "bytes": 121833,
+   "sha256": "914bc7fbebbcfce8"
+  },
+  "ch04_f04_baird.svg": {
+   "bytes": 106846,
+   "sha256": "c44618d0fb9a4cdb"
+  },
+  "ch04_f04_family.svg": {
+   "bytes": 80771,
+   "sha256": "8523cec3c7e9b1bd"
+  },
+  "ch04_f05_bias_variance.svg": {
+   "bytes": 75567,
+   "sha256": "e51c1a5bd7a20e2e"
+  },
+  "ch04_f05_returns.svg": {
+   "bytes": 94235,
+   "sha256": "a843c3b11092cb3e"
+  },
+  "ch04_f06_diagnosis.svg": {
+   "bytes": 130452,
+   "sha256": "bc47b983c7701dcd"
+  },
+  "ch05_dpo.svg": {
+   "bytes": 94182,
+   "sha256": "c333d8b2c9073bd1"
+  },
+  "ch05_f01_estimator_road.svg": {
+   "bytes": 96780,
+   "sha256": "51a324411e120e22"
+  },
+  "ch05_f02_actor_critic.svg": {
+   "bytes": 73242,
+   "sha256": "5595d35bcdfb362b"
+  },
+  "ch05_f02_gae_bias_variance.svg": {
+   "bytes": 66585,
+   "sha256": "7ac38400252f33c7"
+  },
+  "ch05_f03_collapse.svg": {
+   "bytes": 78152,
+   "sha256": "3098dc74a3f249b7"
+  },
+  "ch05_f03_gae_bias_variance.svg": {
+   "bytes": 69769,
+   "sha256": "7f9f3cc669a137e3"
+  },
+  "ch05_f04_ppo_clip.svg": {
+   "bytes": 52908,
+   "sha256": "17f1583035e11472"
+  },
+  "ch05_f04_step_size.svg": {
+   "bytes": 84875,
+   "sha256": "05bf7ad848c92faf"
+  },
+  "ch05_f05_ppo_clip.svg": {
+   "bytes": 44457,
+   "sha256": "fe256a6face09978"
+  },
+  "ch05_f05_ppo_replay.svg": {
+   "bytes": 75711,
+   "sha256": "2397d57c69331427"
+  },
+  "ch05_f06_actor_critic.svg": {
+   "bytes": 78067,
+   "sha256": "38918fe79d0ea94b"
+  },
+  "ch05_f06_reuse_epochs.svg": {
+   "bytes": 84928,
+   "sha256": "394aa19f84ae76b8"
+  },
+  "ch05_grpo.svg": {
+   "bytes": 61576,
+   "sha256": "53f73eed9d2178dc"
+  },
+  "ch05_kl_tradeoff.svg": {
+   "bytes": 82094,
+   "sha256": "5b6bb80edfc50fe7"
+  },
+  "ch05_pipeline.svg": {
+   "bytes": 131046,
+   "sha256": "d405fe565b081492"
+  },
+  "ch05_system.svg": {
+   "bytes": 103904,
+   "sha256": "49a967920c170d75"
+  },
+  "ch05_unified.svg": {
+   "bytes": 150946,
+   "sha256": "d23ac22b40987722"
+  },
+  "ch06_f01_offline_support.svg": {
+   "bytes": 211070,
+   "sha256": "a81ea0734ab979db"
+  },
+  "ch06_f01_patchmap.svg": {
+   "bytes": 130655,
+   "sha256": "952173b96722aa6d"
+  },
+  "ch06_f02_bc_error.svg": {
+   "bytes": 57061,
+   "sha256": "ab652a98acd18e55"
+  },
+  "ch06_f02_maxbias.svg": {
+   "bytes": 35053,
+   "sha256": "27d6dfd0217e429c"
+  },
+  "ch06_f03_her.svg": {
+   "bytes": 78380,
+   "sha256": "2ab7db6e7eba0f89"
+  },
+  "ch06_f03_returns.svg": {
+   "bytes": 35093,
+   "sha256": "8026e2637fbfa97d"
+  },
+  "ch06_f04_curves.svg": {
+   "bytes": 82663,
+   "sha256": "f1ffceb41a218e43"
+  },
+  "ch06_f04_maml.svg": {
+   "bytes": 105074,
+   "sha256": "d30f3b0861460460"
+  },
+  "ch06_f05_lagrange.svg": {
+   "bytes": 102006,
+   "sha256": "dbffeff220dc5527"
+  },
+  "ch06_f05_sim2real.svg": {
+   "bytes": 88241,
+   "sha256": "ad4ca0ca79d5c560"
+  },
+  "ch06_f06_debug_flow.svg": {
+   "bytes": 121781,
+   "sha256": "a1ce45a2e25f5d81"
+  },
+  "ch07_f01_dyna_loops.svg": {
+   "bytes": 66640,
+   "sha256": "e0496483ed813e76"
+  },
+  "ch07_f02_dyna_planning.svg": {
+   "bytes": 51208,
+   "sha256": "5e8ace394ffa934c"
+  },
+  "ch07_f03_model_error.svg": {
+   "bytes": 90973,
+   "sha256": "59b960149d007bbe"
+  },
+  "ch07_f04_mcts_four_steps.svg": {
+   "bytes": 82283,
+   "sha256": "3bdee8866947dfb8"
+  },
+  "ch07_f05_mcts_budget.svg": {
+   "bytes": 63346,
+   "sha256": "562b0e0828a7f9ad"
+  },
+  "ch07_f06_world_model_spectrum.svg": {
+   "bytes": 93750,
+   "sha256": "7ec0b220c9022c28"
+  },
+  "ch08_f01_offline_setting.svg": {
+   "bytes": 83651,
+   "sha256": "7437032efcedf826"
+  },
+  "ch08_f02_extrapolation.svg": {
+   "bytes": 68514,
+   "sha256": "7922768371ffa2c8"
+  },
+  "ch08_f03_suppression.svg": {
+   "bytes": 74164,
+   "sha256": "d184cbd57aa16fc8"
+  },
+  "ch08_f04_compounding.svg": {
+   "bytes": 57913,
+   "sha256": "f6b9aecdf7bd4976"
+  },
+  "ch08_f05_ess.svg": {
+   "bytes": 44374,
+   "sha256": "0802939f65694a78"
+  },
+  "ch08_f06_ope.svg": {
+   "bytes": 60393,
+   "sha256": "22d21c5a02c80b22"
+  },
+  "ch09_f00_frameworks.svg": {
+   "bytes": 76424,
+   "sha256": "f624dda1b6033acb"
+  },
+  "ch09_f01_options.svg": {
+   "bytes": 72292,
+   "sha256": "07ae7e7385fbf8c4"
+  },
+  "ch09_f02_maze.svg": {
+   "bytes": 67001,
+   "sha256": "f1f05d36d505c1ef"
+  },
+  "ch09_f03_game.svg": {
+   "bytes": 45263,
+   "sha256": "52c856cdd9cc570e"
+  },
+  "ch09_f04_risk.svg": {
+   "bytes": 77080,
+   "sha256": "a8f3b27a6d2f1009"
+  },
+  "ch09_f05_ctde.svg": {
+   "bytes": 88310,
+   "sha256": "00bb4e0a5aba1a4c"
+  },
+  "ch10_f01_pipeline.svg": {
+   "bytes": 99648,
+   "sha256": "bb57f5eab24f4043"
+  },
+  "ch10_f02_bt.svg": {
+   "bytes": 66812,
+   "sha256": "4f8a4204cd8819cf"
+  },
+  "ch10_f03_kl.svg": {
+   "bytes": 84033,
+   "sha256": "d58550e7e9d1345b"
+  },
+  "ch10_f04_dpo_flow.svg": {
+   "bytes": 109364,
+   "sha256": "b87bb9be3a184268"
+  },
+  "ch10_f05_overopt.svg": {
+   "bytes": 84386,
+   "sha256": "aaba47d15706e0e1"
+  },
+  "ch10_f06_family.svg": {
+   "bytes": 60172,
+   "sha256": "44c08157fb9e6566"
+  },
+  "ch11_f01_pipeline.svg": {
+   "bytes": 68504,
+   "sha256": "052ce64a4b27136c"
+  },
+  "ch11_f02_group_norm.svg": {
+   "bytes": 64720,
+   "sha256": "3854f91f87aca0cc"
+  },
+  "ch11_f03_grpo_vs_ppo.svg": {
+   "bytes": 123965,
+   "sha256": "843caf36adc968e3"
+  },
+  "ch11_f04_length_entropy.svg": {
+   "bytes": 60850,
+   "sha256": "9d040f1bcf5ab016"
+  },
+  "ch11_f05_false_positive.svg": {
+   "bytes": 57916,
+   "sha256": "7c8696bcacb83354"
+  },
+  "ch11_f06_multistage.svg": {
+   "bytes": 121603,
+   "sha256": "ae5c2efe886d0e44"
+  },
+  "ch12_f01_single_vs_multi.svg": {
+   "bytes": 102067,
+   "sha256": "16c9fdc78b1109c8"
+  },
+  "ch12_f02_agentic_loop.svg": {
+   "bytes": 115340,
+   "sha256": "c3a8e57893ce416b"
+  },
+  "ch12_f03_four_adaptations.svg": {
+   "bytes": 101700,
+   "sha256": "391244263ba08c7f"
+  },
+  "ch12_f04_forgetting.svg": {
+   "bytes": 90493,
+   "sha256": "7413e30d86716737"
+  },
+  "ch12_f05_tradeoff.svg": {
+   "bytes": 55744,
+   "sha256": "68480d8dde191ca9"
+  },
+  "ch13prep_f01_autoregressive.svg": {
+   "bytes": 80333,
+   "sha256": "a5da28496ca2c0c7"
+  },
+  "ch13prep_f02_three_models.svg": {
+   "bytes": 70784,
+   "sha256": "b9d3a85399c5e0dd"
+  },
+  "ch13prep_f03_credit_broadcast.svg": {
+   "bytes": 47670,
+   "sha256": "2f5e816cb4686328"
+  },
+  "ch13prep_f04_reward_sources.svg": {
+   "bytes": 86561,
+   "sha256": "71db4d7bbef3e954"
+  }
+ }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="158" viewBox="0 0 240 158">
+<style>text{font-family:"Times New Roman",SimSun}.en{font-family:Times New Roman;font-style:italic}</style>
+<defs><marker id="ar7b" markerWidth="7" markerHeight="7" refX="5" refY="2.6" orient="auto"><path d="M0,0 L5,2.6 L0,5 Z" fill="#5b6b7f"/></marker></defs>
+<line x1="34" y1="126" x2="230" y2="126" stroke="#333" stroke-width="1.1" marker-end="url(#ar7b)"/>
+<line x1="34" y1="126" x2="34" y2="12" stroke="#333" stroke-width="1.1" marker-end="url(#ar7b)"/>
+<text x="132" y="140" font-size="7.5" text-anchor="middle">模型发布年份</text>
+<text x="10" y="70" font-size="7.5" text-anchor="middle" transform="rotate(-90 10 70)">50% 时间地平线（对数轴）</text>
+<text x="42" y="135" font-size="6.5" text-anchor="middle" class="en">2019</text>
+<text x="92" y="135" font-size="6.5" text-anchor="middle" class="en">2021</text>
+<text x="142" y="135" font-size="6.5" text-anchor="middle" class="en">2023</text>
+<text x="192" y="135" font-size="6.5" text-anchor="middle" class="en">2025</text>
+<text x="226" y="135" font-size="6.5" text-anchor="middle" class="en">2027</text>
+<text x="31" y="117" font-size="6.5" text-anchor="end" class="en">1min</text>
+<text x="31" y="90" font-size="6.5" text-anchor="end" class="en">1h</text>
+<text x="31" y="62" font-size="6.5" text-anchor="end" class="en">1day</text>
+<text x="31" y="34" font-size="6.5" text-anchor="end" class="en">1mo</text>
+<line x1="34" y1="31" x2="228" y2="31" stroke="#b05252" stroke-width="0.9" stroke-dasharray="4 3"/>
+<text x="228" y="27" font-size="7" text-anchor="end" fill="#b05252">一个月 ≈ 167 工时线</text>
+<path d="M42,122 C62,118 78,110 94,101 C112,91 126,80 140,68 C156,55 170,44 184,32" fill="none" stroke="#4a6fa5" stroke-width="1.5"/>
+<path d="M42,124 C66,118 96,104 128,82 C152,65 174,44 192,22 L198,28 C180,50 158,70 134,88 C104,110 68,122 42,127 Z" fill="#4a6fa5" opacity="0.12"/>
+<circle cx="42" cy="122" r="2.2" fill="#4a6fa5"/>
+<circle cx="86" cy="107" r="2.2" fill="#4a6fa5"/>
+<circle cx="130" cy="80" r="2.2" fill="#4a6fa5"/>
+<circle cx="168" cy="52" r="2.2" fill="#4a6fa5"/>
+<circle cx="190" cy="34" r="2.5" fill="#4a6fa5"/>
+<text x="190" y="45" font-size="7" text-anchor="middle" fill="#333"><tspan class="en">o3</tspan> ≈ 110 分钟</text>
+<path d="M190,34 C202,24 212,16 222,9" fill="none" stroke="#b05252" stroke-width="1.3" stroke-dasharray="5 3"/>
+<text x="230" y="8" font-size="7" text-anchor="end" fill="#b05252">条件外推：2028 年中—2031 年中</text>
+<text x="132" y="152" font-size="6.5" text-anchor="middle" fill="#666">自绘示意（对数轴近似直线 = 每约 7 个月翻倍），数据见 arXiv:2503.14499</text>
+</svg>

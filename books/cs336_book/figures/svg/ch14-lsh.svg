@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="384" viewBox="0 0 640 384">
+  <!-- MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <text x="16" y="22" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">LSH 的碰撞概率：和之结构把相似度阈值压成一条 S 曲线</text>
+
+  <!-- 网格与坐标轴 -->
+  <line x1="70" y1="95" x2="610" y2="95" stroke="#e4e7ea" stroke-width="0.8"/>
+  <line x1="70" y1="150" x2="610" y2="150" stroke="#e4e7ea" stroke-width="0.8"/>
+  <line x1="70" y1="205" x2="610" y2="205" stroke="#e4e7ea" stroke-width="0.8"/>
+  <line x1="70" y1="260" x2="610" y2="260" stroke="#3b4148" stroke-width="1"/>
+  <line x1="70" y1="260" x2="70" y2="40" stroke="#3b4148" stroke-width="1"/>
+
+  <!-- y 轴刻度 -->
+  <text x="46" y="264" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0</text>
+  <text x="38" y="209" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.25</text>
+  <text x="38" y="154" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.50</text>
+  <text x="38" y="99" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.75</text>
+  <text x="38" y="44" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">1.00</text>
+
+  <!-- x 轴刻度 -->
+  <text x="62" y="276" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.5</text>
+  <text x="170" y="276" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.6</text>
+  <text x="278" y="276" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.7</text>
+  <text x="386" y="276" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.8</text>
+  <text x="494" y="276" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">0.9</text>
+  <text x="598" y="276" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">1.0</text>
+  <text x="480" y="298" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">Jaccard 相似度 s</text>
+
+  <!-- 1-1/e 参考线 -->
+  <line x1="70" y1="121" x2="610" y2="121" stroke="#c9ccd1" stroke-width="0.9" stroke-dasharray="6 4"/>
+  <text x="530" y="117" font-family="Times New Roman, serif" font-size="10" fill="#7a5a2e">1−1/e ≈ 0.63</text>
+
+  <!-- 曲线：b=20,r=20（虚线） -->
+  <polyline points="70,260 124,260 178,259.8 232,259.2 286,256.5 340,246.5 394,214.5 448,139.8 502,56.5 556,40 594,40 610,40"
+            fill="none" stroke="#7d93b2" stroke-width="1.3" stroke-dasharray="5 3"/>
+
+  <!-- 曲线：b=10,r=20 -->
+  <polyline points="70,260 124,260 178,259.9 232,259.6 286,258.3 340,253.1 394,235.9 448,188.2 502,100.2 556,42.6 594,40 610,40"
+            fill="none" stroke="#9a6a2f" stroke-width="1.4"/>
+
+  <!-- 曲线：b=10,r=10 -->
+  <polyline points="70,257.8 124,254.6 178,247.0 232,232.2 286,205.2 340,163.2 394,110.7 448,64.5 502,43.0 556,40 594,40 610,40"
+            fill="none" stroke="#3b4148" stroke-width="1.6"/>
+
+  <!-- 图例（左上空白区） -->
+  <line x1="98" y1="58" x2="126" y2="58" stroke="#3b4148" stroke-width="1.6"/>
+  <text x="134" y="62" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">b=10, r=10（n=100）</text>
+  <line x1="98" y1="82" x2="126" y2="82" stroke="#9a6a2f" stroke-width="1.4"/>
+  <text x="134" y="86" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">b=10, r=20（n=200）</text>
+  <line x1="98" y1="106" x2="126" y2="106" stroke="#7d93b2" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="134" y="110" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">b=20, r=20（n=400）</text>
+
+  <line x1="70" y1="312" x2="610" y2="312" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="70" y="330" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">纵轴为碰撞概率 P；P(s) = 1 − (1 − s^r)^b，阈值 s* = (1/b)^(1/r)，三条曲线都在该点穿过 P ≈ 1 − 1/e。</text>
+  <text x="70" y="350" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">依据 lecture_14.py 第 292–295 行的 get_prob_collision(sim, b, r) 逐点计算重绘，</text>
+  <text x="70" y="368" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">第 305–309 行给出 r / b 各自让曲线往哪边移。</text>
+</svg>

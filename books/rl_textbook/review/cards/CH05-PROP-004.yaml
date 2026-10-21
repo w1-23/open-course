@@ -1,0 +1,50 @@
+issue_id: CH05-PROP-004
+chapter: 5
+severity: P1
+status: 已核验
+title: 第 308 行把 TRPO 的“目标线性化、约束二次化”写反成“约束线性化、目标二次化”
+summary: 5.3.3 节第一步写成“把约束线性化、把目标二次化，得到自然梯度方向 F^{-1}g”。TRPO 原文相反：对代理目标 L 取一阶近似、对 KL 约束取二阶近似，才有 F^{-1}g
+  与线搜索。写反之后“为什么方向是 F^{-1}g、为什么线搜索检查 KL”都失去依据，也与紧接着“用 Fisher 而不用 Hessian，因为它只依赖策略分布”的解释矛盾。
+current_text:
+  file: content/ch05.md
+  lines: 308-315
+  excerpt: 第 308 行：第一步，把约束线性化、把目标二次化，得到自然梯度方向 F^{-1}g，其中 g 是代理目标的梯度、F 是平均 Fisher 信息矩阵；第 315 行：用 Fisher
+    而不用 Hessian……KL 约束在局部等价于参数方向上的 Fisher 二次型
+sources:
+- key: 1502.05477_trpo
+  level: S
+  role: 原文明确：目标取线性近似、KL 约束取二次近似
+  pdf_page: 6
+  printed_page: 原文第 6 页
+  quote: by using a linear approximation to L and a quadratic approximation to the DKL constraint
+derivation_file: review/derivations/CH05-PROP-004.md
+reproduction_result:
+  note: 纯推导方向核对，无需数值实验。
+claims:
+- id: c1
+  text: TRPO 对目标取一阶近似得 g、对 KL 取二阶近似得 Fisher 二次型，再解 Fx=g。
+  evidence: 推导第 1 节；1502.05477 p.6
+  status: 已核对
+- id: c2
+  text: 按正文写法（约束线性化、目标二次化）得到的是牛顿方向 H^{-1}g，不是自然梯度。
+  evidence: 推导第 2 节（两种近似组合的对比）
+  status: 已核对
+- id: c3
+  text: 第 315 行的解释只在“Fisher 是约束 KL 的 Hessian”时才自洽。
+  evidence: 推导第 3 节；本章第 308 与 315 行对照
+  status: 已核对
+- id: c4
+  text: 修订复核：当前 content/ch05.md 已按本卡修正。
+  evidence: 推导复核（对照原文与现行正文）：第 312 行现为“对代理目标取一阶近似、对 KL 约束取二阶近似，解出 F^{-1}g”，顺序已改正，与 1502.05477 p.6 一致。
+  status: 已核对
+planned_fix:
+- 第 308 行改为：对代理目标取一阶（线性）近似、对 KL 约束取二阶（二次）近似，得到 F^{-1}g。
+- 同段补对照：反过来把目标二次化、约束线性化得到的是牛顿方向，说明 F 必须来自 KL。
+- 把第 315 行“KL 局部等价于 Fisher 二次型”提到第 308 行之前。
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: '2026-10-20'
+  notes: 审计对象 content/ch05.md（562 行）；引文均从 source/pages/ 切片；本章自产实验数字已用 figures/ch05_figs.py 重跑复现（cache/ch05_figs_log.txt）。

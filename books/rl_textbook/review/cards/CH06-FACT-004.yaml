@@ -1,0 +1,55 @@
+issue_id: CH06-FACT-004
+chapter: 6
+severity: P2
+status: 已有依据
+title: '"原始论文指出 α_ent 等价于对奖励做 1/α_ent 缩放"是推论，不是论文的原话'
+summary: 第 299 行与第 363 行两次把"α_ent 等价于对奖励做 1/α_ent 的缩放"记在 Haarnoja et al., 2018a 名下。原文的说法是：SAC 对奖励尺度特别敏感，因为奖励尺度充当能量最优策略的温度、从而控制策略的随机性（引文）；它给的是"奖励尺度 = 温度"的定性关系，没有写出 1/α_ent 这个换算。等价性本身是对的——在式 (6.16) 的目标里把奖励乘以
+  c，等于把 α_ent 除以 c——但它是从目标式直接读出的推论，标成论文"明确指出"属引用不准。读者据此去论文里找这句话会找不到，进而怀疑整段的出处。
+current_text:
+  file: content/ch06.md
+  lines: 299, 363
+  excerpt: |-
+    第 299 行：原始论文中 \(\alpha_{\mathrm{ent}}\) 是手工设定的超参数，并明确指出它等价于对奖励做 \(1/\alpha_{\mathrm{ent}}\) 的缩放
+    第 363 行：SAC 的原始论文指出 \(\alpha_{\mathrm{ent}}\) 等价于对奖励做 \(1/\alpha_{\mathrm{ent}}\) 的缩放，因此"调温度"与"调奖励尺度"在数学上是同一件事
+sources:
+- key: 1801.01290_sac
+  level: S
+  role: 原文对奖励尺度的表述：奖励尺度充当温度、控制随机性（没有 1/α 的换算）
+  pdf_page: 7
+  printed_page: §5 Reward scale（纸面 p.7）
+  quote: |-
+    Reward scale.
+    Soft actor-critic is particularly sensitive to
+    the scaling of the reward signal, because it serves the role
+    of the temperature of the energy-based optimal policy and
+    thus controls its stochasticity. Larger reward magnitudes
+    correspond to lower entries. Figure 3(b) shows how learn-
+    ing performance changes when the reward scale is varied:
+    For small reward magnitudes, the policy becomes nearly
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 不需要实验：把式 (6.16) 的奖励乘 c，整理即得 α_ent 变成 α_ent/c，等价性可直接看出。
+claims:
+- id: c1
+  text: 原文只说奖励尺度充当能量最优策略的温度并控制随机性，未给出 1/α_ent 的换算。
+  evidence: 1801.01290_sac p0007 原文 "it serves the role of the temperature of the energy-based optimal policy"
+  status: 已核对
+- id: c2
+  text: 由式 (6.16) 可推出：奖励乘 c 等价于 α_ent 除 c。
+  evidence: 式 (6.16) 的线性结构；证据见式 (6.16) 本身
+  status: 已核对
+- id: c3
+  text: 第 299、363 行把这条推论写成论文"明确指出"，属引用不准。
+  evidence: 第 299 行与第 363 行原文，与 1801.01290_sac p0007 对照
+  status: 已核对
+planned_fix:
+- 第 299 行改为：论文指出 SAC 对奖励尺度敏感、奖励尺度充当温度；由式 (6.16) 可知奖励乘 c 等价于 α_ent 除 c。
+- 第 363 行同样改写，并把"数学上是同一件事"限定为"在式 (6.16) 的目标里"。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: 第 308 行把自动温度调节的收敛性标为 [近似] 是对的；本条只针对奖励尺度那句的出处。

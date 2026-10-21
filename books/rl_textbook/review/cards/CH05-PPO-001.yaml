@@ -1,0 +1,115 @@
+issue_id: CH05-PPO-001
+chapter: 5
+severity: P2
+status: 已有依据
+title: 算法 5-2 的十项有三项不在 PPO 原文算法 1 内；clip 边界与 ratio 方向均正确
+summary: '判定项 5、7、8 全部通过：第 345 行明写"裁剪不是信赖域、没有约束 KL、不保证 J 不下降"， 与 PPO 原文式 (7) 只有 min/clip、无 KL 项一致，也与 Spinning
+  Up"PPO-Clip doesn''t have a constraint at all"一致；概率比方向 ρ_t=π_θ/π_old 与原文式 (6) 的定义一致，且全章只用 单步比率，没有把多步比率写成单步；关于
+  PPO 与 TRPO 的比较只出现在"动机"与"经验表现" 语境（第 321、345、473 行），没有"PPO 比 TRPO 更稳定/更好"的因果断言。判定项 6 的 十项**齐全**，但其中三项不属于原文
+  Algorithm 1：② terminated/truncated 分开掩码、 ④ 优势批内归一化、⑩ 按 KL 提前结束本轮。原文 Algorithm 1（p.5）只有"N actors × T
+  步 由 π_old 采样 → 算优势 → K epochs × minibatch M≤NT 优化代理 → θ_old←θ"；原文第 4 节 处理 KL 的方式是**调整惩罚系数 β**（d<d_targ/1.5
+  则 β/2，d>1.5d_targ 则 2β），不是 早停。本章框后只把 ④ 标了 [经验规律]，②与⑩ 的"早停"一半没有标来源，属 P2 溯源问题。
+
+  '
+current_text:
+  file: content/ch05.md
+  lines: 368-399
+  excerpt: '第 372 行："用 π_old = π_θ 采样 N 个并行环境 × T 步                    # ① rollout 由 π_old 生成" 第 373 行："记录
+    terminated 与 truncated 两个标志，分别处理             # ② 截断处保留自举" 第 376 行："Â_t ← (Â_t - mean Â) / (std Â +
+    1e-8)                        # ④ 优势批内归一化（可选）" 第 380 行："ρ_t = π_θ(a_t|s_t) / π_old(a_t|s_t)                    #
+    ⑤ 概率比" 第 385 行："若 mean KL(π_old‖π_θ) > 1.5·δ_KL 则提前结束本轮             # ⑩ KL 早停" 第 387 行："θ_old ← θ，φ_old
+    ← φ                                          # ⑩ 何时更新旧策略"
+
+    '
+sources:
+- key: 1707.06347_ppo
+  level: S
+  role: clip 目标的原始定义（只有 min/clip，无 KL 项），支撑"裁剪不是信赖域"
+  pdf_page: 3
+  printed_page: §3, p.3, Eq. (6)(7)
+  quote: hence, we now consider how to modify the objective, to penalize changes to the policy that move
+    rt(θ) away from 1. The main objective we propose
+  note: '原文只说这是"悲观下界"，没有任何 KL 约束或信赖域保证；本章"裁剪不是信赖域"的 表述与之一致。
+
+    '
+- key: 1707.06347_ppo
+  level: S
+  role: TRPO 用硬约束、PPO 不用约束的原始对照；以及"多轮复用同一批数据"的动机
+  pdf_page: 2
+  printed_page: §2.2, p.2, Eq. (3)(4)
+  quote: In TRPO [Sch+15b], an objective function (the “surrogate” objective) is maximized subject to
+    a constraint on the size of the policy update
+  note: '硬约束只属于 TRPO；本句同时支撑本章"多轮复用会毁掉策略"的动机段（第 321 行）。
+
+    '
+- key: 1707.06347_ppo
+  level: S
+  role: 算法 1 的原文内容（用于判定十项里哪些是原文、哪些是工程实践）
+  pdf_page: 5
+  printed_page: §5, Algorithm 1
+  quote: 'Algorithm 1 PPO, Actor-Critic Style: for iteration=1,2,... do for actor=1,2,...,N do Run policy
+    πθold in environment for T timesteps; Compute advantage estimates Â1,...,ÂT; end for; Optimize surrogate
+    L wrt θ, with K epochs and minibatch size M ≤NT; θold ←θ; end for
+
+    '
+  note: '原文算法 1 没有 terminated/truncated 掩码、没有优势归一化、也没有 KL 早停； KL 的处理在第 4 节是用自适应 β 的惩罚（L^KLPEN，式 (8)），不是提前结束本轮。
+
+    '
+- key: spinningup_ppo
+  level: B
+  role: 官方文档对"PPO-Clip 没有约束"的直说（实现说明，不作定理论据）
+  locator: 'Background: PPO-Clip 段'
+  quote: 'PPO-Clip doesn''t have a KL-divergence term in the objective and doesn''t have a constraint
+    at all. Instead relies on specialized clipping in the objective function to remove incentives for
+    the new policy to get far from the old policy.
+
+    '
+  note: '等级 B：只能作为实现说明的旁证，不能替代 PPO 原文式 (7) 或 TRPO 的定理。
+
+    '
+  pdf_page: 1
+claims:
+- id: c1
+  text: 裁剪目标没有 KL 约束，因而不是信赖域；本章第 345 行的表述正确。
+  evidence: 1707.06347_ppo p.3 式 (7) 及其"pessimistic bound"说明；spinningup_ppo 同句
+  status: 已核对
+- id: c2
+  text: 概率比写成 ρ_t=π_θ/π_old，方向正确，且没有把多步比率误写成单步。
+  evidence: 1707.06347_ppo p.3 "rt(θ) = πθ(at|st)/πθold(at|st), so r(θold)=1"；content/ch05.md 第 286–291、380
+    行
+  status: 已核对
+- id: c3
+  text: 算法 5-2 标出的①–⑩十项在框内都能找到对应行，无缺项。
+  evidence: content/ch05.md 第 372–387 行逐行对照；1707.06347_ppo p.5 算法 1 与式 (9)(11)(12)
+  status: 已核对
+- id: c4
+  text: ②④⑩（早停一半）不在原文算法 1 内，属本书约定或工程实践，框后未全部标注来源。
+  evidence: 1707.06347_ppo p.5 算法 1 全文 + p.4 第 4 节自适应 β；content/ch05.md 第 392–402 行只标了④
+  status: 已核对
+- id: c5
+  text: 全章没有"PPO 比 TRPO 更稳定/更好"的因果断言，相关比较都在动机或经验语境。
+  evidence: content/ch05.md 第 321、345、473 行通读；1707.06347_ppo p.4 "KL penalty performed worse than the
+    clipped surrogate objective"（原文自身的经验结论）
+  status: 已核对
+planned_fix:
+- 在算法 5-2 框后补一句来源分层：'①③⑤⑥⑦⑧ 与 θ_old←θ 见原文算法 1；⑨ 熵奖励与 ⑧ 的值损失形式见原文式 (9)；② 终止/截断分开是本书第 2 章的约定；④ 优势归一化与 ⑩
+  的 KL 早停是工程实践，不在原文算法 1 中——原文第 4 节处理 KL 用的是自适应惩罚系数 β（d<d_targ/1.5 则 β/2，d>1.5d_targ 则 2β）。'
+- 把第 385 行注释由'# ⑩ KL 早停'改为'# ⑩ KL 早停（工程实践；原文用自适应 β）'，避免读者把它当成论文算法的一部分。
+- 在 5.4.4 或 5.4.3 末尾加半句：'原文算法 1 的 KL 处理是惩罚系数自适应（L^KLPEN，式 8），本章伪代码采用更常见的早停写法，两者都属启发式，均不构成信赖域保证。'
+- 第 345 行'裁剪不是信赖域'保留；可在其后补一个括注出处（1707.06347 第 3 节：clip 只给出未裁剪目标的悲观下界），使该判定从'作者断言'变为'有原文支撑'。
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: '本条判据是"伪代码与原文算法/公式的逐项对照"，不需要数值实验。若日后改写算法 5-2， 应保持 ①–⑩ 编号与正文第 392–402 行的解释一一对应，否则读者无法按编号核对。
+
+    '
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: '本条为 P2：不影响公式正确性，但影响"哪部分是论文、哪部分是工程"的可追溯性。 修法建议全部落在框外说明，不要动算法 5-2 的可执行内容。 已按 lead 的 D3 施工（2026-10-20）：算法
+    5-2 框后新增来源分层段（①③⑤⑥⑦⑧ 与 θ_old←θ 出自原文算法 1；② 为本书约定；④⑩ 为工程实践，原文用自适应 β）；伪代码第 16 行注释改为"早停（工程实践）"。
+
+    '

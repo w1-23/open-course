@@ -1,0 +1,50 @@
+issue_id: CH06-FACT-002
+chapter: 6
+severity: P2
+status: 已有依据
+title: '"29 个达到人类水平"缺 75% 判据，且分母 46/49 与正文不一致'
+summary: 第 50 行写"DQN 在 49 个游戏上训练后，也只有 29 个达到或超过人类水平"。S&B §16.5 的表述是：以"达到人类得分 75% 以上"算作人类水平，DQN 在 46 个游戏中的 29 个达到该界（引文）；同一段还给出另外两个数——真正超过人类得分的是 22 个，比分优于此前最好学习系统的是 43 个。本章既没给 75% 判据，也没解释 46 与 49 的差（3 个游戏的人类基准不可比），读者会把"达到或超过人类水平"读成"29
+  个游戏打败人类"，这是把判据放宽后的另一个结论。另外，文献库里的 DQN 是 2013 年 arXiv 版（7 个游戏），49 个游戏的表只能经 S&B 转述，因此本条按 S&B 对齐，并把"Nature 原表"标为无法核实。
+current_text:
+  file: content/ch06.md
+  lines: '50'
+  excerpt: 即便如此，DQN 在 49 个游戏上训练后，也只有 29 个达到或超过人类水平（Mnih et al., 2015），在需要长程规划的《蒙特祖玛的复仇》上几乎只有随机玩家的水平
+sources:
+- key: RLbook2020
+  level: S
+  role: 75% 判据、29/46 的分母，以及"超过人类 22 个"的对照数字
+  pdf_page: 460
+  printed_page: §16.5 Human-level Video Game Play（纸面 p.441）
+  quote: |-
+    games, and played better than the human player on 22 of the games. By considering any
+    performance that scored at or above 75% of the human score to be comparable to, or
+    better than, human-level play, Mnih et al. concluded that the levels of play DQN learned
+    reached or exceeded human level on 29 of the 46 games. See Mnih et al. (2015) for a
+    more detailed account of these results.
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 不需要实验。若要保留"29"这个数，须同时给出判据（≥75% 人类得分）与分母（46）；Nature 原表（Mnih et al., 2015）不在文献库内，无法进一步核对 49 的口径。
+claims:
+- id: c1
+  text: 人类水平以"达到人类得分 75% 以上"为界，DQN 在 46 个游戏中的 29 个达到该界。
+  evidence: RLbook2020 p0460 原文 "at or above 75% of the human score … reached or exceeded human level on 29 of the 46 games"
+  status: 已核对
+- id: c2
+  text: 同一段给出的"真正超过人类得分"的数字是 22 个，与 29 不是同一口径。
+  evidence: RLbook2020 p0460 原文 "played better than the human player on 22 of the games"
+  status: 已核对
+- id: c3
+  text: 文献库内的 DQN 文献是 2013 年 arXiv 版（7 个游戏），无法核对 Nature 版 49 个游戏的原始表。
+  evidence: source/library/1312.5602_dqn/meta.yaml（year 2013, 9 页）与其摘要 "seven Atari 2600 games"
+  status: 待核验
+planned_fix:
+- 第 50 行补判据与分母：以人类得分 75% 为界，46 个游戏中 29 个达到；真正超过人类得分的是 22 个；并说明 3 个游戏因人类基准不可比被排除（若作者核对 Nature 原表后口径不同，按原表改）。
+- 延伸阅读补一句：库内 1312.5602 是 2013 年 7 个游戏的 arXiv 版，49 个游戏的数字出自 Nature 版。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: '"5 个游戏上的消融实验"与 S&B p0463 一致（"learning runs on 5 of the games"），本条不涉及。'

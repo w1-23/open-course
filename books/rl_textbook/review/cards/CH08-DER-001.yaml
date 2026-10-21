@@ -1,0 +1,91 @@
+issue_id: CH08-DER-001
+chapter: 8
+severity: P1
+status: 已有依据
+title: 定理 8.2 的证明梗概把 Σ tε·T 错算成 T²ε（实际是 εT²(T+1)/2）
+summary: >
+  8.4.1 节按"首次犯错时刻"分解复合误差，写出
+  ≤ Σ_{t=1}^{T} Pr(首次犯错=t)·(T−t) ≤ Σ tε·T = T²ε。
+  前两步成立，但最后一步的等号不成立：Σ_{t=1}^{T} tε·T = εT·T(T+1)/2
+  = εT²(T+1)/2，是 T³ 量级，比主张的 T²ε 大 (T+1)/2 倍（T=56、ε=0.1 时
+  8937.6 对 313.6）。结论 T²ε 本身成立，但必须换一条链：按"每步是否出错"
+  求和，Pr(第 t 步出错) ≤ tε，于是总损失 ≤ εT(T+1)/2 ≤ T²ε（T≥1）。
+  同节第 249 行还把图 8-4 的实测（T=56 时后悔值 47.6）说成"与二次界形状一致"，
+  实测 log-log 斜率约 1.3（T≥16 为 1.27、全程约 1.37），应写成"慢于二次上界"。
+
+current_text:
+  file: content/ch08.md
+  lines: "243-251"
+  excerpt: >
+    **证明梗概.** 把回合按"第一次犯错"的时刻 \(t\) 分解……于是
+    \[J(\pi^{\star})-J(\hat\pi)\le\sum_{t=1}^{T}\Pr(\text{在 }t\text{ 首次犯错})\cdot(T-t)
+    \le\sum_{t=1}^{T}t\varepsilon\cdot T=T^{2}\varepsilon .\]
+
+sources:
+  - key: 2005.01643_offline-rl-tutorial
+    level: C
+    role: 旁证——离线模仿学习的误差界"至多二次于时间步、在线为线性"，即二次方来自误差累积
+    pdf_page: 10
+    printed_page: "§2.6"
+    quote: >
+      This means that, even with optimal action labels, we get an error bound that is
+      at best quadratic in the time horizon H in the offline case, but linear in H in the
+      online case. Intuitively, the reason for this gap in performance is that, in the
+      offline case, the learned policy π(a|s) may enter into states that are far outside
+      of its training distribution
+    note: >
+      该段引的是 Ross et al. (2011) 的 Theorem 3.2，可用于"二次方"的定性归属；
+      它没有给出常数形式，因此本卡的算术部分以推导文件为证据，不靠这条引文。
+
+  - key: 1011.0686_dagger
+    level: S
+    role: 一手出处——行为克隆（supervised 模仿）的误差确实按 T² 增长，正文的结论常数由此而来
+    pdf_page: 3
+    printed_page: "§2.1"
+    quote: >
+      Ross and Bagnell (2010) provided an imitation learning example where J(ˆπsup) =
+      (1 −ϵT)J(π∗) + T 2ϵ. Hence the traditional supervised learning approach has poor
+      performance guarantees due to the quadratic growth in T.
+    note: >
+      这条给的是"存在一个例子使误差按 T²ε 增长"，与我们证明的上界同阶；
+      它不支持正文那条错的求和链（那一步的算术问题见 c2）。
+derivation_file: review/derivations/CH08-DER-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本卡不需要新实验：图 8-4 的既有数据（T=56 时 BC 后悔值约 45，参考线按 T² 缩放）
+    已在 figures/ch08_figs.py 的 fig_compounding() 里算过，可直接引用其数值作对照。
+
+claims:
+  - id: c1
+    text: 定理 8.2 主张的 T²ε 上界在"每步损失≤1、专家状态上错误率≤ε"的设定下成立。
+    evidence: 推导见 review/derivations/CH08-DER-001.md 第 3 节：Σ_{t≤T} tε = εT(T+1)/2 ≤ T²ε（T≥1）
+    status: 已核对
+  - id: c2
+    text: 正文第 244 行的等号 Σ tε·T = T²ε 不成立，实际值是 εT²(T+1)/2。
+    evidence: 推导见 CH08-DER-001.md 第 2 节逐项求和与第 3 节数值表（T=56、ε=0.1 时 8937.6 对 313.6）
+    status: 已核对
+  - id: c3
+    text: 离线模仿学习的误差"至多二次于 T、在线为线性"这一形状有综述旁证。
+    evidence: 2005.01643_offline-rl-tutorial p.10（引 Ross et al. 2011 Thm 3.2）
+    status: 已核对
+  - id: c4
+    text: 图 8-4 的实测后悔值增长慢于 T² 上界（T=56 时 47.6，上界 313.6；log-log 斜率约 1.3），正文"形状一致"的说法过强。
+    evidence: 复现数据见 figures/ch08_figs.py 的 fig_compounding()，对照推导 CH08-DER-001.md 第 4 节
+    status: 已核对
+
+planned_fix:
+  - 第 241–245 行删掉 \((T-t)\) 因子与随之的 \(t\varepsilon\cdot T\)，改成"按每步是否出错求和"：\(\sum_t\Pr(\text{第 }t\text{ 步出错})\le\sum_t t\varepsilon=\varepsilon T(T+1)/2\le T^{2}\varepsilon\)，并在行内注明最后一步用了 \((T+1)/2\le T\)（\(T\ge1\)）。
+  - 若保留"首次犯错"分解，则必须写成 \(\le\sum_t\Pr(\text{首次犯错}=t)(T-t)\le\sum_t t\varepsilon\cdot T=\varepsilon T^{2}(T+1)/2\)，再说明"这比 \(T^{2}\varepsilon\) 大 \((T+1)/2\) 倍，故改用逐步求和"——不能保留那个错误的等号。
+  - 第 249 行把"累计损失随 \(T\) 二次增长，与界 (8.14) 的形状一致"改成"实测增长慢于界给出的二次上界（log-log 斜率约 1.3，T=56 时 47.6 对 313.6）"，并把 \(T^{2}\varepsilon\) 明确标为上界而非预期值。
+  - 同步检查习题：若某题要求"用 (8.14) 估算长回合的误差"，答案里不能复用这条错误的求和链。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    结论（\(T^2\varepsilon\)）与主流文献一致，问题只在证明链条的算术；因此这是 P1
+    而非 P0——读者按结论施工不会错，但按过程复算会得到矛盾的 \(T^{3}\) 量级。

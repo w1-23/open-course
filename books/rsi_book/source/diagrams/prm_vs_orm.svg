@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="250" viewBox="0 0 380 250">
+<style>text{font-family:"Times New Roman",SimSun}.en{font-family:Times New Roman;font-style:italic}</style>
+<defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5b6b7f"/></marker></defs>
+<text x="14" y="20" font-size="10" fill="#4a7ba6">ORM：整解一个分</text>
+<text x="14" y="34" font-size="10" fill="#7d9b6a">PRM：每步一个分</text>
+<g stroke="#5b6b7f" stroke-width="1" fill="none">
+<path d="M120 60 L80 92"/><path d="M120 60 L160 92"/>
+<path d="M80 92 L56 124"/><path d="M80 92 L104 124"/>
+<path d="M160 92 L136 124"/><path d="M160 92 L184 124"/>
+<path d="M56 124 L44 156"/><path d="M56 124 L68 156"/>
+<path d="M104 124 L92 156"/><path d="M104 124 L116 156"/>
+<path d="M136 124 L124 156"/><path d="M136 124 L148 156"/>
+<path d="M184 124 L172 156"/><path d="M184 124 L196 156"/>
+</g>
+<circle cx="120" cy="56" r="7" fill="#eef3fb" stroke="#4a7ba6" stroke-width="1.2"/>
+<circle cx="80" cy="92" r="6" fill="#eef3fb" stroke="#4a7ba6" stroke-width="1"/>
+<circle cx="160" cy="92" r="6" fill="#b05252" stroke="#b05252" stroke-width="1"/>
+<circle cx="56" cy="124" r="5.5" fill="#eef3fb" stroke="#4a7ba6" stroke-width="1"/>
+<circle cx="104" cy="124" r="5.5" fill="#eef3fb" stroke="#4a7ba6" stroke-width="1"/>
+<circle cx="136" cy="124" r="5.5" fill="#eef3fb" stroke="#4a7ba6" stroke-width="1"/>
+<circle cx="184" cy="124" r="5.5" fill="#eef3fb" stroke="#4a7ba6" stroke-width="1"/>
+<g font-size="7" text-anchor="middle">
+<circle cx="44" cy="156" r="4.5" fill="#7d9b6a"/><circle cx="68" cy="156" r="4.5" fill="#b05252"/>
+<circle cx="92" cy="156" r="4.5" fill="#7d9b6a"/><circle cx="116" cy="156" r="4.5" fill="#7d9b6a"/>
+<circle cx="124" cy="156" r="4.5" fill="#b05252"/><circle cx="148" cy="156" r="4.5" fill="#b05252"/>
+<circle cx="172" cy="156" r="4.5" fill="#b05252"/><circle cx="196" cy="156" r="4.5" fill="#b05252"/>
+</g>
+<text x="120" y="176" font-size="8" fill="#666" text-anchor="middle">同一题的采样树：绿=最终正确，红=错误</text>
+<text x="120" y="190" font-size="8" fill="#4a7ba6" text-anchor="middle">ORM 只在叶子上监督；PRM 给每个中间节点打分，</text>
+<text x="120" y="202" font-size="8" fill="#4a7ba6" text-anchor="middle">错误步骤（红圈节点）在发生处即被定位</text>
+<line x1="230" y1="56" x2="366" y2="56" stroke="#7d9b6a" stroke-width="1.4"/>
+<text x="230" y="48" font-size="8.5" fill="#7d9b6a">步骤1 ✓ 0.9</text>
+<line x1="230" y1="86" x2="340" y2="86" stroke="#7d9b6a" stroke-width="1.4"/>
+<text x="230" y="78" font-size="8.5" fill="#7d9b6a">步骤2 ✓ 0.8</text>
+<line x1="230" y1="116" x2="262" y2="116" stroke="#b05252" stroke-width="1.4"/>
+<text x="230" y="108" font-size="8.5" fill="#b05252">步骤3 ✗ 0.2</text>
+<text x="230" y="140" font-size="8.5" fill="#666">此后分支全部被剪除</text>
+<text x="230" y="158" font-size="8.5" fill="#666">（PRM 引导的逐步搜索）</text>
+<path d="M246 122 Q240 138 232 146" fill="none" stroke="#b05252" stroke-width="1" marker-end="url(#ar4)"/>
+</svg>

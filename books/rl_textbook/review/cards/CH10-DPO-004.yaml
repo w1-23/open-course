@@ -1,0 +1,61 @@
+issue_id: CH10-DPO-004
+chapter: 10
+severity: P2
+status: 已有依据
+title: 小结说 DPO 依赖"五个前提"，而 10.3.2 列了七条，且第七条被小结排除在精确性范围外
+summary: >
+  10.3.2 把推导成立的条件逐条摊成七条（KL 正则目标、β_KL>0、参考策略全支撑、Z(x) 有限
+  且为正、偏好服从 BT 或其可扩展版本、同一 prompt 内比较、有限数据只是经验近似）。但
+  本章小结第 393 行写成"它依赖 KL 正则目标、Bradley–Terry 偏好、同一 prompt 内比较、
+  参考策略全支撑、β_KL 为正这五个前提"：漏了 Z(x) 有限与有限数据两条；同时第 254 行
+  说第七条"不是推导的漏洞，而是所有经验风险最小化的共同处境"，第 393 行却把它排除在
+  "精确性的范围"之外，两处口径不一致。读者按小结复述时会漏掉两条前提。
+
+current_text:
+  file: content/ch10.md
+  lines: "232-254, 391-393"
+  excerpt: >
+    第 393 行：第三，DPO 的推导是精确的，但精确性的范围有限。它依赖 KL 正则目标、
+    Bradley–Terry 偏好、同一 prompt 内比较、参考策略全支撑、β_KL 为正这五个前提；
+    把这套推导说成"DPO 与 RLHF 等价"越过了前提能支撑的范围。
+
+sources:
+  - key: 2305.18290_dpo
+    level: S
+    role: 最优策略取 Gibbs 形式时 Z(x) 出现在分母（Z 有限是形式有定义的前提）
+    pdf_page: 4
+    printed_page: "§4 Eq. (4) 前后（p.4）"
+    quote: >
+      it is straightforward to show that the optimal solution to the KL-constrained reward
+      maximization objective in Eq. 3 takes the form
+
+claims:
+  - id: c1
+    text: 10.3.2 实际列了七条条件，而非五条；遗漏的是"Z(x) 有限"与"有限数据只是经验近似"。
+    evidence: content/ch10.md 第 242-254 行逐条编号；式 (10.12) 是对数据集的经验期望
+    status: 已核对
+  - id: c2
+    text: >
+      第 254 行称第七条"不是推导的漏洞"，第 393 行却把它算作"精确性范围"的边界，两处
+      对该条件性质的定位相反。
+    evidence: 推导：content/ch10.md 第 254 行与第 393 行对同一条件的性质定位相反
+    status: 已核对
+  - id: c3
+    text: 警告 10.1 与第 240 行对"DPO 与 RLHF 等价"的否定是正确的，不因上述计数问题受影响。
+    evidence: 推导：警告 10.1 的等价类限定，对照 2305.18290_dpo p.6 定理 1
+    status: 已核对
+
+planned_fix:
+  - 第 393 行改为"它依赖 10.3.2 节列的七个前提（其中第六条是第五条的直接推论）"，或按七条原文重述，不再写"五个前提"。
+  - 第 254 行与 393 行对第七条的性质统一：要么都说"它是经验近似的边界、不属于推导漏洞"，要么都把它列进"精确性的范围"并说明为何。
+  - 顺带核对本章小结其余五条与各节结论的一一对应，避免再出现"节里七条、小结五条"这类压缩失真。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条是章内计数/口径不一致，不涉及新证据；施工时把 10.3.2 的七条编号显式写出（第一…第七），
+    小结直接按编号引用即可。

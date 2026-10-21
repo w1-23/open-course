@@ -1,0 +1,35 @@
+unit_id: CH03-U08
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 超参数二：head_dim×heads 与 d_model 的关系
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p42
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Surprising (?) consensus hyperparameter 2 / Head-dim*num-heads to model-dim ratio. As a reminder,
+    slide from 224n. / This doesn’t have to be true: we can have head-dimensions > model-dim / num-heads.
+    / But most models do follow this guideline'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p43
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: How many heads, whats the model dim? / Some examples of this hyperparameter / Num heads / Head
+    dim / Model dim / Ratio / GPT3 / 96 / 128 / 12288 / 1 / T5 / 128 / 128 / 1024 / 16 / T5 v1.1 / 64
+    / 64 / 4096 / 1 / LaMDA / 128 / 128 / 8192 / 2 / PaLM / 48 / 258 / 18432 / 1.48 / LLaMA2 / 64 / 128
+    / 8192 / 1 / Qwen 3.5 (27B) / 24 / 256 / 5120 / 1.2 / Most models have ratios around 1 – notable exceptions
+    by some google mode
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p51
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Summary: hyperparameters / Feedforward / • / Factor-of-4 rule of thumb (8/3 for GLUs) is / standard
+    (with some evidence) / Head dim / • / Head dim*Num head = D model is standard / – but low to no validation
+    / Aspect ratio / • / Wide range of ‘good’ values (100-200). / Systems concerns dictate the value /
+    Regularization / • / You still ‘regularize’ LMs but its effects are / primarily on optimization dynamics'
+technical_evidence: []
+knowledge_slot:
+  why_it_matters: 头维度与模型维度的经验比例
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: course_only
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

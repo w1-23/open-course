@@ -1,0 +1,19 @@
+key: spinningup_ddpg
+version: 2026-10-19
+level: B
+role: docs
+title: "Deep Deterministic Policy Gradient &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_ddpg.html
+bytes: 49818
+pages: null
+sha256: 6dff6e329fcd828a516b25cf0b8f0cc5f780793cdda195b79ea7722c3f2013d0
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

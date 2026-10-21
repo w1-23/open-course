@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <defs>
+    <marker id="a17b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#3b4148"/>
+    </marker>
+    <marker id="a17c" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#9a6a2f"/>
+    </marker>
+  </defs>
+
+  <text x="10" y="20" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">视觉 token 的注入流水线：编码器 → 连接器 → token 预算 → 与文本拼接 → LM</text>
+
+  <!-- 文本分支 -->
+  <rect x="470" y="14" width="196" height="34" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <text x="480" y="36" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">文本 token（BPE，第 1 章）</text>
+  <line x1="568" y1="48" x2="568" y2="62" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a17b)"/>
+
+  <!-- 主链 -->
+  <rect x="12" y="64" width="76" height="56" rx="3" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
+  <text x="24" y="86" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">图像 I</text>
+  <text x="24" y="103" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">任意 W×H</text>
+
+  <line x1="88" y1="92" x2="106" y2="92" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a17b)"/>
+
+  <rect x="110" y="64" width="120" height="56" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="120" y="84" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">视觉编码器</text>
+  <text x="120" y="100" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">CLIP / SigLIP / ViT</text>
+  <text x="120" y="113" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">patch 序列 → 向量</text>
+
+  <line x1="230" y1="92" x2="248" y2="92" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a17b)"/>
+
+  <rect x="252" y="64" width="140" height="56" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="262" y="84" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">连接器（projector）</text>
+  <text x="262" y="100" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">线性 W / 2 层 MLP</text>
+  <text x="262" y="113" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">cross-attn（压到定长）</text>
+
+  <line x1="392" y1="92" x2="410" y2="92" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a17b)"/>
+
+  <rect x="414" y="58" width="122" height="68" rx="3" fill="#f7f0e8" stroke="#b08a5a" stroke-width="1"/>
+  <text x="424" y="76" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">token 预算</text>
+  <text x="424" y="93" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">LLaVA 576（算得）</text>
+  <text x="424" y="106" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">Qwen-VL 256（固定）</text>
+  <text x="424" y="119" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">Qwen2-VL 66（合并）</text>
+
+  <line x1="536" y1="92" x2="552" y2="92" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a17b)"/>
+
+  <rect x="556" y="64" width="86" height="56" rx="3" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
+  <text x="566" y="86" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">[vis; txt]</text>
+  <text x="566" y="103" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">同一序列</text>
+
+  <line x1="642" y1="92" x2="660" y2="92" stroke="#3b4148" stroke-width="1.2" marker-end="url(#a17b)"/>
+
+  <rect x="664" y="64" width="84" height="56" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <text x="674" y="86" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">LM</text>
+  <text x="674" y="103" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">同一套 attention</text>
+
+  <!-- 第二行：生成侧替代路线 -->
+  <line x1="12" y1="146" x2="748" y2="146" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="12" y="166" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">生成侧（Chameleon 路线，第 271–298 行）</text>
+
+  <rect x="12" y="176" width="164" height="58" rx="3" fill="#ffffff" stroke="#b08a5a" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="22" y="195" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">VQ-VAE 量化</text>
+  <text x="22" y="211" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">512×512 → 1024 token</text>
+  <text x="22" y="224" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">码本 8192</text>
+
+  <line x1="176" y1="205" x2="196" y2="205" stroke="#9a6a2f" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#a17c)"/>
+
+  <rect x="200" y="176" width="150" height="58" rx="3" fill="#ffffff" stroke="#b08a5a" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="210" y="195" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">离散 token 序列</text>
+  <text x="210" y="211" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">与文本同一词表</text>
+  <text x="210" y="224" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">可被同一个 LM 生成</text>
+
+  <line x1="350" y1="205" x2="370" y2="205" stroke="#9a6a2f" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#a17c)"/>
+
+  <rect x="374" y="176" width="164" height="58" rx="3" fill="#ffffff" stroke="#b08a5a" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="384" y="195" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">自回归生成图像</text>
+  <text x="384" y="211" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">统一但丢细节</text>
+  <text x="384" y="224" font-family="Times New Roman, serif" font-size="9.5" fill="#8a4b2a">OCR 类任务最受伤</text>
+
+  <rect x="556" y="176" width="192" height="58" rx="3" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
+  <text x="566" y="195" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">替代：连续编码器 + diffusion</text>
+  <text x="566" y="211" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">理解与生成分工</text>
+  <text x="566" y="224" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">课程总结第 45 行</text>
+
+  <!-- 底部说明 -->
+  <line x1="12" y1="252" x2="748" y2="252" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="12" y="272" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">token 预算才是设计约束：单图用高分辨率、多图用基础分辨率、视频用低分辨率，目标是"三类输入长度大致相同"（第 166–170 行）</text>
+  <text x="12" y="292" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">AnyRes：把图切成 a×b 块分别编码再拼接，块数越多细节越多、序列越长；过多则用双线性插值压回（第 159–164 行）</text>
+  <text x="12" y="312" font-family="Times New Roman, serif" font-size="11" fill="#3b4148">576 = (336/14)² 是教材按 ViT-L/14@336px 算的（第 78 行）；66 = (224/14)²/2² + 2，课程只给结果，加法为本书推断</text>
+  <text x="12" y="338" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_17.py 第 137–144、154–170、198–201、216–221、244–252、271–298 行重绘。</text>
+</svg>

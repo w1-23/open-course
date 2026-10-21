@@ -1,0 +1,49 @@
+issue_id: CH05-PROP-005
+chapter: 5
+severity: P2
+status: 已核验
+title: 定理 5.3 说 C“依赖 1/(1−γ)”，TRPO 原文是 C = 4εγ/(1−γ)²
+summary: 定理 5.3 括注写“C 依赖奖励尺度与 1/(1−γ)”，原文是 C = 4εγ/(1−γ)²，对 γ 是二次依赖。界常数决定 δ 该取多大；把 (1−γ)^{-2} 写成 (1−γ)^{-1}
+  会低估 γ→1 时邻域的收缩速度。
+current_text:
+  file: content/ch05.md
+  lines: 304-306
+  excerpt: 定理 5.3（TRPO 的单调改进 [近似]）：……代理目标与真实目标之差被 Cδ 一致界定（C 依赖奖励尺度与 1/(1−γ)）
+sources:
+- key: 1502.05477_trpo
+  level: S
+  role: 原文给出界常数 C = 4εγ/(1−γ)²
+  pdf_page: 3
+  printed_page: 原文第 3 页（Theorem 1 后的 Corollary）
+  quote: 'follows directly from Theorem 1: η(˜π) ≥Lπ(˜π) −CDmax KL (π, ˜π), where C = 4ϵγ (1 −γ)2'
+- key: 1502.05477_trpo
+  level: S
+  role: 原文说明理论上用 max KL，平均 KL 只是可 tractable 的替代
+  pdf_page: 7
+  printed_page: 原文第 7 页
+  quote: uses the maximum KL divergence in Equation (11)
+reproduction_result:
+  note: 常数核对，无需数值实验。
+claims:
+- id: c1
+  text: 原文界为 J(π') ≥ L_π(π') − C·max_s KL，C = 4εγ/(1−γ)²。
+  evidence: 1502.05477_trpo p.3 原文 where C = 4εγ/(1−γ)²
+  status: 已核对
+- id: c2
+  text: 定理 5.3 的“1/(1−γ)”低估发散速度，应写成 (1−γ)^{-2}。
+  evidence: 式 (5.19)–(5.22) 上下文与原文常数对照
+  status: 已核对
+- id: c3
+  text: 修订复核：当前 content/ch05.md 已按本卡修正。
+  evidence: 推导复核（对照原文与现行正文）：定理 5.3（第 309 行）现写 C=4εγ/(1−γ)² 并注明出处，本卡指出的量级问题已消除。
+  status: 已核对
+planned_fix:
+- 定理 5.3 括注改为“C = 4εγ/(1−γ)²，ε = max_{s,a}|A^π(s,a)|，对 γ 是二次依赖”。
+- 第 305 行后补一句：C 的形式决定 δ 的量级，γ 越接近 1，同样 δ 下允许的上界越松。
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: '2026-10-20'
+  notes: 审计对象 content/ch05.md（562 行）；引文均从 source/pages/ 切片；本章自产实验数字已用 figures/ch05_figs.py 重跑复现（cache/ch05_figs_log.txt）。

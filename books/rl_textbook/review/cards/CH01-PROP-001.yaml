@@ -1,0 +1,90 @@
+issue_id: CH01-PROP-001
+chapter: 1
+severity: P0
+status: 已有依据
+title: 命题 1.1 断言纯贪心"几乎总选臂 1、遗憾 TΔ₁+O(1)"，被两臂反例推翻
+summary: >
+  命题 1.1 说：初值全等、固定平局规则下，若臂 1 非最优，贪心此后"几乎总选臂 1"，
+  于是 Regret(T) = TΔ₁ + O(1)。但第 1 步之后 Q(1) = R_1，只要 R_1 < 0，第 2 步
+  贪心就会改选其它臂。确定性两臂反例（臂 1 恒 −1、臂 2 恒 +1、Δ₁ = 2）给出
+  Regret(200) = 2.000，而命题预言 400。锁死与否取决于首个样本的符号，
+  不是必然事件；证明中"正漂移随机游走期望返回次数有限"也不成立。
+
+current_text:
+  file: content/ch01.md
+  lines: "77-81"
+  excerpt: >
+    若臂 1 不是最优臂，则贪心在第 1 步必选臂 1 且此后几乎总选臂 1，
+    故 Regret(T)=TΔ₁+O(1)，遗憾是 T 型的。
+    证明只需一句：初值全等且平局规则固定，故第 1 步选臂 1；此后只有臂 1 的估计被更新。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 贪心行为依赖初值与"所有动作至少被选一次"这一事实
+    pdf_page: 56
+    printed_page: "§2.6"
+    quote: >
+      All the methods we have discussed so far are dependent to some extent on the
+      initial action-value estimates, Q1(a). ... For the sample-average methods, the
+      bias disappears once all actions have been selected at least once ...
+    note: 该段说明偏差/行为由初值决定，可与反例一起支持"锁死不是必然"。
+
+derivation_file: review/derivations/CH01-PROP-001.md
+reproduction_file: review/reproductions/CH01-PROP-001_greedy.py
+reproduction_result:
+  setup: K=2、Q_0=0、平局取下标小者、样本平均更新、T=200
+  cases:
+    - config: 臂 1 恒 −1，臂 2 恒 +1（Δ₁=2）
+      picks: [1, 199]
+      regret: 2.0
+      predicted: 400
+      verdict: 命题不成立
+    - config: 臂 1 恒 +1，臂 2 恒 0（臂 1 最优）
+      picks: [200, 0]
+      regret: 0.0
+      predicted: 0
+      verdict: 平凡成立
+    - config: 臂 1 恒 +0.5，臂 2 恒 +1
+      picks: [200, 0]
+      regret: 100.0
+      predicted: 100
+      verdict: 首个样本为正时成立
+  conclusion: >
+    只有"首个样本非负"时才会锁死；命题缺的正是这个条件，
+    而原文的证明把它当成普遍事实。
+
+claims:
+  - id: c1
+    text: 第 1 步之后 Q(1)=R_1，R_1<0 时第 2 步贪心改选其它臂。
+    evidence: 逐语句推理，见 derivation_file §1
+    status: 已核对
+  - id: c2
+    text: 确定性两臂反例使 Regret(T)=2（常数），命题预言 2T。
+    evidence: 复现脚本三组构型实测（reproduction_file）
+    status: 已核对
+  - id: c3
+    text: 「此后只有臂 1 的估计被更新」这一句在反例中不成立。
+    evidence: 复现输出 picks = [1, 199]
+    status: 已核对
+  - id: c4
+    text: 贪心是否锁死取决于初值与首个样本，而非必然锁死。
+    evidence: RLbook2020 p.56（初值偏差段）+ 反例
+    status: 已核对
+
+planned_fix:
+  - 命题 1.1 改为带条件的版本：加"首个被选臂的首次回报非负"前提，并明确 Δ₁ 为该臂与最优臂的均值差。
+  - 删除"此后只有臂 1 的估计被更新"与"正漂移随机游走返回该区域的期望次数有限"两句，改为"一旦 Q(1) 低于其它臂的当前估计，贪心就会换臂，故不保证锁死"。
+  - 紧接着补一句"贪心的真正缺陷是没有机制保证再次尝试，最坏情形遗憾为 Θ(T)"，与命题 1.2 的下界衔接，并明确区分"可能线性/必然线性/次线性"三种口径。
+  - 检查 1.2.2 之后引用命题 1.1 的段落（若有"因此贪心必然线性"之类推论）一并改写。
+  - 习题中若要求"证明贪心遗憾为线性"，需改成"构造一个使贪心线性遗憾的奖励序列"。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条与命题 1.2（ε-贪心线性下界）方向一致但强度不同，修订时最容易把两者写混，
+    必须在正文用一句话区分"可能/必然"。

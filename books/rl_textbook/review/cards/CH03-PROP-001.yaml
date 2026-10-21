@@ -1,0 +1,89 @@
+issue_id: CH03-PROP-001
+chapter: 3
+severity: P1
+status: 已有依据
+title: λ-回报的 λ=1 退化未处理、权重和未说明，且 w_5 的数字算错
+summary: >
+  式 (3.18) 只写 G^λ=(1−λ)Σ_{n≥1}λ^{n−1}G^{(n)}，既没说明权重和为 1（这正是"变平缓而不是摊平"
+  的唯一判据），也没处理 λ=1 的退化：λ=1 时每个有限 n 的权重 (1−λ)λ^{n−1} 都是 0，主和归零、
+  归一化失效，必须写出残余项 λ^{T−t−1}G_t → G_t 才能得到"退化为 MC"。
+  另外第 273 行的数字对比有算术错：λ=0.9 的 w_5 = 0.1×0.9^4 = 0.0656，不是 0.033；
+  0.0314 是 λ=0.9 的 w_12，像是把第 12 项当成了第 5 项。
+
+current_text:
+  file: content/ch03.md
+  lines: "264-286"
+  excerpt: >
+    式 (3.18)：G^{\lambda}_t=(1-\lambda)\sum_{n\ge1}\lambda^{n-1}G^{(n)}_t
+    第 273 行：λ=0.5 与 λ=0.9 对比：前者 w_1=0.5, w_5=0.031，后者 w_1=0.1, w_5=0.033
+    ——短项权重下降，长项权重反而与前者第 5 项相当，分布是变平缓而不是"摊平"。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: >
+      λ-回报的权重、归一化常数 1−λ 的作用，以及 λ 的定义域被限定为 [0,1)（λ=1 只作极限讨论）
+    pdf_page: 311
+    printed_page: "§12.1 The λ-return（纸面 p.289）"
+    quote: >
+      The TD(λ) algorithm can be understood as one particular way of averaging n-step updates.
+      This average contains all the n-step updates, each weighted proportionally to λn−1 (where λ
+      2 [0, 1)), and is normalized by a factor of 1−λ to ensure that the weights sum to 1.
+    note: >
+      同页还有一句对终止之后项的处理提示：After a terminal state has been reached, all
+      subsequent n-step returns are equal to the conventional return, G_t.
+  - key: RLbook2020
+    level: S
+    role: >
+      λ=1 的退化方式（主和归零、残余项接管），是"λ=1 退化为 MC"的严格写法
+    pdf_page: 312
+    printed_page: "§12.1 The λ-return（纸面 p.290）"
+    quote: >
+      This equation makes it clearer what happens when λ = 1. In this case the main sum goes to
+      zero, and the remaining term reduces to the conventional return. Thus, for λ = 1, updating
+      according to the λ-return is a Monte Carlo algorithm. On the other hand, if λ = 0, then the
+      λ-return reduces to G_{t:t+1}, the one-step return.
+    note: >
+      对应的式 (12.3) 为 G^λ_t = (1−λ)Σ_{n=1}^{T−t−1}λ^{n−1}G_{t:t+n} + λ^{T−t−1}G_t，
+      残余项 λ^{T−t−1}G_t 正是正文缺的那一项。
+
+derivation_file: review/derivations/CH03-PROP-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条不需要数值实验，只需四则运算：λ=0.9 时 w_5=(1−0.9)×0.9^4=0.06561；
+    λ=0.5 时 w_5=0.5×0.5^4=0.03125（与正文 0.031 一致）；0.0314 对应 λ=0.9 的 w_12。
+
+claims:
+  - id: c1
+    text: 对 0≤λ<1，权重和 Σ_n(1−λ)λ^{n−1}=1，归一化常数 1−λ 的唯一作用就是让权重和为 1。
+    evidence: 等比级数求和；RLbook2020 p.311 原文 "normalized by a factor of 1−λ to ensure that the weights sum to 1"
+    status: 已核对
+  - id: c2
+    text: λ=1 时每个有限 n 的权重都为 0、主和归零，式 (3.18) 在该点没有定义；正确定义需写出残余项 λ^{T−t−1}G_t。
+    evidence: RLbook2020 p.312 原文 "the main sum goes to zero, and the remaining term reduces to the conventional return"
+    status: 已核对
+  - id: c3
+    text: 正文第 273 行 λ=0.9 的 w_5=0.033 是算错的，正确值 0.06561；0.0314 实际是 w_12。
+    evidence: 逐项计算，见 derivation_file 第 3 节权重表
+    status: 已核对
+  - id: c4
+    text: 正文的定性结论（λ 增大使长项相对权重变大、分布变平缓而不是摊平）成立，但缺"权重和恒为 1"这一判据，读者无法自证。
+    evidence: 由 c1 与权重表直接得到（推导第 1、3 节）
+    status: 已核对
+
+planned_fix:
+  - 第 268–271 行式 (3.18) 后补两句：权重和 Σ_{n≥1}(1−λ)λ^{n−1}=1（0≤λ<1）；λ=1 时主和为零、残余项 λ^{T−t−1}G_t→G_t，即退化为 MC 回报（引式 (3.19) 递推作解释）。
+  - 第 273 行把 w_5=0.033 改为 w_5=0.066，并把"与前者第 5 项相当"改为"是前者第 5 项的 2.1 倍"。
+  - 第 273 行末句后补一句判据："因为权重和恒为 1，λ 增大只能把质量从短项移到长项，不可能让各项趋于相等。"
+  - 习题 6（第 476 行）要求"用 λ=0.9 与 λ=0.99 前 10 项说明"，答案需给出 w_5(0.9)=0.0656 与 Σ_{n≤10}w_n=0.6513，与修正后的正文一致。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条与"禁用表述"清单里的"λ=1 权重摊平"直接相关：正文没有出现"摊平"作为正面断言（只作为
+    驳斥对象出现），措辞方向是对的；缺陷在于 λ=1 的数学处理与一处算术错，不涉及立场翻案。

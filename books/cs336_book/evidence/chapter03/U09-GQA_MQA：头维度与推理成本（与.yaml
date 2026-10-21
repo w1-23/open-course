@@ -1,0 +1,62 @@
+unit_id: CH03-U09
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: GQA/MQA：头维度与推理成本（与第 4 章重叠）
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p57
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Attention heads / Most models don’t touch the attention heads much at all with a few minor exceptions..
+    / GQA / MQA : Saving inference costs by reducing the number of heads / Sparse or sliding window attention
+    (GPT4/Mistral): restricting the attention pattern / to reduce compute cost / Exotic SSM stuff (Jamba,
+    Falcon 3, Qwen 3.5, etc): next lecture!'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p58
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: GQA/MQA – Reducing attention head cost / Let’s think about the compute involved for attention
+    / Total arithmetric operations (𝑏𝑛𝑑2), total memory accesses (𝑏𝑛𝑑+ 𝑏ℎ𝑛2 + 𝑑2) / Arithmetic intensity
+    (compute/memory) is high 𝑂 / 1 / 𝑘+ / 1 / 𝑏𝑛 / −1 / - we can keep our GPUs running / X / softmax /
+    projection / d = hidden dim / b = batch / n = length (<d) / h = heads / k = head dim (d/h)
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p59
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'GQA/MQA – Reducing attention head cost / What about the incremental case when we generate text?
+    / Key difference: can’t parallelize the generation process – needs to be step by step / In this case
+    – we need to incrementally re-compute/update attention via the ‘KV cache’ / [Animation from https://medium.com/@joaolages/kv-caching-explained-276520203249]'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p60
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: GQA/MQA – Reducing attention head cost / What’s the incremental arithmetic intensity? / Total
+    arithmetric operations (𝑏𝑛𝑑2), total memory accesses (𝑏𝑛2𝑑+ 𝑛𝑑2) / Arithmetic intensity is not good
+    𝑂 / 𝑛 / 𝑑+ / 1 / 𝑏 / −1 / - need large batches + short seq length / (n) or big model dimensions (d)
+    / K, V / projection / Is there some way around this? The n/d term is difficult to reduce.
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p62
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Additional extensions – GQA / Don’t go all the way to one dimension of KV – have fewer dims /
+    Simple knob to control expressiveness (key-query ratio) and inference efficiency / More recently –
+    MLA (multihead latent attention) from deepseek v2
+technical_evidence:
+- source_id: arXiv:2305.13245
+  ref_name: gqa_2023
+  title: 'GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints'
+  authors:
+  - Joshua Ainslie
+  - James Lee-Thorp
+  - Michiel de Jong
+  - Yury Zemlyanskiy
+  - Federico Lebrón
+  - Sumit Sanghai
+  year: '2023'
+  url: https://arxiv.org/pdf/2305.13245.pdf
+  arxiv_id: '2305.13245'
+  arxiv_verified: true
+  locator: ''
+knowledge_slot:
+  why_it_matters: KV 头共享对算力/访存与生成阶段的影响
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: verified
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

@@ -1,0 +1,23 @@
+key: 2309.02427_toolllm
+version: 2026-10-20
+level: S
+role: algorithm
+title: Cognitive Architectures for Language Agents
+authors:
+  - Theodore R. Sumers
+  - Shunyu Yao
+  - Karthik Narasimhan
+  - Thomas L. Griffiths
+year: 2023
+published: 2023-09-05
+arxiv_id: 2309.02427
+doi: ""
+journal_ref: ""
+primary_category: cs.AI
+path: source/papers/2309.02427_toolllm.pdf
+bytes: 2785564
+pages: 32
+sha256: fd93d2ef1b94f963b652136b8c792b01d7326d861f5ce918926c043934a48dbe
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

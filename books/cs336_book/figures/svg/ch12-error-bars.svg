@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="322" viewBox="0 0 560 322">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <text x="10" y="22" font-family="Times New Roman, serif" font-size="13" fill="#1f2328">同一测试集、两个模型：均值差 1.2，但区间重叠 → 不能断言 A 更好</text>
+  <text x="10" y="40" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">纵轴＝准确率（%）；示意数据，仅说明"点估计排序"本身不构成证据。</text>
+
+  <text x="10" y="58" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">准确率 (%)</text>
+
+  <!-- 坐标轴 -->
+  <line x1="70" y1="62" x2="70" y2="250" stroke="#3b4148" stroke-width="1"/>
+  <line x1="70" y1="250" x2="460" y2="250" stroke="#3b4148" stroke-width="1"/>
+
+  <!-- 刻度 60/64/68/72/76 -->
+  <line x1="70" y1="250" x2="64" y2="250" stroke="#3b4148"/>
+  <line x1="70" y1="206.7" x2="64" y2="206.7" stroke="#3b4148"/>
+  <line x1="70" y1="163.3" x2="64" y2="163.3" stroke="#3b4148"/>
+  <line x1="70" y1="120" x2="64" y2="120" stroke="#3b4148"/>
+  <line x1="70" y1="76.7" x2="64" y2="76.7" stroke="#3b4148"/>
+  <text x="42" y="254" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">60</text>
+  <text x="42" y="210" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">64</text>
+  <text x="42" y="167" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">68</text>
+  <text x="42" y="124" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">72</text>
+  <text x="42" y="80" font-family="Times New Roman, serif" font-size="9.5" fill="#3b4148">76</text>
+
+  <!-- 重叠带 [72.1, 75.8] → y 78.7–130.8 -->
+  <rect x="120" y="78.7" width="250" height="52.1" fill="#eef3fb" stroke="none"/>
+  <text x="226" y="74" font-family="Times New Roman, serif" font-size="9" fill="#3f5f7f">重叠区</text>
+
+  <!-- 模型 A：74.6 ± 2.5 → [72.1, 77.1] → y 118.9 / 64.8，中心 91.8 -->
+  <line x1="180" y1="64.8" x2="180" y2="118.9" stroke="#1f6feb" stroke-width="1.6"/>
+  <line x1="164" y1="64.8" x2="196" y2="64.8" stroke="#1f6feb" stroke-width="1.6"/>
+  <line x1="164" y1="118.9" x2="196" y2="118.9" stroke="#1f6feb" stroke-width="1.6"/>
+  <circle cx="180" cy="91.8" r="4.2" fill="#1f6feb"/>
+  <text x="205" y="95" font-family="Times New Roman, serif" font-size="9.5" fill="#1f6feb">74.6 ± 2.5</text>
+  <text x="162" y="270" font-family="Times New Roman, serif" font-size="10.5" fill="#1f2328">模型 A</text>
+
+  <!-- 模型 B：73.4 ± 2.4 → [71.0, 75.8] → y 130.8 / 78.7，中心 104.8 -->
+  <line x1="320" y1="78.7" x2="320" y2="130.8" stroke="#b4502a" stroke-width="1.6"/>
+  <line x1="304" y1="78.7" x2="336" y2="78.7" stroke="#b4502a" stroke-width="1.6"/>
+  <line x1="304" y1="130.8" x2="336" y2="130.8" stroke="#b4502a" stroke-width="1.6"/>
+  <circle cx="320" cy="104.8" r="4.2" fill="#b4502a"/>
+  <text x="344" y="108" font-family="Times New Roman, serif" font-size="9.5" fill="#b4502a">73.4 ± 2.4</text>
+  <text x="302" y="270" font-family="Times New Roman, serif" font-size="10.5" fill="#1f2328">模型 B</text>
+
+  <!-- 说明：两中心差 -->
+  <text x="196" y="128" font-family="Times New Roman, serif" font-size="9" fill="#5b636b">点估计差 1.2 pp</text>
+
+  <line x1="70" y1="282" x2="530" y2="282" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="10" y="300" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">但 A 的区间下端落在 B 的区间内 —— 只看排序会得出错误结论；正确做法是配对检验（本章后面给式子）。</text>
+  <text x="10" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">注意：区间重叠只是"不能断言"的提示，不是判据；高度相关（同一套题）时，区间重叠也可能显著。</text>
+</svg>

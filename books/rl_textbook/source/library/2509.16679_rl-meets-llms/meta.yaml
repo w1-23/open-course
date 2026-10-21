@@ -1,0 +1,29 @@
+key: 2509.16679_rl-meets-llms
+version: 2026-10-19
+level: C
+role: survey
+title: "Reinforcement Learning Meets Large Language Models: A Survey of Advancements and Applications Across the LLM Lifecycle"
+authors:
+  - Keliang Liu
+  - Dingkang Yang
+  - Ziyun Qian
+  - Weijie Yin
+  - Yuchi Wang
+  - Hongsheng Li
+  - Jun Liu
+  - Peng Zhai
+  - Yang Liu
+  - Lihua Zhang
+year: 2025
+published: 2025-09-20
+arxiv_id: 2509.16679
+doi: ""
+journal_ref: ""
+primary_category: cs.CL
+path: source/papers/2509.16679_rl-meets-llms-survey.pdf
+bytes: 3722540
+pages: 35
+sha256: e9dd39a5a14aec7cd67d1abff479a7618d17e738998498f0cb6f93600b08338e
+retrieved: 2026-10-20
+license_note: "综述：只用于建立方法地图，不得作为关键定理的唯一依据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

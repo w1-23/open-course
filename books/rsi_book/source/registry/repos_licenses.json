@@ -1,0 +1,26 @@
+{
+ "MaximeRobeyns/self_improving_coding_agent": {
+  "license": "MIT",
+  "file": "LICENSE"
+ },
+ "jennyzzt/dgm": {
+  "license": "Apache-2.0",
+  "file": "LICENSE"
+ },
+ "metauto-ai/HGM": {
+  "license": "Apache-2.0",
+  "file": "LICENSE"
+ },
+ "sakanaai/AI-Scientist": {
+  "license": "unknown",
+  "file": "LICENSE"
+ },
+ "Arvid-pku/Godel_Agent": {
+  "license": "MIT",
+  "file": "LICENSE"
+ },
+ "ShengranHu/ADAS": {
+  "license": "Apache-2.0",
+  "file": "LICENSE"
+ }
+}

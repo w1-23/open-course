@@ -1,0 +1,55 @@
+issue_id: CH06-FACT-003
+chapter: 6
+severity: P2
+status: 已有依据
+title: 过估计上界 γε(m−1)/(m+1) 被当成一般结论，丢了"误差在 [−ε,ε] 上均匀分布"这个前提
+summary: 第 77 行写"Thrun 与 Schwartz 给出的上界是 \(\gamma\epsilon(m-1)/(m+1)\)"，紧接着用"动作越多、估计噪声越大，过估计越严重"来解释它。原文的前提是"action values contain random errors uniformly distributed in an interval [−ε, ε]"——这个界只对均匀分布的误差成立，ε
+  是误差区间的半宽，不是高斯标准差。而本章 6.2.1 前半段与图 6-2 用的都是独立高斯噪声，读者会把该界当成高斯情形的公式、把 ε 当成 σ。高斯情形下过估计的增长量级是 \(\sigma\sqrt{\log m}\)（本章习题 1 自己要求证明），与均匀情形的 (m−1)/(m+1) 不是同一个式子。
+current_text:
+  file: content/ch06.md
+  lines: 64-79
+  excerpt: |-
+    第 64 行：假设对每个动作的真实价值 Q^\star(s,a)，我们只有一个带噪声的估计 \hat Q(s,a)=Q^\star(s,a)+\epsilon_a，且噪声均值为零
+    第 77 行：Thrun 与 Schwartz 给出的上界是 γε(m-1)/(m+1)（转引自 van Hasselt et al., 2016）
+sources:
+- key: 1509.06461_double-dqn
+  level: S
+  role: 该上界的原文前提：动作价值含 [−ε,ε] 上均匀分布的随机误差
+  pdf_page: 2
+  printed_page: §2 Overoptimism due to estimation errors（纸面 p.2）
+  quote: |-
+    Q-learning’s overestimations were ﬁrst investigated by
+    Thrun and Schwartz (1993), who showed that if the action
+    values contain random errors uniformly distributed in an in-
+    terval [−ϵ, ϵ] then each target is overestimated up to γϵ m−1
+    m+1,
+    where m is the number of actions. In addition, Thrun and
+    Schwartz give a concrete example in which these overes-
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 图 6-2 本身就是高斯噪声的数值实验，可用来演示"随 m 单调增"，但不能用来验证均匀分布的上界；若要并列，需要再加一条均匀噪声曲线。
+claims:
+- id: c1
+  text: γε(m−1)/(m+1) 的前提是误差在 [−ε,ε] 上均匀分布，ε 是区间半宽。
+  evidence: 1509.06461_double-dqn p0002 原文 "random errors uniformly distributed in an interval [−ϵ, ϵ]"
+  status: 已核对
+- id: c2
+  text: 本章第 64 行与图 6-2 用的是高斯噪声，第 77 行却直接给出该上界，未说明前提已变。
+  evidence: 式 (6.3) 所在小节第 64–79 行与图 6-2 的设定对照
+  status: 已核对
+- id: c3
+  text: 高斯情形下的增长量级是 σ√(log m)，与均匀情形的 (m−1)/(m+1) 不同（本章习题 1 要求证明）。
+  evidence: 第 477 行习题 1 的表述；本条不重复证明，故不作"已核对"
+  status: 待核验
+planned_fix:
+- 第 77 行补前提："若误差在 [−ε,ε] 上均匀分布，每个目标最多被高估 γε(m−1)/(m+1)"；并说明 ε 是半宽、不是标准差。
+- 第 79 行把图 6-2 的结论与这个界分开写：图证明的是"随 m 与 σ 单调增"，不是该界的定量验证。
+- 习题 1 与正文呼应：显式写出均匀情形给的是代数界，高斯情形给的是 σ√(log m) 量级，二者不可互换。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: 式 (6.3) 本身（E[max] ≥ max E，Jensen）方向正确，定理 6.1 加了相互独立的前提也无误；本条只针对第 77 行的转述。

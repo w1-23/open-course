@@ -1,0 +1,86 @@
+issue_id: CH10-ALG-002
+chapter: 10
+severity: P1
+status: 已有依据
+title: token 级奖励式 (10.7) 没有区分 terminated 与 truncated，截断回合会把自举项错误归零
+summary: >
+  10.2.2 把整条奖励摊到 token 上，写成 r_t = 1{t=|y|}·r_φ − β_KL·log(π_θ/π_ref)，
+  并强调"稀疏奖励必须挂在最后一个 token 上"。这对以 EOS 正常结束的回合是对的；但
+  语言模型还有一个同样常见的出口——生成长度达到上限被**截断**。此时 |y| 那个 token
+  不是终止状态：若仍按"最后一个 token 发奖励、之后自举归零"处理，价值估计会系统性
+  低估长回合（与第 12.1.3 节讨论的偏差同构）。全章（含 10.2.2 与第 10.2.3 的表 10-1）
+  没有出现 terminated/truncated 的区分，违反 `content/_CONVENTIONS.md` 第 1.2 节的强制
+  要求，也与本书第 2、12 章的口径不一致。
+
+current_text:
+  file: content/ch10.md
+  lines: "111-133"
+  excerpt: >
+    第 113 行：式 (10.5) 是关于整条回答的期望，而策略梯度算法工作在 token 粒度，两者之间
+    需要一次改写。做法是把整条奖励摊到 token 上：奖励只在最后一个 token 处发放，KL 惩罚
+    则逐 token 计算。
+    第 120 行：其一，稀疏奖励必须挂在最后一个 token 上，如果错误地摊到每个 token，等价于
+    把同一条奖励重复计算了 |y| 次，梯度尺度会随长度漂移。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 终止状态的定义与"终止后价值为零"（自举停止的依据）
+    pdf_page: 76
+    printed_page: "§3.1 The Agent–Environment Interface（纸面 p.54 附近）"
+    quote: >
+      Each episode ends in a special state called the terminal state, followed by a reset to a
+      standard starting state or to a sample from a standard distribution of starting states.
+  - key: RLbook2020
+    level: S
+    role: 终止状态价值为零（截断不是终止，因此不能套用这一条）
+    pdf_page: 80
+    printed_page: "§3.5 Policies and Value Functions（纸面 p.58 附近）"
+    quote: >
+      Note that the value of the terminal state, if any, is always zero.
+
+claims:
+  - id: c1
+    text: >
+      |y| 处的奖励锚定对 EOS 正常结束的回合正确：此时最后一个 token 之后状态是终止状态，
+      价值为零、自举停止。
+    evidence: RLbook2020 p.76 与 p.80；式 (10.7)
+    status: 已核对
+  - id: c2
+    text: >
+      长度上限截断时该 token 不是终止状态：若按"奖励挂在最后一个 token、之后自举归零"
+      处理，会把"还有价值的尾部"当成零，系统性低估长回合的价值。
+    evidence: 推导：把截断当终止时 V(h_T) 被强制为 0，与 RLbook2020 p.80 的前提（终止状态）不符
+    status: 已核对
+  - id: c3
+    text: >
+      伪代码与正文都没有出现 terminated/truncated 两个布尔量，也没有说明截断时应保留
+      bootstrap（用 V(h_T) 作为尾部价值），违反 `_CONVENTIONS.md` §1.2。
+    evidence: content/_CONVENTIONS.md 第 1.2 节；式 (10.7) 的指示函数只有 1{t=|y|} 一种出口
+    status: 已核对
+  - id: c4
+    text: >
+      该缺失不影响 10.2.1 的序列级 KL 分解与 10.2.2 关于 clip 的论述（二者与终止判定无关）。
+    evidence: 式 (10.5)、(10.8) 与 10.2.2 末段
+    status: 已核对
+  - id: c5
+    text: >
+      InstructGPT 等实现的实际截断处理（max_length 命中时是否补 V(h_T)）没有在工作区文献里
+      给出明确文字，无法据此断言"工业实现一律如何处理"。
+    evidence: 未找到一手描述；`source/pages/2203.02155_instructgpt/` 内未见截断自举的显式说明
+    status: 待核验
+
+planned_fix:
+  - 第 116 行的式 (10.7) 改为两行：r_t = 1{t=|y|}·r_φ(x,y) − β_KL·log(π_θ/π_ref) + 1{t=|y|}·1{truncated}·V_φ(h_T) 的等价写法，或保留单行但在框下注明"截断回合的尾部价值由 V(h_T) 补回"，并把 terminated/truncated 两个布尔量写进伪代码。
+  - 第 120 行"其一"改写为"奖励挂在序列末尾；若该末尾是 EOS 则自举停止，若是长度上限截断则必须保留 bootstrap（补 V(h_T)），否则价值被系统性低估"。
+  - 在 10.2.2 末尾补一段两句：为什么 RLHF 里这个问题常被忽略（回合短、EOS 占比高），以及长输出的 agent 场景（第 12 章）为何必须显式处理。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条与第 12.1.3 节的 terminated/truncated 讨论是同一套约定，施工时应让两章用同一组符号
+    （d^term 与 truncated 指示），避免第 10 章用 done、第 12 章用两个布尔量。

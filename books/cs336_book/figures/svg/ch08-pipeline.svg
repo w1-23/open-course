@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="352" viewBox="0 0 720 352">
+  <!-- 流水线气泡：上图为逐层串行（利用率 1/n），下图为 4 段 × 4 micro-batch 的错峰执行 -->
+  <text x="10" y="20" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">流水线并行的利用率：切 micro-batch 之前与之后（结构依据第 33–34 页）</text>
+
+  <text x="10" y="46" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">(a) 每卡一次算整个 batch：任意时刻只有一段在算，利用率 1/4</text>
+  <text x="60" y="72" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 0</text>
+  <text x="60" y="96" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 1</text>
+  <text x="60" y="120" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 2</text>
+  <text x="60" y="144" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 3</text>
+
+  <rect x="120" y="60" width="38" height="18" rx="2" fill="#33414f"/>
+  <rect x="120" y="84" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="120" y="108" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="120" y="132" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="164" y="60" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="164" y="84" width="38" height="18" rx="2" fill="#33414f"/>
+  <rect x="164" y="108" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="164" y="132" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="208" y="60" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="208" y="84" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="208" y="108" width="38" height="18" rx="2" fill="#33414f"/>
+  <rect x="208" y="132" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="252" y="60" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="252" y="84" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="252" y="108" width="38" height="18" rx="2" fill="#f0f2f5" stroke="#d5d8dc"/>
+  <rect x="252" y="132" width="38" height="18" rx="2" fill="#33414f"/>
+  <text x="304" y="86" font-family="Times New Roman, serif" font-size="10.5" fill="#b02020">深色 = 在算，浅色 = 空闲</text>
+  <text x="304" y="104" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">4 段时每卡只有 1/4 时间在工作</text>
+
+  <text x="10" y="182" font-family="Times New Roman, serif" font-size="11.5" fill="#1f2328">(b) 4 段 × 4 micro-batch：错峰填满，只剩首尾两段气泡</text>
+  <text x="60" y="208" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 0</text>
+  <text x="60" y="230" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 1</text>
+  <text x="60" y="252" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 2</text>
+  <text x="60" y="274" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">stage 3</text>
+
+  <rect x="120" y="196" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="158" y="196" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="196" y="196" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="234" y="196" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="272" y="196" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+
+  <rect x="120" y="218" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+  <rect x="158" y="218" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="196" y="218" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="234" y="218" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="272" y="218" width="34" height="16" rx="2" fill="#4a6076"/>
+
+  <rect x="120" y="240" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+  <rect x="158" y="240" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+  <rect x="196" y="240" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="234" y="240" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="272" y="240" width="34" height="16" rx="2" fill="#4a6076"/>
+
+  <rect x="120" y="262" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+  <rect x="158" y="262" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+  <rect x="196" y="262" width="34" height="16" rx="2" fill="#f6e3e0" stroke="#d9b3ac"/>
+  <rect x="234" y="262" width="34" height="16" rx="2" fill="#4a6076"/>
+  <rect x="272" y="262" width="34" height="16" rx="2" fill="#4a6076"/>
+  <text x="320" y="222" font-family="Times New Roman, serif" font-size="10.5" fill="#b02020">粉色 = 气泡（等激活 / 已无活）</text>
+  <text x="320" y="240" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">气泡/有用计算 = (n_stages−1)/n_micro = 3/4</text>
+  <text x="320" y="258" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">即 3 个空档对 4 个有效档，利用率 4/7 ≈ 57%</text>
+
+  <text x="10" y="302" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">图中只画前向。真正的调度（1F1B、zero-bubble）会把反向交错进来，用"激活传播"填右侧的空档；</text>
+  <text x="10" y="320" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">课程在第 34 页给气泡公式，第 38 页把反向拆成"传激活"与"算权重梯度"以进一步压缩气泡。</text>
+  <text x="10" y="338" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">切 micro-batch 后总时间片从 4 变成 7（4 个算 + 3 个填），利用率 4/7 ≈ 57%，而非 1/4。</text>
+</svg>

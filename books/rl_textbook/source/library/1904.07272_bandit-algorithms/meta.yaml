@@ -1,0 +1,20 @@
+key: 1904.07272_bandit-algorithms
+version: 2026-10-20
+level: S
+role: algorithm
+title: Introduction to Multi-Armed Bandits
+authors:
+  - Aleksandrs Slivkins
+year: 2019
+published: 2019-04-15
+arxiv_id: 1904.07272
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/1904.07272_bandit-algorithms.pdf
+bytes: 2415882
+pages: 188
+sha256: af7dd519cdf22abcc4394749cbc64749b1b378cd98ca6d1a853dedd424a4660c
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

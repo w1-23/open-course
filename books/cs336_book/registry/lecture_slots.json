@@ -1,0 +1,267 @@
+{
+ "url": "https://cs336.stanford.edu/",
+ "sha256": "bd57fae299fec60afedb5a22edb325a68107fa1af0cd83641695470587f7a4a7",
+ "fetched_at": "2026-10-20T18:11:48+0800",
+ "slots": [
+  {
+   "slot": 1,
+   "date": "Mon March 30",
+   "title": "Overview, tokenization",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_01.py",
+     "href": "/lectures/?trace=lecture_01"
+    }
+   ],
+   "deadlines": "Assignment 1 out [ code ] [ preview ]",
+   "lecture_file": "lecture_01.py"
+  },
+  {
+   "slot": 2,
+   "date": "Wed April 1",
+   "title": "PyTorch (einops), resource accounting (FLOPs, memory, arithmetic intensity)",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_02.py",
+     "href": "/lectures/?trace=lecture_02"
+    },
+    {
+     "text": "recording version",
+     "href": "/lectures/?trace=lecture_02_recording"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_02.py"
+  },
+  {
+   "slot": 3,
+   "date": "Mon April 6",
+   "title": "Architectures, hyperparameters",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture 3.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_03.pdf"
+  },
+  {
+   "slot": 4,
+   "date": "Wed April 8",
+   "title": "Attention alternatives and mixture of experts",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture 4.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_04.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_04.pdf"
+  },
+  {
+   "slot": 5,
+   "date": "Mon April 13",
+   "title": "GPUs, TPUs",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture 5.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_05.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_05.pdf"
+  },
+  {
+   "slot": 6,
+   "date": "Wed April 15",
+   "title": "Kernels, Triton",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_06.py",
+     "href": "/lectures/?trace=lecture_06"
+    }
+   ],
+   "deadlines": "Assignment 1 due Assignment 2 out [ code ] [ preview ]",
+   "lecture_file": "lecture_06.py"
+  },
+  {
+   "slot": 7,
+   "date": "Mon April 20",
+   "title": "Parallelism",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_07.py",
+     "href": "/lectures/?trace=lecture_07"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_07.py"
+  },
+  {
+   "slot": 8,
+   "date": "Wed April 22",
+   "title": "Parallelism",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture_08.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_08.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_08.pdf"
+  },
+  {
+   "slot": 9,
+   "date": "Mon April 27",
+   "title": "Scaling laws",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture_09.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_09.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_09.pdf"
+  },
+  {
+   "slot": 10,
+   "date": "Wed April 29",
+   "title": "Inference",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_10.py",
+     "href": "/lectures/?trace=lecture_10"
+    }
+   ],
+   "deadlines": "Assignment 2 due Assignment 3 out [ code ] [ preview ]",
+   "lecture_file": "lecture_10.py"
+  },
+  {
+   "slot": 11,
+   "date": "Mon May 4",
+   "title": "Scaling laws",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture_11.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_11.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_11.pdf"
+  },
+  {
+   "slot": 12,
+   "date": "Wed May 6",
+   "title": "Evaluation",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_12.py",
+     "href": "/lectures/?trace=lecture_12"
+    }
+   ],
+   "deadlines": "Assignment 3 due Assignment 4 out [ code ] [ preview ]",
+   "lecture_file": "lecture_12.py"
+  },
+  {
+   "slot": 13,
+   "date": "Mon May 11",
+   "title": "Data (sources, datasets)",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_13.py",
+     "href": "/lectures/?trace=lecture_13"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_13.py"
+  },
+  {
+   "slot": 14,
+   "date": "Wed May 13",
+   "title": "Data (filtering, deduplication, mixing, synthetic data)",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_14.py",
+     "href": "/lectures/?trace=lecture_14"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_14.py"
+  },
+  {
+   "slot": 15,
+   "date": "Mon May 18",
+   "title": "Mid/post-training (SFT/RLHF)",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture_15.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_15.pdf"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_15.pdf"
+  },
+  {
+   "slot": 16,
+   "date": "Wed May 20",
+   "title": "Post-training - RLVR",
+   "instructor": "Tatsu",
+   "materials": [
+    {
+     "text": "lecture_16.pdf",
+     "href": "https://github.com/stanford-cs336/lectures/blob/main/lecture_16.pdf"
+    }
+   ],
+   "deadlines": "Assignment 4 due Assignment 5 out [ code ] [ preview ] [ Optional Part 2 ]",
+   "lecture_file": "lecture_16.pdf"
+  },
+  {
+   "slot": 17,
+   "date": "Wed May 27",
+   "title": "Alignment - multimodality",
+   "instructor": "Percy",
+   "materials": [
+    {
+     "text": "lecture_17.py",
+     "href": "/lectures/?trace=lecture_17"
+    }
+   ],
+   "deadlines": "",
+   "lecture_file": "lecture_17.py"
+  },
+  {
+   "slot": 18,
+   "date": "Mon June 1",
+   "title": "Guest lecture: Daniel Selsam",
+   "instructor": null,
+   "materials": [],
+   "deadlines": "",
+   "lecture_file": null
+  },
+  {
+   "slot": 19,
+   "date": "Wed June 3",
+   "title": "Guest lecture: Dan Fu",
+   "instructor": null,
+   "materials": [],
+   "deadlines": "Assignment 5 due",
+   "lecture_file": null
+  }
+ ]
+}

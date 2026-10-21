@@ -1,0 +1,27 @@
+{
+ "MaximeRobeyns/self_improving_coding_agent": {
+  "status": 200,
+  "head_commit": null,
+  "license_link": null
+ },
+ "jennyzzt/dgm": {
+  "status": 200,
+  "head_commit": null,
+  "license_link": null
+ },
+ "metauto-ai/HGM": {
+  "status": 200,
+  "head_commit": null,
+  "license_link": null
+ },
+ "sakanaai/AI-Scientist": {
+  "status": 200,
+  "head_commit": null,
+  "license_link": null
+ },
+ "stanford-cs329a": {
+  "status": 200,
+  "head_commit": null,
+  "license_link": null
+ }
+}

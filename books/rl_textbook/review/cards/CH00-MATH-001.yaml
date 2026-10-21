@@ -1,0 +1,72 @@
+issue_id: CH00-MATH-001
+chapter: 0
+severity: P1
+status: 已有依据
+title: 第 87 行把"γ<1 时的 γ^k 速率"写成"值迭代以 γ^k 速度收敛"，前提被压掉，而本章全部论点就是"前提决定结论"
+summary: >
+  第 87 行用第 1–3 章举例说明"这一层什么都能证"，写的是「值迭代以 \(\gamma^k\) 速度收敛到 \(V^*\)」。
+  这个速率来自 T^* 的压缩性 ‖T^*V_1 − T^*V_2‖∞ ≤ γ‖V_1 − V_2‖∞，需要 γ<1；若 γ=1，算子只非扩张，
+  值迭代的收敛不再有几何速率。本书第 2 章自己把这一点写得很清楚（"压缩性完全来自 γ<1……若 γ=1，
+  式 (2.15) 退化为非扩张"，content/ch02.md:228），第 0 章却在全书第一个"能严格证明"的例子里省掉了它。
+  同一句还隐含"奖励有界"，否则 V* 的 ∞-范数本身无界、速率无从谈起。
+  这不是可有可无的补语：第 0 章第 0.4 节的全部功能就是给读者一把尺子，让他看见"结论依赖前提"；
+  在最显眼的示范句里漏一个前提，等于把这把尺子第一次使用时就读错刻度。
+  正确写法只需补一个括号："值迭代以 γ^k 速度收敛到 V^*（要求 γ<1 且奖励有界）"。
+
+current_text:
+  file: content/ch00.md
+  lines: "87-87"
+  excerpt: >
+    第 87 行：从最上面开始。**表格型**（第 1–3 章）里状态与动作有限，价值存在表里，收敛、最优性、
+    误差界都能严格证明——"值迭代以 \(\gamma^k\) 速度收敛到 \(V^*\)"是这一层的标准例子。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 迭代策略评估/值迭代的收敛是"在保证 vπ 存在的同一组条件下"才成立，原文未给无条件速率
+    pdf_page: 96
+    printed_page: "§4.1（p.74）"
+    quote: >
+      Indeed, the sequence {vk} can be shown in general to converge to v⇡as k ! 1 under the same conditions that guarantee
+      the existence of v⇡.
+  - key: RLbook2020
+    level: S
+    role: 贝尔曼期望方程与备份算子的标准形式（(0.1) 与速率论证的出处）
+    pdf_page: 81
+    printed_page: "§3.7（p.59）"
+    quote: >
+      Equation (3.14) is the Bellman equation for v⇡. It expresses a relationship between the value of a state and the values of
+      its successor states.
+
+claims:
+  - id: c1
+    text: >
+      值迭代的 γ^k 速率来自压缩性，而压缩性要求 γ<1；第 2 章命题 2.1 与 L228 已明写这一点，
+      因此第 0 章 L87 的表述与本书自己的定理条件不一致。
+    evidence: 推导：‖T^*V_1−T^*V_2‖∞ ≤ γ‖V_1−V_2‖∞ ⇒ ‖V_k−V^*‖∞ ≤ γ^k‖V_0−V^*‖∞；γ=1 时该步只剩非扩张；见 content/ch02.md:204-213 与 content/ch02.md:228
+    status: 已核对
+  - id: c2
+    text: >
+      速率还要求奖励有界（|r|≤r_max），否则 V^* 的 ∞-范数无界，γ^k‖V_0−V^*‖∞ 不构成有限误差界。
+    evidence: 推导：|G_t| ≤ r_max/(1−γ)，见 content/ch02.md:93 的数值作用说明
+    status: 已核对
+  - id: c3
+    text: >
+      第 0 章自己规定"没有标签的断言默认是[精确]，但前提必须写在同一页上"（L106），L87 既无标签也
+      未写前提，违反本章自设的规矩。
+    evidence: 推导：content/ch00.md:106 与 L87 对照
+    status: 已核对
+
+planned_fix:
+  - 第 87 行的引号内改为"值迭代以 \(\gamma^k\) 速度收敛到 \(V^*\)（要求 \(\gamma<1\) 且奖励有界）"。
+  - 若嫌括注打断行文，可在同段末补一句："上面这句的两个前提——\(\gamma<1\)、奖励有界——见 2.3 节的命题 2.1。"
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-21"
+  notes: >
+    基准版本为 2026-10-21 的 content/ch00.md（259 行，式号 0.1–0.5）。本条只针对 L87 的一句转述，
+    不涉及 (0.1) 本身——该式作为定义/恒等式是对的。

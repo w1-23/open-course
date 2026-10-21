@@ -1,0 +1,74 @@
+issue_id: CH06-NOT-002
+chapter: 6
+severity: P2
+status: 已有依据
+title: α 在章内有三个所指（学习率、Dueling 优势支路、PER 优先级指数），符号澄清段只覆盖了第一个
+summary: 第 310–316 行专门写了一节"三个温度/步长符号"，但它只说 α 是学习率。实际上第 103 行的 Dueling 聚合用 \((\theta,\alpha,\beta)\) 表示主干／优势支路／价值支路参数（沿用原文记号），第 130 行与第 458 行的 PER 用 α 作优先级指数、β 作重要性采样指数，而 β 在第 314 行又被 \(\beta_{KL}\) 占据一角。于是
+  α 在一章里有三个所指、β 有三个所指，澄清段只覆盖了其中一个。这不是排版小疵：把式 (6.8) 的 α 当成学习率、或把式 (6.5) 的 α 当成优先级指数，都会直接算错，而两处相距不到 60 行。
+current_text:
+  file: content/ch06.md
+  lines: 103, 130, 139, 310-316
+  excerpt: '第 103 行：Q(s,a;\theta,\alpha,\beta)=V(s;\theta,\beta)+A(s,a;\theta,\alpha)
+
+    第 130 行：P(i)=\frac{p_i^{\alpha}}{\sum_k p_k^{\alpha}}
+
+    第 312 行：\(\alpha\) 是学习率，出现在第 5 章的策略梯度更新与本章式 (6.1) 的表格更新中'
+sources:
+- key: 1511.06581_dueling-dqn
+  level: S
+  role: Dueling 原文用 θ（主干）、β（价值支路）、α（优势支路）三组参数，本章照搬
+  pdf_page: 4
+  printed_page: §3.2 聚合方式（纸面 p.4）
+  quote: 'put a scalar V (s; θ, β), and the other stream output an |A|-
+
+    dimensional vector A(s, a; θ, α). Here, θ denotes the pa-
+
+    rameters of the convolutional layers, while α and β are the
+
+    parameters of the two streams of fully-connected layers.
+
+    Using the deﬁnition of advantage, we might be tempted to
+
+    construct the aggregating module as follows:
+
+    Q(s, a; θ, α, β) = V (s; θ, β) + A(s, a; θ, α),'
+- key: 1511.05952_prioritized-replay
+  level: S
+  role: PER 原文用 α 作优先级指数、β₀ 作重要性采样指数初值
+  pdf_page: 6
+  printed_page: §5 超参数（纸面 p.6）
+  quote: 'subset of 8 games), and found the sweet spot to be α = 0.7, β0 = 0.5 for the rank-based variant
+
+    and α = 0.6, β0 = 0.4 for the proportional variant. These choices are trading off aggressiveness
+
+    with robustness, but it is easy to revert to a behavior closer to the baseline by reducing α and/or
+
+    increasing β.'
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: 纯符号问题。检查方法：在 content/ch06.md 里检索 \alpha 的全部 20 余处，逐个判断它指学习率、优先级指数还是优势支路参数。
+claims:
+- id: c1
+  text: Dueling 原文的 (θ,α,β) 是三组网络参数，α 在那里不是学习率。
+  evidence: 1511.06581_dueling-dqn p0004 原文 "Q(s, a; θ, α, β) = V (s; θ, β) + A(s, a; θ, α)"
+  status: 已核对
+- id: c2
+  text: PER 原文的 α、β₀ 是优先级指数与重要性采样指数，与学习率无关。
+  evidence: 1511.05952_prioritized-replay p0006 原文 "α = 0.6, β0 = 0.4 for the proportional variant"
+  status: 已核对
+- id: c3
+  text: 本章第 310–316 行的符号澄清只说明 α 是学习率，没有覆盖这两处局部记号。
+  evidence: 第 310–316 行与式 (6.5)(6.8) 对照
+  status: 已核对
+planned_fix:
+- 式 (6.5) 段把 Dueling 的三组参数改写为 (θ, θ_A, θ_V)，或在紧随其后的行内加一句"本节沿用原文记号，α/β 仅指优势/价值支路参数"。
+- 式 (6.8)(6.9) 与第 458 行的 PR 指数改写为 α_p、β_w（或 ω、β_w），避免与学习率 α 和 Dueling 的 α/β 撞车；算法 6-1 第 149 行的输入列表同步改。
+- 第 310–316 行的清单从三条扩到五条，把 α_p（优先级指数）与 β_w（重要性采样指数）列进去。
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: 施工口径（2026-10-20）：按 lead 指示采用"保留原记号 + 点明作用域"，未做 α→α_p/β→β_w 的重命名。已做：第 310–316 行的符号清单从 3 条扩到 5 条（α 三义、β 两义各自作用域），并在式 (6.5) 段与式 (6.8) 段就地注明"与学习率同名不同义，仅在本小节有效"。若日后统一改名，记得同步关键公式与算法 6-1 的输入行。

@@ -1,0 +1,26 @@
+unit_id: CH03-U11
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: 架构共识与本章结论
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p29
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Summary: architectures / Pre-vs-post norm: / • / Everyone does non-residual norm (except / OPT350M),
+    likely with good reason. / Layer vs RMSnorm: / • / RMSnorm has clear compute wins, / sometimes even
+    performance / Gating: / • / GLUs are consensus now / Serial vs parallel layers: / • / Most models
+    now use serial layers'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p67
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Recap, conclusion, etc. / Many aspects (arch, hparams) of transformers are in common across the
+    big LMs / Major differences? Position embeddings, activations, tokenization
+technical_evidence: []
+knowledge_slot:
+  why_it_matters: 各大家族实际选择的交集
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: course_only
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

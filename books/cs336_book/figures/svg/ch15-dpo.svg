@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="466" viewBox="0 0 660 466">
+  <!-- MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <text x="16" y="24" font-family="Times New Roman, serif" font-size="13.5" fill="#1f2328">DPO 的四步推导：把奖励模型消掉，只留下策略的 log 比率</text>
+
+  <!-- ① -->
+  <rect x="16" y="46" width="628" height="76" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <circle cx="42" cy="74" r="10" fill="#ffffff" stroke="#3b4148" stroke-width="1.1"/>
+  <text x="38" y="78" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">1</text>
+  <text x="62" y="70" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">RLHF 目标：max_π  E_{y~π}[ r(x,y) ] − β · KL( π(·|x) ‖ πref(·|x) )</text>
+  <text x="62" y="92" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">KL 项把策略拴在参考策略上；β 是「允许偏离多远」的松紧旋钮。</text>
+  <text x="62" y="110" font-family="Times New Roman, serif" font-size="9.5" fill="#7a5a2e">依据：lecture_15.pdf 第 32 页给出的优化式；第 56 页起做非参数假设。</text>
+
+  <line x1="42" y1="122" x2="42" y2="134" stroke="#3b4148" stroke-width="1.2"/>
+  <polygon points="42,142 37.5,131 46.5,131" fill="#3b4148"/>
+
+  <!-- ② -->
+  <rect x="16" y="142" width="628" height="76" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <circle cx="42" cy="170" r="10" fill="#ffffff" stroke="#3b4148" stroke-width="1.1"/>
+  <text x="38" y="174" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">2</text>
+  <text x="62" y="166" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">闭式最优：π*(y|x) = πref(y|x) · exp( r(x,y) / β ) / Z(x)</text>
+  <text x="62" y="188" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">Z(x) 是配分函数，保证对 y 归一化；β→∞ 时 π*→πref，β→0 时质量全压到 argmax r。</text>
+  <text x="62" y="206" font-family="Times New Roman, serif" font-size="9.5" fill="#7a5a2e">依据：第 56 页「Assume that the policy π is the set of all policies」后的最大值。</text>
+
+  <line x1="42" y1="218" x2="42" y2="230" stroke="#3b4148" stroke-width="1.2"/>
+  <polygon points="42,238 37.5,227 46.5,227" fill="#3b4148"/>
+
+  <!-- ③ -->
+  <rect x="16" y="238" width="628" height="76" rx="3" fill="#f4f6f9" stroke="#8b949e" stroke-width="1"/>
+  <circle cx="42" cy="266" r="10" fill="#ffffff" stroke="#3b4148" stroke-width="1.1"/>
+  <text x="38" y="270" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">3</text>
+  <text x="62" y="262" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">反解奖励：r(x,y) = β · log[ π*(y|x) / πref(y|x) ] + β · log Z(x)</text>
+  <text x="62" y="284" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">奖励被策略表示出来了 —— 这就是「隐式奖励」（implied reward）。</text>
+  <text x="62" y="302" font-family="Times New Roman, serif" font-size="9.5" fill="#7a5a2e">依据：第 56 页「Solve for the 'implied reward'」。</text>
+
+  <line x1="42" y1="314" x2="42" y2="326" stroke="#3b4148" stroke-width="1.2"/>
+  <polygon points="42,334 37.5,323 46.5,323" fill="#3b4148"/>
+
+  <!-- ④ -->
+  <rect x="16" y="334" width="628" height="76" rx="3" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <circle cx="42" cy="362" r="10" fill="#ffffff" stroke="#3b4148" stroke-width="1.1"/>
+  <text x="38" y="366" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">4</text>
+  <text x="62" y="358" font-family="Times New Roman, serif" font-size="11" fill="#1f2328">代入 Bradley–Terry：L = −E log σ( β·log[πθ(yw|x)/πref(yw|x)] − β·log[πθ(yl|x)/πref(yl|x)] )</text>
+  <text x="62" y="380" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">β·log Z(x) 在成对相减时抵消，所以既不需要奖励模型，也不需要估计配分函数。</text>
+  <text x="62" y="398" font-family="Times New Roman, serif" font-size="9.5" fill="#7a5a2e">依据：第 57 页「DPO derivation 2」；等价关系亦见 DPO 原论文。</text>
+
+  <line x1="16" y1="424" x2="644" y2="424" stroke="#c9ccd1" stroke-width="0.8"/>
+  <text x="16" y="442" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">概念上 = 在非参数假设 + 另一种参数化下，对成对奖励做成对最大似然（第 57 页原话）。</text>
+  <text x="16" y="460" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">按 lecture_15.pdf 第 55–58 页的四步结构重绘；公式排版依原论文写法，推导过程为教材补全。</text>
+</svg>

@@ -1,0 +1,84 @@
+issue_id: CH01-THM-002
+chapter: 1
+severity: P1
+status: 已有依据
+title: 式 (1.16) 把信息量的对象写成参数 θ，导致"≤ H(A*)"一步失去依据
+summary: >
+  第 228 行定义 I_T=I(θ;h_{T+1})、Γ_t=(EΔ_t)²/I(θ;A_t,r_t|h_t)，式 (1.16) 随后写
+  I_T ≤ H(A*) ≤ ln K。链式法则那一步（Σ_t I(θ;A_t,r_t|h_t)=I(θ;h_T)）是对的，但
+  「I(θ;h_T) ≤ H(A*)」不成立：历史对**参数**的信息量可以远大于最优动作的熵。K=2 连续
+  先验的例子中 H(A*)=ln2≈0.69 nats，而样本平均使 I(θ;h_T)→∞。正确写法是把信息量的
+  对象换成最优动作 A*：TS 教程式 (8.7) 的分母是 I(x*;(x_t,y_t)|H_{t−1})，式 (8.8) 给
+  Regret ≤ √(Γ·H(x*)·T)，其推导正是靠"互信息之和不超过 H(x*)"。另外第 236 行
+  「信息比有界 ⇒ √(KT ln K)」还隐含 Γ=O(K)（对角例 Γ≤d/2），只说"有界"只能得到
+  √(T ln K)。
+
+current_text:
+  file: content/ch01.md
+  lines: "228-236"
+  excerpt: >
+    第 228 行：记瞬时遗憾 Δ_t=μ*-μ_{A_t}、I_T=I(θ;h_{T+1}) 为历史对参数的信息量，并定义信息比
+    Γ_t=(E[Δ_t])²/I(θ;A_t,r_t|h_t)……则由柯西—施瓦茨不等式……得
+    第 230-234 行（式 1.16）：Regret‾(T) ≤ √(Γ̄ T I_T) ≤ √(Γ̄ T H(A*)) ≤ √(Γ̄ T ln K)。
+    第 236 行：TS 之所以好，是因为共轭情形下它的信息比有界，从而得到 √(KT ln K) 量级。
+
+sources:
+  - key: 1707.02038_thompson-sampling
+    level: S
+    role: 信息比的分母以最优动作为对象（I(x*;·)），不是参数；这就是 (8.8) 能把信息量换成熵的原因
+    pdf_page: 79
+    printed_page: "§8.1（纸面 p.79）"
+    quote: >
+      in the denominator, the conditional mutual information I(x∗; (xt, yt)|Ht−1)
+      between the uncertain optimal action x∗and the impending observation
+    note: 式 (8.7) 的完整形式是 Γ_t=(E[μ(x*,θ)−μ(x_t,θ)])²/I(x*;(x_t,y_t)|H_{t−1})；分子是单期期望遗憾的平方。
+  - key: 1707.02038_thompson-sampling
+    level: S
+    role: 上界只到最优动作先验的熵 H(x*)，不涉及参数分布的熵
+    pdf_page: 80
+    printed_page: "§8.1（纸面 p.80）"
+    quote: >
+      expect to acquire, which is at most the entropy of the prior distribution
+      of the optimal action.
+    note: 同一页式 (8.8) 为 E[Regret(T)] ≤ √(Γ H(x*) T)；推导用 Jensen 与互信息链式法则。
+
+derivation_file: review/derivations/CH01-THM-002.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    K=2 连续先验的反例是解析的（H(1/2)=ln2，样本平均使后验收缩、I(θ;h_T) 无界增长），
+    无需数值实验。若要演示可用 Beta 先验的双臂伯努利，但结论不依赖具体分布。
+
+claims:
+  - id: c1
+    text: 链式法则给出 Σ_t I(θ;A_t,r_t|h_t)=I(θ;h_T)，所以式 (1.16) 的第一个不等号成立。
+    evidence: 推导第 1 节（互信息链式法则）
+    status: 已核对
+  - id: c2
+    text: 「I(θ;h_T) ≤ H(A*)」不成立：最优动作只是参数的一个函数，I(θ;h_T) 可以无界增长，而 H(A*)≤ln K。
+    evidence: 推导第 2 节（K=2 连续先验反例，H(A*)=ln2≈0.69）
+    status: 已核对
+  - id: c3
+    text: 正确形式把信息量的对象换成最优动作：Γ_t=(EΔ_t)²/I(A*;A_t,r_t|h_t)，上界 √(Γ H(A*) T)。
+    evidence: 1707.02038_thompson-sampling p.79 式 (8.7)、p.80 式 (8.8)
+    status: 已核对
+  - id: c4
+    text: 从 √(Γ̄ T H(A*)) 到 √(KT ln K) 还需要 Γ=O(K)；只说「信息比有界」（与 K 无关的常数）只能得到 √(T ln K)。
+    evidence: 1707.02038_thompson-sampling p.80 的对角例 Γ≤d/2 与 p.81 的 Γ≤1/2；推导第 4 节
+    status: 已核对
+
+planned_fix:
+  - 把第 228 行的 I_T 与 Γ_t 中的 θ 改成最优动作 A*：I_T=I(A*;h_{T+1})、Γ_t=(EΔ_t)²/I(A*;A_t,r_t|h_t)，并加一句「信息量的对象是最优动作，不是参数」。
+  - 在式 (1.16) 后补一句说明：链式法则给出 I(A*;h_T)，而互信息不超过被判定的离散变量之熵，故有 I(A*;h_T)≤H(A*)≤ln K。
+  - 第 236 行把「信息比有界」补成「信息比 O(K) 量级（K 臂情形 Γ≤K/2）」，否则删去 √(KT ln K) 里的 K、只写 √(T ln K)。
+  - 第 236 行末「先验必须正确（I_T 按先验算，若真值不在先验支撑内，不等式失去意义）」随符号替换一并改写为按 A* 的先验表述。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本条只涉及 (1.16) 的推导链，与 CH01-THM-001（(1.10) 的常数与 c）无交集。
+    表 1-1「后验式」行写「贝叶斯遗憾 √(KT ln K) 量级（式 (1.16)）」时也应与修好的 (1.16) 对齐。

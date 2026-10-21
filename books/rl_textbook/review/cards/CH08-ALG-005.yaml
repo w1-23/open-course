@@ -1,0 +1,79 @@
+issue_id: CH08-ALG-005
+chapter: 8
+severity: P2
+status: 已核验
+title: DAgger 段落此前只有"作者+年份"括注，缺一手引注；表述本身正确
+summary: >
+  8.4.2 节的描述（"让策略先跑，把它访问到的状态拿给专家标注，再并入数据集"）与
+  Ross、Gordon 与 Bagnell 2011 的 Algorithm 3.1 完全一致：算法第 4–6 行是
+  "用 π_i 采样轨迹 →取被 π_i 访问到的状态 →专家给出动作 →并入 D"，
+  并且明确"我们要的是学习者自己会遇到的状态"。原文还给了 β_i 的混合策略 π_i = β_i π* + (1−β_i)π̂_i 与 no-regret 收敛，正文第 273 行的 Tε 线性界即由此而来。
+  审计第一轮因该文献不在库中而记为"无法核实"；现已把 arXiv:1011.0686 收入
+  source/library（level S，9 页），正文也补成"（Ross、Gordon 与 Bagnell, 2011，算法 3.1）"。
+
+current_text:
+  file: content/ch08.md
+  lines: "255-257; 283-284"
+  excerpt: >
+    既然错误来自"策略自己会去、但专家没去过的状态"，修法就明确了：让策略先跑，
+    把**它访问到的状态**拿给专家标注，再把这些新样本并入数据集。这就是 DAgger
+    （Ross、Gordon 与 Bagnell, 2011，算法 3.1）。
+
+sources:
+  - key: 1011.0686_dagger
+    level: S
+    role: Algorithm 3.1 的原始步骤（在 π_i 访问到的状态上取专家标签）
+    pdf_page: 4
+    printed_page: "§3 Algorithm 3.1"
+    quote: >
+      Get dataset Di = {(s, π∗(s))} of visited states by πi and actions given by expert.
+      Aggregate datasets: D ←D S Di. Train classiﬁer ˆπi+1 on D.
+    note: >
+      这就是"数据集聚合"的字面含义：新增样本的**状态**来自学习者当前策略，
+      标签来自专家——不是对专家数据做变换。
+  - key: 1011.0686_dagger
+    level: S
+    role: 为什么要这样做——把"学习者会遇到的状态"逐步纳入训练分布
+    pdf_page: 4
+    printed_page: "§3"
+    quote: >
+      The intuition behind this algorithm is that over the iterations, we are building up
+      the set of inputs that the learned policy is likely to encounter during its execution
+      based on previous experience (training iterations).
+    note: 这句话直接支撑正文"DAgger 改变的是数据分布，而不是样本数量"的论断。
+
+derivation_file: null
+reproduction_file: null
+reproduction_result:
+  note: >
+    无需复现：判定标准是"算法步骤与正文描述是否一致"，属逐行对照。
+    正文的 Tε 线性界（第 273 行）引的是同文 Theorem 4.1，属 [渐近] 结论，与算法描述分开核算。
+
+claims:
+  - id: c1
+    text: DAgger 在**策略自己访问到的状态**上取专家标签，而不是对专家数据做变换。
+    evidence: 1011.0686_dagger p.4 Algorithm 3.1 第 4–6 行
+    status: 已核对
+  - id: c2
+    text: 正文第 271 行"DAgger 不是数据增强、且需要能查询专家"与原文一致（算法需要在线专家）。
+    evidence: 1011.0686_dagger p.4 算法循环内 "query the expert" 与 πi = βiπ∗ + (1−βi)ˆπi 的混合策略
+    status: 已核对
+  - id: c3
+    text: 该文献此前不在库中，导致审计第一轮只能记"无法核实"；现已入库（level S，9 页）。
+    evidence: source/library/1011.0686_dagger/meta.yaml（pages 9，level S，9 页 PDF 已入索引）
+    status: 已核对
+
+planned_fix:
+  - 8.4.2 节第 257 行已把"（Ross et al., 2011）"补成"（Ross、Gordon 与 Bagnell, 2011，算法 3.1）"，让读者能直接对到 Algorithm 3.1。
+  - 若后续要加脚注，可在第 271 行"需要能查询专家"后补一句"'能查询专家'在原文里是每轮都能调用 π*，不是只在数据采集阶段调用一次"，避免读者把 DAgger 与"先采一批专家数据再离线训练"混为一谈。
+  - source/library/1011.0686_dagger/meta.yaml 的 title/authors/year 目前是构建器自动填的空值，建议补成正式题名与三位作者，便于其它章引用时显示完整信息。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: >
+    本卡的作用是把第一轮的"无法核实"结案：正文没有改动结论，只是把引注落到算法级，
+    并留下可复核的 pdf_page 与原文摘录。

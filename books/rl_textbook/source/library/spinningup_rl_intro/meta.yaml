@@ -1,0 +1,19 @@
+key: spinningup_rl_intro
+version: 2026-10-19
+level: B
+role: docs
+title: "Part 1: Key Concepts in RL &mdash; Spinning Up documentation"
+authors: []
+year: null
+published: ""
+arxiv_id: ""
+doi: ""
+journal_ref: ""
+primary_category: ""
+path: source/pages/spinningup_rl_intro.html
+bytes: 52894
+pages: null
+sha256: eebcb24040b93eb304026642b23811d5ea6258c146baf1365564505b230e5b5f
+retrieved: 2026-10-20
+license_note: "官方文档与代码文档：可引用，但只作实现说明，不作定理论据。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

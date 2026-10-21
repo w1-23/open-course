@@ -1,0 +1,93 @@
+issue_id: CH05-ADV-001
+chapter: 5
+severity: P1
+status: 已有依据
+title: 基线恒等式的条件写对了，但两处措辞会被读成"任意基线"与"梯度有偏"
+summary: '式 (5.10) 的推导（Σ_a b(s)∇π = b(s)∇Σ_a π = b(s)∇1 = 0）与"b 只依赖状态"的条件在 正文第 118–129 行与算法 5-1 的注（第 148
+  行"b 只依赖状态"）都写了；5.2.1 又把 "优势估计无偏"（命题 5.1，需 V_φ=V^π）与"策略梯度无偏"（命题 B，任意状态基线） 分成两条独立陈述，第 182–184 行还专门警告不要把两者混成"GAE
+  无偏所以策略梯度无偏"。 就判定项 2、3 而言，**本章的实质结论正确**。但有两处措辞会被误读： （a）第 129 行"也不要求它有界以外的任何性质"——字面暗示"b 必须有界"，而 Sutton
+  & Barto 第 329 页的原话是"可以是任意函数，甚至是随机变量，只要不随动作变化"； （b）第 136 行"对任意 b 都是无偏的"漏掉"只依赖状态"这一限定，紧接着又说"选择 b=V_φ ……
+  代价是引入一点偏差"，这句话单独读会推出"用学出来的 critic 会让策略梯度 有偏"。命题 B 只对**蒙特卡洛权重**（式 5.11 的 G_t）成立；一步 AC 的 δ 版本确实有偏 （V_φ
+  的误差经转移核变成动作相关项），正文没有把这两者分开写。这两处是措辞层面的 P1，不涉及公式本身。
+
+  '
+current_text:
+  file: content/ch05.md
+  lines: 118-140
+  excerpt: '第 129 行："这个恒等式对**任意**只依赖 s 的 b 成立，不要求 b 与策略有关，也不要求它有界以外的任何性质。" 第 136 行："对任意 b 都是无偏的。选择 b(s)=V^π(s)
+    使权重变成优势 A^π(s,a)，方差最小；选择 b(s)=V_φ(s)（学出来的近似）在实践中几乎一样好，代价是引入一点偏差——关于''偏差从哪来、是否影响无偏性''，5.2.1 节要分成两个命题讲清楚。"
+
+    '
+sources:
+- key: RLbook2020
+  level: S
+  role: 基线恒等式的原始陈述与适用条件（"不随动作变化"即可，无需有界）
+  pdf_page: 351
+  printed_page: §13.4, p.329
+  quote: The baseline can be any function, even a random variable, as long as it does not vary with a;
+  note: '抽文中 ∇ 被抽成 r、π 被抽成 ⇡，此处按原式转写。原文只要求"不随 a 变化"， 没有要求有界性——本章第 129 行的"不要求它有界以外的任何性质"容易被读反。
+
+    '
+- key: RLbook2020
+  level: S
+  role: 基线的效果是降方差而非改期望，支撑"减基线不引入偏差"这一结论的方向
+  pdf_page: 351
+  printed_page: §13.4, p.329
+  quote: In general, the baseline leaves the expected value of the update unchanged, but it can have a
+    large
+  note: '这句话只谈"期望不变 + 方差可变"，没有说"用近似的 b 会让梯度有偏"，可用来支撑 第 136 行应改写成"代价是优势估计带上 critic 误差，不改变策略梯度的期望"。
+
+    '
+- key: 1506.02438_gae
+  level: S
+  role: 说明"优势估计的偏差"与"策略梯度的偏差"在原始文献里如何被区分（本条用于判定命题 5.1 与命题 B 的分工）
+  pdf_page: 4
+  printed_page: §3, p.4
+  quote: 'Note that δV t can be considered as an estimate of the advantage of the action at. In fact,
+    if we have the correct value function V = V π,γ, then it is a γ-just advantage estimator, and in fact,
+    an unbiased estimator of Aπ,γ.
+
+    '
+  note: '原文把"无偏"限定在 V 精确时才成立，正是命题 5.1 的写法；本章把它与命题 B（梯度 对任意状态基线无偏）分开，符合原文的层次，但需要一句显式对照（见 CH05-GAE-001）。
+
+    '
+claims:
+- id: c1
+  text: 式 (5.10) 的恒等式与"b 只依赖状态"的条件在本章写清楚了。
+  evidence: content/ch05.md 第 118–129 行 + 算法 5-1 注（第 148 行）；RLbook2020 p.351 原文对照
+  status: 已核对
+- id: c2
+  text: 命题 5.1（优势估计无偏需 V_φ=V^π）与命题 B（策略梯度对任意状态基线无偏）被分成两条独立陈述，未混用。
+  evidence: content/ch05.md 第 170–184 行；1506.02438_gae p.4 对"V=V^π 才无偏"的限定
+  status: 已核对
+- id: c3
+  text: 第 129 行"不要求它有界以外的任何性质"与原文"任意函数、甚至随机变量"不符，属误导性措辞。
+  evidence: RLbook2020 p.351 原文；对照 content/ch05.md 第 129 行
+  status: 已核对
+- id: c4
+  text: 第 136 行"选择 b=V_φ …… 代价是引入一点偏差"单独读会推出"梯度有偏"；结合下一句本意应是"优势估计有偏"，但正文没有把 MC 权重与自举权重分开，与命题 B 的适用范围存在冲突。
+  evidence: derivation_file 第 2、3 节（MC 权重下状态函数项为零；自举权重下 V_φ 误差经 P 变成动作相关项）；content/ch05.md 第 174–182 行
+  status: 已核对
+planned_fix:
+- 第 129 行改为：'这个恒等式对任意只依赖状态（不随动作变化）的 b 成立——甚至可以是一个随机变量，唯一要求是它不能依赖 a。'删掉'不要求它有界以外的任何性质'这一歧义句。
+- 第 136 行改为：'对任意只依赖状态的 b 都是无偏的。选择 b=V^π 使权重变成优势，方差最小；选择学出来的 V_φ 在实践中几乎一样好——它不改变梯度的期望（命题 B），代价只是优势估计带上
+  critic 的误差，方差也未必最小。'
+- 在 5.2.1 末尾补一句方向性提醒：'命题 B 要求采样分布与目标策略一致（on-policy）；若用行为策略数据，需乘重要性比率，无偏性另论'，以免读者把命题 B 外推到离策略。
+- 算法 5-1 的注（第 148 行）保持'b 只依赖状态'不变，但在框后正文加半句'b 不要求有界、不要求与策略同分布'，与修正后的第 129 行一致。
+derivation_file: review/derivations/CH05-ADV-001.md
+reproduction_file: null
+reproduction_result:
+  note: '本条判据是"条件是否写全 + 结论是否自洽"，属逐句与逐项代数核对。若日后改写 5.2.1， 可用 4 状态链式 MDP 做一次数值检验：把 V_φ 故意取成 2V^π，比较带基线梯度估计的
+    均值与解析梯度（第 5 章图 5-3 的脚本已能给出解析梯度）。
+
+    '
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: pending
+  reviewed_at: null
+  notes: '实质结论（恒等式成立、两个命题分开）无需改动；改动仅限措辞与一句 on-policy 限定。 切勿因为第 136 行的措辞而删掉命题 B——命题 B 本身是对的。 已按 lead 的
+    D2 施工（2026-10-20）：第 129 行改为"任何不随动作变化的量，甚至随机变量"，第 136 行补"只依赖状态"，并把命题 B 锁在式 (5.11) 的蒙特卡洛权重上。
+
+    '

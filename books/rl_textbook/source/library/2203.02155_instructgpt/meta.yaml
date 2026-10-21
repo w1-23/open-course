@@ -1,0 +1,39 @@
+key: 2203.02155_instructgpt
+version: 2026-10-19
+level: S
+role: algorithm
+title: Training language models to follow instructions with human feedback
+authors:
+  - Long Ouyang
+  - Jeff Wu
+  - Xu Jiang
+  - Diogo Almeida
+  - Carroll L. Wainwright
+  - Pamela Mishkin
+  - Chong Zhang
+  - Sandhini Agarwal
+  - Katarina Slama
+  - Alex Ray
+  - John Schulman
+  - Jacob Hilton
+  - Fraser Kelton
+  - Luke Miller
+  - Maddie Simens
+  - Amanda Askell
+  - Peter Welinder
+  - Paul Christiano
+  - Jan Leike
+  - Ryan Lowe
+year: 2022
+published: 2022-03-04
+arxiv_id: 2203.02155
+doi: ""
+journal_ref: ""
+primary_category: cs.CL
+path: source/papers/2203.02155_instructgpt.pdf
+bytes: 1797405
+pages: 68
+sha256: c1984bb50a5b90fddb895fdc3a0f72e5bc977148c9f63ef6040cbe7a3e1f0d98
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"

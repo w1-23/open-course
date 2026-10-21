@@ -1,0 +1,38 @@
+unit_id: CH00-U03
+chapter: '00'
+chapter_title: 导论：这本书怎么读
+title: 五份作业与章节的对应
+course_provenance:
+- source_id: CS336-2026-SITE
+  locator: site:schedule
+  url: https://cs336.stanford.edu/
+  quote: '课程站：Stanford / Spring 2026；日程 19 个讲次；Lectures: Monday/Wednesday 3:00-4:20pm in Skilling Auditorium'
+technical_evidence:
+- source_id: CS336-2026-ASSIGN-ASSIGNMENT1
+  locator: repo:README + 作业 PDF
+  title: assignment1-basics
+  url: https://github.com/stanford-cs336/assignment1-basics
+- source_id: CS336-2026-ASSIGN-ASSIGNMENT2
+  locator: repo:README + 作业 PDF
+  title: assignment2-systems
+  url: https://github.com/stanford-cs336/assignment2-systems
+- source_id: CS336-2026-ASSIGN-ASSIGNMENT3
+  locator: repo:README + 作业 PDF
+  title: assignment3-scaling
+  url: https://github.com/stanford-cs336/assignment3-scaling
+- source_id: CS336-2026-ASSIGN-ASSIGNMENT4
+  locator: repo:README + 作业 PDF
+  title: assignment4-data
+  url: https://github.com/stanford-cs336/assignment4-data
+- source_id: CS336-2026-ASSIGN-ASSIGNMENT5
+  locator: repo:README + 作业 PDF
+  title: assignment5-alignment
+  url: https://github.com/stanford-cs336/assignment5-alignment
+knowledge_slot:
+  why_it_matters: 作业 1–5 与各章实践路径的衔接
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: course_only
+m0_notes: 教材新增内容，不得表述为课程原文

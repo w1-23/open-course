@@ -1,0 +1,43 @@
+'no': 95
+status: reviewed
+reviewer: author-ch6（独立审校）
+reviewed_at: '2026-10-21'
+source_hash: 'sha256:6d071dd9a8bbe377'
+equations:
+  - 'P.1'
+  - 'P.2'
+  - 'P.3'
+  - 'P.4'
+  - 'P.5'
+  - 'P.6'
+  - 'P.7'
+  - 'P.8'
+  - 'P.9'
+primary_sources:
+  - 2305.18290_dpo
+  - 2203.02155_instructgpt
+  - 2402.03300_deepseekmath-grpo
+notes: >-
+  复审通过（首轮 blocked）。9 式现在全部五项 ✓：首轮记下的 (P.3) 缺外层期望（S、D）、(P.5) 关键公式
+  用未定义的 r_t^task（S）共三处 ✗ 已由 lead 施工修掉并逐条确认；(P.3) 与其关键公式均包进
+  E_{x~D}，目标成标量，L105 改为"期望意义下等于序列 KL"，注框（L93）改为"读成温度为 β_KL 的
+  softmax 不算错，但别与采样温度混用"，与第 0 章 L145 一致；r_t^task 已在 L207 定义。
+  与文献比对 4 处（InstructGPT p.9、DeepSeekMath p.14、DPO p.15、DPO p.4）。
+  仍存两条不影响判定的写法建议（L105 括注措辞、正文 r^task(x,y) 与关键公式 r_t^task 是否合一）。
+fixed:
+  - id: CH95-MATH-001
+    line: 75
+    equation: 'P.3'
+    summary: 用 E_{x~D} 包住两项，目标成标量；关键公式 L198 同改
+  - id: CH95-MATH-002
+    line: 105
+    equation: 'P.5'
+    summary: "「恰好等于序列 KL」改为「在期望意义下等于序列 KL」"
+  - id: CH95-MATH-003
+    line: 93
+    equation: 'P.4'
+    summary: 注框改为"读成温度为 β_KL 的 softmax 不算错，别与采样温度混用"，与第 0 章 L145 一致
+  - id: CH95-MATH-004
+    line: 207
+    equation: 'P.5'
+    summary: 关键公式的 r_t^task 已补定义（除末尾外为零，末尾等于 r(x,y)）

@@ -1,0 +1,59 @@
+issue_id: CH05-PROP-001
+chapter: 5
+severity: P1
+status: 已核验
+title: 式 (5.13) 漏掉 γ^t，与式 (5.11)、算法 5-1 第 6 行及 S&B (13.11) 都不一致
+summary: 式 (5.13) 写 E[(G_t − V_φ(s_t))∇log π] = ∇J(θ)，左边既没有 γ^t 也没有对 t 的求和。本章式 (5.11)、式 (5.9) 与算法 5-1
+  第 6 行都保留 γ^t，5.1.2 节还强调“γ^t 不能省”。按式 (5.11)，正确写法是 γ^t·E[(G_t − b(s_t))∇log π]；它只是第 t 步的贡献，不是 ∇J。结论（无偏）不受影响，但等式本身不成立，且与本章反复强调的
+  γ^t 记号自相矛盾。
+current_text:
+  file: content/ch05.md
+  lines: 174-182
+  excerpt: 第 182 行：这就是命题 B；式 (5.13)（第 176–180 行）：E[(G_t − V_φ(s_t))∇log π] = ∇J(θ)；对照式 (5.11)（第 132 行）Σ_{t≥0}
+    γ^t (G_t − b(s_t))∇log π；第 93 行：γ^t 这个权重不能省。
+sources:
+- key: RLbook2020
+  level: S
+  role: S&B 的 REINFORCE+基线算法框保留 γ^t，是“逐步梯度项带 γ^t”的一手依据
+  pdf_page: 352
+  printed_page: §13.4 算法框（纸面 p.330）
+  quote: ✓ ✓+ ↵✓γtδr ln ⇡(At|St, ✓)
+- key: RLbook2020
+  level: S
+  role: 策略梯度定理的基线形式：基线不改变期望，但更新量里仍有 γ^t
+  pdf_page: 351
+  printed_page: §13.4（纸面 p.329）
+  quote: The policy gradient theorem (13.5) can be generalized to include a comparison of the action value
+    to an arbitrary baseline b(s)
+derivation_file: review/derivations/CH05-PROP-001.md
+reproduction_result:
+  note: 纯记号核对，无需数值实验。
+claims:
+- id: c1
+  text: 固定 t 时该步对梯度的贡献是 γ^t·E[(G_t−b(s_t))∇log π]。
+  evidence: 式 (5.11) 与式 (5.8) 对照；推导第 1 节
+  status: 已核对
+- id: c2
+  text: 式 (5.13) 少了 γ^t（或少了 Σ_t），故“= ∇J(θ)”不成立。
+  evidence: 推导第 2 节（把 b=V_φ 代回式 (5.11)）
+  status: 已核对
+- id: c3
+  text: S&B (13.11)、本章式 (5.9) 与算法 5-1 第 6 行都带 γ^t，漏的只有式 (5.13)。
+  evidence: RLbook2020 p.352；式 (5.9)；算法 5-1 第 6 行
+  status: 已核对
+- id: c4
+  text: 修订复核：当前 content/ch05.md 已按本卡修正。
+  evidence: 推导复核（对照原文与现行正文）：式 (5.13) 现为 Σ_{t≥0} γ^t (G_t−V_φ(s_t))·∇log π 的求和形式（第 176–180 行），与式 (5.11)
+    一致；本卡提出的“漏 γ^t”已消除。
+  status: 已核对
+planned_fix:
+- 第 176–180 行的式 (5.13) 改为 E_τ[Σ_{t≥0} γ^t (G_t − V_φ(s_t))∇log π] = ∇J(θ)，或保留单步形式但在左侧补 γ^t、右侧改为“第 t 步的贡献”。
+- 第 182 行补一句：单步形式只在乘上 γ^t 后与式 (5.11) 等价。
+- 第 152 行“所有轨迹等长可省 γ^t”限定为“目标本来就是未折扣”。
+review:
+  math_check: done
+  source_check: done
+  consistency_check: done
+  independent_reviewer: pending
+  reviewed_at: '2026-10-20'
+  notes: 审计对象 content/ch05.md（562 行）；引文均从 source/pages/ 切片；本章自产实验数字已用 figures/ch05_figs.py 重跑复现（cache/ch05_figs_log.txt）。

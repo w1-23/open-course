@@ -1,0 +1,104 @@
+issue_id: CH09-ALG-001
+chapter: 9
+severity: P0
+status: 已有依据
+title: 选项评论家：式 (9.4) 的符号反了，伪代码第 6 行的价值函数让梯度恒为零
+summary: >
+  两处独立错误，都在 9.1.2 节。① 由式 (9.3) 对 β_o(s') 求偏导得
+  P(s'|s,o)·γ·[V(s') − Q(s',o)]，书中式 (9.4) 写成了它的相反数；正文 76 行的文字
+  解释、定理 2 的 −Σμ∂β·A_Ω、以及"负优势→提高终止概率"三处都与正确符号一致，
+  属"文字对、公式错"。② 算法 9-1 第 6 行用 Q_Ω(s,o) 乘 ∇θ log π_o(a|s)，
+  而 Q_Ω 与采样动作无关，Σ_a ∇θ π_o(a|s) = 0，故该项的期望梯度**恒为零**——
+  这是"梯度消失"，不是"可互替的近似"。
+  本卡前一轮的 c3 曾撤回"式 (9.4) 方向错误"，该撤回无效，须在台账中撤销撤回。
+
+current_text:
+  file: content/ch09.md
+  lines: "62-95"
+  excerpt: >
+    72: \frac{\partial Q(s,o)}{\partial \beta_o(s')}=P(s'\mid s,o)\,\gamma\bigl[Q(s',o)-V(s')\bigr]
+    88: 6:    theta <- theta + eta_theta * grad_theta log pi_o(a|s) * Q(s,o; w)
+    89: 7:    beta  <- beta + eta_beta * gamma * (Q(s,o; w) - V(s'; w)) * grad_beta beta_o(s')
+  note: >
+    行号对应修正前的版本（2026-10-20 19:0x 之前）。同一条错误在「关键公式」一节
+    （原第 380 行）重复出现，施工时两处都要改。
+
+sources:
+  - key: 1609.05140_option-critic
+    level: S
+    role: options / Option-Critic 原始论文（定理 1、2）
+    pdf_page: 3
+    printed_page: "§4 Theorem 1 & 2"
+    quote: >
+      Theorem 2 (Termination Gradient Theorem). Given a set of Markov options with stochastic
+      termination functions
+    note: >
+      同页 Theorem 2 的完整形式是 −Σ_{s′,ω} μ_Ω(s′,ω) ∂β_{ω}(s′)/∂ϑ · A_Ω(s′,ω)，
+      不含显式 γ（γ 在 μ_Ω 的折扣加权里）。定理 1 的权重是 Q_U(s,ω,a)，即**含动作**的价值。
+  - key: RLbook2020
+    level: S
+    role: options 的出处与"早期工作未处理离策略"的旁证
+    pdf_page: 500
+    printed_page: "§17.2 文献注记"
+    quote: >
+      The formalization of temporally abstract courses of action as options was ... by
+      Sutton, Precup, and Singh (1999), building on prior work by Parr (1998) and Sutton (1995a),
+      and on classical work on Semi-MDPs
+    note: >
+      文献注记，只用于归属与"早期方法不覆盖离策略"的表述；不得用它代替 Precup 等人的定理。
+      Precup 2000 一手 PDF 未取得，见 source/library/PENDING.yaml。
+
+derivation_file: review/derivations/CH09-ALG-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条判据是逐符号对照与一个解析恒等式（Σ_a ∇π = 0），不需要数值实验。
+    W1B 施工后应补一个两状态选项 MDP 的有限差分对照，确认 ∂Q/∂β 的符号。
+
+claims:
+  - id: c1
+    text: 终止梯度定理中优势的两项都在 s'（被评估终止的那个状态）。
+    evidence: 1609.05140_option-critic p.3 Theorem 2 原文
+    status: 已核对
+  - id: c2
+    text: 定理 2 不含显式 γ 乘子（γ 已并入 state-option 占用测度 μ_Ω）。
+    evidence: 1609.05140_option-critic p.3 Theorem 2 原文公式
+    status: 已核对
+  - id: c3
+    text: >
+      本书式 (9.4) 写成 P·γ·[Q(s',o) − V(s')]，符号与 (9.3) 的偏导相反；
+      正确形式是 P·γ·[V(s') − Q(s',o)]。
+    evidence: 由式 (9.3) 求偏导（derivation_file 第 1 节）；并与正文 76 行、定理 2 的符号三处对照
+    status: 已核对
+    note: >
+      本条**撤销**上一轮"式 (9.4) 正确、撤回审查意见"的结论。前一轮撤回是错的，
+      已在 review/independent/CH09-ALG-001_review.md 中被独立复核推翻（FAIL）。
+  - id: c4
+    text: 定理 1 的梯度权重是含动作的 Q_U(s,ω,a)，不能无条件换成 Q_Ω(s,o)。
+    evidence: 1609.05140_option-critic p.3 Theorem 1 原文
+    status: 已核对
+  - id: c5
+    text: >
+      若用 Q_Ω(s,o) 作权重，Σ_a ∇θ π_o(a|s)·Q_Ω(s,o) = Q_Ω(s,o)Σ_a ∇θ π_o(a|s) = 0，
+      内部策略的期望梯度恒为零（梯度消失）。
+    evidence: 推导——Σ_a π_o(a|s) = 1 对 θ 求导即得 Σ_a ∇θ π_o = 0；与 c4 的定理 1 对照（derivation_file 第 3 节）
+    status: 已核对
+
+planned_fix:
+  - 式 (9.4) 改为 `P(s'|s,o)·γ·[V(s') − Q(s',o)]`，并把 76 行的解释改为"梯度 = γ[V−Q]，即优势的负值"。
+  - 「关键公式」一节重复的 (9.4) 同步修改（两处必须一致）。
+  - 算法 9-1 第 6 行改为 `... * Q_U(s,o,a; w)`，并在框后说明"权重必须含动作；用 Q_Ω 会让该期望梯度恒为零"。
+  - 算法 9-1 第 7 行改为 `beta <- beta - eta_beta * (Q(s',o;w) - V(s';w)) * grad_beta beta_o(s')`，保留 γ 时注明"γ 已并入占用测度，此处 γ 只作步长尺度"。
+  - 正文 78 行改写：明确"单步偏导 → 策略梯度定理要乘 state-option 占用测度并对 τ 取期望，Q 的评估状态由 s 移到 s'"。
+  - 正文 95 行改写：分两段说清"第 6 行梯度恒为零"与"第 7 行用当前 Q 代替 Q(s',o) 是[近似]"。
+  - 伪代码框补两条前提：β 用 sigmoid 松弛（硬阈值无梯度）；加终止正则或最小选项长度（否则选项退化为一步）。
+
+review:
+  math_check: pending
+  source_check: pending
+  consistency_check: pending
+  independent_reviewer: "author-ch04（review/independent/CH09-ALG-001_review.md，结论 FAIL）"
+  reviewed_at: "2026-10-20"
+  notes: >
+    独立复核推翻本卡旧版 c3，并指出旧版把"定理 1 权重被换成 Q_Ω"降级为"近似"是错的。
+    修订台账须登记一条"撤销撤回"，并把 c5 作为新增项。

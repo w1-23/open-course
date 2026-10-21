@@ -1,0 +1,55 @@
+unit_id: CH03-U04
+chapter: '03'
+chapter_title: Architectures 与超参数
+title: RMSNorm 与 LayerNorm 的差别及收益来源
+course_provenance:
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p14
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'LayerNorm vs RMSNorm / Original transformer: LayerNorm – normalizes / the mean and variance
+    across 𝑑𝑚𝑜𝑑𝑒𝑙 / Many modern LMs: RMSNorm – does not / subtract mean or add a bias term / 𝑦= / 𝑥 /
+    𝑥 / 2 / 2 + 𝜀 / ∗𝛾 / Notable models: / GPT3/2/1, OPT, GPT-J, BLOOM / Notable models: / LLaMA-family,
+    PaLM, Chinchilla, T5'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p15
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: Why RMSNorm? / Modern explanation – it’s faster (and just as good). / • / Fewer operations (no
+    mean calculation) / • / Fewer parameters (no bias term to store) / Does this explanation make sense?
+    / Matrix multiplies are the vast majority of FLOPs (and memory) / [Ivanov et al 2023]
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p16
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'Why RMSNorm (2) / Important lesson: FLOPS are not runtime! (we will discuss this in far more
+    detail later) / [Ivanov et al 2023] / Left top (”43G”) is FLOPS / Right top (“153”) is the FLOP-to-memory
+    ratio / RMSNorm can still matter due to / the importance of data movement'
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p17
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: RMSNorm - validation / RMSNorm runtime (and surprisingly, perf) gains have been seen in papers
+    / Narang et al 2020
+- source_id: CS336-2026-L03-PDF
+  locator: pdf:p18
+  url: https://github.com/stanford-cs336/lectures/blob/main/lecture_03.pdf
+  quote: 'More generally: dropping bias terms / Most modern transformers don’t have bias terms. / Original
+    Transformer: / Most implementations (if they’re not gated): / 𝐹𝐹𝑁𝑥= 𝜎𝑥𝑊1 𝑊2 / Reasons: memory (similar
+    to RMSnorm) and optimization stability'
+technical_evidence:
+- source_id: arXiv:1910.07467
+  ref_name: rms_norm_2019
+  title: Root Mean Square Layer Normalization
+  authors:
+  - Biao Zhang
+  - Rico Sennrich
+  year: '2019'
+  url: https://arxiv.org/abs/1910.07467
+  arxiv_id: '1910.07467'
+  arxiv_verified: true
+  locator: ''
+knowledge_slot:
+  why_it_matters: 去掉均值中心化与 bias 后的计算量与实测收益
+  definition: ''
+  formula: ''
+  shape_contract: ''
+  scope_and_limits: ''
+status: verified
+m0_notes: 引文为该页原文片段（已归一化空白）；公式与形状待 M1 依据论文补齐并复核

@@ -1,0 +1,76 @@
+issue_id: CH02-THM-001
+chapter: 2
+severity: P1
+status: 已有依据
+title: 定理 2.1（贝尔曼期望方程）没写前提，也没标 [精确]
+summary: >
+  定理 2.1 的陈述是「对任意策略 π，价值函数满足 (2.9)(2.10)」，没有任何前提，
+  标题里也缺本章其余定理都有的 [精确] 标注。证明末尾用「只要期望存在」代替了
+  真正需要的收敛条件：式 (2.9) 的右端含 V^π(s')，要把无穷级数从求和号里拆出来，
+  必须要求该级数绝对收敛或该策略下必然终止。正确前提是 RLbook (4.4) 之后那句
+  「γ<1 或该策略下从所有状态必然终止」，而本章只在 2.2.2 与 2.3.3 的旁白里提过
+  γ<1，没写进定理。表 2-2 第 374 行「期望存在 / 失效方式：无」是同一缺陷的下游。
+
+current_text:
+  file: content/ch02.md
+  lines: "144-160"
+  excerpt: >
+    定理 2.1（贝尔曼期望方程） 对任意策略 π，价值函数满足 …（式 2.9、2.10）…
+    证明末句：核心只用到一步分解与条件期望的塔性质，不要求 S 有限——只要期望存在。
+
+sources:
+  - key: RLbook2020
+    level: S
+    role: 贝尔曼期望方程（其式 4.4）之后给出的存在唯一性条件，正是本章定理 2.1 缺的那条
+    pdf_page: 96
+    printed_page: "§4.1, p.74, 式 (4.4) 之后"
+    quote: >
+      The existence and uniqueness of v⇡are guaranteed as long as either γ < 1 or
+      eventual termination is guaranteed from all states under the policy
+    note: >
+      该句紧接 (4.4)（即本章式 (2.9) 的求和形式）。注意它说的是 existence and
+      uniqueness（存在且唯一），比「方程成立」更强；本章 2.3.2 节自己证明了
+      I−γP^π 可逆，却未把这条写回定理 2.1 的陈述。
+
+derivation_file: review/derivations/CH02-THM-001.md
+reproduction_file: null
+reproduction_result:
+  note: >
+    本条只需逐符号对照与反例，不需要数值实验。反例 1（γ=1、不终止、r≡1）与
+    反例 2（γ<1、奖励无界、确定游走）都在 derivation_file 第 3 节给出。
+
+claims:
+  - id: c1
+    text: 定理 2.1 的陈述没有任何前提，标题也没有 [精确] 标注。
+    evidence: content/ch02.md:144-158 原文；对照式 (2.9)(2.10) 的写法与本章其余定理标题
+    status: 已核对
+  - id: c2
+    text: 正确前提是「γ<1 或该策略下从所有状态几乎必然终止」，且 S、A 有限使求和良定义。
+    evidence: RLbook2020 p.96 式 (4.4) 之后的 existence and uniqueness 一句
+    status: 已核对
+  - id: c3
+    text: 证明末句「只要期望存在」不充分：拆无穷级数要求绝对收敛，γ=1 且不终止时 V^π 可发散。
+    evidence: derivation_file 第 2-3 节的反例 1 与反例 2（推导 + 反例）
+    status: 已核对
+  - id: c4
+    text: 表 2-2 第 374 行「前提：期望存在 / 失效方式：无」低估了条件，需与定理同步。
+    evidence: 对照 content/ch02.md:374 与定理 2.1 正文，见 derivation_file 第 4 节
+    status: 已核对
+
+planned_fix:
+  - 定理 2.1 标题补 [精确]，陈述改为「设 S、A 有限、r 有界，且策略 π 满足 γ<1 或 π 下从所有状态几乎必然终止，则式 (2.9)(2.10) 成立且 V^π 是式 (2.11) 的唯一解」。
+  - 证明末句改为「推导只用一步分解与条件期望的塔性质；把级数从求和号中拆出要求绝对收敛，这正是上述前提所保证的（有限状态时 I−γP^π 可逆见 2.3.2 节）」。
+  - 表 2-2 第 374 行的「前提」改为「期望有限 +（γ<1 或必然终止）」，「失效方式」改为「γ=1 且不终止时 V^π 可能发散，方程退化为恒真」。
+  - 在 2.2.2 节「γ<1 是压缩映射成立的前提」一句后补半句「它同时是式 (2.9) 有唯一解的充分条件之一，另一条是该策略下必然终止」，使读者不必等到 2.3 节才见到条件。
+
+review:
+  math_check: 通过
+  source_check: 通过
+  consistency_check: 通过
+  independent_reviewer: pending
+  reviewed_at: "2026-10-20"
+  notes: >
+    已施工（2026-10-20）：定理 2.1 标题补 [精确]、陈述补「S、A 有限、奖励有界 +
+    （γ<1 或该策略下必然终止）」；证明末句改为绝对收敛的表述；表 2-2 第 374 行
+    同步；2.2.2 节补了「另一条条件是必然终止」半句。只影响定理 2.1、表 2-2 第一行
+    与 2.2.2 的一句，不牵动 :370 那段「四个前提」的总述，也不新增公式编号。

@@ -1,0 +1,230 @@
+# 来源映射：每一章的主要来源、级别与引用范围
+#
+# 级别：
+#   S  原始论文的正式版或公认教材（定理与定义的唯一依据）
+#   A  名校课程讲义（组织的参考，不作为定理依据）
+#   B  官方文档与官方代码（实现细节与超参数的依据）
+#   C  综述（只用来建地图，不得作为关键定理的依据）
+#
+# file 指向 source/text/ 下已抽取的纯文本，便于逐条核对；页码指该文件内的章节号。
+# 「已下载」不等于「已核对」；核对状态记在 review/source_review.yaml。
+chapters:
+  - "no": 1
+    title: Bandit 与探索
+    primary:
+      - level: S
+        cite: "[Sutton2018]"
+        file: RLbook2020.txt
+        where: "第 2 章（多臂老虎机）、第 2.6–2.7 节（UCB、梯度算法）、第 2.10 节（上下文老虎机）"
+      - level: S
+        cite: "[Auer2002]"
+        where: "UCB1 的对数遗憾界与定理 1"
+      - level: C
+        cite: "[Lattimore2020]"
+        where: "只用于探索方法的分类框架"
+    notes: "Lai–Robbins 下界须给出常数与渐近形式；GLIE 的两个条件分开写，不要合并成一条"
+
+  - "no": 2
+    title: MDP 与 Bellman 理论
+    primary:
+      - level: S
+        cite: "[Sutton2018]"
+        file: RLbook2020.txt
+        where: "第 3 章（MDP、回报、值函数、最优性）、第 3.8 节（设计奖励）"
+      - level: S
+        cite: "[Puterman1994]"
+        where: "第 6 章（压缩映射与最优方程的存在唯一性）"
+      - level: S
+        cite: "[Ng1999]"
+        where: "势函数塑形的充分条件"
+    notes: "策略改进定理用价值差恒等式证明；残差界只能是 sup-norm 的，不得替换为 MSE/MSBE"
+
+  - "no": 3
+    title: 动态规划、蒙特卡洛与时序差分
+    primary:
+      - level: S
+        cite: "[Sutton2018]"
+        file: RLbook2020.txt
+        where: "第 4 章（DP）、第 5 章（MC 与 GLIE）、第 6–7 章（TD、n 步、资格迹）"
+      - level: S
+        cite: "[Watkins1992]"
+        where: "Q 学习收敛的步长与访问条件"
+    notes: "禁止「自举低方差且无偏」；n 步回报与 λ-回报的权重写法统一按 _CONVENTIONS.md"
+
+  - "no": 4
+    title: 函数逼近与离策略学习
+    primary:
+      - level: S
+        cite: "[Sutton2018]"
+        file: RLbook2020.txt
+        where: "第 9 章（在策略预测）、第 11 章（离策略方法、致命三要素）、第 11.7 节（GTD）"
+      - level: S
+        cite: "[Tsitsiklis1997]"
+        where: "线性 TD 的投影不动点与收敛条件"
+      - level: S
+        cite: "[Baird1995]"
+        where: "发散反例"
+    notes: "核心推导 B；必须写清「投影不动点存在」与「任意采样下的 TD 收敛」是两件事"
+
+  - "no": 5
+    title: 策略梯度、信赖域与 PPO
+    primary:
+      - level: S
+        cite: "[Sutton2018]"
+        file: RLbook2020.txt
+        where: "第 13 章（策略梯度定理与基线）"
+      - level: S
+        cite: "[Schulman2015]"
+        file: 1502.05477_trpo.txt
+        where: "TRPO 的单调改进界与信赖域"
+      - level: S
+        cite: "[Schulman2017]"
+        file: 1707.06347_ppo.txt
+        where: "PPO 的裁剪目标"
+      - level: S
+        cite: "[Schulman2016]"
+        where: "GAE 的 λ-优势估计"
+      - level: B
+        cite: "[Baselines]"
+        where: "PPO 的十项实现细节"
+    notes: "clip 不是信赖域保证；GAE 的两类无偏性分开写"
+
+  - "no": 6
+    title: 深度强化学习：从 DQN 家族到连续控制
+    primary:
+      - level: S
+        cite: "[Mnih2015]"
+        where: "DQN 的经验回放与目标网络"
+      - level: S
+        cite: "[VanHasselt2016]"
+        file: 1509.06461_double-dqn.txt
+        where: "过估计与 Double DQN"
+      - level: S
+        cite: "[Wang2016]"
+        file: 1511.06581_dueling-dqn.txt
+        where: "优势分解"
+      - level: S
+        cite: "[Schaul2016]"
+        file: 1511.05952_prioritized-replay.txt
+        where: "优先回放的偏差修正"
+      - level: S
+        cite: "[Fujimoto2018]"
+        where: "TD3 的三项修正"
+      - level: S
+        cite: "[Haarnoja2018]"
+        file: 1801.01290_sac.txt
+        where: "最大熵目标与软策略迭代"
+    notes: "按「稳定 Q 学习的问题 → 补丁」组织；熵温度写 α_ent"
+
+  - "no": 7
+    title: 模型、规划与搜索
+    primary:
+      - level: S
+        cite: "[Sutton2018]"
+        file: RLbook2020.txt
+        where: "第 8 章（Dyna 与规划）"
+      - level: S
+        cite: "[Silver2017]"
+        where: "AlphaZero 的搜索与自博弈"
+      - level: S
+        cite: "[Schrittwieser2020]"
+        file: 1911.08265_muzero.txt
+        where: "MuZero 的隐空间模型"
+      - level: S
+        cite: "[Chua2018]"
+        where: "PETS 的概率集成与不确定性传播"
+    notes: "MuZero 不是预测原始观测的世界模型；模型误差的三类应对要分别写"
+
+  - "no": 8
+    title: 离线强化学习与策略评估
+    primary:
+      - level: S
+        cite: "[Fujimoto2019]"
+        where: "BCQ 的支持集约束"
+      - level: S
+        cite: "[Kumar2020]"
+        file: 2006.04779_cql.txt
+        where: "CQL 的保守下界"
+      - level: S
+        cite: "[Kostrikov2021]"
+        where: "IQL 的期望分位数回归"
+      - level: S
+        cite: "[Chen2021]"
+        where: "Decision Transformer 的回报条件"
+      - level: S
+        cite: "[Ross2011]"
+        where: "DAgger 的交互式数据聚合"
+      - level: S
+        cite: "[Voloshin2021]"
+        where: "OPE 的偏差—方差权衡"
+    notes: "三个保守算法约束对象不同；DAgger 不是数据增强"
+
+  - "no": 9
+    title: 层次、多智能体与安全约束
+    primary:
+      - level: S
+        cite: "[Sutton1999]"
+        where: "Options 框架与半马尔可夫决策过程"
+      - level: S
+        cite: "[Finn2017]"
+        where: "MAML 的二阶近似"
+      - level: S
+        cite: "[Rashid2018]"
+        where: "QMIX 的单调混合"
+      - level: S
+        cite: "[Achiam2017]"
+        where: "CPO 的约束策略优化"
+      - level: S
+        cite: "[Rockafellar2000]"
+        where: "CVaR 的优化表示"
+    notes: "CVaR 取损失的上尾；CMDP 约束期望，二者不可互换"
+
+  - "no": 10
+    title: RLHF 与偏好优化
+    primary:
+      - level: S
+        cite: "[Christiano2017]"
+        file: 1706.03741_preferences.txt
+        where: "偏好比较与奖励模型"
+      - level: S
+        cite: "[Ouyang2022]"
+        file: 2203.02155_instructgpt.txt
+        where: "三阶段流水线与 PPO 细节"
+      - level: S
+        cite: "[Rafailov2023]"
+        file: 2305.18290_dpo.txt
+        where: "DPO 的重参数化推导"
+    notes: "核心推导 D；七个条件与禁止「等价」表述"
+
+  - "no": 11
+    title: RLVR 与推理强化学习
+    primary:
+      - level: S
+        cite: "[Shao2024]"
+        file: 2402.03300_deepseekmath.txt
+        where: "GRPO 的组内标准化与目标函数"
+      - level: S
+        cite: "[DeepSeek2025]"
+        where: "R1 的冷启动与多阶段训练"
+      - level: C
+        cite: "[Wang2024survey]"
+        file: 2407.16216_rl_posttraining.txt
+        where: "只用于方法地图"
+    notes: "核心推导 E；GRPO 不等于「PPO 去掉 critic」"
+
+  - "no": 12
+    title: Agentic RL 与持续学习
+    primary:
+      - level: S
+        cite: "[Yao2023]"
+        where: "ReAct 的推理—行动交错"
+      - level: S
+        cite: "[Shinn2023]"
+        where: "Reflexion 的自我反思与记忆更新"
+      - level: S
+        cite: "[Wang2023voyager]"
+        where: "技能库与开放式探索"
+      - level: C
+        cite: "[Parisi2019]"
+        where: "持续学习的三类方法地图"
+    notes: "必须区分上下文内适应、记忆更新、参数更新、真正的持续 RL"

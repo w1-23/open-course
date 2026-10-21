@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="524" viewBox="0 0 840 524">
+  <!-- 注意：MuPDF 的 SVG 渲染不解析 <style> 选择器，所有样式必须写成内联属性。 -->
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#3b4148"/>
+    </marker>
+  </defs>
+
+  <text x="12" y="24" font-family="Times New Roman, serif" font-size="14" fill="#1f2328">prefill 与 decode：同一台 H100 上的两种负载</text>
+  <text x="12" y="42" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">依据 lecture_10.py 第 182–260 行的算术强度式子，取 B=64、S=1024；阈值来自第 147–150 行。</text>
+
+  <!-- ================= 面板 A：时间形态（左） ================= -->
+  <text x="14" y="80" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">prefill：并行吃下整个 prompt</text>
+  <rect x="20" y="90" width="26" height="24" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <rect x="50" y="90" width="26" height="24" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <rect x="80" y="90" width="26" height="24" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <rect x="110" y="90" width="26" height="24" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <rect x="140" y="90" width="26" height="24" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <rect x="170" y="90" width="26" height="24" fill="#eef3fb" stroke="#7d93b2" stroke-width="1"/>
+  <line x1="20" y1="128" x2="196" y2="128" stroke="#3b4148" stroke-width="1"/>
+  <line x1="20" y1="124" x2="20" y2="132" stroke="#3b4148" stroke-width="1"/>
+  <line x1="196" y1="124" x2="196" y2="132" stroke="#3b4148" stroke-width="1"/>
+  <text x="20" y="146" font-family="Times New Roman, serif" font-size="10.5" fill="#5b636b">一个时间步</text>
+  <text x="206" y="102" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">S 个 token 同算</text>
+  <text x="206" y="118" font-family="Times New Roman, serif" font-size="10.5" fill="#2f6a3a">→ 算力受限</text>
+
+  <text x="14" y="180" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">decode：每步 1 个 token，串行</text>
+  <rect x="20" y="190" width="24" height="24" fill="#fdf3e3" stroke="#c79a5a" stroke-width="1"/>
+  <line x1="44" y1="202" x2="60" y2="202" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <rect x="64" y="190" width="24" height="24" fill="#fdf3e3" stroke="#c79a5a" stroke-width="1"/>
+  <line x1="88" y1="202" x2="104" y2="202" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <rect x="108" y="190" width="24" height="24" fill="#fdf3e3" stroke="#c79a5a" stroke-width="1"/>
+  <line x1="132" y1="202" x2="148" y2="202" stroke="#3b4148" stroke-width="1.2" marker-end="url(#ah)"/>
+  <rect x="152" y="190" width="24" height="24" fill="#fdf3e3" stroke="#c79a5a" stroke-width="1"/>
+  <text x="24" y="230" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">t=1</text>
+  <text x="68" y="230" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">t=2</text>
+  <text x="112" y="230" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">t=3</text>
+  <text x="156" y="230" font-family="Times New Roman, serif" font-size="10" fill="#5b636b">t=4</text>
+  <text x="206" y="198" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">每步读全部权重+KV</text>
+  <text x="206" y="214" font-family="Times New Roman, serif" font-size="10.5" fill="#9a6a2f">→ 带宽受限</text>
+
+  <!-- ================= 面板 B：算术强度（右上） ================= -->
+  <text x="416" y="78" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">算术强度 I（对数刻度，FLOP/Byte）</text>
+  <line x1="680" y1="74" x2="702" y2="74" stroke="#b06060" stroke-width="1.2" stroke-dasharray="6 3"/>
+  <text x="706" y="78" font-family="Times New Roman, serif" font-size="9.5" fill="#b06060">阈值 295</text>
+
+  <line x1="416" y1="92" x2="416" y2="300" stroke="#3b4148" stroke-width="1"/>
+  <line x1="416" y1="300" x2="808" y2="300" stroke="#3b4148" stroke-width="1"/>
+  <line x1="416" y1="296" x2="416" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <line x1="480" y1="296" x2="480" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <line x1="544" y1="296" x2="544" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <line x1="608" y1="296" x2="608" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <line x1="672" y1="296" x2="672" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <line x1="736" y1="296" x2="736" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <line x1="800" y1="296" x2="800" y2="304" stroke="#3b4148" stroke-width="1"/>
+  <text x="412" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">1</text>
+  <text x="472" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">10</text>
+  <text x="534" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">1e2</text>
+  <text x="598" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">1e3</text>
+  <text x="662" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">1e4</text>
+  <text x="726" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">1e5</text>
+  <text x="790" y="316" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">1e6</text>
+
+  <line x1="574" y1="92" x2="574" y2="300" stroke="#b06060" stroke-width="1.2" stroke-dasharray="6 4"/>
+
+  <text x="420" y="114" font-family="Times New Roman, serif" font-size="10" fill="#1f2328">MLP·prefill　B·S = 65536</text>
+  <rect x="416" y="120" width="308" height="16" fill="#dce8f6" stroke="#5c7fa8" stroke-width="0.8"/>
+  <text x="730" y="132" font-family="Times New Roman, serif" font-size="9.5" fill="#2f6a3a">算力受限</text>
+
+  <text x="420" y="162" font-family="Times New Roman, serif" font-size="10" fill="#1f2328">注意力·prefill　S/2 = 512</text>
+  <rect x="416" y="168" width="173" height="16" fill="#dce8f6" stroke="#5c7fa8" stroke-width="0.8"/>
+  <text x="595" y="180" font-family="Times New Roman, serif" font-size="9.5" fill="#2f6a3a">刚好越过</text>
+
+  <text x="420" y="210" font-family="Times New Roman, serif" font-size="10" fill="#1f2328">MLP·decode　B = 64</text>
+  <rect x="416" y="216" width="116" height="16" fill="#fdf3e3" stroke="#c79a5a" stroke-width="0.8"/>
+  <text x="546" y="228" font-family="Times New Roman, serif" font-size="9.5" fill="#9a6a2f">靠批处理硬撑</text>
+
+  <text x="420" y="258" font-family="Times New Roman, serif" font-size="10" fill="#1f2328">注意力·decode　S/(S+1) ≈ 1</text>
+  <rect x="416" y="264" width="3" height="16" fill="#fbe3e3" stroke="#b06060" stroke-width="0.8"/>
+  <text x="428" y="270" font-family="Times New Roman, serif" font-size="9.5" fill="#b06060">批处理无效</text>
+  <text x="428" y="282" font-family="Times New Roman, serif" font-size="9.5" fill="#b06060">（KV 每序列私有）</text>
+
+  <text x="416" y="340" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">MLP 强度 = B·T：批处理摊薄权重读取。</text>
+  <text x="416" y="356" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">注意力强度 = S·T/(S+T)：prefill 为 S/2。</text>
+  <text x="416" y="372" font-family="Times New Roman, serif" font-size="10.5" fill="#3b4148">decode 恒小于 1，且与 B 无关 —— 死区。</text>
+  <text x="416" y="390" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">四条式子见第 211、245、248、240 行。</text>
+
+  <!-- ================= 面板 C：显存账单（下） ================= -->
+  <text x="14" y="422" font-family="Times New Roman, serif" font-size="12" fill="#1f2328">decode 的显存账单（Llama 2 13B）</text>
+  <line x1="36" y1="470" x2="392" y2="470" stroke="#3b4148" stroke-width="1"/>
+  <!-- 80GB 上限：0.44 px/GB -> 35.2px -->
+  <line x1="36" y1="435" x2="392" y2="435" stroke="#b06060" stroke-width="1" stroke-dasharray="5 3"/>
+  <text x="396" y="439" font-family="Times New Roman, serif" font-size="9.5" fill="#b06060">80 GB 上限</text>
+
+  <!-- B=1：参数 26.0 -> 11.4px；KV 0.8 -> 0.4px -->
+  <rect x="56" y="459" width="26" height="11" fill="#e8eef7" stroke="#7d93b2" stroke-width="0.8"/>
+  <rect x="84" y="469" width="30" height="1" fill="#c79a5a" stroke="#c79a5a" stroke-width="0.5"/>
+  <text x="52" y="486" font-family="Times New Roman, serif" font-size="10" fill="#3b4148">B=1</text>
+  <text x="52" y="500" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">26.9</text>
+
+  <!-- B=64：KV 53.7 -> 23.6px -->
+  <rect x="156" y="459" width="26" height="11" fill="#e8eef7" stroke="#7d93b2" stroke-width="0.8"/>
+  <rect x="184" y="446" width="30" height="24" fill="#fdf3e3" stroke="#c79a5a" stroke-width="0.8"/>
+  <text x="152" y="486" font-family="Times New Roman, serif" font-size="10" fill="#3b4148">B=64</text>
+  <text x="152" y="500" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">79.7</text>
+
+  <!-- B=256：KV 214.7 -> 94.5px（越过 80GB 线） -->
+  <rect x="256" y="459" width="26" height="11" fill="#e8eef7" stroke="#7d93b2" stroke-width="0.8"/>
+  <rect x="284" y="375" width="34" height="95" fill="#fbe3e3" stroke="#b06060" stroke-width="0.8"/>
+  <text x="252" y="486" font-family="Times New Roman, serif" font-size="10" fill="#b06060">B=256</text>
+  <text x="248" y="500" font-family="Times New Roman, serif" font-size="9.5" fill="#b06060">240.8 超限</text>
+
+  <text x="14" y="516" font-family="Times New Roman, serif" font-size="9.5" fill="#5b636b">浅蓝＝参数 bf16（26.0 GB），橙/红＝KV cache；数值由第 291–306 行式子代入第 317–329 行配置算出。</text>
+</svg>

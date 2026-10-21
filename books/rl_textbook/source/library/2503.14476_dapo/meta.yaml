@@ -1,0 +1,54 @@
+key: 2503.14476_dapo
+version: 2026-10-20
+level: S
+role: algorithm
+title: "DAPO: An Open-Source LLM Reinforcement Learning System at Scale"
+authors:
+  - Qiying Yu
+  - Zheng Zhang
+  - Ruofei Zhu
+  - Yufeng Yuan
+  - Xiaochen Zuo
+  - Yu Yue
+  - Weinan Dai
+  - Tiantian Fan
+  - Gaohong Liu
+  - Lingjun Liu
+  - Xin Liu
+  - Haibin Lin
+  - Zhiqi Lin
+  - Bole Ma
+  - Guangming Sheng
+  - Yuxuan Tong
+  - Chi Zhang
+  - Mofan Zhang
+  - Wang Zhang
+  - Hang Zhu
+  - Jinhua Zhu
+  - Jiaze Chen
+  - Jiangjie Chen
+  - Chengyi Wang
+  - Hongli Yu
+  - Yuxuan Song
+  - Xiangpeng Wei
+  - Hao Zhou
+  - Jingjing Liu
+  - Wei-Ying Ma
+  - Ya-Qin Zhang
+  - Lin Yan
+  - Mu Qiao
+  - Yonghui Wu
+  - Mingxuan Wang
+year: 2025
+published: 2025-03-18
+arxiv_id: 2503.14476
+doi: ""
+journal_ref: ""
+primary_category: cs.LG
+path: source/papers/2503.14476_dapo.pdf
+bytes: 826801
+pages: 16
+sha256: f01e4fd347530cadd68e5c36b1998532a6d1adb272c817e73b927453c26e9d79
+retrieved: 2026-10-20
+license_note: "本地核验用；原始论文/教材版权归原作者与出版方，不得随交付物再分发全文。"
+printed_page_note: "只登记 PDF 物理页；未从版面稳定提取印刷页码，证据卡须写 pdf_page。"
